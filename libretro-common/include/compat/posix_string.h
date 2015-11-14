@@ -47,7 +47,9 @@ char *strtok_r(char *str, const char *delim, char **saveptr);
 #define isblank(c)       retro_isblank__(c)
 int strcasecmp(const char *a, const char *b);
 char *strdup(const char *orig);
+#if _MSC_VER < 1900
 int isblank(int c);
+#endif
 #endif
 
 #ifdef __cplusplus

@@ -1,0 +1,451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{bd594c5e-6d5e-4fbc-809b-d32250172ac9}</ProjectGuid>
+    <RootNamespace>RetroArch_Win10</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>true</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <WindowsTargetPlatformVersion>10.0.10240.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.10240.0</WindowsTargetPlatformMinVersion>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <PackageCertificateKeyFile>RetroArch-Win10_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <PreprocessorDefinitions>HAVE_XAUDIO;HAVE_FBO;HAVE_D3D9;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_OVERLAY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\neto\Documents\GitHubVisualStudio\RetroArch\libretro-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>true</CompileAsWinRT>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\audio\audio_driver.h" />
+    <ClInclude Include="..\..\..\audio\audio_dsp_filter.h" />
+    <ClInclude Include="..\..\..\audio\audio_filters\dspfilter.h" />
+    <ClInclude Include="..\..\..\audio\audio_filters\fft\fft.h" />
+    <ClInclude Include="..\..\..\audio\audio_monitor.h" />
+    <ClInclude Include="..\..\..\audio\audio_resampler_driver.h" />
+    <ClInclude Include="..\..\..\audio\audio_thread_wrapper.h" />
+    <ClInclude Include="..\..\..\audio\audio_utils.h" />
+    <ClInclude Include="..\..\..\audio\drivers\rsound.h" />
+    <ClInclude Include="..\..\..\audio\drivers\xaudio.h" />
+    <ClInclude Include="..\..\..\autosave.h" />
+    <ClInclude Include="..\..\..\bootstrap\psp1\kernel_functions_prx\kernel_functions.h" />
+    <ClInclude Include="..\..\..\camera\camera_driver.h" />
+    <ClInclude Include="..\..\..\cheats.h" />
+    <ClInclude Include="..\..\..\cheevos.h" />
+    <ClInclude Include="..\..\..\command.h" />
+    <ClInclude Include="..\..\..\command_event.h" />
+    <ClInclude Include="..\..\..\config.def.h" />
+    <ClInclude Include="..\..\..\config.features.h" />
+    <ClInclude Include="..\..\..\configuration.h" />
+    <ClInclude Include="..\..\..\content.h" />
+    <ClInclude Include="..\..\..\cores\internal_cores.h" />
+    <ClInclude Include="..\..\..\cores\libretro-ffmpeg\internal_cores.h" />
+    <ClInclude Include="..\..\..\cores\libretro-ffmpeg\libretro.h" />
+    <ClInclude Include="..\..\..\core_info.h" />
+    <ClInclude Include="..\..\..\core_options.h" />
+    <ClInclude Include="..\..\..\ctr\ctr_debug.h" />
+    <ClInclude Include="..\..\..\database_info.h" />
+    <ClInclude Include="..\..\..\defines\gx_defines.h" />
+    <ClInclude Include="..\..\..\defines\ps3_defines.h" />
+    <ClInclude Include="..\..\..\defines\psp_defines.h" />
+    <ClInclude Include="..\..\..\deps\7zip\7z.h" />
+    <ClInclude Include="..\..\..\deps\7zip\7zAlloc.h" />
+    <ClInclude Include="..\..\..\deps\7zip\7zBuf.h" />
+    <ClInclude Include="..\..\..\deps\7zip\7zCrc.h" />
+    <ClInclude Include="..\..\..\deps\7zip\7zFile.h" />
+    <ClInclude Include="..\..\..\deps\7zip\7zVersion.h" />
+    <ClInclude Include="..\..\..\deps\7zip\Bcj2.h" />
+    <ClInclude Include="..\..\..\deps\7zip\Bra.h" />
+    <ClInclude Include="..\..\..\deps\7zip\CpuArch.h" />
+    <ClInclude Include="..\..\..\deps\7zip\Lzma2Dec.h" />
+    <ClInclude Include="..\..\..\deps\7zip\LzmaDec.h" />
+    <ClInclude Include="..\..\..\deps\7zip\RotateDefs.h" />
+    <ClInclude Include="..\..\..\deps\7zip\Types.h" />
+    <ClInclude Include="..\..\..\deps\stb\stb_image.h" />
+    <ClInclude Include="..\..\..\deps\stb\stb_rect_pack.h" />
+    <ClInclude Include="..\..\..\deps\stb\stb_truetype.h" />
+    <ClInclude Include="..\..\..\deps\zlib\deflate.h" />
+    <ClInclude Include="..\..\..\deps\zlib\gzfile.h" />
+    <ClInclude Include="..\..\..\deps\zlib\gzguts.h" />
+    <ClInclude Include="..\..\..\deps\zlib\inffast.h" />
+    <ClInclude Include="..\..\..\deps\zlib\inffixed.h" />
+    <ClInclude Include="..\..\..\deps\zlib\inflate.h" />
+    <ClInclude Include="..\..\..\deps\zlib\inftrees.h" />
+    <ClInclude Include="..\..\..\deps\zlib\ioapi.h" />
+    <ClInclude Include="..\..\..\deps\zlib\trees.h" />
+    <ClInclude Include="..\..\..\deps\zlib\unzip.h" />
+    <ClInclude Include="..\..\..\deps\zlib\zconf.h" />
+    <ClInclude Include="..\..\..\dir_list_special.h" />
+    <ClInclude Include="..\..\..\driver.h" />
+    <ClInclude Include="..\..\..\dynamic.h" />
+    <ClInclude Include="..\..\..\file_ext.h" />
+    <ClInclude Include="..\..\..\file_ops.h" />
+    <ClInclude Include="..\..\..\frontend\drivers\platform_linux.h" />
+    <ClInclude Include="..\..\..\frontend\drivers\platform_xdk.h" />
+    <ClInclude Include="..\..\..\frontend\frontend.h" />
+    <ClInclude Include="..\..\..\frontend\frontend_driver.h" />
+    <ClInclude Include="..\..\..\general.h" />
+    <ClInclude Include="..\..\..\gfx\common\win32_common.h" />
+    <ClInclude Include="..\..\..\gfx\common\x11_common.h" />
+    <ClInclude Include="..\..\..\gfx\d3d\d3d.h" />
+    <ClInclude Include="..\..\..\gfx\d3d\d3d_defines.h" />
+    <ClInclude Include="..\..\..\gfx\d3d\d3d_wrapper.h" />
+    <ClInclude Include="..\..\..\gfx\d3d\render_chain_driver.h" />
+    <ClInclude Include="..\..\..\gfx\drivers\ctr_gu.h" />
+    <ClInclude Include="..\..\..\gfx\drivers\gl_common.h" />
+    <ClInclude Include="..\..\..\gfx\drivers\gx_gfx_inl.h" />
+    <ClInclude Include="..\..\..\gfx\drivers\ppc_asm.h" />
+    <ClInclude Include="..\..\..\gfx\drivers\psp1_gfx.h" />
+    <ClInclude Include="..\..\..\gfx\drivers_font_renderer\bitmap.h" />
+    <ClInclude Include="..\..\..\gfx\drivers_shader\shader_glsl.h" />
+    <ClInclude Include="..\..\..\gfx\drivers_shader\shader_hlsl.h" />
+    <ClInclude Include="..\..\..\gfx\drivers_wm\win32_resource.h" />
+    <ClInclude Include="..\..\..\gfx\drivers_wm\win32_shader_dlg.h" />
+    <ClInclude Include="..\..\..\gfx\font_driver.h" />
+    <ClInclude Include="..\..\..\gfx\font_renderer_driver.h" />
+    <ClInclude Include="..\..\..\gfx\inc\Cg\cg.h" />
+    <ClInclude Include="..\..\..\gfx\inc\Cg\cgD3D9.h" />
+    <ClInclude Include="..\..\..\gfx\inc\Cg\cgGL.h" />
+    <ClInclude Include="..\..\..\gfx\pixman\pixman-arm-asm.h" />
+    <ClInclude Include="..\..\..\gfx\pixman\pixman-arm-neon-asm.h" />
+    <ClInclude Include="..\..\..\gfx\pixman\pixman-private.h" />
+    <ClInclude Include="..\..\..\gfx\video_common.h" />
+    <ClInclude Include="..\..\..\gfx\video_context_driver.h" />
+    <ClInclude Include="..\..\..\gfx\video_driver.h" />
+    <ClInclude Include="..\..\..\gfx\video_filter.h" />
+    <ClInclude Include="..\..\..\gfx\video_filters\snes_ntsc\snes_ntsc.h" />
+    <ClInclude Include="..\..\..\gfx\video_filters\snes_ntsc\snes_ntsc_config.h" />
+    <ClInclude Include="..\..\..\gfx\video_filters\snes_ntsc\snes_ntsc_impl.h" />
+    <ClInclude Include="..\..\..\gfx\video_filters\softfilter.h" />
+    <ClInclude Include="..\..\..\gfx\video_monitor.h" />
+    <ClInclude Include="..\..\..\gfx\video_pixel_converter.h" />
+    <ClInclude Include="..\..\..\gfx\video_shader_driver.h" />
+    <ClInclude Include="..\..\..\gfx\video_shader_parse.h" />
+    <ClInclude Include="..\..\..\gfx\video_state_python.h" />
+    <ClInclude Include="..\..\..\gfx\video_state_tracker.h" />
+    <ClInclude Include="..\..\..\gfx\video_texture.h" />
+    <ClInclude Include="..\..\..\gfx\video_thread_wrapper.h" />
+    <ClInclude Include="..\..\..\gfx\video_viewport.h" />
+    <ClInclude Include="..\..\..\git_version.h" />
+    <ClInclude Include="..\..\..\input\autoconf\builtin.h" />
+    <ClInclude Include="..\..\..\input\connect\joypad_connection.h" />
+    <ClInclude Include="..\..\..\input\drivers\apple_keycode.h" />
+    <ClInclude Include="..\..\..\input\drivers\cocoa_input.h" />
+    <ClInclude Include="..\..\..\input\drivers\linux_common.h" />
+    <ClInclude Include="..\..\..\input\drivers_hid\btstack_hid.h" />
+    <ClInclude Include="..\..\..\input\drivers_hid\mfi_hid.h" />
+    <ClInclude Include="..\..\..\input\drivers_joypad\gx_sicksaxis.h" />
+    <ClInclude Include="..\..\..\input\inc\GameController\GameController.h" />
+    <ClInclude Include="..\..\..\input\inc\GameController\GCController.h" />
+    <ClInclude Include="..\..\..\input\inc\GameController\GCControllerAxisInput.h" />
+    <ClInclude Include="..\..\..\input\inc\GameController\GCControllerButtonInput.h" />
+    <ClInclude Include="..\..\..\input\inc\GameController\GCControllerDirectionPad.h" />
+    <ClInclude Include="..\..\..\input\inc\GameController\GCControllerElement.h" />
+    <ClInclude Include="..\..\..\input\inc\GameController\GCExtendedGamepad.h" />
+    <ClInclude Include="..\..\..\input\inc\GameController\GCExtendedGamepadSnapshot.h" />
+    <ClInclude Include="..\..\..\input\inc\GameController\GCGamepad.h" />
+    <ClInclude Include="..\..\..\input\inc\GameController\GCGamepadSnapshot.h" />
+    <ClInclude Include="..\..\..\input\input_autodetect.h" />
+    <ClInclude Include="..\..\..\input\input_common.h" />
+    <ClInclude Include="..\..\..\input\input_driver.h" />
+    <ClInclude Include="..\..\..\input\input_hid_driver.h" />
+    <ClInclude Include="..\..\..\input\input_joypad.h" />
+    <ClInclude Include="..\..\..\input\input_joypad_driver.h" />
+    <ClInclude Include="..\..\..\input\input_keymaps.h" />
+    <ClInclude Include="..\..\..\input\input_overlay.h" />
+    <ClInclude Include="..\..\..\input\input_remapping.h" />
+    <ClInclude Include="..\..\..\input\input_sensor.h" />
+    <ClInclude Include="..\..\..\input\keyboard_line.h" />
+    <ClInclude Include="..\..\..\intl\english.h" />
+    <ClInclude Include="..\..\..\intl\intl.h" />
+    <ClInclude Include="..\..\..\intl\spanish.h" />
+    <ClInclude Include="..\..\..\libretro-common\crt\include\string.h" />
+    <ClInclude Include="..\..\..\libretro-common\formats\png\rpng_internal.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\boolean.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\clamping.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\compat\apple_compat.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\compat\fnmatch.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\compat\getopt.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\compat\msvc.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\compat\msvc\stdint.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\compat\posix_string.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\compat\strcasestr.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\compat\strl.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\compat\zlib.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\compat\zutil.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\dynamic\dylib.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\file\config_file.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\file\config_file_userdata.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\file\dir_list.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\file\file_extract.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\file\file_list.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\file\file_path.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\file\memory_stream.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\file\nbio.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\filters.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\formats\image.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\formats\jsonsax.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\formats\rbmp.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\formats\rpng.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\formats\rxml.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\formats\tga.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\gfx\math\matrix_3x3.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\gfx\math\matrix_4x4.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\gfx\scaler\filter.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\gfx\scaler\pixconv.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\gfx\scaler\scaler.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\gfx\scaler\scaler_int.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\glsym\glsym.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\glsym\glsym_es2.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\glsym\glsym_gl.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\glsym\rglgen.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\glsym\rglgen_headers.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\libco.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\memalign.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\memmap.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\net\net_compat.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\net\net_http.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\queues\fifo_buffer.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\queues\message_queue.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\retro_assert.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\retro_dirent.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\retro_endianness.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\retro_environment.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\retro_file.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\retro_inline.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\retro_log.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\retro_miscellaneous.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\retro_stat.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\rhash.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\rthreads\async_job.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\rthreads\rsemaphore.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\rthreads\rthreads.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\string\stdstring.h" />
+    <ClInclude Include="..\..\..\libretro-common\include\string\string_list.h" />
+    <ClInclude Include="..\..\..\libretro-common\rthreads\gx_pthread.h" />
+    <ClInclude Include="..\..\..\libretro-common\rthreads\psp_pthread.h" />
+    <ClInclude Include="..\..\..\libretro-db\bintree.h" />
+    <ClInclude Include="..\..\..\libretro-db\lexer.h" />
+    <ClInclude Include="..\..\..\libretro-db\libretrodb.h" />
+    <ClInclude Include="..\..\..\libretro-db\lua_common.h" />
+    <ClInclude Include="..\..\..\libretro-db\parser.h" />
+    <ClInclude Include="..\..\..\libretro-db\query.h" />
+    <ClInclude Include="..\..\..\libretro-db\rmsgpack.h" />
+    <ClInclude Include="..\..\..\libretro-db\rmsgpack_dom.h" />
+    <ClInclude Include="..\..\..\libretro.h" />
+    <ClInclude Include="..\..\..\libretro_private.h" />
+    <ClInclude Include="..\..\..\libretro_version_1.h" />
+    <ClInclude Include="..\..\..\location\location_driver.h" />
+    <ClInclude Include="..\..\..\memory\ngc\ssaram.h" />
+    <ClInclude Include="..\..\..\memory\wii\mem2_manager.h" />
+    <ClInclude Include="..\..\..\menu\drivers\menu_generic.h" />
+    <ClInclude Include="..\..\..\menu\menu.h" />
+    <ClInclude Include="..\..\..\menu\menu_animation.h" />
+    <ClInclude Include="..\..\..\menu\menu_cbs.h" />
+    <ClInclude Include="..\..\..\menu\menu_display.h" />
+    <ClInclude Include="..\..\..\menu\menu_displaylist.h" />
+    <ClInclude Include="..\..\..\menu\menu_driver.h" />
+    <ClInclude Include="..\..\..\menu\menu_entries.h" />
+    <ClInclude Include="..\..\..\menu\menu_entry.h" />
+    <ClInclude Include="..\..\..\menu\menu_hash.h" />
+    <ClInclude Include="..\..\..\menu\menu_input.h" />
+    <ClInclude Include="..\..\..\menu\menu_navigation.h" />
+    <ClInclude Include="..\..\..\menu\menu_setting.h" />
+    <ClInclude Include="..\..\..\menu\menu_shader.h" />
+    <ClInclude Include="..\..\..\movie.h" />
+    <ClInclude Include="..\..\..\msg_hash.h" />
+    <ClInclude Include="..\..\..\netplay.h" />
+    <ClInclude Include="..\..\..\net_http_special.h" />
+    <ClInclude Include="..\..\..\patch.h" />
+    <ClInclude Include="..\..\..\performance.h" />
+    <ClInclude Include="..\..\..\playlist.h" />
+    <ClInclude Include="..\..\..\record\record_driver.h" />
+    <ClInclude Include="..\..\..\retroarch.h" />
+    <ClInclude Include="..\..\..\rewind.h" />
+    <ClInclude Include="..\..\..\runloop.h" />
+    <ClInclude Include="..\..\..\runloop_data.h" />
+    <ClInclude Include="..\..\..\screenshot.h" />
+    <ClInclude Include="..\..\..\string_list_special.h" />
+    <ClInclude Include="..\..\..\system.h" />
+    <ClInclude Include="..\..\..\tasks\tasks.h" />
+    <ClInclude Include="..\..\..\ui\drivers\cocoa\cocoa_common.h" />
+    <ClInclude Include="..\..\..\ui\ui_companion_driver.h" />
+    <ClInclude Include="..\..\..\vita\stockfont.h" />
+    <ClInclude Include="..\..\..\wii\app_booter\elf_abi.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="App.xaml.h">
+      <DependentUpon>App.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="MainPage.xaml.h">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="..\..\..\emscripten\template.html" />
+    <None Include="..\..\..\emscripten\template2.html" />
+    <None Include="RetroArch-Win10_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\LockScreenLogo.scale-200.png" />
+    <Image Include="Assets\SplashScreen.scale-200.png" />
+    <Image Include="Assets\Square150x150Logo.scale-200.png" />
+    <Image Include="Assets\Square44x44Logo.scale-200.png" />
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Image Include="Assets\StoreLogo.png" />
+    <Image Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\frontend\drivers\platform_null.c" />
+    <ClCompile Include="..\..\..\frontend\frontend.c" />
+    <ClCompile Include="..\..\..\frontend\frontend_driver.c">
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</CompileAsWinRT>
+      <CallingConvention Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Cdecl</CallingConvention>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="App.xaml.cpp">
+      <DependentUpon>App.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="MainPage.xaml.cpp">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
