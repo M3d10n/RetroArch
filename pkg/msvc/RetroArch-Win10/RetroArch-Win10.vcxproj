@@ -121,6 +121,7 @@
       <CompileAs>CompileAsCpp</CompileAs>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -438,6 +439,16 @@
       <CallingConvention Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Cdecl</CallingConvention>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\compat\compat_fnmatch.c" />
+    <ClCompile Include="..\..\..\libretro-common\compat\compat_getopt.c" />
+    <ClCompile Include="..\..\..\libretro-common\compat\compat_posix_string.c" />
+    <ClCompile Include="..\..\..\libretro-common\compat\compat_strcasestr.c" />
+    <ClCompile Include="..\..\..\libretro-common\compat\compat_strl.c" />
+    <ClCompile Include="..\..\..\libretro-common\file\file_path.c" />
+    <ClCompile Include="..\..\..\libretro-common\file\retro_stat.c" />
+    <ClCompile Include="..\..\..\libretro-common\rthreads\async_job.c" />
+    <ClCompile Include="..\..\..\libretro-common\rthreads\rthreads.c" />
+    <ClCompile Include="..\..\..\runloop.c" />
     <ClCompile Include="App.xaml.cpp">
       <DependentUpon>App.xaml</DependentUpon>
     </ClCompile>
