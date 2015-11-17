@@ -22,6 +22,18 @@
     <Filter Include="Source\frontend\drivers">
       <UniqueIdentifier>{b651b962-126d-4412-b497-6f2d1b940620}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\libretro-common">
+      <UniqueIdentifier>{c04a9276-cc3d-4c9c-9aab-ef85d227c54a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\libretro-common\file">
+      <UniqueIdentifier>{d75a2e1f-8a09-48c2-8b7c-0c08b8af6228}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\libretro-common\compat">
+      <UniqueIdentifier>{bc8a2013-7394-43db-bd7c-8af1b81c4f5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\libretro-common\rthreads">
+      <UniqueIdentifier>{f3ab6e50-1df2-4e83-bac7-4b66ad99646d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
@@ -37,6 +49,36 @@
     </ClCompile>
     <ClCompile Include="..\..\..\frontend\drivers\platform_null.c">
       <Filter>Source\frontend\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\file\file_path.c">
+      <Filter>Source\libretro-common\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\compat\compat_strl.c">
+      <Filter>Source\libretro-common\compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\compat\compat_fnmatch.c">
+      <Filter>Source\libretro-common\compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\compat\compat_getopt.c">
+      <Filter>Source\libretro-common\compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\compat\compat_posix_string.c">
+      <Filter>Source\libretro-common\compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\compat\compat_strcasestr.c">
+      <Filter>Source\libretro-common\compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\rthreads\async_job.c">
+      <Filter>Source\libretro-common\rthreads</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\file\retro_stat.c">
+      <Filter>Source\libretro-common\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\runloop.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\rthreads\rthreads.c">
+      <Filter>Source\libretro-common\rthreads</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

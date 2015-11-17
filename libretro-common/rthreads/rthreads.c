@@ -45,6 +45,19 @@
 #include <mach/mach.h>
 #endif
 
+#if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+DWORD WINAPI SignalObjectAndWait(
+	HANDLE hObjectToSignal,
+	HANDLE hObjectToWaitOn,
+	DWORD  dwMilliseconds,
+	BOOL   bAlertable
+	)
+{
+	ReleaseMutex(hObjectToSignal);
+	return WaitForSingleObjectEx(hObjectToWaitOn, dwMilliseconds, bAlertable);	
+}
+#endif
+
 struct thread_data
 {
    void (*func)(void*);
