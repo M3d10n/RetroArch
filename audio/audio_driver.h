@@ -21,6 +21,7 @@
 #include <stddef.h>
 #include <sys/types.h>
 #include <boolean.h>
+#include <compat/msvc.h>
 #include "audio_dsp_filter.h"
 
 #ifdef __cplusplus

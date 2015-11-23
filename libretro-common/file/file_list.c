@@ -22,6 +22,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <compat/msvc.h>
 
 #include <file/file_list.h>
 #include <compat/strcasestr.h>
