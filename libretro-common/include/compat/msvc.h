@@ -32,6 +32,14 @@
 #endif
 #endif
 
+
+#if defined(WINAPI_FAMILY_PARTITION)
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+#define getenv(v) (NULL)
+#define environ (NULL)
+#endif
+#endif
+
 #undef UNICODE /* Do not bother with UNICODE at this time. */
 #include <direct.h>
 #include <stddef.h>
