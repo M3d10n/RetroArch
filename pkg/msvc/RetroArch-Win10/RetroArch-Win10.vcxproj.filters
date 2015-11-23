@@ -124,6 +124,9 @@
     <Filter Include="Source\gfx\drivers_context">
       <UniqueIdentifier>{8344d34a-3c67-47a9-a0ee-30f0b2f9c010}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\menu">
+      <UniqueIdentifier>{dfd3d7b9-50f0-4c5f-a440-8ad2280ba530}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
@@ -499,6 +502,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\frontend\drivers\platform_win32.c">
       <Filter>Source\frontend\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\verbosity.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\menu_driver.c">
+      <Filter>Source\menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

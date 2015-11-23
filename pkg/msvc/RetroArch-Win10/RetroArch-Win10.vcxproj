@@ -116,7 +116,7 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <PreprocessorDefinitions>HAVE_XAUDIO;HAVE_FBO;HAVE_D3D9;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_OVERLAY;HAVE_DYNAMIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>HAVE_XAUDIO;HAVE_FBO;HAVE_D3D9;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\..\deps\zlib;..\..\..\libretro-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -290,6 +290,7 @@
     <ClCompile Include="..\..\..\libretro_version_1.c" />
     <ClCompile Include="..\..\..\location\drivers\nulllocation.c" />
     <ClCompile Include="..\..\..\location\location_driver.c" />
+    <ClCompile Include="..\..\..\menu\menu_driver.c" />
     <ClCompile Include="..\..\..\movie.c" />
     <ClCompile Include="..\..\..\msg_hash.c" />
     <ClCompile Include="..\..\..\patch.c" />
@@ -310,6 +311,7 @@
     <ClCompile Include="..\..\..\tasks\task_overlay.c" />
     <ClCompile Include="..\..\..\ui\drivers\ui_null.c" />
     <ClCompile Include="..\..\..\ui\ui_companion_driver.c" />
+    <ClCompile Include="..\..\..\verbosity.c" />
     <ClCompile Include="App.xaml.cpp">
       <DependentUpon>App.xaml</DependentUpon>
     </ClCompile>
