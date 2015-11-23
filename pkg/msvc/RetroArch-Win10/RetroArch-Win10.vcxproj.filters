@@ -136,6 +136,27 @@
     <Filter Include="Source\menu\intl">
       <UniqueIdentifier>{b2213421-3319-491a-a9d2-45f577492f5b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\gfx\image">
+      <UniqueIdentifier>{a2a7beeb-d4e6-4be6-84f6-a000f24ca712}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\libretro-common\gfx">
+      <UniqueIdentifier>{1e65d1b7-37e7-4ba1-9285-b4963997b243}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\libretro-common\gfx\scaler">
+      <UniqueIdentifier>{27bd9df8-e8d1-405d-b5e0-a85e73a0e875}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\libretro-common\gfx\math">
+      <UniqueIdentifier>{ca73f0f7-8350-4e62-b809-0527f17f6474}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\libretro-common\formats\tga">
+      <UniqueIdentifier>{b5708757-ffbf-493f-b9c3-420e9f09b7ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\menu\cbs">
+      <UniqueIdentifier>{c2d5a92b-48ce-446b-a884-9c9231a94900}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\gfx\common">
+      <UniqueIdentifier>{26a3b504-d80a-46f4-b5e1-6b14f120f736}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
@@ -601,6 +622,102 @@
     </ClCompile>
     <ClCompile Include="..\..\..\menu\menu_displaylist.c">
       <Filter>Source\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tasks\tasks.c">
+      <Filter>Source\tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\video_thread_wrapper.c">
+      <Filter>Source\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\image\image.c">
+      <Filter>Source\gfx\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\gfx\math\matrix_4x4.c">
+      <Filter>Source\libretro-common\gfx\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\gfx\math\matrix_3x3.c">
+      <Filter>Source\libretro-common\gfx\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\gfx\scaler\pixconv.c">
+      <Filter>Source\libretro-common\gfx\scaler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\gfx\scaler\scaler.c">
+      <Filter>Source\libretro-common\gfx\scaler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\gfx\scaler\scaler_filter.c">
+      <Filter>Source\libretro-common\gfx\scaler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\gfx\scaler\scaler_int.c">
+      <Filter>Source\libretro-common\gfx\scaler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\video_filter.c">
+      <Filter>Source\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\formats\tga\rtga.c">
+      <Filter>Source\libretro-common\formats\tga</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\string\stdstring.c">
+      <Filter>Source\libretro-common\string</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\drivers_display\menu_display_null.c">
+      <Filter>Source\menu\drivers_display</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_cancel.c">
+      <Filter>Source\menu\cbs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_contentlist_switch.c">
+      <Filter>Source\menu\cbs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_deferred_push.c">
+      <Filter>Source\menu\cbs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_down.c">
+      <Filter>Source\menu\cbs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_get_value.c">
+      <Filter>Source\menu\cbs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_info.c">
+      <Filter>Source\menu\cbs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_left.c">
+      <Filter>Source\menu\cbs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_ok.c">
+      <Filter>Source\menu\cbs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_refresh.c">
+      <Filter>Source\menu\cbs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_right.c">
+      <Filter>Source\menu\cbs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_scan.c">
+      <Filter>Source\menu\cbs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_select.c">
+      <Filter>Source\menu\cbs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_start.c">
+      <Filter>Source\menu\cbs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_title.c">
+      <Filter>Source\menu\cbs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_up.c">
+      <Filter>Source\menu\cbs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\menu_cbs.c">
+      <Filter>Source\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ui\drivers\ui_win32.c">
+      <Filter>Source\ui\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\common\win32_common.cpp">
+      <Filter>Source\gfx\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\common\d3d_common.cpp">
+      <Filter>Source\gfx\common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

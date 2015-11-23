@@ -232,11 +232,16 @@
       <CallingConvention Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Cdecl</CallingConvention>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
+    <ClCompile Include="..\..\..\gfx\common\d3d_common.cpp" />
+    <ClCompile Include="..\..\..\gfx\common\win32_common.cpp" />
     <ClCompile Include="..\..\..\gfx\drivers\nullgfx.c" />
     <ClCompile Include="..\..\..\gfx\drivers_context\gfx_null_ctx.c" />
+    <ClCompile Include="..\..\..\gfx\image\image.c" />
     <ClCompile Include="..\..\..\gfx\video_common.c" />
     <ClCompile Include="..\..\..\gfx\video_context_driver.c" />
     <ClCompile Include="..\..\..\gfx\video_driver.c" />
+    <ClCompile Include="..\..\..\gfx\video_filter.c" />
+    <ClCompile Include="..\..\..\gfx\video_thread_wrapper.c" />
     <ClCompile Include="..\..\..\input\drivers\nullinput.c" />
     <ClCompile Include="..\..\..\input\drivers_hid\null_hid.c" />
     <ClCompile Include="..\..\..\input\drivers_joypad\hid_joypad.c" />
@@ -282,6 +287,13 @@
     <ClCompile Include="..\..\..\libretro-common\file\retro_file.c" />
     <ClCompile Include="..\..\..\libretro-common\file\retro_stat.c" />
     <ClCompile Include="..\..\..\libretro-common\formats\bmp\rbmp_encode.c" />
+    <ClCompile Include="..\..\..\libretro-common\formats\tga\rtga.c" />
+    <ClCompile Include="..\..\..\libretro-common\gfx\math\matrix_3x3.c" />
+    <ClCompile Include="..\..\..\libretro-common\gfx\math\matrix_4x4.c" />
+    <ClCompile Include="..\..\..\libretro-common\gfx\scaler\pixconv.c" />
+    <ClCompile Include="..\..\..\libretro-common\gfx\scaler\scaler.c" />
+    <ClCompile Include="..\..\..\libretro-common\gfx\scaler\scaler_filter.c" />
+    <ClCompile Include="..\..\..\libretro-common\gfx\scaler\scaler_int.c" />
     <ClCompile Include="..\..\..\libretro-common\hash\rhash.c" />
     <ClCompile Include="..\..\..\libretro-common\memmap\memalign.c" />
     <ClCompile Include="..\..\..\libretro-common\memmap\memmap.c" />
@@ -290,14 +302,31 @@
     <ClCompile Include="..\..\..\libretro-common\rthreads\async_job.c" />
     <ClCompile Include="..\..\..\libretro-common\rthreads\rsemaphore.c" />
     <ClCompile Include="..\..\..\libretro-common\rthreads\rthreads.c" />
+    <ClCompile Include="..\..\..\libretro-common\string\stdstring.c" />
     <ClCompile Include="..\..\..\libretro-common\string\string_list.c" />
     <ClCompile Include="..\..\..\libretro_version_1.c" />
     <ClCompile Include="..\..\..\location\drivers\nulllocation.c" />
     <ClCompile Include="..\..\..\location\location_driver.c" />
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_cancel.c" />
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_contentlist_switch.c" />
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_deferred_push.c" />
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_down.c" />
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_get_value.c" />
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_info.c" />
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_left.c" />
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_ok.c" />
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_refresh.c" />
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_right.c" />
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_scan.c" />
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_select.c" />
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_start.c" />
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_title.c" />
+    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_up.c" />
     <ClCompile Include="..\..\..\menu\drivers\materialui.c" />
     <ClCompile Include="..\..\..\menu\drivers\menu_generic.c" />
     <ClCompile Include="..\..\..\menu\drivers\null.c" />
     <ClCompile Include="..\..\..\menu\drivers\rgui.c" />
+    <ClCompile Include="..\..\..\menu\drivers_display\menu_display_null.c" />
     <ClCompile Include="..\..\..\menu\intl\menu_hash_de.c" />
     <ClCompile Include="..\..\..\menu\intl\menu_hash_eo.c" />
     <ClCompile Include="..\..\..\menu\intl\menu_hash_es.c" />
@@ -309,6 +338,7 @@
     <ClCompile Include="..\..\..\menu\intl\menu_hash_us.c" />
     <ClCompile Include="..\..\..\menu\menu.c" />
     <ClCompile Include="..\..\..\menu\menu_animation.c" />
+    <ClCompile Include="..\..\..\menu\menu_cbs.c" />
     <ClCompile Include="..\..\..\menu\menu_display.c" />
     <ClCompile Include="..\..\..\menu\menu_displaylist.c" />
     <ClCompile Include="..\..\..\menu\menu_driver.c" />
@@ -335,9 +365,11 @@
     <ClCompile Include="..\..\..\screenshot.c" />
     <ClCompile Include="..\..\..\string_list_special.c" />
     <ClCompile Include="..\..\..\system.c" />
+    <ClCompile Include="..\..\..\tasks\tasks.c" />
     <ClCompile Include="..\..\..\tasks\task_file_transfer.c" />
     <ClCompile Include="..\..\..\tasks\task_overlay.c" />
     <ClCompile Include="..\..\..\ui\drivers\ui_null.c" />
+    <ClCompile Include="..\..\..\ui\drivers\ui_win32.c" />
     <ClCompile Include="..\..\..\ui\ui_companion_driver.c" />
     <ClCompile Include="..\..\..\verbosity.c" />
     <ClCompile Include="App.xaml.cpp">
