@@ -23,6 +23,7 @@
 #include <file/config_file_userdata.h>
 #include <file/file_path.h>
 #include <string/string_list.h>
+#include <compat/posix_string.h>
 
 #define get_array_setup() \
    char key[2][256]; \
