@@ -798,7 +798,7 @@ static void parse_input(int argc, char *argv[])
             break;
 
          case 'D':
-#if defined(_WIN32) && !defined(_XBOX)
+#if defined(_WIN32) && !defined(_XBOX) && !(defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP))
             FreeConsole();
 #endif
             break;
