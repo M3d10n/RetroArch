@@ -143,6 +143,60 @@ static const char* const XBOX_CONTROLLER_NAMES[4] =
    "XInput Controller (User 4)"
 };
 
+/* There's no DirectInput in Windows Store apps.
+ * This is a null replacement to make the XInput code work properly. */
+#if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+	int g_xinput_pad_indexes[MAX_USERS];
+	bool g_xinput_block_pads;
+
+	static bool dinput_joypad_init(void *data)
+	{
+		unsigned i;
+
+		(void)data;
+
+		for (i = 0; i < MAX_USERS; ++i)
+		{
+			g_xinput_pad_indexes[i] = -1;
+		}	
+		return true;
+	}
+
+	static void dinput_joypad_destroy(void)
+	{
+		unsigned i;
+		settings_t *settings = config_get_ptr();
+
+		for (i = 0; i < MAX_USERS; i++)
+		{
+			*settings->input.device_names[i] = '\0';
+		}
+	}
+
+	static const char *dinput_joypad_name(unsigned pad) { return ""; }
+
+	static bool dinput_joypad_query_pad(unsigned pad) { return false; }
+
+	static bool dinput_joypad_button(unsigned port_num, uint16_t joykey) { return false;  }
+
+	static int16_t dinput_joypad_axis(unsigned port_num, uint32_t joyaxis) { return 0; }
+
+	static void dinput_joypad_poll(void) {}
+
+	input_device_driver_t dinput_joypad = {
+		dinput_joypad_init,
+		dinput_joypad_query_pad,
+		dinput_joypad_destroy,
+		dinput_joypad_button,
+		NULL,
+		dinput_joypad_axis,
+		dinput_joypad_poll,
+		NULL,
+		dinput_joypad_name,
+		"dinput",
+	};
+#endif
+
 const char *xinput_joypad_name(unsigned pad)
 {
    int xuser = pad_index_to_xuser_index(pad);
