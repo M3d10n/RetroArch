@@ -629,8 +629,10 @@ static int generic_action_ok(const char *path,
          if (path_file_exists(action_path))
          {
             strlcpy(settings->menu.wallpaper, action_path, sizeof(settings->menu.wallpaper));
+#ifdef HAVE_RPNG
             rarch_task_push_image_load(action_path,
                   "cb_menu_wallpaper", menu_display_handle_wallpaper_upload);
+#endif
          }
          break;
       case ACTION_OK_LOAD_CORE:
