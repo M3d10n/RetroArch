@@ -88,8 +88,10 @@ typedef struct
 #define ERROR_DEVICE_NOT_CONNECTED 1167
 #endif
 
+#if !defined(WINAPI_FAMILY_PARTITION) || !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
 #ifndef HAVE_DINPUT
 #error Cannot compile xinput without dinput.
+#endif
 #endif
 
 /* Due to 360 pads showing up under both XInput and DirectInput, 
