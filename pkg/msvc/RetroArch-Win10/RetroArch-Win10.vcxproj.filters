@@ -8,11 +8,6 @@
       <UniqueIdentifier>aa198d77-2e6f-4cb1-ba50-78b223cdae66</UniqueIdentifier>
       <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
     </Filter>
-    <Filter Include="Headers">
-      <UniqueIdentifier>{2cf64f94-73f1-4815-8f2b-458d6e4b369e}</UniqueIdentifier>
-      <Extensions>
-      </Extensions>
-    </Filter>
     <Filter Include="Source">
       <UniqueIdentifier>{5f80606f-d377-4a66-bba7-819b722166a8}</UniqueIdentifier>
     </Filter>
@@ -33,6 +28,101 @@
     </Filter>
     <Filter Include="Source\libretro-common\rthreads">
       <UniqueIdentifier>{f3ab6e50-1df2-4e83-bac7-4b66ad99646d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\input">
+      <UniqueIdentifier>{cfc87d19-6521-4620-841b-a12eb01faf9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\gfx">
+      <UniqueIdentifier>{0de2280d-0f84-45e9-bed2-b346a1977f3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\audio">
+      <UniqueIdentifier>{bd32329f-dae0-465a-9843-3ba9772b92a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\audio\drivers">
+      <UniqueIdentifier>{685f7290-6b2b-454c-a6be-60d0991cf301}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\libretro-common\string">
+      <UniqueIdentifier>{f83a30ec-fe6c-4c40-bd65-9876d01177f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\audio\drivers_resampler">
+      <UniqueIdentifier>{99f75a31-15d7-4ebe-a108-e8fed311dd16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\libretro-common\memmap">
+      <UniqueIdentifier>{d2161772-1bf2-4622-a2f3-c0acf6d3b852}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\record">
+      <UniqueIdentifier>{55cf2847-7f83-48cd-969b-9612ec2ce0dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\record\drivers">
+      <UniqueIdentifier>{52a6be35-0314-4ca1-bd69-8371cd703a03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\deps">
+      <UniqueIdentifier>{84d00740-a27a-4680-8d64-ae19e67612a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\deps\zlib">
+      <UniqueIdentifier>{162a3435-01b9-4ec3-81fc-4e1814e134c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\camera">
+      <UniqueIdentifier>{1d9a5c91-5e37-4240-918a-f448dd8e5e11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\camera\drivers">
+      <UniqueIdentifier>{31e10d7d-45a6-46bc-9533-5a5f432ce0d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\location">
+      <UniqueIdentifier>{9292badd-94ea-4c48-9bab-129d2fac212b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\location\drivers">
+      <UniqueIdentifier>{0b698d7a-56f4-4f93-b2fa-4e2d67656421}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\cores">
+      <UniqueIdentifier>{d1116d31-a9e7-419b-9051-464cf1aea4b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\libretro-common\dynamic">
+      <UniqueIdentifier>{bff5881d-1500-47f8-a40c-78b3e13828b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\libretro-common\queues">
+      <UniqueIdentifier>{ca715de3-c041-48d1-b8d3-7c2c40a51bac}</UniqueIdentifier>
+      <Extensions>
+      </Extensions>
+    </Filter>
+    <Filter Include="Source\ui">
+      <UniqueIdentifier>{17fe6e1e-6e4a-414d-847a-d2de777d8c42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\ui\drivers">
+      <UniqueIdentifier>{9e00fe2f-98d5-4ec6-a415-d7bc208682e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\input\drivers_hid">
+      <UniqueIdentifier>{92f01668-f958-4ada-b750-e95a6e408e2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\input\drivers">
+      <UniqueIdentifier>{f5978987-d797-4cc3-8f78-180612246dfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\input\drivers_joypad">
+      <UniqueIdentifier>{3f2b553f-fc6a-406e-98cd-41211997ec71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\intl">
+      <UniqueIdentifier>{47d60bac-9714-4e53-80b1-ad00ef0eb07e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\libretro-common\hash">
+      <UniqueIdentifier>{a6c5c133-450e-4224-a60c-6cadd64f7fa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\tasks">
+      <UniqueIdentifier>{1ad2313a-adbf-46bf-adaf-e6d9b37541f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\libretro-common\file\nbio">
+      <UniqueIdentifier>{6b9655eb-0100-4d0c-9658-0f2e80717c0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\libretro-common\formats">
+      <UniqueIdentifier>{b4811a71-0746-4eca-9675-6c047e81de85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\libretro-common\formats\bmp">
+      <UniqueIdentifier>{e0b00ce4-412f-40d8-bf31-96aff3ef43d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\gfx\drivers">
+      <UniqueIdentifier>{74b8f916-0516-479a-8bc0-9dc1b25f1245}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\gfx\drivers_context">
+      <UniqueIdentifier>{8344d34a-3c67-47a9-a0ee-30f0b2f9c010}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -80,776 +170,344 @@
     <ClCompile Include="..\..\..\libretro-common\rthreads\rthreads.c">
       <Filter>Source\libretro-common\rthreads</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\rthreads\rsemaphore.c">
+      <Filter>Source\libretro-common\rthreads</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\command_event.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\input\input_common.c">
+      <Filter>Source\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\input\input_overlay.c">
+      <Filter>Source\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\input\input_driver.c">
+      <Filter>Source\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\video_common.c">
+      <Filter>Source\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\video_context_driver.c">
+      <Filter>Source\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\video_driver.c">
+      <Filter>Source\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\audio\audio_driver.c">
+      <Filter>Source\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\audio\drivers\xaudio.cpp">
+      <Filter>Source\audio\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\audio\drivers\nullaudio.c">
+      <Filter>Source\audio\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\audio\audio_utils.c">
+      <Filter>Source\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\video_viewport.c">
+      <Filter>Source\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\audio\audio_dsp_filter.c">
+      <Filter>Source\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\audio\audio_resampler_driver.c">
+      <Filter>Source\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\driver.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\audio\audio_thread_wrapper.c">
+      <Filter>Source\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\configuration.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\performance.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\string_list_special.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\file\config_file.c">
+      <Filter>Source\libretro-common\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\file\config_file_userdata.c">
+      <Filter>Source\libretro-common\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\string\string_list.c">
+      <Filter>Source\libretro-common\string</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\audio\drivers_resampler\sinc.c">
+      <Filter>Source\audio\drivers_resampler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\memmap\memmap.c">
+      <Filter>Source\libretro-common\memmap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\audio\drivers_resampler\cc_resampler.c">
+      <Filter>Source\audio\drivers_resampler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\audio\drivers_resampler\nearest.c">
+      <Filter>Source\audio\drivers_resampler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\memmap\memalign.c">
+      <Filter>Source\libretro-common\memmap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\record\record_driver.c">
+      <Filter>Source\record</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\record\drivers\record_null.c">
+      <Filter>Source\record\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro_version_1.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\playlist.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\core_info.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\rewind.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\autosave.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\movie.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\cheats.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\runloop_msg.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\runloop_data.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dynamic.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\system.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\content.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\screenshot.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\msg_hash.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\retroarch.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\file\dir_list.c">
+      <Filter>Source\libretro-common\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dir_list_special.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\input\input_remapping.c">
+      <Filter>Source\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\file_path_special.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\file_ops.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\input\input_keymaps.c">
+      <Filter>Source\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\file\file_extract.c">
+      <Filter>Source\libretro-common\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\deps\zlib\deflate.c">
+      <Filter>Source\deps\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\deps\zlib\gzclose.c">
+      <Filter>Source\deps\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\deps\zlib\gzlib.c">
+      <Filter>Source\deps\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\deps\zlib\gzread.c">
+      <Filter>Source\deps\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\deps\zlib\gzwrite.c">
+      <Filter>Source\deps\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\deps\zlib\infback.c">
+      <Filter>Source\deps\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\deps\zlib\inffast.c">
+      <Filter>Source\deps\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\deps\zlib\inflate.c">
+      <Filter>Source\deps\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\deps\zlib\inftrees.c">
+      <Filter>Source\deps\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\deps\zlib\ioapi.c">
+      <Filter>Source\deps\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\deps\zlib\trees.c">
+      <Filter>Source\deps\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\deps\zlib\uncompr.c">
+      <Filter>Source\deps\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\deps\zlib\unzip.c">
+      <Filter>Source\deps\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\deps\zlib\zutil.c">
+      <Filter>Source\deps\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\deps\zlib\adler32.c">
+      <Filter>Source\deps\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\deps\zlib\compress.c">
+      <Filter>Source\deps\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\deps\zlib\crc32.c">
+      <Filter>Source\deps\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\file\retro_file.c">
+      <Filter>Source\libretro-common\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\patch.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\input\input_joypad_driver.c">
+      <Filter>Source\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\camera\camera_driver.c">
+      <Filter>Source\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\camera\drivers\nullcamera.c">
+      <Filter>Source\camera\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\location\location_driver.c">
+      <Filter>Source\location</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\location\drivers\nulllocation.c">
+      <Filter>Source\location\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\cores\dynamic_dummy.c">
+      <Filter>Source\cores</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\cores\image_core.c">
+      <Filter>Source\cores</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\core_options.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\dynamic\dylib.c">
+      <Filter>Source\libretro-common\dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\input\input_sensor.c">
+      <Filter>Source\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ui\ui_companion_driver.c">
+      <Filter>Source\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ui\drivers\ui_null.c">
+      <Filter>Source\ui\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\file\retro_dirent.c">
+      <Filter>Source\libretro-common\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\input\input_hid_driver.c">
+      <Filter>Source\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\input\drivers_hid\null_hid.c">
+      <Filter>Source\input\drivers_hid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\input\drivers\nullinput.c">
+      <Filter>Source\input\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\input\drivers_joypad\hid_joypad.c">
+      <Filter>Source\input\drivers_joypad</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\input\drivers_joypad\null_joypad.c">
+      <Filter>Source\input\drivers_joypad</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\input\drivers_joypad\xinput_joypad.c">
+      <Filter>Source\input\drivers_joypad</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\input\input_autodetect.c">
+      <Filter>Source\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\intl\msg_hash_de.c">
+      <Filter>Source\intl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\intl\msg_hash_eo.c">
+      <Filter>Source\intl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\intl\msg_hash_es.c">
+      <Filter>Source\intl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\intl\msg_hash_fr.c">
+      <Filter>Source\intl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\intl\msg_hash_it.c">
+      <Filter>Source\intl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\intl\msg_hash_nl.c">
+      <Filter>Source\intl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\intl\msg_hash_pl.c">
+      <Filter>Source\intl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\intl\msg_hash_pt.c">
+      <Filter>Source\intl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\intl\msg_hash_us.c">
+      <Filter>Source\intl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\hash\rhash.c">
+      <Filter>Source\libretro-common\hash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\queues\fifo_buffer.c">
+      <Filter>Source\libretro-common\queues</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\queues\message_queue.c">
+      <Filter>Source\libretro-common\queues</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tasks\task_overlay.c">
+      <Filter>Source\tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tasks\task_file_transfer.c">
+      <Filter>Source\tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\file\nbio\nbio_stdio.c">
+      <Filter>Source\libretro-common\file\nbio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\retroarch_info.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\formats\bmp\rbmp_encode.c">
+      <Filter>Source\libretro-common\formats\bmp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\drivers\nullgfx.c">
+      <Filter>Source\gfx\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\drivers_context\gfx_null_ctx.c">
+      <Filter>Source\gfx\drivers_context</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\frontend\drivers\platform_win32.c">
+      <Filter>Source\frontend\drivers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="App.xaml.h" />
     <ClInclude Include="MainPage.xaml.h" />
-    <ClInclude Include="..\..\..\menu\menu_entries.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\menu\menu_entry.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\menu\menu_hash.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\menu\menu_input.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\menu\menu_navigation.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\menu\menu_setting.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\menu\menu_shader.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\menu\drivers\menu_generic.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\record\record_driver.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\tasks\tasks.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\ui\ui_companion_driver.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\ui\drivers\cocoa\cocoa_common.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\vita\stockfont.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\wii\app_booter\elf_abi.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\autosave.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\cheats.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\cheevos.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\command.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\command_event.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\config.def.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\config.features.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\configuration.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\content.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\core_info.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\core_options.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\database_info.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\dir_list_special.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\driver.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\dynamic.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\file_ext.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\file_ops.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\general.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\git_version.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro_private.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro_version_1.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\movie.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\msg_hash.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\net_http_special.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\netplay.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\patch.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\performance.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\playlist.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\retroarch.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\rewind.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\runloop.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\runloop_data.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\screenshot.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\string_list_special.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\system.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\audio\audio_driver.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\audio\audio_dsp_filter.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\audio\audio_monitor.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\audio\audio_resampler_driver.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\audio\audio_thread_wrapper.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\audio\audio_utils.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\audio\audio_filters\dspfilter.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\audio\audio_filters\fft\fft.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\audio\drivers\rsound.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\audio\drivers\xaudio.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\bootstrap\psp1\kernel_functions_prx\kernel_functions.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\camera\camera_driver.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\cores\internal_cores.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\cores\libretro-ffmpeg\internal_cores.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\cores\libretro-ffmpeg\libretro.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\ctr\ctr_debug.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\defines\gx_defines.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\defines\ps3_defines.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\defines\psp_defines.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\7zip\7z.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\7zip\7zAlloc.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\7zip\7zBuf.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\7zip\7zCrc.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\7zip\7zFile.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\7zip\7zVersion.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\7zip\Bcj2.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\7zip\Bra.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\7zip\CpuArch.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\7zip\Lzma2Dec.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\7zip\LzmaDec.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\7zip\RotateDefs.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\7zip\Types.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\stb\stb_image.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\stb\stb_rect_pack.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\stb\stb_truetype.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\zlib\deflate.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\zlib\gzfile.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\zlib\gzguts.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\zlib\inffast.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\zlib\inffixed.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\zlib\inflate.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\zlib\inftrees.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\zlib\ioapi.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\zlib\trees.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\zlib\unzip.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\deps\zlib\zconf.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\frontend\frontend.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\frontend\frontend_driver.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\frontend\drivers\platform_linux.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\frontend\drivers\platform_xdk.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\font_driver.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\font_renderer_driver.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\video_common.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\video_context_driver.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\video_driver.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\video_filter.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\video_monitor.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\video_pixel_converter.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\video_shader_driver.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\video_shader_parse.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\video_state_python.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\video_state_tracker.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\video_texture.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\video_thread_wrapper.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\video_viewport.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\common\win32_common.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\common\x11_common.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\d3d\d3d.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\d3d\d3d_defines.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\d3d\d3d_wrapper.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\d3d\render_chain_driver.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\drivers\ctr_gu.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\drivers\gl_common.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\drivers\gx_gfx_inl.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\drivers\ppc_asm.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\drivers\psp1_gfx.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\drivers_font_renderer\bitmap.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\drivers_shader\shader_glsl.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\drivers_shader\shader_hlsl.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\drivers_wm\win32_resource.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\drivers_wm\win32_shader_dlg.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\inc\Cg\cg.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\inc\Cg\cgD3D9.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\inc\Cg\cgGL.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\pixman\pixman-arm-asm.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\pixman\pixman-arm-neon-asm.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\pixman\pixman-private.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\video_filters\softfilter.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\video_filters\snes_ntsc\snes_ntsc.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\video_filters\snes_ntsc\snes_ntsc_config.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\gfx\video_filters\snes_ntsc\snes_ntsc_impl.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\input_autodetect.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\input_common.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\input_driver.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\input_hid_driver.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\input_joypad.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\input_joypad_driver.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\input_keymaps.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\input_overlay.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\input_remapping.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\input_sensor.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\keyboard_line.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\autoconf\builtin.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\connect\joypad_connection.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\drivers\apple_keycode.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\drivers\cocoa_input.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\drivers\linux_common.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\drivers_hid\btstack_hid.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\drivers_hid\mfi_hid.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\drivers_joypad\gx_sicksaxis.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\inc\GameController\GameController.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\inc\GameController\GCController.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\inc\GameController\GCControllerAxisInput.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\inc\GameController\GCControllerButtonInput.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\inc\GameController\GCControllerDirectionPad.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\inc\GameController\GCControllerElement.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\inc\GameController\GCExtendedGamepad.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\inc\GameController\GCExtendedGamepadSnapshot.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\inc\GameController\GCGamepad.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\input\inc\GameController\GCGamepadSnapshot.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\intl\english.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\intl\intl.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\intl\spanish.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\crt\include\string.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\formats\png\rpng_internal.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\boolean.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\clamping.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\filters.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\libco.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\memalign.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\memmap.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\retro_assert.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\retro_dirent.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\retro_endianness.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\retro_environment.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\retro_file.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\retro_inline.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\retro_log.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\retro_miscellaneous.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\retro_stat.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\rhash.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\compat\apple_compat.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\compat\fnmatch.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\compat\getopt.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\compat\msvc.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\compat\posix_string.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\compat\strcasestr.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\compat\strl.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\compat\zlib.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\compat\zutil.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\compat\msvc\stdint.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\dynamic\dylib.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\file\config_file.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\file\config_file_userdata.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\file\dir_list.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\file\file_extract.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\file\file_list.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\file\file_path.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\file\memory_stream.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\file\nbio.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\formats\image.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\formats\jsonsax.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\formats\rbmp.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\formats\rpng.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\formats\rxml.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\formats\tga.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\gfx\math\matrix_3x3.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\gfx\math\matrix_4x4.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\gfx\scaler\filter.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\gfx\scaler\pixconv.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\gfx\scaler\scaler.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\gfx\scaler\scaler_int.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\glsym\glsym.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\glsym\glsym_es2.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\glsym\glsym_gl.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\glsym\rglgen.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\glsym\rglgen_headers.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\net\net_compat.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\net\net_http.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\queues\fifo_buffer.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\queues\message_queue.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\rthreads\async_job.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\rthreads\rsemaphore.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\rthreads\rthreads.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\string\stdstring.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\include\string\string_list.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\rthreads\gx_pthread.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-common\rthreads\psp_pthread.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-db\bintree.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-db\lexer.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-db\libretrodb.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-db\lua_common.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-db\parser.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-db\query.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-db\rmsgpack.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libretro-db\rmsgpack_dom.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\location\location_driver.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\memory\ngc\ssaram.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\memory\wii\mem2_manager.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\menu\menu.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\menu\menu_animation.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\menu\menu_cbs.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\menu\menu_display.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\menu\menu_displaylist.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\menu\menu_driver.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\LockScreenLogo.scale-200.png">
@@ -879,12 +537,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="RetroArch-Win10_TemporaryKey.pfx" />
-    <None Include="..\..\..\emscripten\template.html">
-      <Filter>Headers</Filter>
-    </None>
-    <None Include="..\..\..\emscripten\template2.html">
-      <Filter>Headers</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainPage.xaml" />
