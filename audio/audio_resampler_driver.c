@@ -20,6 +20,7 @@
 #endif
 #include <file/config_file_userdata.h>
 #include <string.h>
+#include <compat/posix_string.h>
 #ifndef DONT_HAVE_STRING_LIST
 #include "../string_list_special.h"
 #endif
