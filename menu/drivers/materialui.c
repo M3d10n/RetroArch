@@ -1164,8 +1164,10 @@ static void mui_context_reset(void)
    mui_allocate_white_texture(mui);
    mui_context_reset_textures(mui, iconpath);
 
+#ifdef HAVE_RPNG
    rarch_task_push_image_load(settings->menu.wallpaper, "cb_menu_wallpaper",
          menu_display_handle_wallpaper_upload);
+#endif
 }
 
 static int mui_environ(menu_environ_cb_t type, void *data)

@@ -415,6 +415,7 @@ static void rarch_task_file_load_handler(rarch_task_t *task)
          break;
    }
 
+#ifdef HAVE_RPNG
    if (nbio->image.handle)
    {
       switch (image->status)
@@ -452,12 +453,17 @@ static void rarch_task_file_load_handler(rarch_task_t *task)
 
    } else  if (nbio->is_finished)
       goto task_finished;
+#else
+   if (nbio->is_finished)
+	   goto task_finished;
+#endif
 
    return;
 
 task_finished:
    task->finished = true;
 
+#ifdef HAVE_RPNG
    if (image->handle)
    {
       rpng_nbio_load_image_free(image->handle);
@@ -465,6 +471,7 @@ task_finished:
       image->handle                 = NULL;
       image->frame_count            = 0;
    }
+#endif
 
    nbio_free(nbio->handle);
    nbio->handle      = NULL;
