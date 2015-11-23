@@ -98,6 +98,9 @@ static void gfx_set_dwm(void)
 
 static void frontend_win32_get_os(char *s, size_t len, int *major, int *minor)
 {
+#if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+	strlcpy(s, "Windows 10", len);
+#else
 	uint32_t version = GetVersion();
 
 	*major   = (DWORD)(LOBYTE(LOWORD(version)));
@@ -155,6 +158,8 @@ static void frontend_win32_get_os(char *s, size_t len, int *major, int *minor)
       default:
          break;
    }
+
+#endif
 }
 
 static void frontend_win32_init(void *data)
@@ -178,6 +183,31 @@ static void frontend_win32_init(void *data)
 
 enum frontend_powerstate frontend_win32_get_powerstate(int *seconds, int *percent)
 {
+#if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+	auto report = Windows::Devices::Power::Battery::AggregateBattery->GetReport();
+	enum frontend_powerstate ret = FRONTEND_POWERSTATE_NONE;
+
+	BOOL isUsingAC = (Windows::System::Power::PowerManager::PowerSupplyStatus == Windows::System::Power::PowerSupplyStatus::Adequate);
+	
+	auto status = report->Status;
+	switch (status)
+	{
+	case Windows::System::Power::BatteryStatus::NotPresent:
+		ret = isUsingAC ? FRONTEND_POWERSTATE_ON_POWER_SOURCE : FRONTEND_POWERSTATE_NO_SOURCE;		
+		break;
+	case Windows::System::Power::BatteryStatus::Idle:
+		ret = isUsingAC ? FRONTEND_POWERSTATE_ON_POWER_SOURCE : FRONTEND_POWERSTATE_CHARGED;
+		break;
+	case Windows::System::Power::BatteryStatus::Charging:
+		ret = FRONTEND_POWERSTATE_CHARGING;
+		break;
+	case Windows::System::Power::BatteryStatus::Discharging:
+		ret = FRONTEND_POWERSTATE_NONE;
+		break;
+	default:
+		break;
+	}
+#else
     SYSTEM_POWER_STATUS status;
 	enum frontend_powerstate ret = FRONTEND_POWERSTATE_NONE;
 
@@ -197,6 +227,7 @@ enum frontend_powerstate frontend_win32_get_powerstate(int *seconds, int *percen
 
 	*percent  = (int)status.BatteryLifePercent;
 	*seconds  = (int)status.BatteryLifeTime;
+#endif
 
 	return ret;
 }
@@ -209,6 +240,11 @@ enum frontend_architecture frontend_win32_get_architecture(void)
 
 static int frontend_win32_parse_drive_list(void *data)
 {
+#if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+	file_list_t *list = (file_list_t*)data;
+	menu_entries_push(list,
+		"ms-appdata:///local/", "", MENU_FILE_DIRECTORY, 0, 0);
+#else
    size_t i = 0;
    unsigned drives = GetLogicalDrives();
    char    drive[] = " :\\";
@@ -221,6 +257,7 @@ static int frontend_win32_parse_drive_list(void *data)
          menu_entries_push(list,
                drive, "", MENU_FILE_DIRECTORY, 0, 0);
    }
+#endif
 
    return 0;
 }
