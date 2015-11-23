@@ -64,11 +64,16 @@ static void set_dl_error(void)
 dylib_t dylib_load(const char *path)
 {
 #ifdef _WIN32
+#if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+	LPWSTR wpath = (LPWSTR)malloc(strlen(path) * sizeof(WCHAR));
+	mbstowcs(wpath, path, strlen(path));
+	dylib_t lib = LoadPackagedLibrary(wpath, 0);
+#else
    int prevmode = SetErrorMode(SEM_FAILCRITICALERRORS | SEM_NOOPENFILEERRORBOX);
    dylib_t lib  = LoadLibrary(path);
 
    SetErrorMode(prevmode);
-
+#endif
    if (!lib)
    {
       set_dl_error();
