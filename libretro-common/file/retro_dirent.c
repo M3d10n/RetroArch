@@ -60,7 +60,7 @@
 struct RDIR
 {
 #if defined(_WIN32)
-   WIN32_FIND_DATA entry;
+   WIN32_FIND_DATAA entry;
    HANDLE directory;
 #elif defined(VITA) || defined(PSP)
    SceUID directory;
@@ -87,7 +87,11 @@ struct RDIR *retro_opendir(const char *name)
 
 #if defined(_WIN32)
    snprintf(path_buf, sizeof(path_buf), "%s\\*", name);
+#if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+   rdir->directory = FindFirstFileExA(path_buf, FINDEX_INFO_LEVELS::FindExInfoStandard, &rdir->entry, FINDEX_SEARCH_OPS::FindExSearchLimitToDirectories, NULL, 0);
+#else
    rdir->directory = FindFirstFile(path_buf, &rdir->entry);
+#endif
 #elif defined(VITA) || defined(PSP)
    rdir->directory = sceIoDopen(name);
 #elif defined(__CELLOS_LV2__)
@@ -116,7 +120,7 @@ bool retro_dirent_error(struct RDIR *rdir)
 int retro_readdir(struct RDIR *rdir)
 {
 #if defined(_WIN32)
-   return (FindNextFile(rdir->directory, &rdir->entry) != 0);
+   return (FindNextFileA(rdir->directory, &rdir->entry) != 0);
 #elif defined(VITA) || defined(PSP)
    return (sceIoDread(rdir->directory, &rdir->entry) > 0);
 #elif defined(__CELLOS_LV2__)
