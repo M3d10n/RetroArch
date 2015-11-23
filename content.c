@@ -27,6 +27,7 @@
 #include <io.h>
 #include <fcntl.h>
 #include <windows.h>
+#include <compat/msvc.h>
 #endif
 #endif
 
