@@ -26,6 +26,10 @@
 #include <math.h>
 #include <retro_inline.h>
 
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
 static INLINE double sinc(double val)
 {
    if (fabs(val) < 0.00001)
