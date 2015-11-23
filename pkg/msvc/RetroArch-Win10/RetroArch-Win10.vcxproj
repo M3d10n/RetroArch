@@ -237,7 +237,6 @@
     <ClCompile Include="..\..\..\gfx\video_common.c" />
     <ClCompile Include="..\..\..\gfx\video_context_driver.c" />
     <ClCompile Include="..\..\..\gfx\video_driver.c" />
-    <ClCompile Include="..\..\..\gfx\video_viewport.c" />
     <ClCompile Include="..\..\..\input\drivers\nullinput.c" />
     <ClCompile Include="..\..\..\input\drivers_hid\null_hid.c" />
     <ClCompile Include="..\..\..\input\drivers_joypad\hid_joypad.c" />
