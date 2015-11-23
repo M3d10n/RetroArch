@@ -37,6 +37,7 @@
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
 #define getenv(v) (NULL)
 #define environ (NULL)
+#define GetModuleHandle(v) (NULL)
 #endif
 #endif
 
