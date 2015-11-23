@@ -26,6 +26,7 @@
 
 #include <compat/zlib.h>
 #include <compat/strl.h>
+#include <compat/msvc.h>
 
 #include <file/file_extract.h>
 #include <file/file_path.h>
