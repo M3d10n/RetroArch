@@ -127,6 +127,15 @@
     <Filter Include="Source\menu">
       <UniqueIdentifier>{dfd3d7b9-50f0-4c5f-a440-8ad2280ba530}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\menu\drivers">
+      <UniqueIdentifier>{09f6253b-1c01-4ddb-b505-19f641c841da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\menu\drivers_display">
+      <UniqueIdentifier>{b75ae7cb-9363-450e-a0b7-5d7ac9400794}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\menu\intl">
+      <UniqueIdentifier>{b2213421-3319-491a-a9d2-45f577492f5b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
@@ -507,6 +516,90 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\menu\menu_driver.c">
+      <Filter>Source\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\menu_display.c">
+      <Filter>Source\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\menu_entries.c">
+      <Filter>Source\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\menu_entry.c">
+      <Filter>Source\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\menu_hash.c">
+      <Filter>Source\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\menu_input.c">
+      <Filter>Source\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\menu_navigation.c">
+      <Filter>Source\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\menu_setting.c">
+      <Filter>Source\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\menu_shader.c">
+      <Filter>Source\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\menu.c">
+      <Filter>Source\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\menu_animation.c">
+      <Filter>Source\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\intl\menu_hash_de.c">
+      <Filter>Source\menu\intl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\intl\menu_hash_eo.c">
+      <Filter>Source\menu\intl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\intl\menu_hash_es.c">
+      <Filter>Source\menu\intl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\intl\menu_hash_fr.c">
+      <Filter>Source\menu\intl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\intl\menu_hash_it.c">
+      <Filter>Source\menu\intl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\intl\menu_hash_nl.c">
+      <Filter>Source\menu\intl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\intl\menu_hash_pl.c">
+      <Filter>Source\menu\intl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\intl\menu_hash_pt.c">
+      <Filter>Source\menu\intl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\intl\menu_hash_us.c">
+      <Filter>Source\menu\intl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\input\keyboard_line.c">
+      <Filter>Source\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\file\file_list.c">
+      <Filter>Source\libretro-common\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libretro-common\file\memory_stream.c">
+      <Filter>Source\libretro-common\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\drivers\rgui.c">
+      <Filter>Source\menu\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\drivers\menu_generic.c">
+      <Filter>Source\menu\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\drivers\null.c">
+      <Filter>Source\menu\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\drivers\materialui.c">
+      <Filter>Source\menu\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\input\input_joypad.c">
+      <Filter>Source\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\menu\menu_displaylist.c">
       <Filter>Source\menu</Filter>
     </ClCompile>
   </ItemGroup>

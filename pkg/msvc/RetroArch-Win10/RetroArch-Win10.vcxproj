@@ -116,7 +116,7 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <PreprocessorDefinitions>HAVE_XAUDIO;HAVE_FBO;HAVE_D3D9;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>HAVE_XAUDIO;HAVE_FBO;HAVE_D3D9;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\..\deps\zlib;..\..\..\libretro-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -246,11 +246,13 @@
     <ClCompile Include="..\..\..\input\input_common.c" />
     <ClCompile Include="..\..\..\input\input_driver.c" />
     <ClCompile Include="..\..\..\input\input_hid_driver.c" />
+    <ClCompile Include="..\..\..\input\input_joypad.c" />
     <ClCompile Include="..\..\..\input\input_joypad_driver.c" />
     <ClCompile Include="..\..\..\input\input_keymaps.c" />
     <ClCompile Include="..\..\..\input\input_overlay.c" />
     <ClCompile Include="..\..\..\input\input_remapping.c" />
     <ClCompile Include="..\..\..\input\input_sensor.c" />
+    <ClCompile Include="..\..\..\input\keyboard_line.c" />
     <ClCompile Include="..\..\..\intl\msg_hash_de.c" />
     <ClCompile Include="..\..\..\intl\msg_hash_eo.c" />
     <ClCompile Include="..\..\..\intl\msg_hash_es.c" />
@@ -270,7 +272,9 @@
     <ClCompile Include="..\..\..\libretro-common\file\config_file_userdata.c" />
     <ClCompile Include="..\..\..\libretro-common\file\dir_list.c" />
     <ClCompile Include="..\..\..\libretro-common\file\file_extract.c" />
+    <ClCompile Include="..\..\..\libretro-common\file\file_list.c" />
     <ClCompile Include="..\..\..\libretro-common\file\file_path.c" />
+    <ClCompile Include="..\..\..\libretro-common\file\memory_stream.c" />
     <ClCompile Include="..\..\..\libretro-common\file\nbio\nbio_stdio.c">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -290,7 +294,31 @@
     <ClCompile Include="..\..\..\libretro_version_1.c" />
     <ClCompile Include="..\..\..\location\drivers\nulllocation.c" />
     <ClCompile Include="..\..\..\location\location_driver.c" />
+    <ClCompile Include="..\..\..\menu\drivers\materialui.c" />
+    <ClCompile Include="..\..\..\menu\drivers\menu_generic.c" />
+    <ClCompile Include="..\..\..\menu\drivers\null.c" />
+    <ClCompile Include="..\..\..\menu\drivers\rgui.c" />
+    <ClCompile Include="..\..\..\menu\intl\menu_hash_de.c" />
+    <ClCompile Include="..\..\..\menu\intl\menu_hash_eo.c" />
+    <ClCompile Include="..\..\..\menu\intl\menu_hash_es.c" />
+    <ClCompile Include="..\..\..\menu\intl\menu_hash_fr.c" />
+    <ClCompile Include="..\..\..\menu\intl\menu_hash_it.c" />
+    <ClCompile Include="..\..\..\menu\intl\menu_hash_nl.c" />
+    <ClCompile Include="..\..\..\menu\intl\menu_hash_pl.c" />
+    <ClCompile Include="..\..\..\menu\intl\menu_hash_pt.c" />
+    <ClCompile Include="..\..\..\menu\intl\menu_hash_us.c" />
+    <ClCompile Include="..\..\..\menu\menu.c" />
+    <ClCompile Include="..\..\..\menu\menu_animation.c" />
+    <ClCompile Include="..\..\..\menu\menu_display.c" />
+    <ClCompile Include="..\..\..\menu\menu_displaylist.c" />
     <ClCompile Include="..\..\..\menu\menu_driver.c" />
+    <ClCompile Include="..\..\..\menu\menu_entries.c" />
+    <ClCompile Include="..\..\..\menu\menu_entry.c" />
+    <ClCompile Include="..\..\..\menu\menu_hash.c" />
+    <ClCompile Include="..\..\..\menu\menu_input.c" />
+    <ClCompile Include="..\..\..\menu\menu_navigation.c" />
+    <ClCompile Include="..\..\..\menu\menu_setting.c" />
+    <ClCompile Include="..\..\..\menu\menu_shader.c" />
     <ClCompile Include="..\..\..\movie.c" />
     <ClCompile Include="..\..\..\msg_hash.c" />
     <ClCompile Include="..\..\..\patch.c" />
