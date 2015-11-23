@@ -23,6 +23,7 @@
 #include <ctype.h>
 
 #include <string/stdstring.h>
+#include <compat/msvc.h>
 
 bool string_is_empty(const char *data)
 {

@@ -23,6 +23,7 @@
 #include <stddef.h>
 #include <sys/types.h>
 #include <string/string_list.h>
+#include <compat/msvc.h>
 
 #ifdef __cplusplus
 extern "C" {
