@@ -26,6 +26,7 @@
 #include <stdint.h>
 #include <string.h>
 
+#include <compat/msvc.h>
 #include <retro_file.h>
 #include <file/file_path.h>
 #include <compat/strl.h>

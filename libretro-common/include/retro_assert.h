@@ -24,6 +24,7 @@
 #define __RETRO_ASSERT_H
 
 #include <assert.h>
+#include <stdio.h>
 
 #ifdef RARCH_INTERNAL
 #define retro_assert(cond) do { \

@@ -37,6 +37,7 @@
 #    include <fcntl.h>
 #    include <direct.h>
 #    include <windows.h>
+#	 include <compat/msvc.h>
 #  endif
 #elif defined(VITA)
 #  include <psp2/io/fcntl.h>
