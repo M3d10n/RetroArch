@@ -206,9 +206,6 @@
     <ClCompile Include="..\..\..\audio\audio_utils.c">
       <Filter>Source\audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gfx\video_viewport.c">
-      <Filter>Source\gfx</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\audio\audio_dsp_filter.c">
       <Filter>Source\audio</Filter>
     </ClCompile>
