@@ -116,7 +116,7 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <PreprocessorDefinitions>HAVE_XAUDIO;HAVE_FBO;HAVE_D3D11;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\..\deps\zlib;..\..\..\libretro-common\include;..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -218,13 +218,19 @@
       <CallingConvention Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Cdecl</CallingConvention>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
+    <ClCompile Include="..\..\..\gfx\drivers\d3d11_gfx.cpp" />
     <ClCompile Include="..\..\..\gfx\drivers\nullgfx.c" />
+    <ClCompile Include="..\..\..\gfx\drivers_context\gfx_ctx_d3d11.cpp" />
     <ClCompile Include="..\..\..\gfx\drivers_context\gfx_null_ctx.c" />
+    <ClCompile Include="..\..\..\gfx\drivers_shader\shader_d3d11.c" />
+    <ClCompile Include="..\..\..\gfx\drivers_shader\shader_null.c" />
     <ClCompile Include="..\..\..\gfx\image\image.c" />
     <ClCompile Include="..\..\..\gfx\video_common.c" />
     <ClCompile Include="..\..\..\gfx\video_context_driver.c" />
     <ClCompile Include="..\..\..\gfx\video_driver.c" />
     <ClCompile Include="..\..\..\gfx\video_filter.c" />
+    <ClCompile Include="..\..\..\gfx\video_shader_driver.c" />
+    <ClCompile Include="..\..\..\gfx\video_shader_parse.c" />
     <ClCompile Include="..\..\..\gfx\video_thread_wrapper.c" />
     <ClCompile Include="..\..\..\input\drivers\nullinput.c" />
     <ClCompile Include="..\..\..\input\drivers_hid\null_hid.c" />

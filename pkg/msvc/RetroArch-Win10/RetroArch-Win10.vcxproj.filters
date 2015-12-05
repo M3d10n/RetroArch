@@ -160,6 +160,12 @@
     <Filter Include="Source\uwp">
       <UniqueIdentifier>{b1da2cfa-0e9a-48e2-b038-f6ff56479514}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\gfx\d3d">
+      <UniqueIdentifier>{9d5293e1-d4b2-4335-a0a8-aaf119906aee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\gfx\drivers_shader">
+      <UniqueIdentifier>{d40ff274-f6ee-4e1c-9657-afdc6a70e030}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\frontend\frontend.c">
@@ -719,6 +725,24 @@
     </ClCompile>
     <ClCompile Include="..\..\..\uwp\DeviceResources.cpp">
       <Filter>Source\uwp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\video_shader_parse.c">
+      <Filter>Source\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\video_shader_driver.c">
+      <Filter>Source\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\drivers_shader\shader_null.c">
+      <Filter>Source\gfx\drivers_shader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\drivers\d3d11_gfx.cpp">
+      <Filter>Source\gfx\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\drivers_context\gfx_ctx_d3d11.cpp">
+      <Filter>Source\gfx\drivers_context</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\drivers_shader\shader_d3d11.c">
+      <Filter>Source\gfx\drivers_shader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

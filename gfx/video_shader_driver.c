@@ -26,7 +26,12 @@ static const shader_backend_t *shader_ctx_drivers[] = {
    &gl_cg_backend,
 #endif
 #ifdef HAVE_HLSL
+#if defined(HAVE_D3D9)
    &hlsl_backend,
+#endif
+#if defined(HAVE_D3D11)
+	&d3d11_hlsl_backend,	
+#endif
 #endif
    &shader_null_backend,
    NULL

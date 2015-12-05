@@ -2,6 +2,8 @@
 #include "uwp.h"
 #include "uwp\DirectXHelper.h"
 #include "frontend\frontend.h"
+#include "runloop.h"
+#include "runloop_data.h"
 
 #include <ppltasks.h>
 
@@ -247,9 +249,13 @@ void RetroarchMain::Update()
 	// Update scene objects.
 	m_timer.Tick([&]()
 	{
-		// TODO: Replace this with your app's content update functions.
-		//m_sceneRenderer->Update(m_timer);
-		//m_fpsTextRenderer->Update(m_timer);
+		unsigned sleep_ms = 0;
+		int ret = rarch_main_iterate(&sleep_ms);
+		if (ret == 1 && sleep_ms > 0)
+			retro_sleep(sleep_ms);
+		rarch_main_data_iterate();
+		if (ret != -1)
+			return;
 	});
 }
 
