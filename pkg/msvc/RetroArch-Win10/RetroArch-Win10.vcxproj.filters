@@ -162,8 +162,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="App.xaml.cpp" />
-    <ClCompile Include="MainPage.xaml.cpp" />
     <ClCompile Include="..\..\..\frontend\frontend.c">
       <Filter>Source\frontend</Filter>
     </ClCompile>
@@ -724,8 +722,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="App.xaml.h" />
-    <ClInclude Include="MainPage.xaml.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\uwp.h">
       <Filter>Source\ui\drivers\uwp</Filter>
     </ClInclude>

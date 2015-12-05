@@ -1,6 +1,7 @@
 ﻿#include "uwp\pch.h"
 #include "uwp.h"
 #include "uwp\DirectXHelper.h"
+#include "frontend\frontend.h"
 
 #include <ppltasks.h>
 
@@ -88,6 +89,18 @@ void App::Load(Platform::String^ entryPoint)
 	if (m_main == nullptr)
 	{
 		m_main = std::unique_ptr<RetroarchMain>(new RetroarchMain(m_deviceResources));
+
+		// Convert the entry point from wchar* to char*
+		size_t buffer_size = entryPoint->Length() + 1;
+		char * args = (char *)malloc(buffer_size);
+		size_t i;
+		wcstombs_s(&i, args, buffer_size, entryPoint->Data(), buffer_size);
+
+		// Initialize
+		rarch_main(1, &args, NULL);
+
+		// Free the arguments
+		free(args);
 	}
 }
 
@@ -201,7 +214,7 @@ RetroarchMain::RetroarchMain(const std::shared_ptr<DX::DeviceResources>& deviceR
 {
 	// Register to be notified if the Device is lost or recreated
 	m_deviceResources->RegisterDeviceNotify(this);
-
+		
 	// TODO: Replace this with your app's content initialization.
 	//m_sceneRenderer = std::unique_ptr<Sample3DSceneRenderer>(new Sample3DSceneRenderer(m_deviceResources));
 

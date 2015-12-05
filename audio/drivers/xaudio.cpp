@@ -22,7 +22,11 @@
 
 #include <compat/msvc.h>
 
+#if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+#include <xaudio2.h>
+#else
 #include "xaudio.h"
+#endif
 
 #include "../audio_driver.h"
 #include "../../configuration.h"
@@ -156,8 +160,13 @@ static xaudio2_t *xaudio2_new(unsigned samplerate, unsigned channels,
    if (FAILED(XAudio2Create(&handle->pXAudio2, 0, XAUDIO2_DEFAULT_PROCESSOR)))
       goto error;
 
+#if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
    if (FAILED(handle->pXAudio2->CreateMasteringVoice(&handle->pMasterVoice,
-               channels, samplerate, 0, device, NULL)))
+               channels, samplerate, 0, NULL, NULL)))
+#else
+   if (FAILED(handle->pXAudio2->CreateMasteringVoice(&handle->pMasterVoice,
+	   channels, samplerate, 0, device, NULL)))
+#endif
       goto error;
 
    xaudio2_set_wavefmt(&wfx, channels, samplerate);
