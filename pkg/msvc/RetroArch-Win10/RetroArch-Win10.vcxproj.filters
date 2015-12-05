@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Common">
-      <UniqueIdentifier>bd594c5e-6d5e-4fbc-809b-d32250172ac9</UniqueIdentifier>
-    </Filter>
     <Filter Include="Assets">
       <UniqueIdentifier>aa198d77-2e6f-4cb1-ba50-78b223cdae66</UniqueIdentifier>
       <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
@@ -157,9 +154,12 @@
     <Filter Include="Source\gfx\common">
       <UniqueIdentifier>{26a3b504-d80a-46f4-b5e1-6b14f120f736}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ApplicationDefinition Include="App.xaml" />
+    <Filter Include="Source\ui\drivers\uwp">
+      <UniqueIdentifier>{f0954e4c-754b-4446-9d60-b0aea8d5d427}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\uwp">
+      <UniqueIdentifier>{b1da2cfa-0e9a-48e2-b038-f6ff56479514}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.xaml.cpp" />
@@ -710,20 +710,37 @@
     <ClCompile Include="..\..\..\menu\menu_cbs.c">
       <Filter>Source\menu</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\ui\drivers\ui_win32.c">
+    <ClCompile Include="..\..\..\ui\drivers\uwp\uwp.cpp">
+      <Filter>Source\ui\drivers\uwp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ui\drivers\ui_uwp.cpp">
       <Filter>Source\ui\drivers</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gfx\common\win32_common.cpp">
-      <Filter>Source\gfx\common</Filter>
+    <ClCompile Include="..\..\..\uwp\pch.cpp">
+      <Filter>Source\uwp</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gfx\common\d3d_common.cpp">
-      <Filter>Source\gfx\common</Filter>
+    <ClCompile Include="..\..\..\uwp\DeviceResources.cpp">
+      <Filter>Source\uwp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h" />
     <ClInclude Include="App.xaml.h" />
     <ClInclude Include="MainPage.xaml.h" />
+    <ClInclude Include="..\..\..\ui\drivers\uwp\uwp.h">
+      <Filter>Source\ui\drivers\uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\uwp\pch.h">
+      <Filter>Source\uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\uwp\DeviceResources.h">
+      <Filter>Source\uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\uwp\DirectXHelper.h">
+      <Filter>Source\uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\uwp\StepTimer.h">
+      <Filter>Source\uwp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\LockScreenLogo.scale-200.png">
@@ -753,8 +770,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="RetroArch-Win10_TemporaryKey.pfx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="MainPage.xaml" />
   </ItemGroup>
 </Project>

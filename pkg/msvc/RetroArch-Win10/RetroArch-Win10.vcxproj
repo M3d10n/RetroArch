@@ -116,13 +116,16 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <PreprocessorDefinitions>HAVE_XAUDIO;HAVE_FBO;HAVE_D3D9;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\deps\zlib;..\..\..\libretro-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>HAVE_XAUDIO;HAVE_FBO;HAVE_D3D11;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\deps\zlib;..\..\..\libretro-common\include;..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
       <DisableLanguageExtensions>false</DisableLanguageExtensions>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>d2d1.lib; d3d11.lib; dxgi.lib; windowscodecs.lib; dwrite.lib; %(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -142,23 +145,6 @@
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
     </ClCompile>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="pch.h" />
-    <ClInclude Include="App.xaml.h">
-      <DependentUpon>App.xaml</DependentUpon>
-    </ClInclude>
-    <ClInclude Include="MainPage.xaml.h">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
@@ -232,8 +218,6 @@
       <CallingConvention Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Cdecl</CallingConvention>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
-    <ClCompile Include="..\..\..\gfx\common\d3d_common.cpp" />
-    <ClCompile Include="..\..\..\gfx\common\win32_common.cpp" />
     <ClCompile Include="..\..\..\gfx\drivers\nullgfx.c" />
     <ClCompile Include="..\..\..\gfx\drivers_context\gfx_null_ctx.c" />
     <ClCompile Include="..\..\..\gfx\image\image.c" />
@@ -369,15 +353,19 @@
     <ClCompile Include="..\..\..\tasks\task_file_transfer.c" />
     <ClCompile Include="..\..\..\tasks\task_overlay.c" />
     <ClCompile Include="..\..\..\ui\drivers\ui_null.c" />
-    <ClCompile Include="..\..\..\ui\drivers\ui_win32.c" />
+    <ClCompile Include="..\..\..\ui\drivers\ui_uwp.cpp" />
+    <ClCompile Include="..\..\..\ui\drivers\uwp\uwp.cpp" />
     <ClCompile Include="..\..\..\ui\ui_companion_driver.c" />
+    <ClCompile Include="..\..\..\uwp\DeviceResources.cpp" />
+    <ClCompile Include="..\..\..\uwp\pch.cpp" />
     <ClCompile Include="..\..\..\verbosity.c" />
-    <ClCompile Include="App.xaml.cpp">
-      <DependentUpon>App.xaml</DependentUpon>
-    </ClCompile>
-    <ClCompile Include="MainPage.xaml.cpp">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\ui\drivers\uwp\uwp.h" />
+    <ClInclude Include="..\..\..\uwp\DeviceResources.h" />
+    <ClInclude Include="..\..\..\uwp\DirectXHelper.h" />
+    <ClInclude Include="..\..\..\uwp\pch.h" />
+    <ClInclude Include="..\..\..\uwp\StepTimer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
