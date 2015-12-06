@@ -14,6 +14,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "../common/d3d11_common.h"
 #include "../../general.h"
 #include "../../driver.h"
 
@@ -26,7 +27,9 @@ static void *d3d11_gfx_init(const video_info_t *video,
    *input_data = NULL;
    (void)video;
 
-   return (void*)-1;
+   auto video_res = new d3d11::DeviceResources();
+
+   return video_res;
 }
 
 static bool d3d11_gfx_frame(void *data, const void *frame,

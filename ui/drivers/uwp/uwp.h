@@ -1,15 +1,13 @@
 ﻿#pragma once
 
-#include "uwp\pch.h"
-#include "uwp\DeviceResources.h"
-#include "uwp\StepTimer.h"
+#include "gfx/common/d3d11_common.h"
 
 namespace Retroarch
 {
-	class RetroarchMain : public DX::IDeviceNotify
+	class RetroarchMain : public d3d11::IDeviceNotify
 	{
 	public:
-		RetroarchMain(const std::shared_ptr<DX::DeviceResources>& deviceResources);
+		RetroarchMain(const std::shared_ptr<d3d11::DeviceResources>& deviceResources);
 		~RetroarchMain();
 		void CreateWindowSizeDependentResources();
 		void Update();
@@ -21,14 +19,11 @@ namespace Retroarch
 
 	private:
 		// Cached pointer to device resources.
-		std::shared_ptr<DX::DeviceResources> m_deviceResources;
+		std::shared_ptr<d3d11::DeviceResources> m_deviceResources;
 
 		// TODO: Replace with your own content renderers.
 		//std::unique_ptr<Sample3DSceneRenderer> m_sceneRenderer;
 		//std::unique_ptr<SampleFpsTextRenderer> m_fpsTextRenderer;
-
-		// Rendering loop timer.
-		DX::StepTimer m_timer;
 	};
 
 	// Main entry point for our app. Connects the app with the Windows shell and handles application lifecycle events.
@@ -61,7 +56,8 @@ namespace Retroarch
 		void OnDisplayContentsInvalidated(Windows::Graphics::Display::DisplayInformation^ sender, Platform::Object^ args);
 
 	private:
-		std::shared_ptr<DX::DeviceResources> m_deviceResources;
+		Platform::Agile<Windows::UI::Core::CoreWindow> m_window;
+		std::shared_ptr<d3d11::DeviceResources> m_deviceResources;
 		std::unique_ptr<RetroarchMain> m_main;
 		bool m_windowClosed;
 		bool m_windowVisible;

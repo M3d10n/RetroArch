@@ -1,9 +1,8 @@
-﻿#include "uwp\pch.h"
-#include "uwp.h"
-#include "uwp\DirectXHelper.h"
-#include "frontend\frontend.h"
+﻿#include "uwp.h"
+#include "frontend/frontend.h"
 #include "runloop.h"
 #include "runloop_data.h"
+#include "gfx/video_driver.h"
 
 #include <ppltasks.h>
 
@@ -56,7 +55,7 @@ void App::Initialize(CoreApplicationView^ applicationView)
 
 	// At this point we have access to the device. 
 	// We can create the device-dependent resources.
-	m_deviceResources = std::make_shared<DX::DeviceResources>();
+	//m_deviceResources = std::make_shared<d3d11::DeviceResources>();
 }
 
 // Called when the CoreWindow object is created (or re-created).
@@ -82,7 +81,11 @@ void App::SetWindow(CoreWindow^ window)
 	DisplayInformation::DisplayContentsInvalidated +=
 		ref new TypedEventHandler<DisplayInformation^, Object^>(this, &App::OnDisplayContentsInvalidated);
 
-	m_deviceResources->SetWindow(window);
+	m_window = window;
+	if (m_deviceResources.get() != NULL)
+	{
+		m_deviceResources->SetWindow(window);
+	}
 }
 
 // Initializes scene resources, or loads a previously saved app state.
@@ -90,7 +93,6 @@ void App::Load(Platform::String^ entryPoint)
 {
 	if (m_main == nullptr)
 	{
-		m_main = std::unique_ptr<RetroarchMain>(new RetroarchMain(m_deviceResources));
 
 		// Convert the entry point from wchar* to char*
 		size_t buffer_size = entryPoint->Length() + 1;
@@ -103,6 +105,14 @@ void App::Load(Platform::String^ entryPoint)
 
 		// Free the arguments
 		free(args);
+
+		// Set the video driver window
+		m_deviceResources.reset((d3d11::DeviceResources*)video_driver_get_ptr(false));
+		if (m_deviceResources.get() != NULL)
+		{
+			m_main = std::unique_ptr<RetroarchMain>(new RetroarchMain(m_deviceResources));
+			m_deviceResources->SetWindow(m_window.Get());
+		}
 	}
 }
 
@@ -117,10 +127,12 @@ void App::Run()
 
 			m_main->Update();
 
+			/*
 			if (m_main->Render())
 			{
 				m_deviceResources->Present();
 			}
+			*/
 		}
 		else
 		{
@@ -211,7 +223,7 @@ void App::OnDisplayContentsInvalidated(DisplayInformation^ sender, Object^ args)
 
 
 // Loads and initializes application assets when the application is loaded.
-RetroarchMain::RetroarchMain(const std::shared_ptr<DX::DeviceResources>& deviceResources) :
+RetroarchMain::RetroarchMain(const std::shared_ptr<d3d11::DeviceResources>& deviceResources) :
 	m_deviceResources(deviceResources)
 {
 	// Register to be notified if the Device is lost or recreated
@@ -245,30 +257,20 @@ void RetroarchMain::CreateWindowSizeDependentResources()
 
 // Updates the application state once per frame.
 void RetroarchMain::Update()
-{
-	// Update scene objects.
-	m_timer.Tick([&]()
-	{
-		unsigned sleep_ms = 0;
-		int ret = rarch_main_iterate(&sleep_ms);
-		if (ret == 1 && sleep_ms > 0)
-			retro_sleep(sleep_ms);
-		rarch_main_data_iterate();
-		if (ret != -1)
-			return;
-	});
+{	
+	unsigned sleep_ms = 0;
+	int ret = rarch_main_iterate(&sleep_ms);
+	if (ret == 1 && sleep_ms > 0)
+		retro_sleep(sleep_ms);
+	rarch_main_data_iterate();
+	if (ret != -1)
+		return; // TODO: quit the app?	
 }
 
 // Renders the current frame according to the current application state.
 // Returns true if the frame was rendered and is ready to be displayed.
 bool RetroarchMain::Render()
 {
-	// Don't try to render anything before the first Update.
-	if (m_timer.GetFrameCount() == 0)
-	{
-		return false;
-	}
-
 	auto context = m_deviceResources->GetD3DDeviceContext();
 
 	// Reset the viewport to target the whole screen.
