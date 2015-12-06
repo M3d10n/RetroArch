@@ -16,6 +16,7 @@
 
 /* Null context. */
 
+#include "../common/d3d11_common.h"
 #include "../../driver.h"
 #include "../video_context_driver.h"
 
@@ -38,7 +39,8 @@ static void gfx_ctx_d3d11_check_window(void *data, bool *quit,
 
 static void gfx_ctx_d3d11_swap_buffers(void *data)
 {
-	(void)data;
+	auto d3d11res = (d3d11::DeviceResources*)data;
+	d3d11res->Present();
 }
 
 static void gfx_ctx_d3d11_set_resize(void *data, unsigned width, unsigned height)
@@ -50,6 +52,8 @@ static void gfx_ctx_d3d11_set_resize(void *data, unsigned width, unsigned height
 
 static void gfx_ctx_d3d11_update_window_title(void *data)
 {
+	auto d3d11res = (d3d11::DeviceResources*)data;
+
 	(void)data;
 }
 

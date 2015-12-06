@@ -266,8 +266,10 @@
     <ClCompile Include="..\..\..\gfx\drivers\nullgfx.c" />
     <ClCompile Include="..\..\..\gfx\drivers_context\gfx_ctx_d3d11.cpp" />
     <ClCompile Include="..\..\..\gfx\drivers_context\gfx_null_ctx.c" />
+    <ClCompile Include="..\..\..\gfx\drivers_font\d3d11_w32_font.cpp" />
     <ClCompile Include="..\..\..\gfx\drivers_shader\shader_d3d11.c" />
     <ClCompile Include="..\..\..\gfx\drivers_shader\shader_null.c" />
+    <ClCompile Include="..\..\..\gfx\font_driver.c" />
     <ClCompile Include="..\..\..\gfx\image\image.c" />
     <ClCompile Include="..\..\..\gfx\video_common.c" />
     <ClCompile Include="..\..\..\gfx\video_context_driver.c" />

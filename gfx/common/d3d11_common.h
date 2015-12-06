@@ -30,6 +30,10 @@
 
 #include <retro_assert.h>
 
+#include "../font_driver.h"
+#include "../font_renderer_driver.h"
+#include "../video_context_driver.h"
+
 namespace d3d11
 {
 	// Provides an interface for an application that owns DeviceResources to be notified of the device being lost or created.
@@ -53,6 +57,8 @@ namespace d3d11
 		void RegisterDeviceNotify(IDeviceNotify* deviceNotify);
 		void Trim();
 		void Present();
+
+		void SetMenuTextureFrame(void *data, const void *frame, bool rgb32, unsigned width, unsigned height, float alpha);
 
 		// Device Accessors.
 		Windows::Foundation::Size GetOutputSize() const { return m_outputSize; }
@@ -98,6 +104,8 @@ namespace d3d11
 		Microsoft::WRL::ComPtr<ID2D1Device1>		m_d2dDevice;
 		Microsoft::WRL::ComPtr<ID2D1DeviceContext1>	m_d2dContext;
 		Microsoft::WRL::ComPtr<ID2D1Bitmap1>		m_d2dTargetBitmap;
+		
+		Microsoft::WRL::ComPtr<ID2D1Bitmap1>		m_d2dMenuBitmap;
 
 		// DirectWrite drawing components.
 		Microsoft::WRL::ComPtr<IDWriteFactory2>		m_dwriteFactory;
@@ -118,6 +126,9 @@ namespace d3d11
 		// Transforms used for display orientation.
 		D2D1::Matrix3x2F	m_orientationTransform2D;
 		DirectX::XMFLOAT4X4	m_orientationTransform3D;
+
+
+		std::shared_ptr<uint8>	m_MenuBitmapBuffer;
 
 		// The IDeviceNotify can be held directly as it owns the DeviceResources.
 		IDeviceNotify* m_deviceNotify;

@@ -17,31 +17,93 @@
 #include "../common/d3d11_common.h"
 #include "../../general.h"
 #include "../../driver.h"
+#include "../video_context_driver.h"
+
+static const gfx_ctx_driver_t * d3d11_get_context(void *data)
+{
+	unsigned minor = 2;
+	unsigned major = 11;
+	enum gfx_ctx_api api = GFX_CTX_DIRECT3D11_API;
+
+	settings_t *settings = config_get_ptr();
+	return gfx_ctx_init_first(video_driver_get_ptr(false),
+		settings->video.context_driver,
+		api, major, minor, false);
+}
 
 static void *d3d11_gfx_init(const video_info_t *video,
       const input_driver_t **input, void **input_data)
 {
    RARCH_ERR("Using the null video driver. RetroArch will not be visible.");
 
+   settings_t *settings = config_get_ptr();
+   driver_t   *driver = driver_get_ptr();
+
+   d3d11::DeviceResources* vid = NULL;
+   const gfx_ctx_driver_t *ctx = NULL;
    *input = NULL;
    *input_data = NULL;
-   (void)video;
 
-   auto video_res = new d3d11::DeviceResources();
+   // Create the video resources
+   vid = new d3d11::DeviceResources();
+   
+   // Create the context
+   ctx = d3d11_get_context(vid);
+   if (!ctx)
+	   goto error;
+   gfx_ctx_set(ctx);
 
-   return video_res;
+   // Initialize font renderer
+   if (!font_init_first((const void**)&driver->font_osd_driver, &driver->font_osd_data,
+	   vid, settings->video.font_path, 0, FONT_DRIVER_RENDER_DIRECT3D_API))
+   {
+	   goto error;
+   }
+   
+
+   return vid;
+
+error:
+   if (vid)
+	   delete vid;
+   gfx_ctx_destroy(ctx);
+   return NULL;
 }
 
 static bool d3d11_gfx_frame(void *data, const void *frame,
       unsigned width, unsigned height, uint64_t frame_count,
       unsigned pitch, const char *msg)
 {
-   (void)data;
-   (void)frame;
-   (void)width;
-   (void)height;
-   (void)pitch;
-   (void)msg;
+   driver_t *driver = driver_get_ptr();
+   settings_t *settings = config_get_ptr();
+   const font_renderer_t *font_ctx = driver->font_osd_driver;
+
+   auto d3d11res = (d3d11::DeviceResources*)data;
+   auto d2dctx = d3d11res->GetD2DDeviceContext();
+   d2dctx->BeginDraw();
+
+   d2dctx->Clear();
+
+   
+
+   d3d11::ThrowIfFailed( 
+	   d2dctx->EndDraw()
+	   );
+
+   if (font_ctx->render_msg && msg)
+   {
+	   struct font_params font_parms = { 0 };
+	   font_ctx->render_msg(driver->font_osd_data, msg, &font_parms);
+   }
+
+
+#ifdef HAVE_MENU
+   if (menu_driver_alive())
+	   menu_driver_frame();
+#endif
+
+   gfx_ctx_update_window_title(data);
+   gfx_ctx_swap_buffers(data);
 
    return true;
 }
@@ -114,11 +176,123 @@ static bool d3d11_gfx_read_viewport(void *data, uint8_t *buffer)
    return true;
 }
 
-static void d3d11_gfx_get_poke_interface(void *data,
-      const video_poke_interface_t **iface)
+static void d3d11_set_aspect_ratio(void *data, unsigned aspect_ratio_idx)
 {
-   (void)data;
-   (void)iface;
+	auto d3d11res = (d3d11::DeviceResources*)data;
+	enum rarch_display_ctl_state cmd = RARCH_DISPLAY_CTL_NONE;
+
+	switch (aspect_ratio_idx)
+	{
+	case ASPECT_RATIO_SQUARE:
+		cmd = RARCH_DISPLAY_CTL_SET_VIEWPORT_SQUARE_PIXEL;
+		break;
+
+	case ASPECT_RATIO_CORE:
+		cmd = RARCH_DISPLAY_CTL_SET_VIEWPORT_CORE;
+		break;
+
+	case ASPECT_RATIO_CONFIG:
+		cmd = RARCH_DISPLAY_CTL_SET_VIEWPORT_CONFIG;
+		break;
+
+	default:
+		break;
+	}
+
+	if (cmd != RARCH_DISPLAY_CTL_NONE)
+		video_driver_ctl(cmd, NULL);
+
+	video_driver_set_aspect_ratio_value(aspectratio_lut[aspect_ratio_idx].value);
+
+	// TODO: implement aspect ratio 
+	/*
+	if (!d3d11res)
+		return;
+
+	d3d->keep_aspect = true;
+	d3d->should_resize = true;
+	*/
+}
+
+static void d3d11_apply_state_changes(void *data)
+{
+	// TODO: see if this is needed
+	/*
+	d3d_video_t *d3d = (d3d_video_t*)data;
+    if (d3d)
+       d3d->should_resize = true;
+	*/
+}
+
+static void d3d11_set_osd_msg(void *data, const char *msg,
+	const struct font_params *params, void *font)
+{
+	auto       d3d11res = (d3d11::DeviceResources*)data;
+	driver_t    *driver = driver_get_ptr();
+	const font_renderer_t *font_ctx = driver->font_osd_driver;
+
+	// TODO: set d3d11res font rect?
+
+	if (font_ctx->render_msg)
+		font_ctx->render_msg(driver->font_osd_data, msg, params);
+}
+
+static void d3d11_show_mouse(void *data, bool state)
+{
+	gfx_ctx_show_mouse(data, state);
+}
+
+#ifdef HAVE_MENU
+static void d3d11_set_menu_texture_frame(void *data,
+	const void *frame, bool rgb32, unsigned width, unsigned height,
+	float alpha)
+{
+	auto d3d11res = (d3d11::DeviceResources*)data;
+	d3d11res->SetMenuTextureFrame(data, frame, rgb32, width, height, alpha);
+	
+}
+
+static void d3d11_set_menu_texture_enable(void *data,
+	bool state, bool full_screen)
+{
+	/*
+	d3d_video_t *d3d = (d3d_video_t*)data;
+
+	if (!d3d || !d3d->menu)
+		return;
+
+	d3d->menu->enabled = state;
+	d3d->menu->fullscreen = full_screen;
+	*/
+}
+#endif
+
+static const video_poke_interface_t d3d11_poke_interface = {
+	NULL,
+	NULL,
+	NULL, /* get_video_output_size */
+	NULL, /* get_video_output_prev */
+	NULL, /* get_video_output_next */
+	NULL, /* get_current_framebuffer */
+	NULL, /* get_proc_address */
+	d3d11_set_aspect_ratio,
+	d3d11_apply_state_changes,
+#ifdef HAVE_MENU
+	d3d11_set_menu_texture_frame,
+	d3d11_set_menu_texture_enable,
+#else
+	NULL,
+	NULL,
+#endif
+	d3d11_set_osd_msg,
+	d3d11_show_mouse,
+};
+
+static void d3d11_gfx_get_poke_interface(void *data,
+	const video_poke_interface_t **iface)
+{
+	(void)data;
+	*iface = &d3d11_poke_interface;
 }
 
 video_driver_t video_d3d11 = {

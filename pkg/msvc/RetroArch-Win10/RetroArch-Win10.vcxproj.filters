@@ -163,6 +163,9 @@
     <Filter Include="Source\gfx\drivers_shader">
       <UniqueIdentifier>{d40ff274-f6ee-4e1c-9657-afdc6a70e030}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\gfx\drivers_font">
+      <UniqueIdentifier>{a2e9b98f-db22-49f7-b64a-254703573a91}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\frontend\frontend.c">
@@ -737,6 +740,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\gfx\common\d3d11_common.cpp">
       <Filter>Source\gfx\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\font_driver.c">
+      <Filter>Source\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gfx\drivers_font\d3d11_w32_font.cpp">
+      <Filter>Source\gfx\drivers_font</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
