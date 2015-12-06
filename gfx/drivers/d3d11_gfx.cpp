@@ -70,25 +70,69 @@ error:
    return NULL;
 }
 
+static D2D1_MATRIX_3X2_F d3d11_get_display_matrix(void *data, unsigned width, unsigned height)
+{
+	settings_t *settings = config_get_ptr();
+	auto d3d11res = (d3d11::DeviceResources*)data;
+	int x = 0;
+	int y = 0;
+
+	float desired_aspect = video_driver_get_aspect_ratio();
+	video_driver_get_size(&width, &height);
+	float device_aspect = (float)width / height;
+	
+	D2D1_MATRIX_3X2_F result;
+
+	if (device_aspect > desired_aspect)
+	{ 
+		const float scale = desired_aspect / device_aspect;
+		result = D2D1::Matrix3x2F::Scale(scale, 1 );
+		result = result * D2D1::Matrix3x2F::Translation((1 - scale)*0.5f*width, 0);
+	}
+	else
+	{
+		const float scale = device_aspect / desired_aspect;
+		result = D2D1::Matrix3x2F::Scale( 1, scale);
+		result = result * D2D1::Matrix3x2F::Translation(0, (1 - scale)*0.5f*height);
+	}
+
+	return result;
+}
+
 static bool d3d11_gfx_frame(void *data, const void *frame,
       unsigned width, unsigned height, uint64_t frame_count,
       unsigned pitch, const char *msg)
 {
+   static struct retro_perf_counter d3d_frame = { 0 };
+
    driver_t *driver = driver_get_ptr();
    settings_t *settings = config_get_ptr();
    const font_renderer_t *font_ctx = driver->font_osd_driver;
 
+   rarch_perf_init(&d3d_frame, "d3d_frame");
+   retro_perf_start(&d3d_frame);
+
    auto d3d11res = (d3d11::DeviceResources*)data;
    auto d2dctx = d3d11res->GetD2DDeviceContext();
    d2dctx->BeginDraw();
-
    d2dctx->Clear();
 
+   d2dctx->SetTransform(d3d11_get_display_matrix(data, width, height));
+
+#ifdef HAVE_MENU
+   auto menu_bitmap = d3d11res->GetD2DMenuBitmap();
+   if (menu_bitmap)
+   {
+	   d2dctx->SetTransform(d3d11_get_display_matrix(data, menu_bitmap->GetPixelSize().width, menu_bitmap->GetPixelSize().height));
+
+	   auto viewport = d3d11res->GetScreenViewport();	   
+	   D2D1_RECT_F rect = {0, 0, viewport.Width, viewport.Height};
+	   d2dctx->DrawBitmap(menu_bitmap, rect);
+   }
+#endif
    
 
-   d3d11::ThrowIfFailed( 
-	   d2dctx->EndDraw()
-	   );
+   d3d11::ThrowIfFailed( d2dctx->EndDraw() );
 
    if (font_ctx->render_msg && msg)
    {
@@ -101,6 +145,8 @@ static bool d3d11_gfx_frame(void *data, const void *frame,
    if (menu_driver_alive())
 	   menu_driver_frame();
 #endif
+
+   retro_perf_stop(&d3d_frame);
 
    gfx_ctx_update_window_title(data);
    gfx_ctx_swap_buffers(data);
@@ -116,7 +162,17 @@ static void d3d11_gfx_set_nonblock_state(void *data, bool toggle)
 
 static bool d3d11_gfx_alive(void *data)
 {
-   (void)data;
+   auto d3d11res = (d3d11::DeviceResources*)data;
+
+   unsigned temp_width = 0, temp_height = 0;
+   auto vp = d3d11res->GetScreenViewport();
+   temp_width = vp.Width;
+   temp_height = vp.Height;
+   if (temp_width != 0 && temp_height != 0)
+   {
+	   video_driver_set_size(&temp_width, &temp_height);
+   }
+
    return true;
 }
 
@@ -142,6 +198,14 @@ static bool d3d11_gfx_has_windowed(void *data)
 static void d3d11_gfx_free(void *data)
 {
    (void)data;
+}
+
+static void d3d11_set_viewport(void *data,
+	unsigned width, unsigned height,
+	bool force_full,
+	bool allow_rotate)
+{
+	
 }
 
 static bool d3d11_gfx_set_shader(void *data,
@@ -306,7 +370,7 @@ video_driver_t video_d3d11 = {
    d3d11_gfx_set_shader,
    d3d11_gfx_free,
    "d3d11",
-   NULL, /* set_viewport */
+   d3d11_set_viewport,
    d3d11_gfx_set_rotation,
    d3d11_gfx_viewport_info,
    d3d11_gfx_read_viewport,

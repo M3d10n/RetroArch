@@ -59,9 +59,10 @@ static void gfx_ctx_d3d11_update_window_title(void *data)
 
 static void gfx_ctx_d3d11_get_video_size(void *data, unsigned *width, unsigned *height)
 {
-	(void)data;
-	*width = 320;
-	*height = 240;
+	auto d3d11res = (d3d11::DeviceResources*)data;
+	auto vp = d3d11res->GetScreenViewport();
+	*width = vp.Width;
+	*height = vp.Height;
 }
 
 static bool gfx_ctx_d3d11_set_video_mode(void *data,

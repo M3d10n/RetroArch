@@ -83,6 +83,8 @@ namespace d3d11
 		IWICImagingFactory2*	GetWicImagingFactory() const { return m_wicFactory.Get(); }
 		D2D1::Matrix3x2F		GetOrientationTransform2D() const { return m_orientationTransform2D; }
 
+		ID2D1Bitmap1*			GetD2DMenuBitmap() const { return m_d2dMenuBitmap.Get(); }
+
 	private:
 		void CreateDeviceIndependentResources();
 		void CreateDeviceResources();
