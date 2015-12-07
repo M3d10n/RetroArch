@@ -471,9 +471,6 @@
     <ClCompile Include="..\..\..\input\drivers_joypad\null_joypad.c">
       <Filter>Source\input\drivers_joypad</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\input\drivers_joypad\xinput_joypad.c">
-      <Filter>Source\input\drivers_joypad</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\input\input_autodetect.c">
       <Filter>Source\input</Filter>
     </ClCompile>
@@ -747,6 +744,12 @@
     <ClCompile Include="..\..\..\gfx\drivers_font\d3d11_w32_font.cpp">
       <Filter>Source\gfx\drivers_font</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\input\drivers\uwp_input.cpp">
+      <Filter>Source\input\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\input\drivers_joypad\xinput_joypad.c">
+      <Filter>Source\input\drivers_joypad</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\ui\drivers\uwp\uwp.h">
@@ -754,6 +757,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\gfx\common\d3d11_common.h">
       <Filter>Source\gfx\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\config.def.h">
+      <Filter>Source</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

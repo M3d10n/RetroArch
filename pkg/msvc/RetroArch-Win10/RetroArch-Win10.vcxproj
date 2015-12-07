@@ -279,6 +279,7 @@
     <ClCompile Include="..\..\..\gfx\video_shader_parse.c" />
     <ClCompile Include="..\..\..\gfx\video_thread_wrapper.c" />
     <ClCompile Include="..\..\..\input\drivers\nullinput.c" />
+    <ClCompile Include="..\..\..\input\drivers\uwp_input.cpp" />
     <ClCompile Include="..\..\..\input\drivers_hid\null_hid.c" />
     <ClCompile Include="..\..\..\input\drivers_joypad\hid_joypad.c" />
     <ClCompile Include="..\..\..\input\drivers_joypad\null_joypad.c" />
@@ -411,6 +412,7 @@
     <ClCompile Include="..\..\..\verbosity.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\config.def.h" />
     <ClInclude Include="..\..\..\gfx\common\d3d11_common.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\uwp.h" />
   </ItemGroup>

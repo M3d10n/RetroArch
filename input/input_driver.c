@@ -45,6 +45,9 @@ static const input_driver_t *input_drivers[] = {
 #if defined(HAVE_XINPUT2) || defined(HAVE_XINPUT_XBOX1)
    &input_xinput,
 #endif
+#if (defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP))
+   &input_uwp,
+#endif
 #ifdef GEKKO
    &input_gx,
 #endif

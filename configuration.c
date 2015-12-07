@@ -219,6 +219,8 @@ const char *config_get_default_input(void)
          return "sdl2";
       case INPUT_DINPUT:
          return "dinput";
+	  case INPUT_UWP:
+		  return "uwp";
       case INPUT_X:
          return "x";
       case INPUT_WAYLAND:

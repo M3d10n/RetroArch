@@ -53,6 +53,7 @@ extern const struct rarch_key_map rarch_key_map_x11[];
 extern const struct rarch_key_map rarch_key_map_sdl[];
 extern const struct rarch_key_map rarch_key_map_sdl2[];
 extern const struct rarch_key_map rarch_key_map_dinput[];
+extern const struct rarch_key_map rarch_key_map_uwp[];
 extern const struct rarch_key_map rarch_key_map_rwebinput[];
 extern const struct rarch_key_map rarch_key_map_linux[];
 extern const struct rarch_key_map rarch_key_map_apple_hid[];
