@@ -61,6 +61,18 @@ namespace ScreenRotation
 		);
 };
 
+static Platform::Agile<Windows::UI::Core::CoreWindow> sMainWindow;
+CoreWindow^ d3d11::GetMainWindow()
+{
+	return sMainWindow.Get();
+}
+
+void d3d11::SetMainWindow(CoreWindow^ window)
+{
+	sMainWindow = window;
+}
+
+
 // Constructor for DeviceResources.
 d3d11::DeviceResources::DeviceResources() :
 	m_screenViewport(),
@@ -92,7 +104,7 @@ void d3d11::DeviceResources::CreateDeviceIndependentResources()
 	// Initialize the Direct2D Factory.
 	d3d11::ThrowIfFailed(
 		D2D1CreateFactory(
-			D2D1_FACTORY_TYPE_SINGLE_THREADED,
+			D2D1_FACTORY_TYPE_MULTI_THREADED,
 			__uuidof(ID2D1Factory2),
 			&options,
 			&m_d2dFactory
@@ -140,12 +152,6 @@ void d3d11::DeviceResources::CreateDeviceResources()
 	// description.  All applications are assumed to support 9.1 unless otherwise stated.
 	D3D_FEATURE_LEVEL featureLevels[] =
 	{
-		D3D_FEATURE_LEVEL_11_1,
-		D3D_FEATURE_LEVEL_11_0,
-		D3D_FEATURE_LEVEL_10_1,
-		D3D_FEATURE_LEVEL_10_0,
-		D3D_FEATURE_LEVEL_9_3,
-		D3D_FEATURE_LEVEL_9_2,
 		D3D_FEATURE_LEVEL_9_1
 	};
 
@@ -729,3 +735,5 @@ DXGI_MODE_ROTATION d3d11::DeviceResources::ComputeDisplayRotation()
 	}
 	return rotation;
 }
+
+

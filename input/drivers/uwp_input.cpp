@@ -38,7 +38,7 @@ static void *uwp_input_input_init(void)
 
    input_keymaps_init_keyboard_lut(rarch_key_map_uwp);
 
-   auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
+   auto window = Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow;
    if (window)
    {
 	   window->KeyDown += ref new TypedEventHandler<CoreWindow^, KeyEventArgs^>(&OnKeyEvent);
@@ -55,18 +55,20 @@ static void uwp_input_input_poll(void *data)
 
 static bool uwp_input_keyboard_pressed(unsigned key)
 {
-	unsigned sym;
+	settings_t *settings = config_get_ptr();
+
+	key = settings->input.binds[0][key].key;
 
 	if (key >= RETROK_LAST)
 		return false;
 
 	Windows::System::VirtualKey tk = (Windows::System::VirtualKey)input_keymaps_translate_rk_to_keysym((enum retro_key)key);
 
-	auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
+	auto window = Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow;
 	if (window)
 	{
-		auto state = window->GetKeyState(tk);
-		if (state == Windows::UI::Core::CoreVirtualKeyStates::Down)
+		bool isDown = (bool)(window->GetKeyState(tk) & Windows::UI::Core::CoreVirtualKeyStates::Down);
+		if (isDown)
 		{
 			return true;
 		} 
@@ -79,7 +81,6 @@ static int16_t uwp_input_input_state(void *data,
       const struct retro_keybind **retro_keybinds, unsigned port,
       unsigned device, unsigned idx, unsigned id)
 {
-   int16_t ret;
    settings_t *settings = config_get_ptr();
 
    switch (device)

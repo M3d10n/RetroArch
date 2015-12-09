@@ -45,7 +45,13 @@ static void *d3d11_gfx_init(const video_info_t *video,
    *input_data = NULL;
 
    // Create the video resources
-   vid = new d3d11::DeviceResources();
+   vid = new d3d11::DeviceResources();   
+
+   auto window = d3d11::GetMainWindow();
+   if (window)
+   {
+	   vid->SetWindow(window);
+   }
    
    // Create the context
    ctx = d3d11_get_context(vid);
@@ -197,7 +203,8 @@ static bool d3d11_gfx_has_windowed(void *data)
 
 static void d3d11_gfx_free(void *data)
 {
-   (void)data;
+   auto d3d11res = (d3d11::DeviceResources*)data;
+   delete d3d11res;
 }
 
 static void d3d11_set_viewport(void *data,

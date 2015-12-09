@@ -85,10 +85,13 @@ void App::SetWindow(CoreWindow^ window)
 		ref new TypedEventHandler<DisplayInformation^, Object^>(this, &App::OnDisplayContentsInvalidated);
 
 	m_window = window;
+	d3d11::SetMainWindow(window);
+	/*
 	if (m_deviceResources.get() != NULL)
 	{
 		m_deviceResources->SetWindow(window);
 	}
+	*/
 }
 
 // Initializes scene resources, or loads a previously saved app state.
@@ -109,13 +112,8 @@ void App::Load(Platform::String^ entryPoint)
 		// Free the arguments
 		free(args);
 
-		// Set the video driver window
-		m_deviceResources.reset((d3d11::DeviceResources*)video_driver_get_ptr(false));
-		if (m_deviceResources.get() != NULL)
-		{
-			m_main = std::unique_ptr<RetroarchMain>(new RetroarchMain(m_deviceResources));
-			m_deviceResources->SetWindow(m_window.Get());
-		}
+		// Create our "main"
+		m_main = std::unique_ptr<RetroarchMain>(new RetroarchMain());
 	}
 }
 
@@ -156,7 +154,7 @@ void App::Uninitialize()
 void App::OnActivated(CoreApplicationView^ applicationView, IActivatedEventArgs^ args)
 {
 	// Run() won't start until the CoreWindow is activated.
-	CoreWindow::GetForCurrentThread()->Activate();
+	applicationView->CoreWindow->Activate();
 }
 
 void App::OnSuspending(Platform::Object^ sender, SuspendingEventArgs^ args)
@@ -169,7 +167,7 @@ void App::OnSuspending(Platform::Object^ sender, SuspendingEventArgs^ args)
 
 	create_task([this, deferral]()
 	{
-        m_deviceResources->Trim();
+		GetResources()->Trim();
 
 		// Insert your code here.
 
@@ -190,7 +188,7 @@ void App::OnResuming(Platform::Object^ sender, Platform::Object^ args)
 
 void App::OnWindowSizeChanged(CoreWindow^ sender, WindowSizeChangedEventArgs^ args)
 {
-	m_deviceResources->SetLogicalSize(Size(sender->Bounds.Width, sender->Bounds.Height));
+	GetResources()->SetLogicalSize(Size(sender->Bounds.Width, sender->Bounds.Height));
 	m_main->CreateWindowSizeDependentResources();
 }
 
@@ -216,47 +214,34 @@ void App::OnKeyUp(CoreWindow ^ sender, KeyEventArgs ^ args)
 
 void App::OnDpiChanged(DisplayInformation^ sender, Object^ args)
 {
-	m_deviceResources->SetDpi(sender->LogicalDpi);
+	GetResources()->SetDpi(sender->LogicalDpi);
 	m_main->CreateWindowSizeDependentResources();
 }
 
 void App::OnOrientationChanged(DisplayInformation^ sender, Object^ args)
 {
-	m_deviceResources->SetCurrentOrientation(sender->CurrentOrientation);
+	GetResources()->SetCurrentOrientation(sender->CurrentOrientation);
 	m_main->CreateWindowSizeDependentResources();
 }
 
 void App::OnDisplayContentsInvalidated(DisplayInformation^ sender, Object^ args)
 {
-	m_deviceResources->ValidateDevice();
+	GetResources()->ValidateDevice();
 }
 
 
 
 // Loads and initializes application assets when the application is loaded.
-RetroarchMain::RetroarchMain(const std::shared_ptr<d3d11::DeviceResources>& deviceResources) :
-	m_deviceResources(deviceResources)
-{
-	// Register to be notified if the Device is lost or recreated
-	m_deviceResources->RegisterDeviceNotify(this);
-		
-	// TODO: Replace this with your app's content initialization.
-	//m_sceneRenderer = std::unique_ptr<Sample3DSceneRenderer>(new Sample3DSceneRenderer(m_deviceResources));
-
-	//m_fpsTextRenderer = std::unique_ptr<SampleFpsTextRenderer>(new SampleFpsTextRenderer(m_deviceResources));
-
-	// TODO: Change the timer settings if you want something other than the default variable timestep mode.
-	// e.g. for 60 FPS fixed timestep update logic, call:
-	/*
-	m_timer.SetFixedTimeStep(true);
-	m_timer.SetTargetElapsedSeconds(1.0 / 60);
-	*/
+RetroarchMain::RetroarchMain()
+{	
 }
 
 RetroarchMain::~RetroarchMain()
 {
 	// Deregister device notification
-	m_deviceResources->RegisterDeviceNotify(nullptr);
+	auto resources = GetResources();
+	if (resources)
+		resources->RegisterDeviceNotify(nullptr);
 }
 
 // Updates application state when the window size changes (e.g. device orientation change)
@@ -269,6 +254,12 @@ void RetroarchMain::CreateWindowSizeDependentResources()
 // Updates the application state once per frame.
 void RetroarchMain::Update()
 {	
+	auto resources = GetResources();
+	if (resources)
+	{
+		resources->RegisterDeviceNotify(this);
+	}
+
 	unsigned sleep_ms = 0;
 	int ret = rarch_main_iterate(&sleep_ms);
 	if (ret == 1 && sleep_ms > 0)
@@ -282,19 +273,19 @@ void RetroarchMain::Update()
 // Returns true if the frame was rendered and is ready to be displayed.
 bool RetroarchMain::Render()
 {
-	auto context = m_deviceResources->GetD3DDeviceContext();
+	auto context = GetResources()->GetD3DDeviceContext();
 
 	// Reset the viewport to target the whole screen.
-	auto viewport = m_deviceResources->GetScreenViewport();
+	auto viewport = GetResources()->GetScreenViewport();
 	context->RSSetViewports(1, &viewport);
 
 	// Reset render targets to the screen.
-	ID3D11RenderTargetView *const targets[1] = { m_deviceResources->GetBackBufferRenderTargetView() };
-	context->OMSetRenderTargets(1, targets, m_deviceResources->GetDepthStencilView());
+	ID3D11RenderTargetView *const targets[1] = { GetResources()->GetBackBufferRenderTargetView() };
+	context->OMSetRenderTargets(1, targets, GetResources()->GetDepthStencilView());
 
 	// Clear the back buffer and depth stencil view.
-	context->ClearRenderTargetView(m_deviceResources->GetBackBufferRenderTargetView(), DirectX::Colors::CornflowerBlue);
-	context->ClearDepthStencilView(m_deviceResources->GetDepthStencilView(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
+	context->ClearRenderTargetView(GetResources()->GetBackBufferRenderTargetView(), DirectX::Colors::CornflowerBlue);
+	context->ClearDepthStencilView(GetResources()->GetDepthStencilView(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
 	// Render the scene objects.
 	// TODO: Replace this with your app's content rendering functions.
@@ -317,4 +308,9 @@ void RetroarchMain::OnDeviceRestored()
 	//m_sceneRenderer->CreateDeviceDependentResources();
 	//m_fpsTextRenderer->CreateDeviceDependentResources();
 	CreateWindowSizeDependentResources();
+}
+
+d3d11::DeviceResources * Retroarch::GetResources()
+{
+	return (d3d11::DeviceResources*)video_driver_get_ptr(true);
 }

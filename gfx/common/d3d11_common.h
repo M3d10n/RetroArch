@@ -43,6 +43,11 @@ namespace d3d11
 		virtual void OnDeviceRestored() = 0;
 	};
 
+	Windows::UI::Core::CoreWindow^ GetMainWindow();
+	void SetMainWindow(Windows::UI::Core::CoreWindow^ window);
+
+	
+
 	// Controls all the DirectX device resources.
 	class DeviceResources
 	{
