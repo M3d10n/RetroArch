@@ -38,12 +38,14 @@ static void *uwp_input_input_init(void)
 
    input_keymaps_init_keyboard_lut(rarch_key_map_uwp);
 
+   /*
    auto window = Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow;
    if (window)
    {
 	   window->KeyDown += ref new TypedEventHandler<CoreWindow^, KeyEventArgs^>(&OnKeyEvent);
 	   window->KeyUp += ref new TypedEventHandler<CoreWindow^, KeyEventArgs^>(&OnKeyEvent);
    }
+   */
 
    return (void*)-1;
 }
@@ -55,6 +57,7 @@ static void uwp_input_input_poll(void *data)
 
 static bool uwp_input_keyboard_pressed(unsigned key)
 {
+	return false;
 	settings_t *settings = config_get_ptr();
 
 	key = settings->input.binds[0][key].key;

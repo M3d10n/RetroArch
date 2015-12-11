@@ -61,18 +61,6 @@ namespace ScreenRotation
 		);
 };
 
-static Platform::Agile<Windows::UI::Core::CoreWindow> sMainWindow;
-CoreWindow^ d3d11::GetMainWindow()
-{
-	return sMainWindow.Get();
-}
-
-void d3d11::SetMainWindow(CoreWindow^ window)
-{
-	sMainWindow = window;
-}
-
-
 // Constructor for DeviceResources.
 d3d11::DeviceResources::DeviceResources() :
 	m_screenViewport(),
@@ -449,10 +437,8 @@ void d3d11::DeviceResources::CreateWindowSizeDependentResources()
 }
 
 // This method is called when the CoreWindow is created (or re-created).
-void d3d11::DeviceResources::SetWindow(CoreWindow^ window)
+void d3d11::DeviceResources::SetWindow(CoreWindow^ window, Windows::Graphics::Display::DisplayInformation^ currentDisplayInformation)
 {
-	DisplayInformation^ currentDisplayInformation = DisplayInformation::GetForCurrentView();
-
 	m_window = window;
 	m_logicalSize = Windows::Foundation::Size(window->Bounds.Width, window->Bounds.Height);
 	m_nativeOrientation = currentDisplayInformation->NativeOrientation;
@@ -479,12 +465,7 @@ void d3d11::DeviceResources::SetDpi(float dpi)
 	if (dpi != m_dpi)
 	{
 		m_dpi = dpi;
-
-		// When the display DPI changes, the logical size of the window (measured in Dips) also changes and needs to be updated.
-		m_logicalSize = Windows::Foundation::Size(m_window->Bounds.Width, m_window->Bounds.Height);
-
 		m_d2dContext->SetDpi(m_dpi, m_dpi);
-		CreateWindowSizeDependentResources();
 	}
 }
 
@@ -494,7 +475,6 @@ void d3d11::DeviceResources::SetCurrentOrientation(DisplayOrientations currentOr
 	if (m_currentOrientation != currentOrientation)
 	{
 		m_currentOrientation = currentOrientation;
-		CreateWindowSizeDependentResources();
 	}
 }
 

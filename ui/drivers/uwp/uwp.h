@@ -9,18 +9,36 @@ namespace Retroarch
 	class RetroarchMain : public d3d11::IDeviceNotify
 	{
 	public:
-		RetroarchMain();
+		RetroarchMain(Platform::String^ entryPoint);
 		~RetroarchMain();
 		void CreateWindowSizeDependentResources();
 		void Update();
-		bool Render();
+
+		void StartUpdateThread();
+		void StopUpdateThread();
+
+		Concurrency::critical_section& GetCriticalSection() { return m_criticalSection; }
+		Platform::String^ GetEntryPoint() { return m_entryPoint; }
+		
+		Windows::UI::Core::CoreWindow^ GetWindow() { return m_window.Get();  }
+		void SetWindow(Windows::UI::Core::CoreWindow^ Window);
+
+		Windows::Graphics::Display::DisplayInformation^ GetDisplayInformation() { return m_displayInformation; }
+		void SetDisplayInformation(Windows::Graphics::Display::DisplayInformation^ DisplayInformation);
 
 		// IDeviceNotify
 		virtual void OnDeviceLost();
 		virtual void OnDeviceRestored();
 
 	private:
-		
+		Platform::Agile<Windows::UI::Core::CoreWindow> m_window;
+		Windows::Graphics::Display::DisplayInformation^	m_displayInformation;
+
+		void* m_updateThread;
+		Platform::String^ m_entryPoint;
+
+
+		Concurrency::critical_section m_criticalSection;
 	};
 
 	// Main entry point for our app. Connects the app with the Windows shell and handles application lifecycle events.
@@ -46,8 +64,6 @@ namespace Retroarch
 		void OnWindowSizeChanged(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::WindowSizeChangedEventArgs^ args);
 		void OnVisibilityChanged(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::VisibilityChangedEventArgs^ args);
 		void OnWindowClosed(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::CoreWindowEventArgs^ args);
-		void OnKeyDown(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::KeyEventArgs^ args);
-		void OnKeyUp(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::KeyEventArgs^ args);
 
 		// DisplayInformation event handlers.
 		void OnDpiChanged(Windows::Graphics::Display::DisplayInformation^ sender, Platform::Object^ args);

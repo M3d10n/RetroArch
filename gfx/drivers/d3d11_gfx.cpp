@@ -46,12 +46,6 @@ static void *d3d11_gfx_init(const video_info_t *video,
 
    // Create the video resources
    vid = new d3d11::DeviceResources();   
-
-   auto window = d3d11::GetMainWindow();
-   if (window)
-   {
-	   vid->SetWindow(window);
-   }
    
    // Create the context
    ctx = d3d11_get_context(vid);

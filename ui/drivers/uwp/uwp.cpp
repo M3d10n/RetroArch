@@ -70,9 +70,6 @@ void App::SetWindow(CoreWindow^ window)
 	window->Closed += 
 		ref new TypedEventHandler<CoreWindow^, CoreWindowEventArgs^>(this, &App::OnWindowClosed);
 
-	window->KeyDown +=
-		ref new TypedEventHandler<CoreWindow^, KeyEventArgs^>(this, &App::OnKeyDown);
-
 	DisplayInformation^ currentDisplayInformation = DisplayInformation::GetForCurrentView();
 
 	currentDisplayInformation->DpiChanged +=
@@ -84,14 +81,14 @@ void App::SetWindow(CoreWindow^ window)
 	DisplayInformation::DisplayContentsInvalidated +=
 		ref new TypedEventHandler<DisplayInformation^, Object^>(this, &App::OnDisplayContentsInvalidated);
 
+	
 	m_window = window;
-	d3d11::SetMainWindow(window);
-	/*
-	if (m_deviceResources.get() != NULL)
+	if (m_main)
 	{
-		m_deviceResources->SetWindow(window);
+		critical_section::scoped_lock locl(m_main->GetCriticalSection());
+		m_main->SetWindow(window);
+		m_main->SetDisplayInformation(currentDisplayInformation);
 	}
-	*/
 }
 
 // Initializes scene resources, or loads a previously saved app state.
@@ -99,47 +96,20 @@ void App::Load(Platform::String^ entryPoint)
 {
 	if (m_main == nullptr)
 	{
-
-		// Convert the entry point from wchar* to char*
-		size_t buffer_size = entryPoint->Length() + 1;
-		char * args = (char *)malloc(buffer_size);
-		size_t i;
-		wcstombs_s(&i, args, buffer_size, entryPoint->Data(), buffer_size);
-
-		// Initialize
-		rarch_main(1, &args, NULL);
-
-		// Free the arguments
-		free(args);
-
 		// Create our "main"
-		m_main = std::unique_ptr<RetroarchMain>(new RetroarchMain());
+		m_main = std::unique_ptr<RetroarchMain>(new RetroarchMain(entryPoint));		
 	}
 }
 
 // This method is called after the window becomes active.
 void App::Run()
 {
-	while (!m_windowClosed)
-	{
-		if (m_windowVisible)
-		{
-			CoreWindow::GetForCurrentThread()->Dispatcher->ProcessEvents(CoreProcessEventsOption::ProcessAllIfPresent);
+	m_main->SetWindow(CoreWindow::GetForCurrentThread());
+	m_main->SetDisplayInformation(DisplayInformation::GetForCurrentView());
 
-			m_main->Update();
-
-			/*
-			if (m_main->Render())
-			{
-				m_deviceResources->Present();
-			}
-			*/
-		}
-		else
-		{
-			CoreWindow::GetForCurrentThread()->Dispatcher->ProcessEvents(CoreProcessEventsOption::ProcessOneAndAllPending);
-		}
-	}
+	m_main->StartUpdateThread();
+	
+	CoreWindow::GetForCurrentThread()->Dispatcher->ProcessEvents(CoreProcessEventsOption::ProcessUntilQuit);
 }
 
 // Required for IFrameworkView.
@@ -167,9 +137,10 @@ void App::OnSuspending(Platform::Object^ sender, SuspendingEventArgs^ args)
 
 	create_task([this, deferral]()
 	{
+		critical_section::scoped_lock lock(m_main->GetCriticalSection());
 		GetResources()->Trim();
 
-		// Insert your code here.
+		m_main->StopUpdateThread();
 
 		deferral->Complete();
 	});
@@ -182,12 +153,14 @@ void App::OnResuming(Platform::Object^ sender, Platform::Object^ args)
 	// does not occur if the app was previously terminated.
 
 	// Insert your code here.
+	m_main->StartUpdateThread();
 }
 
 // Window event handlers.
 
 void App::OnWindowSizeChanged(CoreWindow^ sender, WindowSizeChangedEventArgs^ args)
 {
+	critical_section::scoped_lock lock(m_main->GetCriticalSection());
 	GetResources()->SetLogicalSize(Size(sender->Bounds.Width, sender->Bounds.Height));
 	m_main->CreateWindowSizeDependentResources();
 }
@@ -202,38 +175,34 @@ void App::OnWindowClosed(CoreWindow^ sender, CoreWindowEventArgs^ args)
 	m_windowClosed = true;
 }
 
-void App::OnKeyDown(CoreWindow ^ sender, KeyEventArgs ^ args)
-{
-}
-
-void App::OnKeyUp(CoreWindow ^ sender, KeyEventArgs ^ args)
-{
-}
-
 // DisplayInformation event handlers.
 
 void App::OnDpiChanged(DisplayInformation^ sender, Object^ args)
 {
+	critical_section::scoped_lock lock(m_main->GetCriticalSection());
 	GetResources()->SetDpi(sender->LogicalDpi);
 	m_main->CreateWindowSizeDependentResources();
 }
 
 void App::OnOrientationChanged(DisplayInformation^ sender, Object^ args)
 {
+	critical_section::scoped_lock lock(m_main->GetCriticalSection());
 	GetResources()->SetCurrentOrientation(sender->CurrentOrientation);
 	m_main->CreateWindowSizeDependentResources();
 }
 
 void App::OnDisplayContentsInvalidated(DisplayInformation^ sender, Object^ args)
 {
+	critical_section::scoped_lock lock(m_main->GetCriticalSection());
 	GetResources()->ValidateDevice();
 }
 
 
 
 // Loads and initializes application assets when the application is loaded.
-RetroarchMain::RetroarchMain()
+RetroarchMain::RetroarchMain(Platform::String^ entryPoint)
 {	
+	m_entryPoint = entryPoint;
 }
 
 RetroarchMain::~RetroarchMain()
@@ -249,11 +218,15 @@ void RetroarchMain::CreateWindowSizeDependentResources()
 {
 	// TODO: Replace this with the size-dependent initialization of your app's content.
 	//m_sceneRenderer->CreateWindowSizeDependentResources();
+	critical_section::scoped_lock lock(m_criticalSection);
+	GetResources()->CreateWindowSizeDependentResources();
 }
 
 // Updates the application state once per frame.
 void RetroarchMain::Update()
 {	
+	critical_section::scoped_lock lock(m_criticalSection);
+
 	auto resources = GetResources();
 	if (resources)
 	{
@@ -269,30 +242,62 @@ void RetroarchMain::Update()
 		return; // TODO: quit the app?	
 }
 
-// Renders the current frame according to the current application state.
-// Returns true if the frame was rendered and is ready to be displayed.
-bool RetroarchMain::Render()
+static DWORD WINAPI UpdateThreadFunc(void *data)
 {
-	auto context = GetResources()->GetD3DDeviceContext();
+	RetroarchMain* main = (RetroarchMain*)data;
 
-	// Reset the viewport to target the whole screen.
-	auto viewport = GetResources()->GetScreenViewport();
-	context->RSSetViewports(1, &viewport);
+	{
+		critical_section::scoped_lock lock(main->GetCriticalSection());
 
-	// Reset render targets to the screen.
-	ID3D11RenderTargetView *const targets[1] = { GetResources()->GetBackBufferRenderTargetView() };
-	context->OMSetRenderTargets(1, targets, GetResources()->GetDepthStencilView());
+		// Convert the entry point from wchar* to char*
+		size_t buffer_size = main->GetEntryPoint()->Length() + 1;
+		char * args = (char *)malloc(buffer_size);
+		size_t i;
+		wcstombs_s(&i, args, buffer_size, main->GetEntryPoint()->Data(), buffer_size);
 
-	// Clear the back buffer and depth stencil view.
-	context->ClearRenderTargetView(GetResources()->GetBackBufferRenderTargetView(), DirectX::Colors::CornflowerBlue);
-	context->ClearDepthStencilView(GetResources()->GetDepthStencilView(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
+		// Initialize
+		rarch_main(1, &args, NULL);
 
-	// Render the scene objects.
-	// TODO: Replace this with your app's content rendering functions.
-	//m_sceneRenderer->Render();
-	//m_fpsTextRenderer->Render();
+		auto dispatcher = main->GetWindow()->Dispatcher;
+		auto async = dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new DispatchedHandler([=]() 
+		{
+			GetResources()->SetWindow(main->GetWindow(), main->GetDisplayInformation());
+		}, Platform::CallbackContext::Any));
+		while (async->Status != AsyncStatus::Completed);
 
-	return true;
+		// Free the arguments
+		free(args);
+	}
+
+	while (true)
+	{
+		main->Update();
+	}
+}
+
+
+void RetroarchMain::StartUpdateThread()
+{
+	if (!m_updateThread)
+	{
+		m_updateThread = CreateThread(NULL, 0, UpdateThreadFunc, this, 0, NULL);
+	}
+}
+
+void RetroarchMain::StopUpdateThread()
+{
+	//m_renderLoopWorker->Cancel();
+}
+
+void Retroarch::RetroarchMain::SetWindow(Windows::UI::Core::CoreWindow ^ Window)
+{
+	m_window = Window;
+	//GetResources()->SetLogicalSize(Windows::Foundation::Size(Window->Bounds.Width, Window->Bounds.Height));
+}
+
+void RetroarchMain::SetDisplayInformation(Windows::Graphics::Display::DisplayInformation^ DisplayInformation)
+{
+	m_displayInformation = DisplayInformation;
 }
 
 // Notifies renderers that device resources need to be released.
@@ -312,5 +317,5 @@ void RetroarchMain::OnDeviceRestored()
 
 d3d11::DeviceResources * Retroarch::GetResources()
 {
-	return (d3d11::DeviceResources*)video_driver_get_ptr(true);
+	return (d3d11::DeviceResources*)video_driver_get_ptr(false);
 }

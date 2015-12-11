@@ -266,6 +266,9 @@ static void frontend_win32_environment_get(int *argc, char *argv[],
       void *args, void *params_data)
 {
    gfx_set_dwm();
+
+   g_defaults.settings.video_threaded_enable = true;
+   
 }
 
 frontend_ctx_driver_t frontend_ctx_win32 = {

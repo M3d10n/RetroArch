@@ -27,6 +27,8 @@
 #include <DirectXMath.h>
 #include <memory>
 #include <agile.h>
+#include <concrt.h>
+#include <collection.h>
 
 #include <retro_assert.h>
 
@@ -43,17 +45,13 @@ namespace d3d11
 		virtual void OnDeviceRestored() = 0;
 	};
 
-	Windows::UI::Core::CoreWindow^ GetMainWindow();
-	void SetMainWindow(Windows::UI::Core::CoreWindow^ window);
-
-	
 
 	// Controls all the DirectX device resources.
 	class DeviceResources
 	{
 	public:
 		DeviceResources();
-		void SetWindow(Windows::UI::Core::CoreWindow^ window);
+		void SetWindow(Windows::UI::Core::CoreWindow^ window, Windows::Graphics::Display::DisplayInformation^ currentDisplayInformation);
 		void SetLogicalSize(Windows::Foundation::Size logicalSize);
 		void SetCurrentOrientation(Windows::Graphics::Display::DisplayOrientations currentOrientation);
 		void SetDpi(float dpi);
@@ -67,8 +65,12 @@ namespace d3d11
 
 		// Device Accessors.
 		Windows::Foundation::Size GetOutputSize() const { return m_outputSize; }
+		void SetOutputSize(Windows::Foundation::Size outputSize) { m_outputSize = outputSize; }
+
 		Windows::Foundation::Size GetLogicalSize() const { return m_logicalSize; }
 
+		void CreateWindowSizeDependentResources();
+		
 		// D3D Accessors.
 		ID3D11Device2*			GetD3DDevice() const { return m_d3dDevice.Get(); }
 		ID3D11DeviceContext2*	GetD3DDeviceContext() const { return m_d3dContext.Get(); }
@@ -93,7 +95,6 @@ namespace d3d11
 	private:
 		void CreateDeviceIndependentResources();
 		void CreateDeviceResources();
-		void CreateWindowSizeDependentResources();
 		DXGI_MODE_ROTATION ComputeDisplayRotation();
 
 		// Direct3D objects.
