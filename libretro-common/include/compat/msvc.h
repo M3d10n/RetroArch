@@ -33,12 +33,19 @@
 #endif
 
 
-#if defined(WINAPI_FAMILY_PARTITION)
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
-#define getenv(v) (NULL)
+#if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+
+#include <stdlib.h>
+
+#define getenv(v) "ms-appdata:///roaming"
 #define environ (NULL)
 #define GetModuleHandle(v) (NULL)
-#endif
+
+inline void pstringtocs(char * dest, Platform::String^ src, size_t dest_size) {
+   size_t i;
+   wcstombs_s(&i, dest, dest_size, src->Data(), dest_size);
+}
+
 #endif
 
 #undef UNICODE /* Do not bother with UNICODE at this time. */

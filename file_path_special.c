@@ -155,7 +155,9 @@ void fill_pathname_application_path(char *buf, size_t size)
    if (!size)
       return;
 
-#ifdef _WIN32
+#if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+   strlcpy(buf, "ms-appx:///", size);
+#elif defined(_WIN32)
    DWORD ret = GetModuleFileName(GetModuleHandle(NULL), buf, size - 1);
    buf[ret] = '\0';
 #elif defined(__APPLE__)

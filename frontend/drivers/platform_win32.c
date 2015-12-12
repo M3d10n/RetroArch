@@ -22,6 +22,7 @@
 #include <retro_miscellaneous.h>
 #include <dynamic/dylib.h>
 #include <file/file_list.h>
+#include <file/file_path.h>
 
 #include "../frontend_driver.h"
 #include "../../general.h"
@@ -267,8 +268,33 @@ static void frontend_win32_environment_get(int *argc, char *argv[],
 {
    gfx_set_dwm();
 
-   g_defaults.settings.video_threaded_enable = true;
+#if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+
+   char applocal[1024];
+   auto local_folder = Windows::Storage::ApplicationData::Current->LocalFolder->Path;
+   pstringtocs(applocal, local_folder, sizeof(applocal));
+
+   char appdata[1024];
+   auto roaming_folder = Windows::Storage::ApplicationData::Current->RoamingFolder->Path;
+   pstringtocs(appdata, roaming_folder, sizeof(appdata));
+
+   const char* app = "ms-appx:///";
+   retro_main_log_file_init("ms-appdata:///local/retroarch-log.txt");
    
+   // Store in roaming folder to sync across devices
+   fill_pathname_join(g_defaults.path.config, appdata, "retroarch.cfg", sizeof(g_defaults.path.config));
+   fill_pathname_join(g_defaults.dir.sram, appdata, "sram", sizeof(g_defaults.dir.sram));
+   fill_pathname_join(g_defaults.dir.savestate, appdata, "savestates", sizeof(g_defaults.dir.savestate));
+   fill_pathname_join(g_defaults.dir.playlist, appdata, "playlists", sizeof(g_defaults.dir.playlist));
+
+   // Local, no need to roam
+   fill_pathname_join(g_defaults.dir.cache, applocal, "cache", sizeof(g_defaults.dir.cache));
+   
+   // Read-only, comes in the app package
+   fill_pathname_join(g_defaults.dir.core, app, "cores", sizeof(g_defaults.dir.core));
+   fill_pathname_join(g_defaults.dir.core_info, app, "cores/info", sizeof(g_defaults.dir.core_info));
+   fill_pathname_join(g_defaults.dir.core_assets, app, "cores/assets", sizeof(g_defaults.dir.core_assets));
+#endif
 }
 
 frontend_ctx_driver_t frontend_ctx_win32 = {
