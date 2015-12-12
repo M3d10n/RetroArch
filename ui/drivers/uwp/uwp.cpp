@@ -81,14 +81,6 @@ void App::SetWindow(CoreWindow^ window)
 	DisplayInformation::DisplayContentsInvalidated +=
 		ref new TypedEventHandler<DisplayInformation^, Object^>(this, &App::OnDisplayContentsInvalidated);
 
-	
-	m_window = window;
-	if (m_main)
-	{
-		critical_section::scoped_lock locl(m_main->GetCriticalSection());
-		m_main->SetWindow(window);
-		m_main->SetDisplayInformation(currentDisplayInformation);
-	}
 }
 
 // Initializes scene resources, or loads a previously saved app state.
@@ -97,16 +89,16 @@ void App::Load(Platform::String^ entryPoint)
 	if (m_main == nullptr)
 	{
 		// Create our "main"
-		m_main = std::unique_ptr<RetroarchMain>(new RetroarchMain(entryPoint));		
+		m_main = std::unique_ptr<RetroarchMain>(new RetroarchMain(entryPoint));
+
+		// Set the UI dispatcher
+		d3d11::ui_dispatcher = CoreWindow::GetForCurrentThread()->Dispatcher;
 	}
 }
 
 // This method is called after the window becomes active.
 void App::Run()
 {
-	m_main->SetWindow(CoreWindow::GetForCurrentThread());
-	m_main->SetDisplayInformation(DisplayInformation::GetForCurrentView());
-
 	m_main->StartUpdateThread();
 	
 	CoreWindow::GetForCurrentThread()->Dispatcher->ProcessEvents(CoreProcessEventsOption::ProcessUntilQuit);
@@ -162,7 +154,6 @@ void App::OnWindowSizeChanged(CoreWindow^ sender, WindowSizeChangedEventArgs^ ar
 {
 	critical_section::scoped_lock lock(m_main->GetCriticalSection());
 	GetResources()->SetLogicalSize(Size(sender->Bounds.Width, sender->Bounds.Height));
-	m_main->CreateWindowSizeDependentResources();
 }
 
 void App::OnVisibilityChanged(CoreWindow^ sender, VisibilityChangedEventArgs^ args)
@@ -181,14 +172,12 @@ void App::OnDpiChanged(DisplayInformation^ sender, Object^ args)
 {
 	critical_section::scoped_lock lock(m_main->GetCriticalSection());
 	GetResources()->SetDpi(sender->LogicalDpi);
-	m_main->CreateWindowSizeDependentResources();
 }
 
 void App::OnOrientationChanged(DisplayInformation^ sender, Object^ args)
 {
 	critical_section::scoped_lock lock(m_main->GetCriticalSection());
 	GetResources()->SetCurrentOrientation(sender->CurrentOrientation);
-	m_main->CreateWindowSizeDependentResources();
 }
 
 void App::OnDisplayContentsInvalidated(DisplayInformation^ sender, Object^ args)
@@ -213,20 +202,12 @@ RetroarchMain::~RetroarchMain()
 		resources->RegisterDeviceNotify(nullptr);
 }
 
-// Updates application state when the window size changes (e.g. device orientation change)
-void RetroarchMain::CreateWindowSizeDependentResources()
-{
-	// TODO: Replace this with the size-dependent initialization of your app's content.
-	//m_sceneRenderer->CreateWindowSizeDependentResources();
-	critical_section::scoped_lock lock(m_criticalSection);
-	GetResources()->CreateWindowSizeDependentResources();
-}
-
 // Updates the application state once per frame.
 void RetroarchMain::Update()
 {	
 	critical_section::scoped_lock lock(m_criticalSection);
 
+	// This needs to be done on every update in case the driver changes
 	auto resources = GetResources();
 	if (resources)
 	{
@@ -258,10 +239,9 @@ static DWORD WINAPI UpdateThreadFunc(void *data)
 		// Initialize
 		rarch_main(1, &args, NULL);
 
-		auto dispatcher = main->GetWindow()->Dispatcher;
-		auto async = dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new DispatchedHandler([=]() 
+		auto async = d3d11::ui_dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new DispatchedHandler([=]() 
 		{
-			GetResources()->SetWindow(main->GetWindow(), main->GetDisplayInformation());
+			GetResources()->SetWindow(CoreWindow::GetForCurrentThread(), DisplayInformation::GetForCurrentView());
 		}, Platform::CallbackContext::Any));
 		while (async->Status != AsyncStatus::Completed);
 
@@ -289,17 +269,6 @@ void RetroarchMain::StopUpdateThread()
 	//m_renderLoopWorker->Cancel();
 }
 
-void Retroarch::RetroarchMain::SetWindow(Windows::UI::Core::CoreWindow ^ Window)
-{
-	m_window = Window;
-	//GetResources()->SetLogicalSize(Windows::Foundation::Size(Window->Bounds.Width, Window->Bounds.Height));
-}
-
-void RetroarchMain::SetDisplayInformation(Windows::Graphics::Display::DisplayInformation^ DisplayInformation)
-{
-	m_displayInformation = DisplayInformation;
-}
-
 // Notifies renderers that device resources need to be released.
 void RetroarchMain::OnDeviceLost()
 {
@@ -312,7 +281,6 @@ void RetroarchMain::OnDeviceRestored()
 {
 	//m_sceneRenderer->CreateDeviceDependentResources();
 	//m_fpsTextRenderer->CreateDeviceDependentResources();
-	CreateWindowSizeDependentResources();
 }
 
 d3d11::DeviceResources * Retroarch::GetResources()

@@ -61,6 +61,8 @@ namespace ScreenRotation
 		);
 };
 
+Windows::UI::Core::CoreDispatcher^ d3d11::ui_dispatcher;
+
 // Constructor for DeviceResources.
 d3d11::DeviceResources::DeviceResources() :
 	m_screenViewport(),

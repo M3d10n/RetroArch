@@ -45,6 +45,8 @@ namespace d3d11
 		virtual void OnDeviceRestored() = 0;
 	};
 
+	// The static dispatcher for the UI thread
+	extern Windows::UI::Core::CoreDispatcher^ ui_dispatcher;
 
 	// Controls all the DirectX device resources.
 	class DeviceResources
@@ -65,8 +67,6 @@ namespace d3d11
 
 		// Device Accessors.
 		Windows::Foundation::Size GetOutputSize() const { return m_outputSize; }
-		void SetOutputSize(Windows::Foundation::Size outputSize) { m_outputSize = outputSize; }
-
 		Windows::Foundation::Size GetLogicalSize() const { return m_logicalSize; }
 
 		void CreateWindowSizeDependentResources();
@@ -91,7 +91,7 @@ namespace d3d11
 		D2D1::Matrix3x2F		GetOrientationTransform2D() const { return m_orientationTransform2D; }
 
 		ID2D1Bitmap1*			GetD2DMenuBitmap() const { return m_d2dMenuBitmap.Get(); }
-
+		
 	private:
 		void CreateDeviceIndependentResources();
 		void CreateDeviceResources();

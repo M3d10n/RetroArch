@@ -11,7 +11,6 @@ namespace Retroarch
 	public:
 		RetroarchMain(Platform::String^ entryPoint);
 		~RetroarchMain();
-		void CreateWindowSizeDependentResources();
 		void Update();
 
 		void StartUpdateThread();
@@ -19,24 +18,14 @@ namespace Retroarch
 
 		Concurrency::critical_section& GetCriticalSection() { return m_criticalSection; }
 		Platform::String^ GetEntryPoint() { return m_entryPoint; }
-		
-		Windows::UI::Core::CoreWindow^ GetWindow() { return m_window.Get();  }
-		void SetWindow(Windows::UI::Core::CoreWindow^ Window);
-
-		Windows::Graphics::Display::DisplayInformation^ GetDisplayInformation() { return m_displayInformation; }
-		void SetDisplayInformation(Windows::Graphics::Display::DisplayInformation^ DisplayInformation);
 
 		// IDeviceNotify
 		virtual void OnDeviceLost();
 		virtual void OnDeviceRestored();
 
 	private:
-		Platform::Agile<Windows::UI::Core::CoreWindow> m_window;
-		Windows::Graphics::Display::DisplayInformation^	m_displayInformation;
-
 		void* m_updateThread;
 		Platform::String^ m_entryPoint;
-
 
 		Concurrency::critical_section m_criticalSection;
 	};
@@ -71,7 +60,6 @@ namespace Retroarch
 		void OnDisplayContentsInvalidated(Windows::Graphics::Display::DisplayInformation^ sender, Platform::Object^ args);
 
 	private:
-		Platform::Agile<Windows::UI::Core::CoreWindow> m_window;
 		std::unique_ptr<RetroarchMain> m_main;
 		bool m_windowClosed;
 		bool m_windowVisible;
