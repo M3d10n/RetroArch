@@ -11,7 +11,6 @@ namespace Retroarch
 	public:
 		RetroarchMain(Platform::String^ entryPoint);
 		~RetroarchMain();
-		void Update();
 
 		void StartUpdateThread();
 		void StopUpdateThread();
@@ -24,7 +23,9 @@ namespace Retroarch
 		virtual void OnDeviceRestored();
 
 	private:
-		void* m_updateThread;
+		bool m_initialized;
+
+		Windows::Foundation::IAsyncAction^ m_updateWorker;
 		Platform::String^ m_entryPoint;
 
 		Concurrency::critical_section m_criticalSection;

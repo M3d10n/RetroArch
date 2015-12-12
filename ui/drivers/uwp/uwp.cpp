@@ -192,6 +192,7 @@ void App::OnDisplayContentsInvalidated(DisplayInformation^ sender, Object^ args)
 RetroarchMain::RetroarchMain(Platform::String^ entryPoint)
 {	
 	m_entryPoint = entryPoint;
+	m_initialized = false;
 }
 
 RetroarchMain::~RetroarchMain()
@@ -202,71 +203,64 @@ RetroarchMain::~RetroarchMain()
 		resources->RegisterDeviceNotify(nullptr);
 }
 
-// Updates the application state once per frame.
-void RetroarchMain::Update()
-{	
-	critical_section::scoped_lock lock(m_criticalSection);
-
-	// This needs to be done on every update in case the driver changes
-	auto resources = GetResources();
-	if (resources)
-	{
-		resources->RegisterDeviceNotify(this);
-	}
-
-	unsigned sleep_ms = 0;
-	int ret = rarch_main_iterate(&sleep_ms);
-	if (ret == 1 && sleep_ms > 0)
-		retro_sleep(sleep_ms);
-	rarch_main_data_iterate();
-	if (ret != -1)
-		return; // TODO: quit the app?	
-}
-
-static DWORD WINAPI UpdateThreadFunc(void *data)
-{
-	RetroarchMain* main = (RetroarchMain*)data;
-
-	{
-		critical_section::scoped_lock lock(main->GetCriticalSection());
-
-		// Convert the entry point from wchar* to char*
-		size_t buffer_size = main->GetEntryPoint()->Length() + 1;
-		char * args = (char *)malloc(buffer_size);
-		size_t i;
-		wcstombs_s(&i, args, buffer_size, main->GetEntryPoint()->Data(), buffer_size);
-
-		// Initialize
-		rarch_main(1, &args, NULL);
-
-		auto async = d3d11::ui_dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new DispatchedHandler([=]() 
-		{
-			GetResources()->SetWindow(CoreWindow::GetForCurrentThread(), DisplayInformation::GetForCurrentView());
-		}, Platform::CallbackContext::Any));
-		while (async->Status != AsyncStatus::Completed);
-
-		// Free the arguments
-		free(args);
-	}
-
-	while (true)
-	{
-		main->Update();
-	}
-}
-
-
 void RetroarchMain::StartUpdateThread()
 {
-	if (!m_updateThread)
+	// Already running
+	if (m_updateWorker && m_updateWorker->Status == AsyncStatus::Started)
 	{
-		m_updateThread = CreateThread(NULL, 0, UpdateThreadFunc, this, 0, NULL);
+		return;
 	}
+
+	auto workItemHandler = ref new WorkItemHandler([this](IAsyncAction^)
+	{
+		// Initialize only once
+		if (!m_initialized)
+		{
+			critical_section::scoped_lock lock(m_criticalSection);
+
+			// Convert the entry point from wchar* to char*
+			size_t buffer_size = m_entryPoint->Length() + 1;
+			char * args = (char *)malloc(buffer_size);
+			size_t i;
+			wcstombs_s(&i, args, buffer_size, m_entryPoint->Data(), buffer_size);
+
+			// Initialize
+			rarch_main(1, &args, NULL);
+
+			// Free the arguments
+			free(args);
+
+			m_initialized = true;
+		}
+
+		// Update
+		while (true)
+		{
+			critical_section::scoped_lock lock(m_criticalSection);
+
+			// This needs to be done on every update in case the driver changes
+			auto resources = GetResources();
+			if (resources)
+			{
+				resources->RegisterDeviceNotify(this);
+			}
+
+			unsigned sleep_ms = 0;
+			int ret = rarch_main_iterate(&sleep_ms);
+			if (ret == 1 && sleep_ms > 0)
+				retro_sleep(sleep_ms);
+			rarch_main_data_iterate();
+		}
+	});
+
+	// Run task on a dedicated high priority background thread.
+	m_updateWorker = ThreadPool::RunAsync(workItemHandler, WorkItemPriority::High, WorkItemOptions::TimeSliced);
+	
 }
 
 void RetroarchMain::StopUpdateThread()
 {
-	//m_renderLoopWorker->Cancel();
+	m_updateWorker->Cancel();
 }
 
 // Notifies renderers that device resources need to be released.

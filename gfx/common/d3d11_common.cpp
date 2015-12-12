@@ -77,6 +77,13 @@ d3d11::DeviceResources::DeviceResources() :
 {
 	CreateDeviceIndependentResources();
 	CreateDeviceResources();
+
+	// Grab the window from the UI thread
+	auto async = d3d11::ui_dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new DispatchedHandler([=]()
+	{
+		this->SetWindow(CoreWindow::GetForCurrentThread(), DisplayInformation::GetForCurrentView());
+	}, Platform::CallbackContext::Any));
+	while (async->Status != AsyncStatus::Completed);
 }
 
 // Configures resources that don't depend on the Direct3D device.
