@@ -23,41 +23,75 @@
 
 using namespace Windows::Foundation;
 using namespace Windows::UI::Core;
+using namespace concurrency;
+
+
+struct key_state_t {
+   uint8 state;
+   unsigned int scan_code;
+};
+
+struct key_states_t {
+   key_state_t previous[256];
+   key_state_t A[256];
+   key_state_t B[256];
+   key_state_t* current;
+} key_states;
+Concurrency::critical_section input_critical_section;
 
 static void OnKeyEvent(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::KeyEventArgs^ args)
 {
-	bool is_down = !args->KeyStatus.IsKeyReleased;
-
-	input_keyboard_event(is_down, (unsigned int)args->VirtualKey, args->KeyStatus.ScanCode, 0,
-		RETRO_DEVICE_KEYBOARD);
+	unsigned int key = (unsigned int)args->VirtualKey;
+	key_states.current[key].state = !args->KeyStatus.IsKeyReleased;
+   key_states.current[key].scan_code = args->KeyStatus.ScanCode;
 }
 
 static void *uwp_input_input_init(void)
 {
-   RARCH_ERR("Using the null input driver. RetroArch will ignore you.");
+   memset(&key_states, 0, sizeof(key_states));
+   key_states.current = key_states.A;
 
    input_keymaps_init_keyboard_lut(rarch_key_map_uwp);
 
-   /*
-   auto window = Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow;
-   if (window)
+   // Input events are handled on the UI thread
+   auto async = d3d11::ui_dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new DispatchedHandler([=]()
    {
-	   window->KeyDown += ref new TypedEventHandler<CoreWindow^, KeyEventArgs^>(&OnKeyEvent);
-	   window->KeyUp += ref new TypedEventHandler<CoreWindow^, KeyEventArgs^>(&OnKeyEvent);
-   }
-   */
-
+	   CoreWindow::GetForCurrentThread()->KeyDown += ref new TypedEventHandler<CoreWindow^, KeyEventArgs^>(&OnKeyEvent);
+	   CoreWindow::GetForCurrentThread()->KeyUp += ref new TypedEventHandler<CoreWindow^, KeyEventArgs^>(&OnKeyEvent);
+   }, Platform::CallbackContext::Any));
+   
    return (void*)-1;
 }
 
 static void uwp_input_input_poll(void *data)
 {
-   (void)data;
+   int i;
+
+   // Get a pointer to the current and next buffers
+   key_state_t* next = key_states.current == key_states.A ? key_states.B : key_states.A;
+   key_state_t* current = key_states.current;
+
+   // Clear the next buffer
+   memset(next, 0, sizeof(key_states.previous));
+
+   // Flip the buffer the UI thread writes to (this should be atomic)
+   key_states.current = next;
+
+   // Check for changed key state
+   for (i = 0; i < ARRAY_SIZE(key_states.previous); i++)
+   {
+      if (current[i].state != key_states.previous[i].state)
+      {
+         input_keyboard_event(current[i].state, i, current[i].scan_code, 0, RETRO_DEVICE_KEYBOARD);
+      }
+   }
+
+   // Copy the current values to the previous buffer
+   memcpy(key_states.previous, current, sizeof(key_states.previous));
 }
 
 static bool uwp_input_keyboard_pressed(unsigned key)
 {
-	return false;
 	settings_t *settings = config_get_ptr();
 
 	key = settings->input.binds[0][key].key;
@@ -67,17 +101,10 @@ static bool uwp_input_keyboard_pressed(unsigned key)
 
 	Windows::System::VirtualKey tk = (Windows::System::VirtualKey)input_keymaps_translate_rk_to_keysym((enum retro_key)key);
 
-	auto window = Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow;
-	if (window)
-	{
-		bool isDown = (bool)(window->GetKeyState(tk) & Windows::UI::Core::CoreVirtualKeyStates::Down);
-		if (isDown)
-		{
-			return true;
-		} 
-	}
+   // Read the state from where the UI thread is *not* currently writing to
+   key_state_t* current = key_states.current == key_states.A ? key_states.B : key_states.A;
 
-	return false;
+	return current[(unsigned int)tk].state;
 }
 
 static int16_t uwp_input_input_state(void *data,
