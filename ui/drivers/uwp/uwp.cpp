@@ -3,7 +3,9 @@
 #include "runloop.h"
 #include "runloop_data.h"
 #include "gfx/video_driver.h"
+#include "general.h"
 
+#include <file/file_path.h>
 #include <ppltasks.h>
 
 using namespace Retroarch;
@@ -225,6 +227,15 @@ void RetroarchMain::StartUpdateThread()
          // Initialize
          rarch_main(1, &args, NULL);
 
+         // Override the core folder based on the current architecture
+         settings_t *settings = config_get_ptr();         
+#if defined(_ARM_)
+         fill_pathname_join(settings->libretro_directory, g_defaults.dir.core, "ARM", sizeof(settings->libretro_directory));
+#elif defined(_X86_)
+         fill_pathname_join(settings->libretro_directory, g_defaults.dir.core, "x86", sizeof(settings->libretro_directory));
+#elif defined(_AMD64_)
+         fill_pathname_join(settings->libretro_directory, g_defaults.dir.core, "x64", sizeof(settings->libretro_directory));
+#endif
          // Free the arguments
          free(args);
 

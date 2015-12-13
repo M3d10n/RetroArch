@@ -296,7 +296,7 @@ static void frontend_win32_environment_get(int *argc, char *argv[],
    fill_pathname_join(g_defaults.dir.cache, applocal, "cache", sizeof(g_defaults.dir.cache));
    
    // Read-only, comes in the app package
-   fill_pathname_join(g_defaults.dir.core, g_defaults.dir.port, "cores", sizeof(g_defaults.dir.core));
+   fill_pathname_join(g_defaults.dir.core, g_defaults.dir.port, "bin", sizeof(g_defaults.dir.core));
    fill_pathname_join(g_defaults.dir.core_info, g_defaults.dir.port, "cores/info", sizeof(g_defaults.dir.core_info));
    fill_pathname_join(g_defaults.dir.core_assets, g_defaults.dir.port, "cores/assets", sizeof(g_defaults.dir.core_assets));
 #endif
