@@ -116,7 +116,7 @@ static int16_t uwp_input_input_state(void *data,
    switch (device)
    {
    case RETRO_DEVICE_JOYPAD:
-	   return 0;
+      return uwp_input_keyboard_pressed(id);
 
    case RETRO_DEVICE_KEYBOARD:
 	   return uwp_input_keyboard_pressed(id);

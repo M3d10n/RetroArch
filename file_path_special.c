@@ -155,7 +155,7 @@ void fill_pathname_application_path(char *buf, size_t size)
    if (!size)
       return;
 
-#ifdef defined(_WIN32)
+#ifdef _WIN32
    DWORD ret = GetModuleFileName(GetModuleHandle(NULL), buf, size - 1);
    buf[ret] = '\0';
 #elif defined(__APPLE__)
