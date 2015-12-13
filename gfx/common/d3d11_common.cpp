@@ -73,7 +73,8 @@ d3d11::DeviceResources::DeviceResources() :
 	m_nativeOrientation(DisplayOrientations::None),
 	m_currentOrientation(DisplayOrientations::None),
 	m_dpi(-1.0f),
-	m_deviceNotify(nullptr)
+	m_deviceNotify(nullptr),
+   m_bitmapConversionBufferSize(0)
 {
 	CreateDeviceIndependentResources();
 	CreateDeviceResources();
@@ -604,70 +605,86 @@ void d3d11::DeviceResources::Present()
 }
 
 // Creates or updates the menu texture contents
-void d3d11::DeviceResources::SetMenuTextureFrame(void * data, const void * frame, bool rgb32, unsigned width, unsigned height, float alpha)
+void d3d11::DeviceResources::SetMenuTextureFrame(const void * frame, bool rgb32, unsigned width, unsigned height, float alpha)
 {
-	HRESULT hr;
+   UpdateBitmap(m_d2dMenuBitmap, frame, rgb32, width, height, alpha);
+}
 
-	// Create or re-create the bitmap
-	if (!m_d2dMenuBitmap.Get() || m_d2dMenuBitmap->GetPixelSize().width != width || m_d2dMenuBitmap->GetPixelSize().height != height)
-	{
-		D2D1_SIZE_U newSize = {width, height};
-		D2D1_BITMAP_PROPERTIES1 properties;
-		properties.dpiX = m_dpi;
-		properties.dpiY = m_dpi;
-		properties.pixelFormat = { DXGI_FORMAT_B8G8R8A8_UNORM , D2D1_ALPHA_MODE_IGNORE };
-		properties.bitmapOptions = D2D1_BITMAP_OPTIONS_NONE;
-		properties.colorContext = NULL;
+void d3d11::DeviceResources::SetFrameTexture(const void * frame, bool rgb32, unsigned width, unsigned height)
+{
+   UpdateBitmap(m_d2dFrameBitmap, frame, rgb32, width, height, 1.0f);
+}
 
-		hr = m_d2dContext->CreateBitmap(newSize, NULL, 0, properties, &m_d2dMenuBitmap);
-		d3d11::ThrowIfFailed(hr);
+void d3d11::DeviceResources::UpdateBitmap(Microsoft::WRL::ComPtr<ID2D1Bitmap1>& bitmap, const void * frame, bool rgb32, unsigned width, unsigned height, float alpha)
+{
+   HRESULT hr;
 
-		// The buffer used to convert the data
-		m_MenuBitmapBuffer.reset((uint8*)calloc(width * height, sizeof(uint32_t)), free);
-	}
+   // Create or re-create the bitmap
+   if (!bitmap.Get() || bitmap->GetPixelSize().width != width || bitmap->GetPixelSize().height != height)
+   {
+      D2D1_SIZE_U newSize = { width, height };
+      D2D1_BITMAP_PROPERTIES1 properties;
+      properties.dpiX = m_dpi;
+      properties.dpiY = m_dpi;
+      properties.pixelFormat = { DXGI_FORMAT_B8G8R8A8_UNORM , D2D1_ALPHA_MODE_IGNORE };
+      properties.bitmapOptions = D2D1_BITMAP_OPTIONS_NONE;
+      properties.colorContext = NULL;
 
-	// Write into the CPU-accessible bitmap
-	unsigned pitch = width * sizeof(uint32_t);
-	void* bits = m_MenuBitmapBuffer.get();
-	unsigned h, w;
-	if (rgb32)
-	{
-		uint8_t        *dst = (uint8_t*)bits;
-		const uint32_t *src = (const uint32_t*)frame;
+      hr = m_d2dContext->CreateBitmap(newSize, NULL, 0, properties, &bitmap);
+      d3d11::ThrowIfFailed(hr);
 
-		for (h = 0; h < height; h++, dst += pitch, src += width)
-		{
-			memcpy(dst, src, width * sizeof(uint32_t));
-			memset(dst + width * sizeof(uint32_t), 0,
-				   pitch - width * sizeof(uint32_t));
-		}
-	}
-	else
-	{
-		uint32_t       *dst = (uint32_t*)bits;
-		const uint16_t *src = (const uint16_t*)frame;
+   }
 
-		for (h = 0; h < height; h++, dst += pitch >> 2, src += width)
-		{
-			for (w = 0; w < width; w++)
-			{
-				uint16_t c = src[w];
-				uint32_t r = (c >> 12) & 0xf;
-				uint32_t g = (c >> 8) & 0xf;
-				uint32_t b = (c >> 4) & 0xf;
-				uint32_t a = (c >> 0) & 0xf;
-				r = ((r << 4) | r) << 16;
-				g = ((g << 4) | g) << 8;
-				b = ((b << 4) | b) << 0;
-				a = ((a << 4) | a) << 24;
-				dst[w] = r | g | b | a;
-			}
-		}
-	}
+   // Resize the buffer used to convert the data, if necessary
+   size_t frame_size = width * height;
+   if (frame_size > m_bitmapConversionBufferSize)
+   {
+      m_bitmapConversionBuffer.reset((uint8*)calloc(frame_size, sizeof(uint32_t)), free);
+      m_bitmapConversionBufferSize = frame_size;
+   }
 
-	// Copy to the GPU bitmap
-	hr = m_d2dMenuBitmap->CopyFromMemory(NULL, bits, pitch);
-	d3d11::ThrowIfFailed(hr);
+   // Write into the CPU-accessible bitmap
+   unsigned pitch = width * sizeof(uint32_t);
+   void* bits = m_bitmapConversionBuffer.get();
+   unsigned h, w;
+   if (rgb32)
+   {
+      uint8_t        *dst = (uint8_t*)bits;
+      const uint32_t *src = (const uint32_t*)frame;
+
+      for (h = 0; h < height; h++, dst += pitch, src += width)
+      {
+         memcpy(dst, src, width * sizeof(uint32_t));
+         memset(dst + width * sizeof(uint32_t), 0,
+            pitch - width * sizeof(uint32_t));
+      }
+   }
+   else
+   {
+      uint32_t       *dst = (uint32_t*)bits;
+      const uint16_t *src = (const uint16_t*)frame;
+
+      for (h = 0; h < height; h++, dst += pitch >> 2, src += width)
+      {
+         for (w = 0; w < width; w++)
+         {
+            uint16_t c = src[w];
+            uint32_t r = (c >> 12) & 0xf;
+            uint32_t g = (c >> 8) & 0xf;
+            uint32_t b = (c >> 4) & 0xf;
+            uint32_t a = (c >> 0) & 0xf;
+            r = ((r << 4) | r) << 16;
+            g = ((g << 4) | g) << 8;
+            b = ((b << 4) | b) << 0;
+            a = ((a << 4) | a) << 24;
+            dst[w] = r | g | b | a;
+         }
+      }
+   }
+
+   // Copy to the GPU bitmap
+   hr = bitmap->CopyFromMemory(NULL, bits, pitch);
+   d3d11::ThrowIfFailed(hr);
 }
 
 // This method determines the rotation between the display device's native Orientation and the

@@ -278,8 +278,13 @@ static void frontend_win32_environment_get(int *argc, char *argv[],
    auto roaming_folder = Windows::Storage::ApplicationData::Current->RoamingFolder->Path;
    pstringtocs(appdata, roaming_folder, sizeof(appdata));
 
-   const char* app = "ms-appx:///";
-   retro_main_log_file_init("ms-appdata:///local/retroarch-log.txt");
+   fill_pathname_application_path(g_defaults.dir.port, sizeof(g_defaults.dir.port));
+   fill_pathname_basedir(g_defaults.dir.port, g_defaults.dir.port, sizeof(g_defaults.dir.port));
+   g_defaults.dir.port[strlen(g_defaults.dir.port) - 1] = 0;
+
+   char logfile[1024];
+   fill_pathname_join(logfile, applocal, "retroarch-log.txt", sizeof(logfile));
+   retro_main_log_file_init(logfile);
    
    // Store in roaming folder to sync across devices
    fill_pathname_join(g_defaults.path.config, appdata, "retroarch.cfg", sizeof(g_defaults.path.config));
@@ -291,9 +296,9 @@ static void frontend_win32_environment_get(int *argc, char *argv[],
    fill_pathname_join(g_defaults.dir.cache, applocal, "cache", sizeof(g_defaults.dir.cache));
    
    // Read-only, comes in the app package
-   fill_pathname_join(g_defaults.dir.core, app, "cores", sizeof(g_defaults.dir.core));
-   fill_pathname_join(g_defaults.dir.core_info, app, "cores/info", sizeof(g_defaults.dir.core_info));
-   fill_pathname_join(g_defaults.dir.core_assets, app, "cores/assets", sizeof(g_defaults.dir.core_assets));
+   fill_pathname_join(g_defaults.dir.core, g_defaults.dir.port, "cores", sizeof(g_defaults.dir.core));
+   fill_pathname_join(g_defaults.dir.core_info, g_defaults.dir.port, "cores/info", sizeof(g_defaults.dir.core_info));
+   fill_pathname_join(g_defaults.dir.core_assets, g_defaults.dir.port, "cores/assets", sizeof(g_defaults.dir.core_assets));
 #endif
 }
 

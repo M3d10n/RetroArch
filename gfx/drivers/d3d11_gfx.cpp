@@ -119,14 +119,18 @@ static bool d3d11_gfx_frame(void *data, const void *frame,
 
    d2dctx->SetTransform(d3d11_get_display_matrix(data, width, height));
 
+   auto viewport = d3d11res->GetScreenViewport();
+   D2D1_RECT_F rect = { 0, 0, viewport.Width, viewport.Height };
+
+   d3d11res->SetFrameTexture(frame, true, width, height);
+
+   d2dctx->DrawBitmap(d3d11res->GetD2DFrameBitmap(), rect);
+
 #ifdef HAVE_MENU
    auto menu_bitmap = d3d11res->GetD2DMenuBitmap();
    if (menu_bitmap)
    {
-	   d2dctx->SetTransform(d3d11_get_display_matrix(data, menu_bitmap->GetPixelSize().width, menu_bitmap->GetPixelSize().height));
-
-	   auto viewport = d3d11res->GetScreenViewport();	   
-	   D2D1_RECT_F rect = {0, 0, viewport.Width, viewport.Height};
+	   d2dctx->SetTransform(d3d11_get_display_matrix(data, menu_bitmap->GetPixelSize().width, menu_bitmap->GetPixelSize().height));	   
 	   d2dctx->DrawBitmap(menu_bitmap, rect);
    }
 #endif
@@ -313,7 +317,7 @@ static void d3d11_set_menu_texture_frame(void *data,
 	float alpha)
 {
 	auto d3d11res = (d3d11::DeviceResources*)data;
-	d3d11res->SetMenuTextureFrame(data, frame, rgb32, width, height, alpha);
+	d3d11res->SetMenuTextureFrame(frame, rgb32, width, height, alpha);
 	
 }
 

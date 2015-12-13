@@ -65,8 +65,27 @@ dylib_t dylib_load(const char *path)
 {
 #ifdef _WIN32
 #if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
-	LPWSTR wpath = (LPWSTR)malloc(strlen(path) * sizeof(WCHAR));
-	mbstowcs(wpath, path, strlen(path));
+
+   char buf[1024];
+   DWORD len = GetModuleFileName(GetModuleHandle(NULL), buf, sizeof(buf)-1);
+   char * tmp = strrchr(buf, '\\');
+   if (tmp)
+   {
+      tmp[0] = 0;
+   }
+
+   if (strstr(path, buf) == path)
+   {
+      const char * src = &path[strlen(buf) + 1];
+      strcpy(buf, src);
+   }
+   else
+   {
+      strcpy(buf, path);
+   }
+
+	LPWSTR wpath = (LPWSTR)malloc((1+strlen(buf)) * sizeof(WCHAR));
+	mbstowcs(wpath, buf, strlen(buf)+1);
 	dylib_t lib = LoadPackagedLibrary(wpath, 0);
 #else
    int prevmode = SetErrorMode(SEM_FAILCRITICALERRORS | SEM_NOOPENFILEERRORBOX);

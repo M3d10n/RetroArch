@@ -192,6 +192,9 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="cores\2048_libretro.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
     <None Include="RetroArch-Win10_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -415,6 +418,10 @@
     <ClInclude Include="..\..\..\config.def.h" />
     <ClInclude Include="..\..\..\gfx\common\d3d11_common.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\uwp.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RetroArch-Win10.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

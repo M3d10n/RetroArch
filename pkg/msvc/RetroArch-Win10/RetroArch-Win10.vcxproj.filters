@@ -761,6 +761,7 @@
     <ClInclude Include="..\..\..\config.def.h">
       <Filter>Source</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\LockScreenLogo.scale-200.png">
@@ -790,5 +791,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="RetroArch-Win10_TemporaryKey.pfx" />
+    <None Include="cores\2048_libretro.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RetroArch-Win10.rc" />
   </ItemGroup>
 </Project>
