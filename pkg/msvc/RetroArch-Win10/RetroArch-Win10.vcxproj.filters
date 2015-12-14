@@ -793,6 +793,8 @@
     <None Include="RetroArch-Win10_TemporaryKey.pfx" />
     <None Include="bin\x64\2048_libretro.dll" />
     <None Include="bin\x86\2048_libretro.dll" />
+    <None Include="bin\x64\genesis_plus_gx_libretro.dll" />
+    <None Include="bin\x86\genesis_plus_gx_libretro.dll" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="RetroArch-Win10.rc" />

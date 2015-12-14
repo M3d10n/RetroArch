@@ -52,7 +52,7 @@ namespace d3d11
 	class DeviceResources
 	{
 	public:
-		DeviceResources();
+		DeviceResources(const video_info_t* info);
 		void SetWindow(Windows::UI::Core::CoreWindow^ window, Windows::Graphics::Display::DisplayInformation^ currentDisplayInformation);
 		void SetLogicalSize(Windows::Foundation::Size logicalSize);
 		void SetCurrentOrientation(Windows::Graphics::Display::DisplayOrientations currentOrientation);
@@ -64,9 +64,9 @@ namespace d3d11
 		void Present();
 
       void SetMenuTextureFrame(const void *frame, bool rgb32, unsigned width, unsigned height, float alpha);
-      void SetFrameTexture(const void *frame, bool rgb32, unsigned width, unsigned height);
+      void SetFrameTexture(const void *frame, bool rgb32, unsigned width, unsigned height, unsigned pitch);
 
-      void UpdateBitmap(Microsoft::WRL::ComPtr<ID2D1Bitmap1>& bitmap, const void *frame, bool rgb32, unsigned width, unsigned height, float alpha);
+      void UpdateBitmap(Microsoft::WRL::ComPtr<ID2D1Bitmap1>& bitmap, const void *frame, bool rgb32, unsigned width, unsigned height, unsigned pitch, float alpha, bool has_alpha);
 
 
 		// Device Accessors.
@@ -96,6 +96,8 @@ namespace d3d11
 
       ID2D1Bitmap1*			GetD2DMenuBitmap() const { return m_d2dMenuBitmap.Get(); }
       ID2D1Bitmap1*			GetD2DFrameBitmap() const { return m_d2dFrameBitmap.Get(); }
+
+      const video_info_t*  GetVideoInfo() const { return &m_videoInfo; }
 		
 	private:
 		void CreateDeviceIndependentResources();
@@ -144,6 +146,8 @@ namespace d3d11
 
 		std::shared_ptr<uint8>	m_bitmapConversionBuffer;
       size_t                  m_bitmapConversionBufferSize;
+
+      video_info_t m_videoInfo;
 
 		// The IDeviceNotify can be held directly as it owns the DeviceResources.
 		IDeviceNotify* m_deviceNotify;

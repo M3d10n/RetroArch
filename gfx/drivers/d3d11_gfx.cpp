@@ -45,7 +45,7 @@ static void *d3d11_gfx_init(const video_info_t *video,
    *input_data = NULL;
 
    // Create the video resources
-   vid = new d3d11::DeviceResources();   
+   vid = new d3d11::DeviceResources(video);
    
    // Create the context
    ctx = d3d11_get_context(vid);
@@ -122,7 +122,7 @@ static bool d3d11_gfx_frame(void *data, const void *frame,
    auto viewport = d3d11res->GetScreenViewport();
    D2D1_RECT_F rect = { 0, 0, viewport.Width, viewport.Height };
 
-   d3d11res->SetFrameTexture(frame, true, width, height);
+   d3d11res->SetFrameTexture(frame, d3d11res->GetVideoInfo()->rgb32, width, height, pitch);
 
    d2dctx->DrawBitmap(d3d11res->GetD2DFrameBitmap(), rect);
 

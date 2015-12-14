@@ -243,8 +243,13 @@ static int frontend_win32_parse_drive_list(void *data)
 {
 #if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
 	file_list_t *list = (file_list_t*)data;
+
+   char applocal[1024];
+   auto local_folder = Windows::Storage::ApplicationData::Current->LocalFolder->Path;
+   pstringtocs(applocal, local_folder, sizeof(applocal));
+
 	menu_entries_push(list,
-		"ms-appdata:///local/", "", MENU_FILE_DIRECTORY, 0, 0);
+      applocal, "Local Storage", MENU_FILE_DIRECTORY, 0, 0);
 #else
    size_t i = 0;
    unsigned drives = GetLogicalDrives();

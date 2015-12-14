@@ -64,7 +64,7 @@ namespace ScreenRotation
 Windows::UI::Core::CoreDispatcher^ d3d11::ui_dispatcher;
 
 // Constructor for DeviceResources.
-d3d11::DeviceResources::DeviceResources() :
+d3d11::DeviceResources::DeviceResources(const video_info_t* info) :
 	m_screenViewport(),
 	m_d3dFeatureLevel(D3D_FEATURE_LEVEL_9_1),
 	m_d3dRenderTargetSize(),
@@ -74,7 +74,8 @@ d3d11::DeviceResources::DeviceResources() :
 	m_currentOrientation(DisplayOrientations::None),
 	m_dpi(-1.0f),
 	m_deviceNotify(nullptr),
-   m_bitmapConversionBufferSize(0)
+   m_bitmapConversionBufferSize(0),
+   m_videoInfo(*info)
 {
 	CreateDeviceIndependentResources();
 	CreateDeviceResources();
@@ -607,15 +608,15 @@ void d3d11::DeviceResources::Present()
 // Creates or updates the menu texture contents
 void d3d11::DeviceResources::SetMenuTextureFrame(const void * frame, bool rgb32, unsigned width, unsigned height, float alpha)
 {
-   UpdateBitmap(m_d2dMenuBitmap, frame, rgb32, width, height, alpha);
+   UpdateBitmap(m_d2dMenuBitmap, frame, rgb32, width, height, width, alpha, true);
 }
 
-void d3d11::DeviceResources::SetFrameTexture(const void * frame, bool rgb32, unsigned width, unsigned height)
+void d3d11::DeviceResources::SetFrameTexture(const void * frame, bool rgb32, unsigned width, unsigned height, unsigned pitch)
 {
-   UpdateBitmap(m_d2dFrameBitmap, frame, rgb32, width, height, 1.0f);
+   UpdateBitmap(m_d2dFrameBitmap, frame, rgb32, width, height, pitch, 1.0f, false);
 }
 
-void d3d11::DeviceResources::UpdateBitmap(Microsoft::WRL::ComPtr<ID2D1Bitmap1>& bitmap, const void * frame, bool rgb32, unsigned width, unsigned height, float alpha)
+void d3d11::DeviceResources::UpdateBitmap(Microsoft::WRL::ComPtr<ID2D1Bitmap1>& bitmap, const void * frame, bool rgb32, unsigned width, unsigned height, unsigned pitch, float alpha, bool has_alpha)
 {
    HRESULT hr;
 
@@ -644,7 +645,7 @@ void d3d11::DeviceResources::UpdateBitmap(Microsoft::WRL::ComPtr<ID2D1Bitmap1>& 
    }
 
    // Write into the CPU-accessible bitmap
-   unsigned pitch = width * sizeof(uint32_t);
+   unsigned dst_pitch = width * sizeof(uint32_t);
    void* bits = m_bitmapConversionBuffer.get();
    unsigned h, w;
    if (rgb32)
@@ -652,19 +653,19 @@ void d3d11::DeviceResources::UpdateBitmap(Microsoft::WRL::ComPtr<ID2D1Bitmap1>& 
       uint8_t        *dst = (uint8_t*)bits;
       const uint32_t *src = (const uint32_t*)frame;
 
-      for (h = 0; h < height; h++, dst += pitch, src += width)
+      for (h = 0; h < height; h++, dst += dst_pitch, src += width)
       {
          memcpy(dst, src, width * sizeof(uint32_t));
          memset(dst + width * sizeof(uint32_t), 0,
-            pitch - width * sizeof(uint32_t));
+            dst_pitch - width * sizeof(uint32_t));
       }
    }
-   else
+   else if (has_alpha)
    {
       uint32_t       *dst = (uint32_t*)bits;
       const uint16_t *src = (const uint16_t*)frame;
 
-      for (h = 0; h < height; h++, dst += pitch >> 2, src += width)
+      for (h = 0; h < height; h++, dst += dst_pitch >> 2, src += width)
       {
          for (w = 0; w < width; w++)
          {
@@ -681,9 +682,28 @@ void d3d11::DeviceResources::UpdateBitmap(Microsoft::WRL::ComPtr<ID2D1Bitmap1>& 
          }
       }
    }
+   else
+   {
+      uint32_t       *dst = (uint32_t*)bits;
+      const uint16_t *src = (const uint16_t*)frame;
+
+      for (h = 0; h < height; h++, dst += dst_pitch >> 2, src += (pitch >> 1))
+      {
+         for (w = 0; w < width; w++)
+         {
+            uint16_t c = src[w];
+
+            uint32_t r = (c & 0xf800) << 8;
+            uint32_t g = (c & 0x07e0) << 5;
+            uint32_t b = (c & 0x001f) << 3;
+
+            dst[w] = r | g | b;
+         }
+      }
+   }
 
    // Copy to the GPU bitmap
-   hr = bitmap->CopyFromMemory(NULL, bits, pitch);
+   hr = bitmap->CopyFromMemory(NULL, bits, dst_pitch);
    d3d11::ThrowIfFailed(hr);
 }
 
