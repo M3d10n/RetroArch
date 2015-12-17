@@ -153,6 +153,10 @@ void App::OnResuming(Platform::Object^ sender, Platform::Object^ args)
 
 void App::OnWindowSizeChanged(CoreWindow^ sender, WindowSizeChangedEventArgs^ args)
 {
+   if (!m_main->IsInitialized())
+   {
+      return;
+   }
    critical_section::scoped_lock lock(m_main->GetCriticalSection());
    GetResources()->SetLogicalSize(Size(sender->Bounds.Width, sender->Bounds.Height));
 }
@@ -170,18 +174,33 @@ void App::OnWindowClosed(CoreWindow^ sender, CoreWindowEventArgs^ args)
 
 void App::OnDpiChanged(DisplayInformation^ sender, Object^ args)
 {
+   if (!m_main->IsInitialized())
+   {
+      return;
+   }
+
    critical_section::scoped_lock lock(m_main->GetCriticalSection());
    GetResources()->SetDpi(sender->LogicalDpi);
 }
 
 void App::OnOrientationChanged(DisplayInformation^ sender, Object^ args)
 {
+   if (!m_main->IsInitialized())
+   {
+      return;
+   }
+
    critical_section::scoped_lock lock(m_main->GetCriticalSection());
    GetResources()->SetCurrentOrientation(sender->CurrentOrientation);
 }
 
 void App::OnDisplayContentsInvalidated(DisplayInformation^ sender, Object^ args)
 {
+   if (!m_main->IsInitialized())
+   {
+      return;
+   }
+
    critical_section::scoped_lock lock(m_main->GetCriticalSection());
    GetResources()->ValidateDevice();
 }
@@ -217,13 +236,15 @@ void RetroarchMain::StartUpdateThread()
       if (!m_initialized)
       {
          critical_section::scoped_lock lock(m_criticalSection);
-
+         critical_section::scoped_lock init_loc(m_initCriticalSection);
+         
          // Convert the entry point from wchar* to char*
          size_t buffer_size = m_entryPoint->Length() + 1;
          char * args = (char *)malloc(buffer_size);
          size_t i;
          wcstombs_s(&i, args, buffer_size, m_entryPoint->Data(), buffer_size);
-
+         
+         
          // Initialize
          rarch_main(1, &args, NULL);
 
@@ -272,6 +293,16 @@ void RetroarchMain::StopUpdateThread()
    //critical_section::scoped_lock lock(m_criticalSection);
    event_command(EVENT_CMD_MENU_SAVE_CURRENT_CONFIG);
    m_updateWorker->Cancel();
+}
+
+bool RetroarchMain::IsInitialized()
+{
+   if (!m_initCriticalSection.try_lock())
+   {
+      return false;
+   }
+   m_initCriticalSection.unlock();
+   return true;
 }
 
 // Notifies renderers that device resources need to be released.

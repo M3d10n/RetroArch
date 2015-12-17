@@ -16,6 +16,9 @@ namespace Retroarch
       void StopUpdateThread();
 
       Concurrency::critical_section& GetCriticalSection() { return m_criticalSection; }
+      bool IsInitialized();
+
+
       Platform::String^ GetEntryPoint() { return m_entryPoint; }
 
       // IDeviceNotify
@@ -29,6 +32,7 @@ namespace Retroarch
       Platform::String^ m_entryPoint;
 
       Concurrency::critical_section m_criticalSection;
+      Concurrency::critical_section m_initCriticalSection;
    };
 
    // Main entry point for our app. Connects the app with the Windows shell and handles application lifecycle events.

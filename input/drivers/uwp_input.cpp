@@ -41,6 +41,8 @@ Concurrency::critical_section input_critical_section;
 
 static void OnKeyEvent(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::KeyEventArgs^ args)
 {
+   critical_section::scoped_lock lock(input_critical_section);
+
 	unsigned int key = (unsigned int)args->VirtualKey;
 	key_states.current[key].state = !args->KeyStatus.IsKeyReleased;
    key_states.current[key].scan_code = args->KeyStatus.ScanCode;
@@ -71,11 +73,15 @@ static void uwp_input_input_poll(void *data)
    key_state_t* next = key_states.current == key_states.A ? key_states.B : key_states.A;
    key_state_t* current = key_states.current;
 
-   // Clear the next buffer
-   memset(next, 0, sizeof(key_states.previous));
+   {
+      critical_section::scoped_lock lock(input_critical_section);
 
-   // Flip the buffer the UI thread writes to (this should be atomic)
-   key_states.current = next;
+      // Copy current into the next buffer
+      memcpy(next, current, sizeof(key_states.previous));
+
+      // Flip the buffer the UI thread writes to (this should be atomic)
+      key_states.current = next;
+   }
 
    // Check for changed key state
    for (i = 0; i < ARRAY_SIZE(key_states.previous); i++)
@@ -90,16 +96,14 @@ static void uwp_input_input_poll(void *data)
    memcpy(key_states.previous, current, sizeof(key_states.previous));
 }
 
-static bool uwp_input_keyboard_pressed(unsigned key)
+static bool uwp_input_keyboard_pressed(const struct retro_keybind *retro_keybinds, unsigned key)
 {
 	settings_t *settings = config_get_ptr();
 
-	key = settings->input.binds[0][key].key;
-
-	if (key >= RETROK_LAST)
+	if (retro_keybinds[key].key >= RETROK_LAST)
 		return false;
 
-	Windows::System::VirtualKey tk = (Windows::System::VirtualKey)input_keymaps_translate_rk_to_keysym((enum retro_key)key);
+	Windows::System::VirtualKey tk = (Windows::System::VirtualKey)input_keymaps_translate_rk_to_keysym(retro_keybinds[key].key);
 
    // Read the state from where the UI thread is *not* currently writing to
    key_state_t* current = key_states.current == key_states.A ? key_states.B : key_states.A;
@@ -116,10 +120,10 @@ static int16_t uwp_input_input_state(void *data,
    switch (device)
    {
    case RETRO_DEVICE_JOYPAD:
-      return uwp_input_keyboard_pressed(id);
+      return uwp_input_keyboard_pressed(retro_keybinds[port], id);
 
    case RETRO_DEVICE_KEYBOARD:
-	   return uwp_input_keyboard_pressed(id);
+	   return uwp_input_keyboard_pressed(retro_keybinds[port], id);
 
    case RETRO_DEVICE_ANALOG:
 	   return 0;
@@ -143,7 +147,8 @@ static int16_t uwp_input_input_state(void *data,
 
 static bool uwp_input_input_key_pressed(void *data, int key)
 {
-	return uwp_input_keyboard_pressed(key);
+   settings_t *settings = config_get_ptr();
+	return uwp_input_keyboard_pressed(settings->input.binds[0], key);
 }
 
 static bool uwp_input_input_meta_key_pressed(void *data, int key)

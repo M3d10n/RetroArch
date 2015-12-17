@@ -22,6 +22,10 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+#if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+#include <windows.h>
+#endif
+
 #ifdef __MACH__
 #include <TargetConditionals.h>
 #if TARGET_IPHONE_SIMULATOR
@@ -213,6 +217,24 @@ static INLINE void RARCH_LOG_V(const char *tag, const char *fmt, va_list ap)
          prio = ANDROID_LOG_ERROR;
    }
    __android_log_vprint(prio, PROGRAM_NAME, fmt, ap);
+#elif defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+   if (IsDebuggerPresent())
+   {
+      char msg_new[1024], buffer[1024];
+      sprintf_s(msg_new, sizeof(msg_new), "%s: %s %s",
+         PROGRAM_NAME,
+         tag ? tag : "",
+         fmt);
+
+      vsprintf_s(buffer, sizeof(buffer), msg_new, ap);
+      OutputDebugStringA(buffer);
+   } 
+   else
+   {
+      fprintf(LOG_FILE, "%s %s :: ", PROGRAM_NAME, tag ? tag : "[INFO]");
+      vfprintf(LOG_FILE, fmt, ap);
+      fflush(LOG_FILE);
+   }
 #else
    fprintf(LOG_FILE, "%s %s :: ", PROGRAM_NAME, tag ? tag : "[INFO]");
    vfprintf(LOG_FILE, fmt, ap);
