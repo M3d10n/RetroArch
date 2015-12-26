@@ -48,6 +48,19 @@ namespace d3d11
 	// The static dispatcher for the UI thread
 	extern Windows::UI::Core::CoreDispatcher^ ui_dispatcher;
 
+   struct OverlayImage
+   {
+      D2D1_RECT_F Geometry;
+      D2D1_RECT_F TexCoord;
+
+      Microsoft::WRL::ComPtr<ID2D1Bitmap1> Bitmap;
+
+      OverlayImage() :
+         Geometry({ 0,0,0,0 }),
+         TexCoord({ 0,0,1,1 }) 
+      {}
+   };
+
 	// Controls all the DirectX device resources.
 	class DeviceResources
 	{
@@ -68,6 +81,9 @@ namespace d3d11
 
       void UpdateBitmap(Microsoft::WRL::ComPtr<ID2D1Bitmap1>& bitmap, const void *frame, bool rgb32, unsigned width, unsigned height, unsigned pitch, float alpha, bool has_alpha);
 
+      void InitOverlays(const struct texture_image* image_data, unsigned num_images);
+      OverlayImage* GetOverlay(unsigned image);
+      void RenderOverlays();
 
 		// Device Accessors.
 		Windows::Foundation::Size GetOutputSize() const { return m_outputSize; }
@@ -146,6 +162,9 @@ namespace d3d11
 
 		std::shared_ptr<uint8>	m_bitmapConversionBuffer;
       size_t                  m_bitmapConversionBufferSize;
+
+      std::shared_ptr<OverlayImage> m_bitmapOverlays;
+      unsigned int                  m_bitmapOverlayCount;
 
       video_info_t m_videoInfo;
 

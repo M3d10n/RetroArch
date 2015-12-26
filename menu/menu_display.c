@@ -66,6 +66,9 @@ static menu_display_ctx_driver_t *menu_display_ctx_drivers[] = {
 #ifdef HAVE_OPENGL
    &menu_display_ctx_gl,
 #endif
+#ifdef HAVE_D3D11
+   &menu_display_ctx_d3d11,
+#endif
    &menu_display_ctx_null,
    NULL,
 };
@@ -208,6 +211,10 @@ static bool menu_display_check_compatibility(enum menu_display_driver_type type)
          break;
       case MENU_VIDEO_DRIVER_DIRECT3D:
          if (!strcmp(video_driver, "d3d"))
+            return true;
+         break;
+      case MENU_VIDEO_DRIVER_DIRECT3D11:
+         if (!strcmp(video_driver, "d3d11"))
             return true;
          break;
    }

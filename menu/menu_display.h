@@ -73,7 +73,8 @@ enum menu_display_driver_type
 {
    MENU_VIDEO_DRIVER_GENERIC = 0,
    MENU_VIDEO_DRIVER_OPENGL,
-   MENU_VIDEO_DRIVER_DIRECT3D
+   MENU_VIDEO_DRIVER_DIRECT3D,
+   MENU_VIDEO_DRIVER_DIRECT3D11
 };
 
 typedef struct menu_display_ctx_driver
@@ -186,6 +187,7 @@ const float *menu_display_get_tex_coords(void);
 
 extern menu_display_ctx_driver_t menu_display_ctx_gl;
 extern menu_display_ctx_driver_t menu_display_ctx_d3d;
+extern menu_display_ctx_driver_t menu_display_ctx_d3d11;
 extern menu_display_ctx_driver_t menu_display_ctx_null;
 
 #ifdef __cplusplus

@@ -75,7 +75,8 @@ d3d11::DeviceResources::DeviceResources(const video_info_t* info) :
 	m_dpi(-1.0f),
 	m_deviceNotify(nullptr),
    m_bitmapConversionBufferSize(0),
-   m_videoInfo(*info)
+   m_videoInfo(*info),
+   m_bitmapOverlayCount(0)
 {
 	CreateDeviceIndependentResources();
 	CreateDeviceResources();
@@ -412,8 +413,8 @@ void d3d11::DeviceResources::CreateWindowSizeDependentResources()
 	m_screenViewport = CD3D11_VIEWPORT(
 		0.0f,
 		0.0f,
-		m_d3dRenderTargetSize.Width,
-		m_d3dRenderTargetSize.Height
+		m_logicalSize.Width, //m_d3dRenderTargetSize.Width,
+      m_logicalSize.Height //m_d3dRenderTargetSize.Height
 		);
 
 	m_d3dContext->RSSetViewports(1, &m_screenViewport);
@@ -424,8 +425,8 @@ void d3d11::DeviceResources::CreateWindowSizeDependentResources()
 		D2D1::BitmapProperties1(
 			D2D1_BITMAP_OPTIONS_TARGET | D2D1_BITMAP_OPTIONS_CANNOT_DRAW,
 			D2D1::PixelFormat(DXGI_FORMAT_B8G8R8A8_UNORM, D2D1_ALPHA_MODE_PREMULTIPLIED),
-			m_dpi,
-			m_dpi
+			96,
+			96
 			);
 
 	ComPtr<IDXGISurface2> dxgiBackBuffer;
@@ -486,6 +487,7 @@ void d3d11::DeviceResources::SetCurrentOrientation(DisplayOrientations currentOr
 	if (m_currentOrientation != currentOrientation)
 	{
 		m_currentOrientation = currentOrientation;
+      CreateWindowSizeDependentResources();
 	}
 }
 
@@ -627,7 +629,7 @@ void d3d11::DeviceResources::UpdateBitmap(Microsoft::WRL::ComPtr<ID2D1Bitmap1>& 
       D2D1_BITMAP_PROPERTIES1 properties;
       properties.dpiX = m_dpi;
       properties.dpiY = m_dpi;
-      properties.pixelFormat = { DXGI_FORMAT_B8G8R8A8_UNORM , D2D1_ALPHA_MODE_IGNORE };
+      properties.pixelFormat = { DXGI_FORMAT_B8G8R8A8_UNORM , has_alpha ? D2D1_ALPHA_MODE_PREMULTIPLIED : D2D1_ALPHA_MODE_IGNORE };
       properties.bitmapOptions = D2D1_BITMAP_OPTIONS_NONE;
       properties.colorContext = NULL;
 
@@ -650,14 +652,39 @@ void d3d11::DeviceResources::UpdateBitmap(Microsoft::WRL::ComPtr<ID2D1Bitmap1>& 
    unsigned h, w;
    if (rgb32)
    {
-      uint8_t        *dst = (uint8_t*)bits;
-      const uint32_t *src = (const uint32_t*)frame;
-
-      for (h = 0; h < height; h++, dst += dst_pitch, src += width)
+      if (!has_alpha)
       {
-         memcpy(dst, src, width * sizeof(uint32_t));
-         memset(dst + width * sizeof(uint32_t), 0,
-            dst_pitch - width * sizeof(uint32_t));
+         uint8_t        *dst = (uint8_t*)bits;
+         const uint32_t *src = (const uint32_t*)frame;
+
+         for (h = 0; h < height; h++, dst += dst_pitch, src += width)
+         {
+            memcpy(dst, src, width * sizeof(uint32_t));
+            memset(dst + width * sizeof(uint32_t), 0,
+               dst_pitch - width * sizeof(uint32_t));
+         }
+      }
+      else
+      {
+         uint32_t       *dst = (uint32_t*)bits;
+         const uint32_t *src = (const uint32_t*)frame;
+
+         for (h = 0; h < height; h++, dst += width, src += width)
+         {
+            for (w = 0; w < width; w++)
+            {
+               uint32_t c = src[w];
+               uint32_t r = (c >> 16) & 0xff;
+               uint32_t g = (c >> 8) & 0xff;
+               uint32_t b = (c >> 0) & 0xff;
+               uint32_t a = (c >> 24) & 0xff;
+               r = (r * a >> 8) << 16;
+               g = (g * a >> 8) << 8;
+               b = (b * a >> 8) << 0;
+               a = a << 24;
+               dst[w] = r | g | b | a;
+            }
+         }
       }
    }
    else if (has_alpha)
@@ -705,6 +732,53 @@ void d3d11::DeviceResources::UpdateBitmap(Microsoft::WRL::ComPtr<ID2D1Bitmap1>& 
    // Copy to the GPU bitmap
    hr = bitmap->CopyFromMemory(NULL, bits, dst_pitch);
    d3d11::ThrowIfFailed(hr);
+}
+
+void d3d11::DeviceResources::InitOverlays(const texture_image * image_data, unsigned num_images)
+{
+   m_bitmapOverlayCount = num_images;
+
+   m_bitmapOverlays.reset((OverlayImage*)calloc(num_images, sizeof(OverlayImage)), free);
+
+   for (unsigned i = 0; i < num_images; i++)
+   {
+      const texture_image& image = image_data[i];
+
+      UpdateBitmap(m_bitmapOverlays.get()[i].Bitmap, image.pixels, true, image.width, image.height, image.width, 1.0f, true);
+      m_bitmapOverlays.get()[i].Geometry = D2D1_RECT_F{ 0, 0, 1, 1 };
+   }
+}
+
+d3d11::OverlayImage* d3d11::DeviceResources::GetOverlay(unsigned image)
+{
+   if (image >= m_bitmapOverlayCount)
+   {
+      return NULL;
+   }
+   return &m_bitmapOverlays.get()[image];
+}
+
+void d3d11::DeviceResources::RenderOverlays()
+{
+   auto viewport = GetScreenViewport();
+
+   m_d2dContext->SetTransform(Matrix3x2F::Identity());
+
+
+
+   for (unsigned i = 0; i < m_bitmapOverlayCount; i++)
+   {
+      const auto& overlay = m_bitmapOverlays.get()[i];
+
+      D2D1_RECT_F rect = { 
+         overlay.Geometry.left * viewport.Width, 
+         overlay.Geometry.top * viewport.Height,
+         (overlay.Geometry.left + overlay.Geometry.right) * viewport.Width,
+         (overlay.Geometry.top + overlay.Geometry.bottom) * viewport.Height
+      };
+
+      m_d2dContext->DrawBitmap(overlay.Bitmap.Get(), &rect);
+   }
 }
 
 // This method determines the rotation between the display device's native Orientation and the

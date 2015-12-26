@@ -24,6 +24,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include <compat/msvc.h>
 #include <retro_file.h>
 
 #include "rpng_internal.h"

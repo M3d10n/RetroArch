@@ -20,15 +20,26 @@
 #include "../../general.h"
 #include "../../driver.h"
 #include "../input_keymaps.h"
+#include "../input_common.h"
 
 using namespace Windows::Foundation;
 using namespace Windows::UI::Core;
 using namespace concurrency;
 
+#define MAX_TOUCH 16
+#define MAX_MOUSE_BUTTONS 10
 
 struct key_state_t {
    uint8 state;
    unsigned int scan_code;
+};
+
+struct input_pointer
+{
+   int16_t x, y;
+   int16_t full_x, full_y;
+   unsigned int id;
+   bool pressed[MAX_MOUSE_BUTTONS];
 };
 
 struct key_states_t {
@@ -36,6 +47,8 @@ struct key_states_t {
    key_state_t A[256];
    key_state_t B[256];
    key_state_t* current;
+   input_pointer pointer[MAX_TOUCH];
+   unsigned int curr_pointer;
 } key_states;
 Concurrency::critical_section input_critical_section;
 
@@ -48,6 +61,90 @@ static void OnKeyEvent(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core:
    key_states.current[key].scan_code = args->KeyStatus.ScanCode;
 }
 
+void OnPointerPressed(CoreWindow ^sender, PointerEventArgs ^args)
+{
+   critical_section::scoped_lock lock(input_critical_section);
+   float x, y;
+
+   auto currentPoint = args->CurrentPoint;
+   x = currentPoint->RawPosition.X;
+   y = currentPoint->RawPosition.Y;
+
+   auto& pointer = key_states.pointer[key_states.curr_pointer];   
+   if (!input_translate_coord_viewport(x, y, &pointer.x, &pointer.y, &pointer.full_x, &pointer.full_y))
+   {
+      return;
+   }
+   pointer.id = currentPoint->PointerId;
+   memset(pointer.pressed, 0, sizeof(pointer.pressed));
+
+   auto pointerType = currentPoint->PointerDevice->PointerDeviceType;
+   switch (pointerType)
+   {
+   case Windows::Devices::Input::PointerDeviceType::Touch:
+      pointer.pressed[0] = true;
+      break;
+   case Windows::Devices::Input::PointerDeviceType::Pen:
+      pointer.pressed[0] = true;
+      break;
+   case Windows::Devices::Input::PointerDeviceType::Mouse:
+      pointer.pressed[0] = currentPoint->Properties->IsLeftButtonPressed;
+      pointer.pressed[1] = currentPoint->Properties->IsRightButtonPressed;
+      pointer.pressed[2] = currentPoint->Properties->IsMiddleButtonPressed;
+
+      break;
+   default:
+      break;
+   }
+
+   do {
+      key_states.curr_pointer = (key_states.curr_pointer + 1) % MAX_TOUCH;
+   } while (key_states.pointer[key_states.curr_pointer].id != 0);
+
+}
+
+void OnPointerReleased(CoreWindow ^sender, PointerEventArgs ^args)
+{
+   critical_section::scoped_lock lock(input_critical_section);
+
+   auto currentPoint = args->CurrentPoint;
+   unsigned int id = currentPoint->PointerId;
+   for (unsigned int i = 0; i < MAX_TOUCH; i++)
+   {
+      auto& pointer = key_states.pointer[i];
+      if (pointer.id == id)
+      {
+         memset(pointer.pressed, 0, sizeof(pointer.pressed));
+         pointer.id = 0;
+         key_states.curr_pointer = i;
+         break;
+      }
+   }
+}
+
+
+void OnPointerMoved(CoreWindow ^sender, PointerEventArgs ^args)
+{
+   critical_section::scoped_lock lock(input_critical_section);
+
+   auto currentPoint = args->CurrentPoint;
+
+   float x = currentPoint->RawPosition.X;
+   float y = currentPoint->RawPosition.Y;
+
+
+   unsigned int id = currentPoint->PointerId;
+   for (unsigned int i = 0; i < MAX_TOUCH; i++)
+   {
+      auto& pointer = key_states.pointer[i];
+      if (pointer.id == id)
+      {
+         input_translate_coord_viewport(x, y, &pointer.x, &pointer.y, &pointer.full_x, &pointer.full_y);
+         break;
+      }
+   }
+}
+
 static void *uwp_input_input_init(void)
 {
    memset(&key_states, 0, sizeof(key_states));
@@ -58,8 +155,12 @@ static void *uwp_input_input_init(void)
    // Input events are handled on the UI thread
    auto async = d3d11::ui_dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new DispatchedHandler([=]()
    {
-	   CoreWindow::GetForCurrentThread()->KeyDown += ref new TypedEventHandler<CoreWindow^, KeyEventArgs^>(&OnKeyEvent);
-	   CoreWindow::GetForCurrentThread()->KeyUp += ref new TypedEventHandler<CoreWindow^, KeyEventArgs^>(&OnKeyEvent);
+      auto window = CoreWindow::GetForCurrentThread();
+	   window->KeyDown += ref new TypedEventHandler<CoreWindow^, KeyEventArgs^>(&OnKeyEvent);
+      window->KeyUp += ref new TypedEventHandler<CoreWindow^, KeyEventArgs^>(&OnKeyEvent);
+      window->PointerPressed += ref new TypedEventHandler<CoreWindow ^, PointerEventArgs ^>(&OnPointerPressed);
+      window->PointerReleased += ref new TypedEventHandler<CoreWindow ^, PointerEventArgs ^>(&OnPointerReleased);
+      window->PointerMoved += ref new TypedEventHandler<CoreWindow ^, PointerEventArgs ^>(&OnPointerMoved);
    }, Platform::CallbackContext::Any));
    
    return (void*)-1;
@@ -111,6 +212,25 @@ static bool uwp_input_keyboard_pressed(const struct retro_keybind *retro_keybind
 	return current[(unsigned int)tk].state;
 }
 
+static int16_t uwp_pointer_state(unsigned idx, unsigned id, bool screen)
+{
+   switch (id)
+   {
+   case RETRO_DEVICE_ID_POINTER_X:
+      return screen ? key_states.pointer[idx].full_x : key_states.pointer[idx].x;
+   case RETRO_DEVICE_ID_POINTER_Y:
+      return screen ? key_states.pointer[idx].full_y : key_states.pointer[idx].y;
+   case RETRO_DEVICE_ID_POINTER_PRESSED:
+      return key_states.pointer[idx].pressed[0];
+   case RARCH_DEVICE_ID_POINTER_BACK:
+      return 0; //TODO: get back button state
+   default:
+      break;
+   }
+
+   return 0;
+}
+
 static int16_t uwp_input_input_state(void *data,
       const struct retro_keybind **retro_keybinds, unsigned port,
       unsigned device, unsigned idx, unsigned id)
@@ -136,7 +256,7 @@ static int16_t uwp_input_input_state(void *data,
 
    case RETRO_DEVICE_POINTER:
    case RARCH_DEVICE_POINTER_SCREEN:
-	   return 0;
+      return uwp_pointer_state(idx, id, device == RARCH_DEVICE_POINTER_SCREEN);
 
    case RETRO_DEVICE_LIGHTGUN:
 	   return 0;
@@ -215,3 +335,4 @@ input_driver_t input_uwp = {
    NULL,
    NULL,
 };
+

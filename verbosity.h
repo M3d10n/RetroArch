@@ -76,6 +76,14 @@ void retro_main_log_file_init(const char *path);
 
 static INLINE bool RARCH_LOG_VERBOSE(void)
 {
+
+#if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+if (IsDebuggerPresent()) 
+{
+   return true;
+}
+#endif
+
    bool *verbose = NULL;
    verbose = retro_main_verbosity();
    if (!verbose)

@@ -250,6 +250,9 @@ static int frontend_win32_parse_drive_list(void *data)
 
 	menu_entries_push(list,
       applocal, "Local Storage", MENU_FILE_DIRECTORY, 0, 0);
+
+   menu_entries_push(list,
+      g_defaults.dir.port, "App Storage", MENU_FILE_DIRECTORY, 0, 0);
 #else
    size_t i = 0;
    unsigned drives = GetLogicalDrives();
@@ -304,6 +307,7 @@ static void frontend_win32_environment_get(int *argc, char *argv[],
    fill_pathname_join(g_defaults.dir.core, g_defaults.dir.port, "bin", sizeof(g_defaults.dir.core));
    fill_pathname_join(g_defaults.dir.core_info, g_defaults.dir.port, "cores/info", sizeof(g_defaults.dir.core_info));
    fill_pathname_join(g_defaults.dir.core_assets, g_defaults.dir.port, "cores/assets", sizeof(g_defaults.dir.core_assets));
+   fill_pathname_join(g_defaults.dir.overlay, g_defaults.dir.port, "media/overlays", sizeof(g_defaults.dir.overlay));
 #endif
 }
 

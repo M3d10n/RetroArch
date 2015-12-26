@@ -93,7 +93,6 @@ static D2D1_MATRIX_3X2_F d3d11_get_display_matrix(void *data, unsigned width, un
 	{
 		const float scale = device_aspect / desired_aspect;
 		result = D2D1::Matrix3x2F::Scale( 1, scale);
-		result = result * D2D1::Matrix3x2F::Translation(0, (1 - scale)*0.5f*height);
 	}
 
 	return result;
@@ -135,6 +134,9 @@ static bool d3d11_gfx_frame(void *data, const void *frame,
    }
 #endif
    
+#ifdef HAVE_OVERLAY
+   d3d11res->RenderOverlays();
+#endif
 
    d3d11::ThrowIfFailed( d2dctx->EndDraw() );
 
@@ -233,8 +235,13 @@ static void d3d11_gfx_set_rotation(void *data,
 static void d3d11_gfx_viewport_info(void *data,
       struct video_viewport *vp)
 {
-   (void)data;
-   (void)vp;
+   auto d3d11res = (d3d11::DeviceResources*)data;
+   auto viewport = d3d11res->GetScreenViewport();
+
+   vp->x = viewport.TopLeftX;
+   vp->y = viewport.TopLeftY;
+   vp->width = vp->full_width = viewport.Width;
+   vp->height = vp->full_height = viewport.Height;
 }
 
 static bool d3d11_gfx_read_viewport(void *data, uint8_t *buffer)
@@ -364,6 +371,80 @@ static void d3d11_gfx_get_poke_interface(void *data,
 	*iface = &d3d11_poke_interface;
 }
 
+#ifdef HAVE_OVERLAY
+static void d3d11_overlay_enable(void *data, bool state)
+{
+
+}
+
+static bool d3d11_overlay_load(void *data,
+   const void *image_data, unsigned num_images) 
+{
+   if (!num_images)
+   {
+      return false;
+   }
+
+   auto d3d11res = (d3d11::DeviceResources*)data;
+
+   const struct texture_image *images =
+      (const struct texture_image*)image_data;
+
+   d3d11res->InitOverlays(images, num_images);
+
+   return true;
+}
+
+static void d3d11_overlay_full_screen(void *data, bool enable)
+{
+
+}
+
+static void d3d11_overlay_tex_geom(void *data, unsigned image,
+   float x, float y, float w, float h)
+{
+   auto d3d11res = (d3d11::DeviceResources*)data;
+   auto overlay = d3d11res->GetOverlay(image);
+   if (overlay)
+   {
+      overlay->TexCoord = D2D_RECT_F{ x, y, w, h };
+   }
+}
+
+static void d3d11_overlay_vertex_geom(void *data, unsigned image,
+   float x, float y, float w, float h)
+{
+   auto d3d11res = (d3d11::DeviceResources*)data;
+   auto overlay = d3d11res->GetOverlay(image);
+   if (overlay)
+   {
+      overlay->Geometry = D2D_RECT_F{ x, y, w, h };
+   }
+}
+
+static void d3d11_overlay_set_alpha(void *data, unsigned image, float mod)
+{
+   auto d3d11res = (d3d11::DeviceResources*)data;
+
+}
+
+static const video_overlay_interface_t d3d11_overlay_interface = {
+   d3d11_overlay_enable,
+   d3d11_overlay_load,
+   d3d11_overlay_tex_geom,
+   d3d11_overlay_vertex_geom,
+   d3d11_overlay_full_screen,
+   d3d11_overlay_set_alpha,
+};
+
+static void d3d11_get_overlay_interface(void *data,
+   const video_overlay_interface_t **iface)
+{
+   (void)data;
+   *iface = &d3d11_overlay_interface;
+}
+#endif
+
 video_driver_t video_d3d11 = {
    d3d11_gfx_init,
    d3d11_gfx_frame,
@@ -382,7 +463,7 @@ video_driver_t video_d3d11 = {
    NULL, /* read_frame_raw */
 
 #ifdef HAVE_OVERLAY
-  NULL, /* overlay_interface */
+   d3d11_get_overlay_interface,
 #endif
   d3d11_gfx_get_poke_interface,
 };

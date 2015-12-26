@@ -185,6 +185,7 @@ void App::OnDpiChanged(DisplayInformation^ sender, Object^ args)
 
 void App::OnOrientationChanged(DisplayInformation^ sender, Object^ args)
 {
+   return;
    if (!m_main->IsInitialized())
    {
       return;
@@ -251,12 +252,24 @@ void RetroarchMain::StartUpdateThread()
          // Override the core folder based on the current architecture
          settings_t *settings = config_get_ptr();         
 #if defined(_ARM_)
-         fill_pathname_join(settings->libretro_directory, g_defaults.dir.core, "ARM", sizeof(settings->libretro_directory));
+         fill_pathname_join(settings->libretro_directory, g_defaults.dir.core, "win_ARM", sizeof(settings->libretro_directory));
 #elif defined(_X86_)
-         fill_pathname_join(settings->libretro_directory, g_defaults.dir.core, "x86", sizeof(settings->libretro_directory));
+         fill_pathname_join(settings->libretro_directory, g_defaults.dir.core, "win_x86", sizeof(settings->libretro_directory));
 #elif defined(_AMD64_)
-         fill_pathname_join(settings->libretro_directory, g_defaults.dir.core, "x64", sizeof(settings->libretro_directory));
+         fill_pathname_join(settings->libretro_directory, g_defaults.dir.core, "win_x64", sizeof(settings->libretro_directory));
 #endif
+
+         // If there's no keyboard or gamepad attached, always show the overlay
+         auto keyboardCaps = ref new Windows::Devices::Input::KeyboardCapabilities();
+         auto touchCaps = ref new Windows::Devices::Input::TouchCapabilities();
+         if (settings->input.overlay_hide_in_menu && keyboardCaps->KeyboardPresent == 0 && touchCaps->TouchPresent > 0)
+         {
+            settings->input.overlay_enable = true;
+            settings->input.overlay_hide_in_menu = false;    
+            fill_pathname_join(settings->input.overlay, g_defaults.dir.overlay, "gamepads/flat/retropad-fast.cfg", sizeof(settings->input.overlay));
+            event_command(EVENT_CMD_OVERLAY_INIT);
+         }
+
          // Free the arguments
          free(args);
 
