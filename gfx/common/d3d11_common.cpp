@@ -738,14 +738,15 @@ void d3d11::DeviceResources::InitOverlays(const texture_image * image_data, unsi
 {
    m_bitmapOverlayCount = num_images;
 
-   m_bitmapOverlays.reset((OverlayImage*)calloc(num_images, sizeof(OverlayImage)), free);
+   m_bitmapOverlays.clear();
+   m_bitmapOverlays.resize(num_images);
 
    for (unsigned i = 0; i < num_images; i++)
    {
       const texture_image& image = image_data[i];
 
-      UpdateBitmap(m_bitmapOverlays.get()[i].Bitmap, image.pixels, true, image.width, image.height, image.width, 1.0f, true);
-      m_bitmapOverlays.get()[i].Geometry = D2D1_RECT_F{ 0, 0, 1, 1 };
+      UpdateBitmap(m_bitmapOverlays[i].Bitmap, image.pixels, true, image.width, image.height, image.width, 1.0f, true);
+      m_bitmapOverlays[i].Geometry = D2D1_RECT_F{ 0, 0, 1, 1 };
    }
 }
 
@@ -755,7 +756,7 @@ d3d11::OverlayImage* d3d11::DeviceResources::GetOverlay(unsigned image)
    {
       return NULL;
    }
-   return &m_bitmapOverlays.get()[image];
+   return &m_bitmapOverlays[image];
 }
 
 void d3d11::DeviceResources::RenderOverlays()
@@ -768,7 +769,7 @@ void d3d11::DeviceResources::RenderOverlays()
 
    for (unsigned i = 0; i < m_bitmapOverlayCount; i++)
    {
-      const auto& overlay = m_bitmapOverlays.get()[i];
+      const auto& overlay = m_bitmapOverlays[i];
 
       D2D1_RECT_F rect = { 
          overlay.Geometry.left * viewport.Width, 

@@ -163,7 +163,7 @@ namespace d3d11
 		std::shared_ptr<uint8>	m_bitmapConversionBuffer;
       size_t                  m_bitmapConversionBufferSize;
 
-      std::shared_ptr<OverlayImage> m_bitmapOverlays;
+      std::vector<OverlayImage>     m_bitmapOverlays;
       unsigned int                  m_bitmapOverlayCount;
 
       video_info_t m_videoInfo;

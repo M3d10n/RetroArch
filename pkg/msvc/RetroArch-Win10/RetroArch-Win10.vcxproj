@@ -1095,8 +1095,2173 @@
     <ResourceCompile Include="RetroArch-Win10.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\media\overlays\gamepads\**\*.*">
-      <Link>media\overlays\gamepads\%(RecursiveDir)%(FileName)%(Extension)</Link>
+    <None Include="..\..\..\media\overlays\gamepads\720-med\720-med-menu.png">
+      <Link>media\overlays\gamepads\720-med\720-med-menu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\720-med\720-med.cfg">
+      <Link>media\overlays\gamepads\720-med\720-med.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\720-med\720-med.png">
+      <Link>media\overlays\gamepads\720-med\720-med.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\4button.png">
+      <Link>media\overlays\gamepads\arcade-minimal\4button.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\6button.png">
+      <Link>media\overlays\gamepads\arcade-minimal\6button.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\analog-background.png">
+      <Link>media\overlays\gamepads\arcade-minimal\analog-background.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\analog-stick.png">
+      <Link>media\overlays\gamepads\arcade-minimal\analog-stick.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\arcade-minimal.cfg">
+      <Link>media\overlays\gamepads\arcade-minimal\arcade-minimal.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\button-blue.png">
+      <Link>media\overlays\gamepads\arcade-minimal\button-blue.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\button-green.png">
+      <Link>media\overlays\gamepads\arcade-minimal\button-green.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\button-red.png">
+      <Link>media\overlays\gamepads\arcade-minimal\button-red.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\button-white.png">
+      <Link>media\overlays\gamepads\arcade-minimal\button-white.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\button-yellow.png">
+      <Link>media\overlays\gamepads\arcade-minimal\button-yellow.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\coin.png">
+      <Link>media\overlays\gamepads\arcade-minimal\coin.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\next.png">
+      <Link>media\overlays\gamepads\arcade-minimal\next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\quickmenu.png">
+      <Link>media\overlays\gamepads\arcade-minimal\quickmenu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\rgui.png">
+      <Link>media\overlays\gamepads\arcade-minimal\rgui.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\rotate.png">
+      <Link>media\overlays\gamepads\arcade-minimal\rotate.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\start.png">
+      <Link>media\overlays\gamepads\arcade-minimal\start.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\4button.png">
+      <Link>media\overlays\gamepads\arcade\4button.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\6button.png">
+      <Link>media\overlays\gamepads\arcade\6button.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\analog-background.png">
+      <Link>media\overlays\gamepads\arcade\analog-background.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\analog-stick.png">
+      <Link>media\overlays\gamepads\arcade\analog-stick.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\arcade.cfg">
+      <Link>media\overlays\gamepads\arcade\arcade.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\button-blue.png">
+      <Link>media\overlays\gamepads\arcade\button-blue.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\button-green.png">
+      <Link>media\overlays\gamepads\arcade\button-green.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\button-red.png">
+      <Link>media\overlays\gamepads\arcade\button-red.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\button-white.png">
+      <Link>media\overlays\gamepads\arcade\button-white.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\button-yellow.png">
+      <Link>media\overlays\gamepads\arcade\button-yellow.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\coin.png">
+      <Link>media\overlays\gamepads\arcade\coin.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\next.png">
+      <Link>media\overlays\gamepads\arcade\next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\quickmenu.png">
+      <Link>media\overlays\gamepads\arcade\quickmenu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\rgui.png">
+      <Link>media\overlays\gamepads\arcade\rgui.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\rotate.png">
+      <Link>media\overlays\gamepads\arcade\rotate.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\start.png">
+      <Link>media\overlays\gamepads\arcade\start.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\a.png">
+      <Link>media\overlays\gamepads\dual-shock\a.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\b.png">
+      <Link>media\overlays\gamepads\dual-shock\b.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\dpad-down.png">
+      <Link>media\overlays\gamepads\dual-shock\dpad-down.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\dpad-left.png">
+      <Link>media\overlays\gamepads\dual-shock\dpad-left.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\dpad-right.png">
+      <Link>media\overlays\gamepads\dual-shock\dpad-right.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\dpad-up.png">
+      <Link>media\overlays\gamepads\dual-shock\dpad-up.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\dual-shock.cfg">
+      <Link>media\overlays\gamepads\dual-shock\dual-shock.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\l1.png">
+      <Link>media\overlays\gamepads\dual-shock\l1.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\l2.png">
+      <Link>media\overlays\gamepads\dual-shock\l2.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\next.png">
+      <Link>media\overlays\gamepads\dual-shock\next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\psx-black.cfg">
+      <Link>media\overlays\gamepads\dual-shock\psx-black.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\ps_next.png">
+      <Link>media\overlays\gamepads\dual-shock\ps_next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\quickmenu.png">
+      <Link>media\overlays\gamepads\dual-shock\quickmenu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\r1.png">
+      <Link>media\overlays\gamepads\dual-shock\r1.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\r2.png">
+      <Link>media\overlays\gamepads\dual-shock\r2.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\rgui.png">
+      <Link>media\overlays\gamepads\dual-shock\rgui.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\rotate.png">
+      <Link>media\overlays\gamepads\dual-shock\rotate.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\select.png">
+      <Link>media\overlays\gamepads\dual-shock\select.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\start.png">
+      <Link>media\overlays\gamepads\dual-shock\start.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\thumbstick-background.png">
+      <Link>media\overlays\gamepads\dual-shock\thumbstick-background.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\thumbstick-pad.png">
+      <Link>media\overlays\gamepads\dual-shock\thumbstick-pad.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\x.png">
+      <Link>media\overlays\gamepads\dual-shock\x.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\y.png">
+      <Link>media\overlays\gamepads\dual-shock\y.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\example\analog.png">
+      <Link>media\overlays\gamepads\example\analog.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\example\down.png">
+      <Link>media\overlays\gamepads\example\down.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\example\example.cfg">
+      <Link>media\overlays\gamepads\example\example.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\example\left.png">
+      <Link>media\overlays\gamepads\example\left.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\example\logo.png">
+      <Link>media\overlays\gamepads\example\logo.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\example\right.png">
+      <Link>media\overlays\gamepads\example\right.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\example\up.png">
+      <Link>media\overlays\gamepads\example\up.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\1.png">
+      <Link>media\overlays\gamepads\flat\1.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\2-button.png">
+      <Link>media\overlays\gamepads\flat\2-button.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\2.png">
+      <Link>media\overlays\gamepads\flat\2.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\3-button.png">
+      <Link>media\overlays\gamepads\flat\3-button.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\4-button.png">
+      <Link>media\overlays\gamepads\flat\4-button.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\6-button.png">
+      <Link>media\overlays\gamepads\flat\6-button.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\6-button_genesis.png">
+      <Link>media\overlays\gamepads\flat\6-button_genesis.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\A.png">
+      <Link>media\overlays\gamepads\flat\A.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\analog.png">
+      <Link>media\overlays\gamepads\flat\analog.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\arcade.cfg">
+      <Link>media\overlays\gamepads\flat\arcade.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\atari7800.cfg">
+      <Link>media\overlays\gamepads\flat\atari7800.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\A_wswan.png">
+      <Link>media\overlays\gamepads\flat\A_wswan.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\B.png">
+      <Link>media\overlays\gamepads\flat\B.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\buttons.svg">
+      <Link>media\overlays\gamepads\flat\buttons.svg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\B_wswan.png">
+      <Link>media\overlays\gamepads\flat\B_wswan.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\C.png">
+      <Link>media\overlays\gamepads\flat\C.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\circle.png">
+      <Link>media\overlays\gamepads\flat\circle.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\coin.png">
+      <Link>media\overlays\gamepads\flat\coin.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\cps.cfg">
+      <Link>media\overlays\gamepads\flat\cps.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\cross.png">
+      <Link>media\overlays\gamepads\flat\cross.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\D.png">
+      <Link>media\overlays\gamepads\flat\D.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\digital.png">
+      <Link>media\overlays\gamepads\flat\digital.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-down.png">
+      <Link>media\overlays\gamepads\flat\dpad-down.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-down_no-mark.png">
+      <Link>media\overlays\gamepads\flat\dpad-down_no-mark.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-down_psx.png">
+      <Link>media\overlays\gamepads\flat\dpad-down_psx.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-down_psx_no-mark.png">
+      <Link>media\overlays\gamepads\flat\dpad-down_psx_no-mark.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-left.png">
+      <Link>media\overlays\gamepads\flat\dpad-left.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-left_no-mark.png">
+      <Link>media\overlays\gamepads\flat\dpad-left_no-mark.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-left_psx.png">
+      <Link>media\overlays\gamepads\flat\dpad-left_psx.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-left_psx_no-mark.png">
+      <Link>media\overlays\gamepads\flat\dpad-left_psx_no-mark.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-right.png">
+      <Link>media\overlays\gamepads\flat\dpad-right.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-right_no-mark.png">
+      <Link>media\overlays\gamepads\flat\dpad-right_no-mark.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-right_psx.png">
+      <Link>media\overlays\gamepads\flat\dpad-right_psx.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-right_psx_no-mark.png">
+      <Link>media\overlays\gamepads\flat\dpad-right_psx_no-mark.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-up.png">
+      <Link>media\overlays\gamepads\flat\dpad-up.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-up_no-mark.png">
+      <Link>media\overlays\gamepads\flat\dpad-up_no-mark.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-up_psx.png">
+      <Link>media\overlays\gamepads\flat\dpad-up_psx.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-up_psx_no-mark.png">
+      <Link>media\overlays\gamepads\flat\dpad-up_psx_no-mark.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad.svg">
+      <Link>media\overlays\gamepads\flat\dpad.svg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad_psx.svg">
+      <Link>media\overlays\gamepads\flat\dpad_psx.svg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\E.png">
+      <Link>media\overlays\gamepads\flat\E.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\F.png">
+      <Link>media\overlays\gamepads\flat\F.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\face_buttons.svg">
+      <Link>media\overlays\gamepads\flat\face_buttons.svg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\face_buttons_big.svg">
+      <Link>media\overlays\gamepads\flat\face_buttons_big.svg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\face_buttons_wswan.svg">
+      <Link>media\overlays\gamepads\flat\face_buttons_wswan.svg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\gameboy.cfg">
+      <Link>media\overlays\gamepads\flat\gameboy.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\gba.cfg">
+      <Link>media\overlays\gamepads\flat\gba.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\genesis.cfg">
+      <Link>media\overlays\gamepads\flat\genesis.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\genesis_and_sms.cfg">
+      <Link>media\overlays\gamepads\flat\genesis_and_sms.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\genesis_mode.png">
+      <Link>media\overlays\gamepads\flat\genesis_mode.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\genesis_mode.svg">
+      <Link>media\overlays\gamepads\flat\genesis_mode.svg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\hide.png">
+      <Link>media\overlays\gamepads\flat\hide.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\I.png">
+      <Link>media\overlays\gamepads\flat\I.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\II.png">
+      <Link>media\overlays\gamepads\flat\II.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\III.png">
+      <Link>media\overlays\gamepads\flat\III.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\IV.png">
+      <Link>media\overlays\gamepads\flat\IV.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\keyboard.png">
+      <Link>media\overlays\gamepads\flat\keyboard.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L.png">
+      <Link>media\overlays\gamepads\flat\L.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L1.png">
+      <Link>media\overlays\gamepads\flat\L1.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L1_down.png">
+      <Link>media\overlays\gamepads\flat\L1_down.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L1_down_smaller.png">
+      <Link>media\overlays\gamepads\flat\L1_down_smaller.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L1_smaller.png">
+      <Link>media\overlays\gamepads\flat\L1_smaller.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L2.png">
+      <Link>media\overlays\gamepads\flat\L2.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L2_up.png">
+      <Link>media\overlays\gamepads\flat\L2_up.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L3.png">
+      <Link>media\overlays\gamepads\flat\L3.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L3_smaller.png">
+      <Link>media\overlays\gamepads\flat\L3_smaller.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L_and_R.png">
+      <Link>media\overlays\gamepads\flat\L_and_R.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L_and_R_down.png">
+      <Link>media\overlays\gamepads\flat\L_and_R_down.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L_and_R_left.png">
+      <Link>media\overlays\gamepads\flat\L_and_R_left.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L_down.png">
+      <Link>media\overlays\gamepads\flat\L_down.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L_down_smaller_gba.png">
+      <Link>media\overlays\gamepads\flat\L_down_smaller_gba.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L_smaller.png">
+      <Link>media\overlays\gamepads\flat\L_smaller.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\neogeo.cfg">
+      <Link>media\overlays\gamepads\flat\neogeo.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\nes.cfg">
+      <Link>media\overlays\gamepads\flat\nes.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\no-analog.png">
+      <Link>media\overlays\gamepads\flat\no-analog.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\flat-base.cfg">
+      <Link>media\overlays\gamepads\flat\old\flat-base.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\flat-gb-wip.cfg">
+      <Link>media\overlays\gamepads\flat\old\flat-gb-wip.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\flat-n64.cfg">
+      <Link>media\overlays\gamepads\flat\old\flat-n64.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\flat-ws.cfg">
+      <Link>media\overlays\gamepads\flat\old\flat-ws.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\zbasela.png">
+      <Link>media\overlays\gamepads\flat\old\zbasela.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\zbaseld.png">
+      <Link>media\overlays\gamepads\flat\old\zbaseld.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\zbasels.png">
+      <Link>media\overlays\gamepads\flat\old\zbasels.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\zgbpd.png">
+      <Link>media\overlays\gamepads\flat\old\zgbpd.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\zn64la.png">
+      <Link>media\overlays\gamepads\flat\old\zn64la.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\zn64ld.png">
+      <Link>media\overlays\gamepads\flat\old\zn64ld.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\znub1.png">
+      <Link>media\overlays\gamepads\flat\old\znub1.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\znub2.png">
+      <Link>media\overlays\gamepads\flat\old\znub2.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\zws.png">
+      <Link>media\overlays\gamepads\flat\old\zws.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\overlay-A.png">
+      <Link>media\overlays\gamepads\flat\overlay-A.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\overlay-B.png">
+      <Link>media\overlays\gamepads\flat\overlay-B.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\overlay-C.png">
+      <Link>media\overlays\gamepads\flat\overlay-C.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\overlay-D.png">
+      <Link>media\overlays\gamepads\flat\overlay-D.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\pause_square_text.png">
+      <Link>media\overlays\gamepads\flat\pause_square_text.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\pc-fx.cfg">
+      <Link>media\overlays\gamepads\flat\pc-fx.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\psp.cfg">
+      <Link>media\overlays\gamepads\flat\psp.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\psx-fast.cfg">
+      <Link>media\overlays\gamepads\flat\psx-fast.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\psx.cfg">
+      <Link>media\overlays\gamepads\flat\psx.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\R.png">
+      <Link>media\overlays\gamepads\flat\R.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\R1.png">
+      <Link>media\overlays\gamepads\flat\R1.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\R2.png">
+      <Link>media\overlays\gamepads\flat\R2.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\R2_up.png">
+      <Link>media\overlays\gamepads\flat\R2_up.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\R3_smaller.png">
+      <Link>media\overlays\gamepads\flat\R3_smaller.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\reset_square_text.png">
+      <Link>media\overlays\gamepads\flat\reset_square_text.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\retropad-fast.cfg">
+      <Link>media\overlays\gamepads\flat\retropad-fast.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\retropad.cfg">
+      <Link>media\overlays\gamepads\flat\retropad.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\rgui.png">
+      <Link>media\overlays\gamepads\flat\rgui.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\rotate.png">
+      <Link>media\overlays\gamepads\flat\rotate.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\R_down.png">
+      <Link>media\overlays\gamepads\flat\R_down.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\R_smaller.png">
+      <Link>media\overlays\gamepads\flat\R_smaller.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\select_psx.png">
+      <Link>media\overlays\gamepads\flat\select_psx.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\select_psx.svg">
+      <Link>media\overlays\gamepads\flat\select_psx.svg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\select_rounded_big.png">
+      <Link>media\overlays\gamepads\flat\select_rounded_big.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\select_square_text.png">
+      <Link>media\overlays\gamepads\flat\select_square_text.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\shoulder_buttons.svg">
+      <Link>media\overlays\gamepads\flat\shoulder_buttons.svg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\shoulder_combo.svg">
+      <Link>media\overlays\gamepads\flat\shoulder_combo.svg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\shoulder_down_buttons.svg">
+      <Link>media\overlays\gamepads\flat\shoulder_down_buttons.svg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\shoulder_small_buttons.svg">
+      <Link>media\overlays\gamepads\flat\shoulder_small_buttons.svg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\show.png">
+      <Link>media\overlays\gamepads\flat\show.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\sms.cfg">
+      <Link>media\overlays\gamepads\flat\sms.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\snes.cfg">
+      <Link>media\overlays\gamepads\flat\snes.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\square.png">
+      <Link>media\overlays\gamepads\flat\square.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\square_buttons_text.svg">
+      <Link>media\overlays\gamepads\flat\square_buttons_text.svg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\start.png">
+      <Link>media\overlays\gamepads\flat\start.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\start.svg">
+      <Link>media\overlays\gamepads\flat\start.svg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\start_genesis.png">
+      <Link>media\overlays\gamepads\flat\start_genesis.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\start_psx.png">
+      <Link>media\overlays\gamepads\flat\start_psx.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\start_psx.svg">
+      <Link>media\overlays\gamepads\flat\start_psx.svg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\start_rounded.png">
+      <Link>media\overlays\gamepads\flat\start_rounded.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\start_rounded_big.png">
+      <Link>media\overlays\gamepads\flat\start_rounded_big.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\test.png">
+      <Link>media\overlays\gamepads\flat\test.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\thumbstick-background.png">
+      <Link>media\overlays\gamepads\flat\thumbstick-background.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\thumbstick-background.svg">
+      <Link>media\overlays\gamepads\flat\thumbstick-background.svg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\thumbstick-pad.png">
+      <Link>media\overlays\gamepads\flat\thumbstick-pad.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\thumbstick-pad.svg">
+      <Link>media\overlays\gamepads\flat\thumbstick-pad.svg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\thumbstick-pad_arcade.png">
+      <Link>media\overlays\gamepads\flat\thumbstick-pad_arcade.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\triangle.png">
+      <Link>media\overlays\gamepads\flat\triangle.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\turbografx-16.cfg">
+      <Link>media\overlays\gamepads\flat\turbografx-16.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\turbografx-16_6-button.cfg">
+      <Link>media\overlays\gamepads\flat\turbografx-16_6-button.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\V.png">
+      <Link>media\overlays\gamepads\flat\V.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\VI.png">
+      <Link>media\overlays\gamepads\flat\VI.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\virtualboy.cfg">
+      <Link>media\overlays\gamepads\flat\virtualboy.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\wonderswan.cfg">
+      <Link>media\overlays\gamepads\flat\wonderswan.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\X.png">
+      <Link>media\overlays\gamepads\flat\X.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\X1_wswan.png">
+      <Link>media\overlays\gamepads\flat\X1_wswan.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\X2_wswan.png">
+      <Link>media\overlays\gamepads\flat\X2_wswan.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\X3_wswan.png">
+      <Link>media\overlays\gamepads\flat\X3_wswan.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\X4_wswan.png">
+      <Link>media\overlays\gamepads\flat\X4_wswan.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\Y.png">
+      <Link>media\overlays\gamepads\flat\Y.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\Y1_wswan.png">
+      <Link>media\overlays\gamepads\flat\Y1_wswan.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\Y2_wswan.png">
+      <Link>media\overlays\gamepads\flat\Y2_wswan.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\Y3_wswan.png">
+      <Link>media\overlays\gamepads\flat\Y3_wswan.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\Y4_wswan.png">
+      <Link>media\overlays\gamepads\flat\Y4_wswan.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\Z.png">
+      <Link>media\overlays\gamepads\flat\Z.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\a.png">
+      <Link>media\overlays\gamepads\gameboy\a.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\b.png">
+      <Link>media\overlays\gamepads\gameboy\b.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\dpad.png">
+      <Link>media\overlays\gamepads\gameboy\dpad.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\gameboy.cfg">
+      <Link>media\overlays\gamepads\gameboy\gameboy.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\next.png">
+      <Link>media\overlays\gamepads\gameboy\next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\quickmenu.png">
+      <Link>media\overlays\gamepads\gameboy\quickmenu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\rgui.png">
+      <Link>media\overlays\gamepads\gameboy\rgui.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\rotate.png">
+      <Link>media\overlays\gamepads\gameboy\rotate.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\select.png">
+      <Link>media\overlays\gamepads\gameboy\select.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\start.png">
+      <Link>media\overlays\gamepads\gameboy\start.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\a.png">
+      <Link>media\overlays\gamepads\gba-grey\a.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\b.png">
+      <Link>media\overlays\gamepads\gba-grey\b.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\dpad.png">
+      <Link>media\overlays\gamepads\gba-grey\dpad.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\gba-grey.cfg">
+      <Link>media\overlays\gamepads\gba-grey\gba-grey.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\l.png">
+      <Link>media\overlays\gamepads\gba-grey\l.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\next-menu.png">
+      <Link>media\overlays\gamepads\gba-grey\next-menu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\next.png">
+      <Link>media\overlays\gamepads\gba-grey\next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\quickmenu.png">
+      <Link>media\overlays\gamepads\gba-grey\quickmenu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\r.png">
+      <Link>media\overlays\gamepads\gba-grey\r.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\rgui.png">
+      <Link>media\overlays\gamepads\gba-grey\rgui.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\rotate.png">
+      <Link>media\overlays\gamepads\gba-grey\rotate.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\select.png">
+      <Link>media\overlays\gamepads\gba-grey\select.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\start.png">
+      <Link>media\overlays\gamepads\gba-grey\start.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\a.png">
+      <Link>media\overlays\gamepads\gba\a.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\b.png">
+      <Link>media\overlays\gamepads\gba\b.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\dpad.png">
+      <Link>media\overlays\gamepads\gba\dpad.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\gba.cfg">
+      <Link>media\overlays\gamepads\gba\gba.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\l.png">
+      <Link>media\overlays\gamepads\gba\l.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\next-menu.png">
+      <Link>media\overlays\gamepads\gba\next-menu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\next.png">
+      <Link>media\overlays\gamepads\gba\next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\quickmenu.png">
+      <Link>media\overlays\gamepads\gba\quickmenu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\r.png">
+      <Link>media\overlays\gamepads\gba\r.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\rgui.png">
+      <Link>media\overlays\gamepads\gba\rgui.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\rotate.png">
+      <Link>media\overlays\gamepads\gba\rotate.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\select.png">
+      <Link>media\overlays\gamepads\gba\select.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\start.png">
+      <Link>media\overlays\gamepads\gba\start.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\3button.png">
+      <Link>media\overlays\gamepads\genesis\3button.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\6button.png">
+      <Link>media\overlays\gamepads\genesis\6button.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\a.png">
+      <Link>media\overlays\gamepads\genesis\a.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\b.png">
+      <Link>media\overlays\gamepads\genesis\b.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\c.png">
+      <Link>media\overlays\gamepads\genesis\c.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\dpad.png">
+      <Link>media\overlays\gamepads\genesis\dpad.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\genesis.cfg">
+      <Link>media\overlays\gamepads\genesis\genesis.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\next.png">
+      <Link>media\overlays\gamepads\genesis\next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\quickmenu.png">
+      <Link>media\overlays\gamepads\genesis\quickmenu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\rgui.png">
+      <Link>media\overlays\gamepads\genesis\rgui.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\rotate.png">
+      <Link>media\overlays\gamepads\genesis\rotate.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\start.png">
+      <Link>media\overlays\gamepads\genesis\start.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\x.png">
+      <Link>media\overlays\gamepads\genesis\x.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\y.png">
+      <Link>media\overlays\gamepads\genesis\y.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\z.png">
+      <Link>media\overlays\gamepads\genesis\z.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\a.png">
+      <Link>media\overlays\gamepads\n64\a.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\analog-icon.png">
+      <Link>media\overlays\gamepads\n64\analog-icon.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\b.png">
+      <Link>media\overlays\gamepads\n64\b.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\digital-icon.png">
+      <Link>media\overlays\gamepads\n64\digital-icon.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\downc.png">
+      <Link>media\overlays\gamepads\n64\downc.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\dpad.png">
+      <Link>media\overlays\gamepads\n64\dpad.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\l.png">
+      <Link>media\overlays\gamepads\n64\l.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\leftc.png">
+      <Link>media\overlays\gamepads\n64\leftc.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\n64.cfg">
+      <Link>media\overlays\gamepads\n64\n64.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\next.png">
+      <Link>media\overlays\gamepads\n64\next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\quickmenu.png">
+      <Link>media\overlays\gamepads\n64\quickmenu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\r.png">
+      <Link>media\overlays\gamepads\n64\r.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\rgui.png">
+      <Link>media\overlays\gamepads\n64\rgui.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\rightc.png">
+      <Link>media\overlays\gamepads\n64\rightc.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\rotate.png">
+      <Link>media\overlays\gamepads\n64\rotate.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\start.png">
+      <Link>media\overlays\gamepads\n64\start.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\thumbstick-background.png">
+      <Link>media\overlays\gamepads\n64\thumbstick-background.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\thumbstick-pad.png">
+      <Link>media\overlays\gamepads\n64\thumbstick-pad.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\upc.png">
+      <Link>media\overlays\gamepads\n64\upc.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\z.png">
+      <Link>media\overlays\gamepads\n64\z.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\a.png">
+      <Link>media\overlays\gamepads\nes\a.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\b.png">
+      <Link>media\overlays\gamepads\nes\b.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\dpad.png">
+      <Link>media\overlays\gamepads\nes\dpad.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\nes.cfg">
+      <Link>media\overlays\gamepads\nes\nes.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\next.png">
+      <Link>media\overlays\gamepads\nes\next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\quickmenu.png">
+      <Link>media\overlays\gamepads\nes\quickmenu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\rgui.png">
+      <Link>media\overlays\gamepads\nes\rgui.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\rotate.png">
+      <Link>media\overlays\gamepads\nes\rotate.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\select.png">
+      <Link>media\overlays\gamepads\nes\select.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\start.png">
+      <Link>media\overlays\gamepads\nes\start.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\720-med-menu.png">
+      <Link>media\overlays\gamepads\old\720-med-menu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\720-med.cfg">
+      <Link>media\overlays\gamepads\old\720-med.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\720-med.png">
+      <Link>media\overlays\gamepads\old\720-med.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\box-gba-with-diagonals.cfg">
+      <Link>media\overlays\gamepads\old\box-gba-with-diagonals.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\box-gba.cfg">
+      <Link>media\overlays\gamepads\old\box-gba.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\box-ps-with-diagonals.cfg">
+      <Link>media\overlays\gamepads\old\box-ps-with-diagonals.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\box-psx.cfg">
+      <Link>media\overlays\gamepads\old\box-psx.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\gameboy-landscape.cfg">
+      <Link>media\overlays\gamepads\old\gameboy-landscape.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\gameboy-landscape.png">
+      <Link>media\overlays\gamepads\old\gameboy-landscape.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\gameboy-portrait.cfg">
+      <Link>media\overlays\gamepads\old\gameboy-portrait.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\gameboy-portrait.png">
+      <Link>media\overlays\gamepads\old\gameboy-portrait.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\gba.png">
+      <Link>media\overlays\gamepads\old\gba.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\gba_next.png">
+      <Link>media\overlays\gamepads\old\gba_next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\gba_portrait.png">
+      <Link>media\overlays\gamepads\old\gba_portrait.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\gba_quickmenu.png">
+      <Link>media\overlays\gamepads\old\gba_quickmenu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis3-landscape.cfg">
+      <Link>media\overlays\gamepads\old\genesis3-landscape.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis3-landscape.png">
+      <Link>media\overlays\gamepads\old\genesis3-landscape.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis3-portrait.cfg">
+      <Link>media\overlays\gamepads\old\genesis3-portrait.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis3-portrait.png">
+      <Link>media\overlays\gamepads\old\genesis3-portrait.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis6-landscape.cfg">
+      <Link>media\overlays\gamepads\old\genesis6-landscape.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis6-landscape.png">
+      <Link>media\overlays\gamepads\old\genesis6-landscape.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis6-portrait.cfg">
+      <Link>media\overlays\gamepads\old\genesis6-portrait.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis6-portrait.png">
+      <Link>media\overlays\gamepads\old\genesis6-portrait.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis_next.png">
+      <Link>media\overlays\gamepads\old\genesis_next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis_quickmenu_small.png">
+      <Link>media\overlays\gamepads\old\genesis_quickmenu_small.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis_quickmenu_small2.png">
+      <Link>media\overlays\gamepads\old\genesis_quickmenu_small2.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\basic_next.png">
+      <Link>media\overlays\gamepads\old\Low-resolution\basic_next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\basic_overlay.cfg">
+      <Link>media\overlays\gamepads\old\Low-resolution\basic_overlay.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\basic_overlay.png">
+      <Link>media\overlays\gamepads\old\Low-resolution\basic_overlay.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\basic_overlay_portrait.cfg">
+      <Link>media\overlays\gamepads\old\Low-resolution\basic_overlay_portrait.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\basic_quickmenu.png">
+      <Link>media\overlays\gamepads\old\Low-resolution\basic_quickmenu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\basic_quickmenu_small.png">
+      <Link>media\overlays\gamepads\old\Low-resolution\basic_quickmenu_small.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_2.cfg">
+      <Link>media\overlays\gamepads\old\Low-resolution\opium_2.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_2.png">
+      <Link>media\overlays\gamepads\old\Low-resolution\opium_2.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_3.cfg">
+      <Link>media\overlays\gamepads\old\Low-resolution\opium_3.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_3.png">
+      <Link>media\overlays\gamepads\old\Low-resolution\opium_3.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_4.cfg">
+      <Link>media\overlays\gamepads\old\Low-resolution\opium_4.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_4.png">
+      <Link>media\overlays\gamepads\old\Low-resolution\opium_4.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_5.cfg">
+      <Link>media\overlays\gamepads\old\Low-resolution\opium_5.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_5.png">
+      <Link>media\overlays\gamepads\old\Low-resolution\opium_5.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_5b.cfg">
+      <Link>media\overlays\gamepads\old\Low-resolution\opium_5b.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_5b.png">
+      <Link>media\overlays\gamepads\old\Low-resolution\opium_5b.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_6.cfg">
+      <Link>media\overlays\gamepads\old\Low-resolution\opium_6.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_6.png">
+      <Link>media\overlays\gamepads\old\Low-resolution\opium_6.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_7.cfg">
+      <Link>media\overlays\gamepads\old\Low-resolution\opium_7.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_7.png">
+      <Link>media\overlays\gamepads\old\Low-resolution\opium_7.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_8.cfg">
+      <Link>media\overlays\gamepads\old\Low-resolution\opium_8.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_8.png">
+      <Link>media\overlays\gamepads\old\Low-resolution\opium_8.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\lynx-landscape.cfg">
+      <Link>media\overlays\gamepads\old\lynx-landscape.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\lynx-landscape.png">
+      <Link>media\overlays\gamepads\old\lynx-landscape.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\nes-landscape.cfg">
+      <Link>media\overlays\gamepads\old\nes-landscape.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\nes-landscape.png">
+      <Link>media\overlays\gamepads\old\nes-landscape.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\nes-portrait.cfg">
+      <Link>media\overlays\gamepads\old\nes-portrait.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\nes-portrait.png">
+      <Link>media\overlays\gamepads\old\nes-portrait.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\nintendo_next.png">
+      <Link>media\overlays\gamepads\old\nintendo_next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\nintendo_quickmenu_small.png">
+      <Link>media\overlays\gamepads\old\nintendo_quickmenu_small.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\nintendo_quickmenu_small2.png">
+      <Link>media\overlays\gamepads\old\nintendo_quickmenu_small2.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\ps.png">
+      <Link>media\overlays\gamepads\old\ps.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\psx-landscape.cfg">
+      <Link>media\overlays\gamepads\old\psx-landscape.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\psx-landscape.png">
+      <Link>media\overlays\gamepads\old\psx-landscape.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\psx-portrait.cfg">
+      <Link>media\overlays\gamepads\old\psx-portrait.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\psx-portrait.png">
+      <Link>media\overlays\gamepads\old\psx-portrait.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\psx_next.png">
+      <Link>media\overlays\gamepads\old\psx_next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\psx_quickmenu_small.png">
+      <Link>media\overlays\gamepads\old\psx_quickmenu_small.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\psx_quickmenu_small2.png">
+      <Link>media\overlays\gamepads\old\psx_quickmenu_small2.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\ps_next.png">
+      <Link>media\overlays\gamepads\old\ps_next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\ps_portrait.png">
+      <Link>media\overlays\gamepads\old\ps_portrait.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\ps_quickmenu.png">
+      <Link>media\overlays\gamepads\old\ps_quickmenu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\snes-landscape.cfg">
+      <Link>media\overlays\gamepads\old\snes-landscape.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\snes-landscape.png">
+      <Link>media\overlays\gamepads\old\snes-landscape.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\snes-portrait.cfg">
+      <Link>media\overlays\gamepads\old\snes-portrait.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\snes-portrait.png">
+      <Link>media\overlays\gamepads\old\snes-portrait.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\a.png">
+      <Link>media\overlays\gamepads\psx\a.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\b.png">
+      <Link>media\overlays\gamepads\psx\b.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\box-psx-diagonals.cfg">
+      <Link>media\overlays\gamepads\psx\box-psx-diagonals.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\dpad-down.png">
+      <Link>media\overlays\gamepads\psx\dpad-down.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\dpad-left.png">
+      <Link>media\overlays\gamepads\psx\dpad-left.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\dpad-right.png">
+      <Link>media\overlays\gamepads\psx\dpad-right.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\dpad-up.png">
+      <Link>media\overlays\gamepads\psx\dpad-up.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\dpad.png">
+      <Link>media\overlays\gamepads\psx\dpad.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\l1.png">
+      <Link>media\overlays\gamepads\psx\l1.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\l2.png">
+      <Link>media\overlays\gamepads\psx\l2.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\next.png">
+      <Link>media\overlays\gamepads\psx\next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\psx.cfg">
+      <Link>media\overlays\gamepads\psx\psx.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\ps_next.png">
+      <Link>media\overlays\gamepads\psx\ps_next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\quickmenu.png">
+      <Link>media\overlays\gamepads\psx\quickmenu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\r1.png">
+      <Link>media\overlays\gamepads\psx\r1.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\r2.png">
+      <Link>media\overlays\gamepads\psx\r2.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\rgui.png">
+      <Link>media\overlays\gamepads\psx\rgui.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\rotate.png">
+      <Link>media\overlays\gamepads\psx\rotate.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\select.png">
+      <Link>media\overlays\gamepads\psx\select.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\start.png">
+      <Link>media\overlays\gamepads\psx\start.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\x.png">
+      <Link>media\overlays\gamepads\psx\x.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\y.png">
+      <Link>media\overlays\gamepads\psx\y.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\a.png">
+      <Link>media\overlays\gamepads\retropad\a.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\analog.png">
+      <Link>media\overlays\gamepads\retropad\analog.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\b.png">
+      <Link>media\overlays\gamepads\retropad\b.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\digital.png">
+      <Link>media\overlays\gamepads\retropad\digital.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\dpad.png">
+      <Link>media\overlays\gamepads\retropad\dpad.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\ff.png">
+      <Link>media\overlays\gamepads\retropad\ff.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\hide.png">
+      <Link>media\overlays\gamepads\retropad\hide.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\l1.png">
+      <Link>media\overlays\gamepads\retropad\l1.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\l2.png">
+      <Link>media\overlays\gamepads\retropad\l2.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\l3.png">
+      <Link>media\overlays\gamepads\retropad\l3.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\menu.png">
+      <Link>media\overlays\gamepads\retropad\menu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\osk-toggle.png">
+      <Link>media\overlays\gamepads\retropad\osk-toggle.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\quickmenu.png">
+      <Link>media\overlays\gamepads\retropad\quickmenu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\r1.png">
+      <Link>media\overlays\gamepads\retropad\r1.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\r2.png">
+      <Link>media\overlays\gamepads\retropad\r2.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\r3.png">
+      <Link>media\overlays\gamepads\retropad\r3.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\retropad.cfg">
+      <Link>media\overlays\gamepads\retropad\retropad.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\rewind.png">
+      <Link>media\overlays\gamepads\retropad\rewind.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\rgui.png">
+      <Link>media\overlays\gamepads\retropad\rgui.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\rotate.png">
+      <Link>media\overlays\gamepads\retropad\rotate.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\select.png">
+      <Link>media\overlays\gamepads\retropad\select.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\show.png">
+      <Link>media\overlays\gamepads\retropad\show.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\start.png">
+      <Link>media\overlays\gamepads\retropad\start.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\thumbstick-background.png">
+      <Link>media\overlays\gamepads\retropad\thumbstick-background.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\thumbstick-pad.png">
+      <Link>media\overlays\gamepads\retropad\thumbstick-pad.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\x.png">
+      <Link>media\overlays\gamepads\retropad\x.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\y.png">
+      <Link>media\overlays\gamepads\retropad\y.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\a.png">
+      <Link>media\overlays\gamepads\snes\a.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\b.png">
+      <Link>media\overlays\gamepads\snes\b.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\dpad.png">
+      <Link>media\overlays\gamepads\snes\dpad.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\l1.png">
+      <Link>media\overlays\gamepads\snes\l1.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\next.png">
+      <Link>media\overlays\gamepads\snes\next.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\quickmenu.png">
+      <Link>media\overlays\gamepads\snes\quickmenu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\r1.png">
+      <Link>media\overlays\gamepads\snes\r1.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\rgui.png">
+      <Link>media\overlays\gamepads\snes\rgui.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\rotate.png">
+      <Link>media\overlays\gamepads\snes\rotate.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\select.png">
+      <Link>media\overlays\gamepads\snes\select.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\snes.cfg">
+      <Link>media\overlays\gamepads\snes\snes.cfg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\start.png">
+      <Link>media\overlays\gamepads\snes\start.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\x.png">
+      <Link>media\overlays\gamepads\snes\x.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\y.png">
+      <Link>media\overlays\gamepads\snes\y.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DeploymentContent>true</DeploymentContent>
     </None>
