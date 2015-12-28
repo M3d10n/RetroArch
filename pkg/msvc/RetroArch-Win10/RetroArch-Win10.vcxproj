@@ -503,6 +503,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\command.h" />
     <ClInclude Include="..\..\..\config.def.h" />
     <ClInclude Include="..\..\..\gfx\common\d3d11_common.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\cores.h" />
@@ -2693,6 +2694,7 @@
       <DeploymentContent>true</DeploymentContent>
     </None>
   </ItemGroup>
+
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <FileType>Document</FileType>
