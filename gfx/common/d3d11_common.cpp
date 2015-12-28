@@ -27,42 +27,6 @@ using namespace Windows::UI::Core;
 using namespace Windows::UI::Xaml::Controls;
 using namespace Platform;
 
-// Constants used to calculate screen rotations
-namespace ScreenRotation
-{
-	// 0-degree Z-rotation
-	static const XMFLOAT4X4 Rotation0(
-		1.0f, 0.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 0.0f, 1.0f
-		);
-
-	// 90-degree Z-rotation
-	static const XMFLOAT4X4 Rotation90(
-		0.0f, 1.0f, 0.0f, 0.0f,
-		-1.0f, 0.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 0.0f, 1.0f
-		);
-
-	// 180-degree Z-rotation
-	static const XMFLOAT4X4 Rotation180(
-		-1.0f, 0.0f, 0.0f, 0.0f,
-		0.0f, -1.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 0.0f, 1.0f
-		);
-
-	// 270-degree Z-rotation
-	static const XMFLOAT4X4 Rotation270(
-		0.0f, -1.0f, 0.0f, 0.0f,
-		1.0f, 0.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 0.0f, 1.0f
-		);
-};
-
 Windows::UI::Core::CoreDispatcher^ d3d11::ui_dispatcher;
 
 static Windows::UI::Xaml::Controls::SwapChainPanel ^ g_swap_chain_panel;
@@ -77,6 +41,8 @@ d3d11::DeviceResources::DeviceResources(const video_info_t* info) :
 	m_nativeOrientation(DisplayOrientations::None),
 	m_currentOrientation(DisplayOrientations::None),
 	m_dpi(-1.0f),
+   m_compositionScaleX(1.0f),
+   m_compositionScaleY(1.0f),
 	m_deviceNotify(nullptr),
    m_bitmapConversionBufferSize(0),
    m_videoInfo(*info),
@@ -259,11 +225,8 @@ void d3d11::DeviceResources::CreateWindowSizeDependentResources()
 	// The width and height of the swap chain must be based on the window's
 	// natively-oriented width and height. If the window is not in the native
 	// orientation, the dimensions must be reversed.
-	DXGI_MODE_ROTATION displayRotation = ComputeDisplayRotation();
-
-	bool swapDimensions = displayRotation == DXGI_MODE_ROTATION_ROTATE90 || displayRotation == DXGI_MODE_ROTATION_ROTATE270;
-	m_d3dRenderTargetSize.Width = swapDimensions ? m_outputSize.Height : m_outputSize.Width;
-	m_d3dRenderTargetSize.Height = swapDimensions ? m_outputSize.Width : m_outputSize.Height;
+	m_d3dRenderTargetSize.Width = m_outputSize.Width;
+	m_d3dRenderTargetSize.Height = m_outputSize.Height;
 
 	if (m_swapChain != nullptr)
 	{
@@ -384,47 +347,13 @@ void d3d11::DeviceResources::CreateWindowSizeDependentResources()
 			);
 	}
 
-	// Set the proper orientation for the swap chain, and generate 2D and
-	// 3D matrix transformations for rendering to the rotated swap chain.
-	// Note the rotation angle for the 2D and 3D transforms are different.
-	// This is due to the difference in coordinate spaces.  Additionally,
-	// the 3D matrix is specified explicitly to avoid rounding errors.
-
-	switch (displayRotation)
-	{
-	case DXGI_MODE_ROTATION_IDENTITY:
-		m_orientationTransform2D = Matrix3x2F::Identity();
-		m_orientationTransform3D = ScreenRotation::Rotation0;
-		break;
-
-	case DXGI_MODE_ROTATION_ROTATE90:
-		m_orientationTransform2D =
-			Matrix3x2F::Rotation(90.0f) *
-			Matrix3x2F::Translation(m_logicalSize.Height, 0.0f);
-		m_orientationTransform3D = ScreenRotation::Rotation270;
-		break;
-
-	case DXGI_MODE_ROTATION_ROTATE180:
-		m_orientationTransform2D =
-			Matrix3x2F::Rotation(180.0f) *
-			Matrix3x2F::Translation(m_logicalSize.Width, m_logicalSize.Height);
-		m_orientationTransform3D = ScreenRotation::Rotation180;
-		break;
-
-	case DXGI_MODE_ROTATION_ROTATE270:
-		m_orientationTransform2D =
-			Matrix3x2F::Rotation(270.0f) *
-			Matrix3x2F::Translation(0.0f, m_logicalSize.Width);
-		m_orientationTransform3D = ScreenRotation::Rotation90;
-		break;
-
-	default:
-		throw ref new FailureException();
-	}
-
-	d3d11::ThrowIfFailed(
-		m_swapChain->SetRotation(displayRotation)
-		);
+   // Setup inverse scale on the swap chain
+   DXGI_MATRIX_3X2_F inverseScale = { 0 };
+   inverseScale._11 = 1.0f / m_compositionScaleX;
+   inverseScale._22 = 1.0f / m_compositionScaleY;
+   d3d11::ThrowIfFailed(
+      m_swapChain->SetMatrixTransform(&inverseScale)
+      );
 
 	// Create a render target view of the swap chain back buffer.
 	ComPtr<ID3D11Texture2D> backBuffer;
@@ -528,8 +457,8 @@ void d3d11::DeviceResources::SetSwapChainPanel(Windows::UI::Xaml::Controls::Swap
    m_logicalSize = Windows::Foundation::Size(static_cast<float>(panel->ActualWidth), static_cast<float>(panel->ActualHeight));
    m_nativeOrientation = currentDisplayInformation->NativeOrientation;
    m_currentOrientation = currentDisplayInformation->CurrentOrientation;
-   //m_compositionScaleX = panel->CompositionScaleX;
-   //m_compositionScaleY = panel->CompositionScaleY;
+   m_compositionScaleX = panel->CompositionScaleX;
+   m_compositionScaleY = panel->CompositionScaleY;
    m_dpi = currentDisplayInformation->LogicalDpi;
    m_d2dContext->SetDpi(m_dpi, m_dpi);
 
@@ -855,61 +784,6 @@ void d3d11::DeviceResources::RenderOverlays()
 
       m_d2dContext->DrawBitmap(overlay.Bitmap.Get(), &rect);
    }
-}
-
-// This method determines the rotation between the display device's native Orientation and the
-// current display orientation.
-DXGI_MODE_ROTATION d3d11::DeviceResources::ComputeDisplayRotation()
-{
-	DXGI_MODE_ROTATION rotation = DXGI_MODE_ROTATION_UNSPECIFIED;
-
-	// Note: NativeOrientation can only be Landscape or Portrait even though
-	// the DisplayOrientations enum has other values.
-	switch (m_nativeOrientation)
-	{
-	case DisplayOrientations::Landscape:
-		switch (m_currentOrientation)
-		{
-		case DisplayOrientations::Landscape:
-			rotation = DXGI_MODE_ROTATION_IDENTITY;
-			break;
-
-		case DisplayOrientations::Portrait:
-			rotation = DXGI_MODE_ROTATION_ROTATE270;
-			break;
-
-		case DisplayOrientations::LandscapeFlipped:
-			rotation = DXGI_MODE_ROTATION_ROTATE180;
-			break;
-
-		case DisplayOrientations::PortraitFlipped:
-			rotation = DXGI_MODE_ROTATION_ROTATE90;
-			break;
-		}
-		break;
-
-	case DisplayOrientations::Portrait:
-		switch (m_currentOrientation)
-		{
-		case DisplayOrientations::Landscape:
-			rotation = DXGI_MODE_ROTATION_ROTATE90;
-			break;
-
-		case DisplayOrientations::Portrait:
-			rotation = DXGI_MODE_ROTATION_IDENTITY;
-			break;
-
-		case DisplayOrientations::LandscapeFlipped:
-			rotation = DXGI_MODE_ROTATION_ROTATE270;
-			break;
-
-		case DisplayOrientations::PortraitFlipped:
-			rotation = DXGI_MODE_ROTATION_ROTATE180;
-			break;
-		}
-		break;
-	}
-	return rotation;
 }
 
 d3d11::DeviceResources * d3d11::Get()

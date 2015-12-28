@@ -164,6 +164,8 @@ namespace d3d11
 		Windows::Graphics::Display::DisplayOrientations	m_nativeOrientation;
 		Windows::Graphics::Display::DisplayOrientations	m_currentOrientation;
 		float											m_dpi;
+      float											m_compositionScaleX;
+      float											m_compositionScaleY;
 
 		// Transforms used for display orientation.
 		D2D1::Matrix3x2F	m_orientationTransform2D;

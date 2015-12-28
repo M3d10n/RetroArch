@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="RetroArch_Win10.cores"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RetroArch_Win10"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" RequestedTheme="Dark">
+    <Page.Resources>
+        <DataTemplate x:Key="ConsoleGridItem">
+            <Grid HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="200" Padding="0" Margin="9">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="153*"/>
+                    <RowDefinition Height="47*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="textBlock" Grid.Row="1" Text="{Binding Name}" FontSize="18.667" TextAlignment="Center" TextTrimming="CharacterEllipsis" VerticalAlignment="Center"/>
+                <Image x:Name="image" Source="{Binding Icon}" Margin="28,0,27,0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+                <Button x:Name="button" Content="" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" d:LayoutOverrides="Width, LeftMargin, RightMargin, TopMargin, BottomMargin" Grid.RowSpan="2"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Opacity="0.5">
+        <GridView x:Name="gridView" d:LayoutOverrides="Height, LeftPosition, RightPosition, TopPosition, BottomPosition" SelectionMode="None" ItemTemplate="{StaticResource ConsoleGridItem}">
+            <GridView.DataContext>
+                <local:Core/>
+            </GridView.DataContext>
+        </GridView>
+
+    </Grid>
+</Page>
