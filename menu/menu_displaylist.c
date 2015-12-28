@@ -2591,7 +2591,7 @@ int menu_displaylist_push_list(menu_displaylist_info_t *info, unsigned type)
                menu_hash_to_str(MENU_LABEL_SAVE_NEW_CONFIG), PARSE_ACTION, false);
          menu_displaylist_parse_settings(menu, info,
                menu_hash_to_str(MENU_LABEL_HELP_LIST), PARSE_ACTION, false);
-#if !defined(IOS)
+#if !defined(IOS) && !(defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP))
          menu_displaylist_parse_settings(menu, info,
                menu_hash_to_str(MENU_LABEL_QUIT_RETROARCH), PARSE_ACTION, false);
 #endif

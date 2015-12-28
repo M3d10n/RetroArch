@@ -19,6 +19,10 @@
 #include "../../driver.h"
 #include "../video_context_driver.h"
 
+struct d3d11_settings {
+   bool menu_enabled;
+} g_d3d11_settings;
+
 static const gfx_ctx_driver_t * d3d11_get_context(void *data)
 {
 	unsigned minor = 2;
@@ -38,6 +42,8 @@ static void *d3d11_gfx_init(const video_info_t *video,
 
    settings_t *settings = config_get_ptr();
    driver_t   *driver = driver_get_ptr();
+
+   memset(&g_d3d11_settings, 0, sizeof(g_d3d11_settings));
 
    d3d11::DeviceResources* vid = NULL;
    const gfx_ctx_driver_t *ctx = NULL;
@@ -127,7 +133,7 @@ static bool d3d11_gfx_frame(void *data, const void *frame,
 
 #ifdef HAVE_MENU
    auto menu_bitmap = d3d11res->GetD2DMenuBitmap();
-   if (menu_bitmap)
+   if (menu_bitmap && g_d3d11_settings.menu_enabled)
    {
 	   d2dctx->SetTransform(d3d11_get_display_matrix(data, menu_bitmap->GetPixelSize().width, menu_bitmap->GetPixelSize().height));	   
 	   d2dctx->DrawBitmap(menu_bitmap, rect);
@@ -135,7 +141,10 @@ static bool d3d11_gfx_frame(void *data, const void *frame,
 #endif
    
 #ifdef HAVE_OVERLAY
-   d3d11res->RenderOverlays();
+   if (settings->input.overlay_enable)
+   {
+      d3d11res->RenderOverlays();
+   }
 #endif
 
    d3d11::ThrowIfFailed( d2dctx->EndDraw() );
@@ -331,15 +340,7 @@ static void d3d11_set_menu_texture_frame(void *data,
 static void d3d11_set_menu_texture_enable(void *data,
 	bool state, bool full_screen)
 {
-	/*
-	d3d_video_t *d3d = (d3d_video_t*)data;
-
-	if (!d3d || !d3d->menu)
-		return;
-
-	d3d->menu->enabled = state;
-	d3d->menu->fullscreen = full_screen;
-	*/
+   g_d3d11_settings.menu_enabled = state;
 }
 #endif
 

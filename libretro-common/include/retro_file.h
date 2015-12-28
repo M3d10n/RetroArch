@@ -29,6 +29,7 @@
 #include <sys/types.h>
 
 #include <boolean.h>
+#include <compat/msvc.h>
 
 #ifdef __cplusplus
 extern "C" {

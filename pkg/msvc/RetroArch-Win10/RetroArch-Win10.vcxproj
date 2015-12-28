@@ -107,7 +107,7 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;RARCH_MOBILE;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;RARCH_MOBILE;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_LIBRETRODB;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAs>CompileAsCpp</CompileAs>
       <AdditionalIncludeDirectories>..\..\..\deps\zlib;..\..\..\libretro-common\include;..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -121,7 +121,7 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;RARCH_MOBILE;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;RARCH_MOBILE;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_LIBRETRODB;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAs>CompileAsCpp</CompileAs>
       <AdditionalIncludeDirectories>..\..\..\deps\zlib;..\..\..\libretro-common\include;..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -135,7 +135,7 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;RARCH_MOBILE;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;RARCH_MOBILE;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_LIBRETRODB;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\..\deps\zlib;..\..\..\libretro-common\include;..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -150,7 +150,7 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;RARCH_MOBILE;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;RARCH_MOBILE;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_LIBRETRODB;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\..\deps\zlib;..\..\..\libretro-common\include;..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -164,7 +164,7 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;RARCH_MOBILE;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;RARCH_MOBILE;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_LIBRETRODB;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAs>CompileAsCpp</CompileAs>
       <AdditionalIncludeDirectories>..\..\..\deps\zlib;..\..\..\libretro-common\include;..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -178,7 +178,7 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;RARCH_MOBILE;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;RARCH_MOBILE;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_LIBRETRODB;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_MENU;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAs>CompileAsCpp</CompileAs>
       <AdditionalIncludeDirectories>..\..\..\deps\zlib;..\..\..\libretro-common\include;..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -896,6 +896,7 @@
     <ClCompile Include="..\..\..\cores\image_core.c" />
     <ClCompile Include="..\..\..\core_info.c" />
     <ClCompile Include="..\..\..\core_options.c" />
+    <ClCompile Include="..\..\..\database_info.c" />
     <ClCompile Include="..\..\..\deps\zlib\adler32.c" />
     <ClCompile Include="..\..\..\deps\zlib\compress.c" />
     <ClCompile Include="..\..\..\deps\zlib\crc32.c" />
@@ -1014,6 +1015,11 @@
     <ClCompile Include="..\..\..\libretro-common\rthreads\rthreads.c" />
     <ClCompile Include="..\..\..\libretro-common\string\stdstring.c" />
     <ClCompile Include="..\..\..\libretro-common\string\string_list.c" />
+    <ClCompile Include="..\..\..\libretro-db\bintree.c" />
+    <ClCompile Include="..\..\..\libretro-db\libretrodb.c" />
+    <ClCompile Include="..\..\..\libretro-db\query.c" />
+    <ClCompile Include="..\..\..\libretro-db\rmsgpack.c" />
+    <ClCompile Include="..\..\..\libretro-db\rmsgpack_dom.c" />
     <ClCompile Include="..\..\..\libretro_version_1.c" />
     <ClCompile Include="..\..\..\location\drivers\nulllocation.c" />
     <ClCompile Include="..\..\..\location\location_driver.c" />
@@ -1077,6 +1083,8 @@
     <ClCompile Include="..\..\..\string_list_special.c" />
     <ClCompile Include="..\..\..\system.c" />
     <ClCompile Include="..\..\..\tasks\tasks.c" />
+    <ClCompile Include="..\..\..\tasks\task_database.c" />
+    <ClCompile Include="..\..\..\tasks\task_database_cue.c" />
     <ClCompile Include="..\..\..\tasks\task_file_transfer.c" />
     <ClCompile Include="..\..\..\tasks\task_overlay.c" />
     <ClCompile Include="..\..\..\ui\drivers\ui_null.c" />

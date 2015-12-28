@@ -3366,7 +3366,7 @@ static bool setting_append_list_main_menu_options(
          &subgroup_info,
          parent_group);
 
-#if !defined(IOS)
+#if !defined(IOS) && !(defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP))
    /* Apple rejects iOS apps that lets you forcibly quit an application. */
    CONFIG_ACTION(
          list, list_info,

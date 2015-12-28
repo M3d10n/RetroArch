@@ -817,7 +817,13 @@ static void rarch_main_cmd_get_state(driver_t *driver,
                                             settings, input,
                                             old_input, trigger_input);
 #endif
+
+#if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+   cmd->quit_key_pressed            = false;
+#else
    cmd->quit_key_pressed            = BIT64_GET(input, RARCH_QUIT_KEY);
+#endif
+
    cmd->screenshot_pressed          = BIT64_GET(trigger_input, RARCH_SCREENSHOT);
    cmd->mute_pressed                = BIT64_GET(trigger_input, RARCH_MUTE);
    cmd->osk_pressed                 = BIT64_GET(trigger_input, RARCH_OSK);
