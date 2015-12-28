@@ -1089,14 +1089,26 @@
     <ClCompile Include="..\..\..\tasks\task_overlay.c" />
     <ClCompile Include="..\..\..\ui\drivers\ui_null.c" />
     <ClCompile Include="..\..\..\ui\drivers\ui_uwp.cpp" />
+    <ClCompile Include="..\..\..\ui\drivers\uwp\main_page.xaml.cpp">
+      <DependentUpon>..\..\..\ui\drivers\uwp\main_page.xaml</DependentUpon>
+    </ClCompile>
     <ClCompile Include="..\..\..\ui\drivers\uwp\uwp.cpp" />
     <ClCompile Include="..\..\..\ui\ui_companion_driver.c" />
     <ClCompile Include="..\..\..\verbosity.c" />
+    <ClCompile Include="App.xaml.cpp">
+      <DependentUpon>App.xaml</DependentUpon>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\config.def.h" />
     <ClInclude Include="..\..\..\gfx\common\d3d11_common.h" />
+    <ClInclude Include="..\..\..\ui\drivers\uwp\main_page.xaml.h">
+      <DependentUpon>..\..\..\ui\drivers\uwp\main_page.xaml</DependentUpon>
+    </ClInclude>
     <ClInclude Include="..\..\..\ui\drivers\uwp\uwp.h" />
+    <ClInclude Include="App.xaml.h">
+      <DependentUpon>App.xaml</DependentUpon>
+    </ClInclude>
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
@@ -3273,6 +3285,16 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DeploymentContent>true</DeploymentContent>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <FileType>Document</FileType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="..\..\..\ui\drivers\uwp\main_page.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

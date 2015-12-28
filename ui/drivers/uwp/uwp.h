@@ -2,9 +2,9 @@
 
 #include "gfx/common/d3d11_common.h"
 
-namespace Retroarch
+namespace RetroArch_Win10
 {
-   static d3d11::DeviceResources* GetResources();
+   d3d11::DeviceResources* GetResources();
 
    class RetroarchMain : public d3d11::IDeviceNotify
    {
@@ -36,10 +36,10 @@ namespace Retroarch
    };
 
    // Main entry point for our app. Connects the app with the Windows shell and handles application lifecycle events.
-   ref class App sealed : public Windows::ApplicationModel::Core::IFrameworkView
+   ref class OldApp sealed : public Windows::ApplicationModel::Core::IFrameworkView
    {
    public:
-      App();
+      OldApp();
 
       // IFrameworkView Methods.
       virtual void Initialize(Windows::ApplicationModel::Core::CoreApplicationView^ applicationView);

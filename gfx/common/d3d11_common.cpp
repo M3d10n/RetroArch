@@ -15,6 +15,8 @@
 */
 
 #include "d3d11_common.h"
+#include <windows.ui.xaml.media.dxinterop.h>
+
 
 using namespace D2D1;
 using namespace DirectX;
@@ -63,6 +65,8 @@ namespace ScreenRotation
 
 Windows::UI::Core::CoreDispatcher^ d3d11::ui_dispatcher;
 
+static Windows::UI::Xaml::Controls::SwapChainPanel ^ g_swap_chain_panel;
+
 // Constructor for DeviceResources.
 d3d11::DeviceResources::DeviceResources(const video_info_t* info) :
 	m_screenViewport(),
@@ -84,9 +88,21 @@ d3d11::DeviceResources::DeviceResources(const video_info_t* info) :
 	// Grab the window from the UI thread
 	auto async = d3d11::ui_dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new DispatchedHandler([=]()
 	{
-		this->SetWindow(CoreWindow::GetForCurrentThread(), DisplayInformation::GetForCurrentView());
+      if (g_swap_chain_panel)
+      {
+         this->SetSwapChainPanel(g_swap_chain_panel);
+      } 
+      else
+      {
+		   this->SetWindow(CoreWindow::GetForCurrentThread(), DisplayInformation::GetForCurrentView());
+      }
 	}, Platform::CallbackContext::Any));
 	while (async->Status != AsyncStatus::Completed);
+}
+
+void d3d11::DeviceResources::SetGlobalSwapChainPanel(Windows::UI::Xaml::Controls::SwapChainPanel ^ panel)
+{
+   g_swap_chain_panel = panel;
 }
 
 // Configures resources that don't depend on the Direct3D device.
@@ -104,7 +120,7 @@ void d3d11::DeviceResources::CreateDeviceIndependentResources()
 	// Initialize the Direct2D Factory.
 	d3d11::ThrowIfFailed(
 		D2D1CreateFactory(
-			D2D1_FACTORY_TYPE_MULTI_THREADED,
+         D2D1_FACTORY_TYPE_SINGLE_THREADED,
 			__uuidof(ID2D1Factory2),
 			&options,
 			&m_d2dFactory
@@ -303,20 +319,63 @@ void d3d11::DeviceResources::CreateWindowSizeDependentResources()
 			dxgiDevice->GetAdapter(&dxgiAdapter)
 			);
 
-		ComPtr<IDXGIFactory2> dxgiFactory;
+		ComPtr<IDXGIFactory4> dxgiFactory;
 		d3d11::ThrowIfFailed(
 			dxgiAdapter->GetParent(IID_PPV_ARGS(&dxgiFactory))
 			);
 
-		d3d11::ThrowIfFailed(
-			dxgiFactory->CreateSwapChainForCoreWindow(
-				m_d3dDevice.Get(),
-				reinterpret_cast<IUnknown*>(m_window.Get()),
-				&swapChainDesc,
-				nullptr,
-				&m_swapChain
-				)
-			);
+      if (m_window.Get())
+      {
+         ComPtr<IDXGISwapChain1> swapChain;
+
+         d3d11::ThrowIfFailed(
+            dxgiFactory->CreateSwapChainForCoreWindow(
+               m_d3dDevice.Get(),
+               reinterpret_cast<IUnknown*>(m_window.Get()),
+               &swapChainDesc,
+               nullptr,
+               &swapChain
+               )
+            );
+
+         d3d11::ThrowIfFailed(
+            swapChain.As(&m_swapChain)
+            );
+      } 
+      else if (m_swapChainPanel) {
+
+         // Composition requires this
+         swapChainDesc.Scaling = DXGI_SCALING_STRETCH;
+
+         ComPtr<IDXGISwapChain1> swapChain;
+         d3d11::ThrowIfFailed(
+            dxgiFactory->CreateSwapChainForComposition(
+               m_d3dDevice.Get(),
+               &swapChainDesc,
+               nullptr,
+               &swapChain
+               )
+            );
+
+         d3d11::ThrowIfFailed(
+            swapChain.As(&m_swapChain)
+            );
+
+         // Associate swap chain with SwapChainPanel
+         // UI changes will need to be dispatched back to the UI thread
+         m_swapChainPanel->Dispatcher->RunAsync(CoreDispatcherPriority::High, ref new DispatchedHandler([=]()
+         {
+            // Get backing native interface for SwapChainPanel
+            ComPtr<ISwapChainPanelNative> panelNative;
+            d3d11::ThrowIfFailed(
+               reinterpret_cast<IUnknown*>(m_swapChainPanel)->QueryInterface(IID_PPV_ARGS(&panelNative))
+               );
+
+            d3d11::ThrowIfFailed(
+               panelNative->SetSwapChain(m_swapChain.Get())
+               );
+         }, CallbackContext::Any));
+      }
 
 		// Ensure that DXGI does not queue more than one frame at a time. This both reduces latency and
 		// ensures that the application will only render after each VSync, minimizing power consumption.
@@ -459,6 +518,22 @@ void d3d11::DeviceResources::SetWindow(CoreWindow^ window, Windows::Graphics::Di
 	m_d2dContext->SetDpi(m_dpi, m_dpi);
 
 	CreateWindowSizeDependentResources();
+}
+
+void d3d11::DeviceResources::SetSwapChainPanel(Windows::UI::Xaml::Controls::SwapChainPanel ^ panel)
+{
+   DisplayInformation^ currentDisplayInformation = DisplayInformation::GetForCurrentView();
+
+   m_swapChainPanel = panel;
+   m_logicalSize = Windows::Foundation::Size(static_cast<float>(panel->ActualWidth), static_cast<float>(panel->ActualHeight));
+   m_nativeOrientation = currentDisplayInformation->NativeOrientation;
+   m_currentOrientation = currentDisplayInformation->CurrentOrientation;
+   //m_compositionScaleX = panel->CompositionScaleX;
+   //m_compositionScaleY = panel->CompositionScaleY;
+   m_dpi = currentDisplayInformation->LogicalDpi;
+   m_d2dContext->SetDpi(m_dpi, m_dpi);
+
+   CreateWindowSizeDependentResources();
 }
 
 // This method is called in the event handler for the SizeChanged event.
@@ -837,4 +912,7 @@ DXGI_MODE_ROTATION d3d11::DeviceResources::ComputeDisplayRotation()
 	return rotation;
 }
 
-
+d3d11::DeviceResources * d3d11::Get()
+{
+   return (d3d11::DeviceResources*)video_driver_get_ptr(false);
+}

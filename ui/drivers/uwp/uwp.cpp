@@ -8,7 +8,7 @@
 #include <file/file_path.h>
 #include <ppltasks.h>
 
-using namespace Retroarch;
+using namespace RetroArch_Win10;
 
 using namespace concurrency;
 using namespace Windows::ApplicationModel;
@@ -22,37 +22,38 @@ using namespace Windows::Graphics::Display;
 using namespace Windows::System::Threading;
 
 // The main function is only used to initialize our IFrameworkView class.
-[Platform::MTAThread]
+/*[Platform::MTAThread]
 int main(Platform::Array<Platform::String^>^)
 {
    auto direct3DApplicationSource = ref new Direct3DApplicationSource();
    CoreApplication::Run(direct3DApplicationSource);
    return 0;
 }
+*/
 
 IFrameworkView^ Direct3DApplicationSource::CreateView()
 {
-   return ref new App();
+   return ref new OldApp();
 }
 
-App::App() :
+OldApp::OldApp() :
    m_windowVisible(true)
 {
 }
 
 // The first method called when the IFrameworkView is being created.
-void App::Initialize(CoreApplicationView^ applicationView)
+void OldApp::Initialize(CoreApplicationView^ applicationView)
 {
    // Register event handlers for app lifecycle. This example includes Activated, so that we
    // can make the CoreWindow active and start rendering on the window.
    applicationView->Activated +=
-      ref new TypedEventHandler<CoreApplicationView^, IActivatedEventArgs^>(this, &App::OnActivated);
+      ref new TypedEventHandler<CoreApplicationView^, IActivatedEventArgs^>(this, &OldApp::OnActivated);
 
    CoreApplication::Suspending +=
-      ref new EventHandler<SuspendingEventArgs^>(this, &App::OnSuspending);
+      ref new EventHandler<SuspendingEventArgs^>(this, &OldApp::OnSuspending);
 
    CoreApplication::Resuming +=
-      ref new EventHandler<Platform::Object^>(this, &App::OnResuming);
+      ref new EventHandler<Platform::Object^>(this, &OldApp::OnResuming);
 
    // At this point we have access to the device. 
    // We can create the device-dependent resources.
@@ -60,32 +61,32 @@ void App::Initialize(CoreApplicationView^ applicationView)
 }
 
 // Called when the CoreWindow object is created (or re-created).
-void App::SetWindow(CoreWindow^ window)
+void OldApp::SetWindow(CoreWindow^ window)
 {
    window->SizeChanged += 
-      ref new TypedEventHandler<CoreWindow^, WindowSizeChangedEventArgs^>(this, &App::OnWindowSizeChanged);
+      ref new TypedEventHandler<CoreWindow^, WindowSizeChangedEventArgs^>(this, &OldApp::OnWindowSizeChanged);
 
    window->VisibilityChanged +=
-      ref new TypedEventHandler<CoreWindow^, VisibilityChangedEventArgs^>(this, &App::OnVisibilityChanged);
+      ref new TypedEventHandler<CoreWindow^, VisibilityChangedEventArgs^>(this, &OldApp::OnVisibilityChanged);
 
    window->Closed += 
-      ref new TypedEventHandler<CoreWindow^, CoreWindowEventArgs^>(this, &App::OnWindowClosed);
+      ref new TypedEventHandler<CoreWindow^, CoreWindowEventArgs^>(this, &OldApp::OnWindowClosed);
 
    DisplayInformation^ currentDisplayInformation = DisplayInformation::GetForCurrentView();
 
    currentDisplayInformation->DpiChanged +=
-      ref new TypedEventHandler<DisplayInformation^, Object^>(this, &App::OnDpiChanged);
+      ref new TypedEventHandler<DisplayInformation^, Object^>(this, &OldApp::OnDpiChanged);
 
    currentDisplayInformation->OrientationChanged +=
-      ref new TypedEventHandler<DisplayInformation^, Object^>(this, &App::OnOrientationChanged);
+      ref new TypedEventHandler<DisplayInformation^, Object^>(this, &OldApp::OnOrientationChanged);
 
    DisplayInformation::DisplayContentsInvalidated +=
-      ref new TypedEventHandler<DisplayInformation^, Object^>(this, &App::OnDisplayContentsInvalidated);
+      ref new TypedEventHandler<DisplayInformation^, Object^>(this, &OldApp::OnDisplayContentsInvalidated);
 
 }
 
 // Initializes scene resources, or loads a previously saved app state.
-void App::Load(Platform::String^ entryPoint)
+void OldApp::Load(Platform::String^ entryPoint)
 {
    if (m_main == nullptr)
    {
@@ -98,7 +99,7 @@ void App::Load(Platform::String^ entryPoint)
 }
 
 // This method is called after the window becomes active.
-void App::Run()
+void OldApp::Run()
 {
    m_main->StartUpdateThread();
    CoreWindow::GetForCurrentThread()->Dispatcher->ProcessEvents(CoreProcessEventsOption::ProcessUntilQuit);
@@ -108,19 +109,19 @@ void App::Run()
 // Required for IFrameworkView.
 // Terminate events do not cause Uninitialize to be called. It will be called if your IFrameworkView
 // class is torn down while the app is in the foreground.
-void App::Uninitialize()
+void OldApp::Uninitialize()
 {
 }
 
 // Application lifecycle event handlers.
 
-void App::OnActivated(CoreApplicationView^ applicationView, IActivatedEventArgs^ args)
+void OldApp::OnActivated(CoreApplicationView^ applicationView, IActivatedEventArgs^ args)
 {
    // Run() won't start until the CoreWindow is activated.
    applicationView->CoreWindow->Activate();
 }
 
-void App::OnSuspending(Platform::Object^ sender, SuspendingEventArgs^ args)
+void OldApp::OnSuspending(Platform::Object^ sender, SuspendingEventArgs^ args)
 {
    // Save app state asynchronously after requesting a deferral. Holding a deferral
    // indicates that the application is busy performing suspending operations. Be
@@ -139,7 +140,7 @@ void App::OnSuspending(Platform::Object^ sender, SuspendingEventArgs^ args)
    });
 }
 
-void App::OnResuming(Platform::Object^ sender, Platform::Object^ args)
+void OldApp::OnResuming(Platform::Object^ sender, Platform::Object^ args)
 {
    // Restore any data or state that was unloaded on suspend. By default, data
    // and state are persisted when resuming from suspend. Note that this event
@@ -151,7 +152,7 @@ void App::OnResuming(Platform::Object^ sender, Platform::Object^ args)
 
 // Window event handlers.
 
-void App::OnWindowSizeChanged(CoreWindow^ sender, WindowSizeChangedEventArgs^ args)
+void OldApp::OnWindowSizeChanged(CoreWindow^ sender, WindowSizeChangedEventArgs^ args)
 {
    if (!m_main->IsInitialized())
    {
@@ -161,18 +162,18 @@ void App::OnWindowSizeChanged(CoreWindow^ sender, WindowSizeChangedEventArgs^ ar
    GetResources()->SetLogicalSize(Size(sender->Bounds.Width, sender->Bounds.Height));
 }
 
-void App::OnVisibilityChanged(CoreWindow^ sender, VisibilityChangedEventArgs^ args)
+void OldApp::OnVisibilityChanged(CoreWindow^ sender, VisibilityChangedEventArgs^ args)
 {
    m_windowVisible = args->Visible;
 }
 
-void App::OnWindowClosed(CoreWindow^ sender, CoreWindowEventArgs^ args)
+void OldApp::OnWindowClosed(CoreWindow^ sender, CoreWindowEventArgs^ args)
 {
 }
 
 // DisplayInformation event handlers.
 
-void App::OnDpiChanged(DisplayInformation^ sender, Object^ args)
+void OldApp::OnDpiChanged(DisplayInformation^ sender, Object^ args)
 {
    if (!m_main->IsInitialized())
    {
@@ -183,7 +184,7 @@ void App::OnDpiChanged(DisplayInformation^ sender, Object^ args)
    GetResources()->SetDpi(sender->LogicalDpi);
 }
 
-void App::OnOrientationChanged(DisplayInformation^ sender, Object^ args)
+void OldApp::OnOrientationChanged(DisplayInformation^ sender, Object^ args)
 {
    return;
    if (!m_main->IsInitialized())
@@ -195,7 +196,7 @@ void App::OnOrientationChanged(DisplayInformation^ sender, Object^ args)
    GetResources()->SetCurrentOrientation(sender->CurrentOrientation);
 }
 
-void App::OnDisplayContentsInvalidated(DisplayInformation^ sender, Object^ args)
+void OldApp::OnDisplayContentsInvalidated(DisplayInformation^ sender, Object^ args)
 {
    if (!m_main->IsInitialized())
    {
@@ -332,7 +333,8 @@ void RetroarchMain::OnDeviceRestored()
    //m_fpsTextRenderer->CreateDeviceDependentResources();
 }
 
-d3d11::DeviceResources * Retroarch::GetResources()
+
+d3d11::DeviceResources * RetroArch_Win10::GetResources()
 {
    return (d3d11::DeviceResources*)video_driver_get_ptr(false);
 }

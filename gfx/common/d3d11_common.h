@@ -18,10 +18,11 @@
 #define _D3D11_COMMON_H
 
 #include <wrl.h>
-#include <d3d11_2.h>
-#include <d2d1_2.h>
-#include <d2d1effects_1.h>
-#include <dwrite_2.h>
+#include <dxgi1_4.h>
+#include <d3d11_3.h>
+#include <d2d1_3.h>
+#include <d2d1effects_2.h>
+#include <dwrite_3.h>
 #include <wincodec.h>
 #include <DirectXColors.h>
 #include <DirectXMath.h>
@@ -61,12 +62,15 @@ namespace d3d11
       {}
    };
 
+   class DeviceResources* Get();
+
 	// Controls all the DirectX device resources.
 	class DeviceResources
 	{
 	public:
 		DeviceResources(const video_info_t* info);
 		void SetWindow(Windows::UI::Core::CoreWindow^ window, Windows::Graphics::Display::DisplayInformation^ currentDisplayInformation);
+      void SetSwapChainPanel(Windows::UI::Xaml::Controls::SwapChainPanel^ panel);
 		void SetLogicalSize(Windows::Foundation::Size logicalSize);
 		void SetCurrentOrientation(Windows::Graphics::Display::DisplayOrientations currentOrientation);
 		void SetDpi(float dpi);
@@ -92,9 +96,9 @@ namespace d3d11
 		void CreateWindowSizeDependentResources();
 		
 		// D3D Accessors.
-		ID3D11Device2*			GetD3DDevice() const { return m_d3dDevice.Get(); }
-		ID3D11DeviceContext2*	GetD3DDeviceContext() const { return m_d3dContext.Get(); }
-		IDXGISwapChain1*		GetSwapChain() const { return m_swapChain.Get(); }
+		ID3D11Device3*			GetD3DDevice() const { return m_d3dDevice.Get(); }
+		ID3D11DeviceContext3*	GetD3DDeviceContext() const { return m_d3dContext.Get(); }
+		IDXGISwapChain2*		GetSwapChain() const { return m_swapChain.Get(); }
 		D3D_FEATURE_LEVEL		GetDeviceFeatureLevel() const { return m_d3dFeatureLevel; }
 		ID3D11RenderTargetView*	GetBackBufferRenderTargetView() const { return m_d3dRenderTargetView.Get(); }
 		ID3D11DepthStencilView* GetDepthStencilView() const { return m_d3dDepthStencilView.Get(); }
@@ -114,6 +118,8 @@ namespace d3d11
       ID2D1Bitmap1*			GetD2DFrameBitmap() const { return m_d2dFrameBitmap.Get(); }
 
       const video_info_t*  GetVideoInfo() const { return &m_videoInfo; }
+
+      static void SetGlobalSwapChainPanel(Windows::UI::Xaml::Controls::SwapChainPanel^ panel);
 		
 	private:
 		void CreateDeviceIndependentResources();
@@ -121,9 +127,9 @@ namespace d3d11
 		DXGI_MODE_ROTATION ComputeDisplayRotation();
 
 		// Direct3D objects.
-		Microsoft::WRL::ComPtr<ID3D11Device2>			m_d3dDevice;
-		Microsoft::WRL::ComPtr<ID3D11DeviceContext2>	m_d3dContext;
-		Microsoft::WRL::ComPtr<IDXGISwapChain1>			m_swapChain;
+		Microsoft::WRL::ComPtr<ID3D11Device3>			m_d3dDevice;
+		Microsoft::WRL::ComPtr<ID3D11DeviceContext3>	m_d3dContext;
+		Microsoft::WRL::ComPtr<IDXGISwapChain2>			m_swapChain;
 
 		// Direct3D rendering objects. Required for 3D.
 		Microsoft::WRL::ComPtr<ID3D11RenderTargetView>	m_d3dRenderTargetView;
@@ -145,6 +151,10 @@ namespace d3d11
 
 		// Cached reference to the Window.
 		Platform::Agile<Windows::UI::Core::CoreWindow> m_window;
+
+      // CAched reference to the swap chain panel
+      Windows::UI::Xaml::Controls::SwapChainPanel^	m_swapChainPanel;
+
 
 		// Cached device properties.
 		D3D_FEATURE_LEVEL								m_d3dFeatureLevel;
