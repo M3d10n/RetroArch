@@ -272,6 +272,85 @@
     <Image Include="Assets\Wide310x150Logo.scale-400.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
+    <Image Include="Assets\xmb\flatui\png\arrow.png" />
+    <Image Include="Assets\xmb\flatui\png\Atari - 2600-content.png" />
+    <Image Include="Assets\xmb\flatui\png\Atari - 2600.png" />
+    <Image Include="Assets\xmb\flatui\png\Atari - Lynx-content.png" />
+    <Image Include="Assets\xmb\flatui\png\Atari - Lynx.png" />
+    <Image Include="Assets\xmb\flatui\png\Bandai - WonderSwan Color-content.png" />
+    <Image Include="Assets\xmb\flatui\png\Bandai - WonderSwan Color.png" />
+    <Image Include="Assets\xmb\flatui\png\Bandai - WonderSwan-content.png" />
+    <Image Include="Assets\xmb\flatui\png\Bandai - WonderSwan.png" />
+    <Image Include="Assets\xmb\flatui\png\bg.png" />
+    <Image Include="Assets\xmb\flatui\png\Cave Story game engine-content.png" />
+    <Image Include="Assets\xmb\flatui\png\Cave Story game engine.png" />
+    <Image Include="Assets\xmb\flatui\png\clock.png" />
+    <Image Include="Assets\xmb\flatui\png\core-cheat-options.png" />
+    <Image Include="Assets\xmb\flatui\png\core-disk-options.png" />
+    <Image Include="Assets\xmb\flatui\png\core-infos.png" />
+    <Image Include="Assets\xmb\flatui\png\core-input-remapping-options.png" />
+    <Image Include="Assets\xmb\flatui\png\core-options.png" />
+    <Image Include="Assets\xmb\flatui\png\core.png" />
+    <Image Include="Assets\xmb\flatui\png\cursor.png" />
+    <Image Include="Assets\xmb\flatui\png\database.png" />
+    <Image Include="Assets\xmb\flatui\png\default-content.png" />
+    <Image Include="Assets\xmb\flatui\png\default.png" />
+    <Image Include="Assets\xmb\flatui\png\DOS-content.png" />
+    <Image Include="Assets\xmb\flatui\png\DOS.png" />
+    <Image Include="Assets\xmb\flatui\png\FFmpeg-content.png" />
+    <Image Include="Assets\xmb\flatui\png\FFmpeg.png" />
+    <Image Include="Assets\xmb\flatui\png\file.png" />
+    <Image Include="Assets\xmb\flatui\png\folder.png" />
+    <Image Include="Assets\xmb\flatui\png\Game-content.png" />
+    <Image Include="Assets\xmb\flatui\png\Game.png" />
+    <Image Include="Assets\xmb\flatui\png\GCE - Vectrex-content.png" />
+    <Image Include="Assets\xmb\flatui\png\GCE - Vectrex.png" />
+    <Image Include="Assets\xmb\flatui\png\loadstate.png" />
+    <Image Include="Assets\xmb\flatui\png\MAME-content.png" />
+    <Image Include="Assets\xmb\flatui\png\MAME.png" />
+    <Image Include="Assets\xmb\flatui\png\NEC - PC Engine - TurboGrafx 16-content.png" />
+    <Image Include="Assets\xmb\flatui\png\NEC - PC Engine - TurboGrafx 16.png" />
+    <Image Include="Assets\xmb\flatui\png\NEC - PC Engine SuperGrafx-content.png" />
+    <Image Include="Assets\xmb\flatui\png\NEC - PC Engine SuperGrafx.png" />
+    <Image Include="Assets\xmb\flatui\png\NEC - PC-FX-content.png" />
+    <Image Include="Assets\xmb\flatui\png\NEC - PC-FX.png" />
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Game Boy Advance-content.png" />
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Game Boy Advance.png" />
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Game Boy Color-content.png" />
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Game Boy Color.png" />
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Game Boy-content.png" />
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Game Boy.png" />
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo 64-content.png" />
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo 64.png" />
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo DS Decrypted-content.png" />
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo DS Decrypted.png" />
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo DS-content.png" />
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo DS.png" />
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo Entertainment System-content.png" />
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo Entertainment System.png" />
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Super Nintendo Entertainment System-content.png" />
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Super Nintendo Entertainment System.png" />
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Virtual Boy-content.png" />
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Virtual Boy.png" />
+    <Image Include="Assets\xmb\flatui\png\off.png" />
+    <Image Include="Assets\xmb\flatui\png\on.png" />
+    <Image Include="Assets\xmb\flatui\png\pointer.png" />
+    <Image Include="Assets\xmb\flatui\png\reload.png" />
+    <Image Include="Assets\xmb\flatui\png\resume.png" />
+    <Image Include="Assets\xmb\flatui\png\run.png" />
+    <Image Include="Assets\xmb\flatui\png\savestate.png" />
+    <Image Include="Assets\xmb\flatui\png\screenshot.png" />
+    <Image Include="Assets\xmb\flatui\png\Sega - Master System - Mark III-content.png" />
+    <Image Include="Assets\xmb\flatui\png\Sega - Master System - Mark III.png" />
+    <Image Include="Assets\xmb\flatui\png\Sega - Mega Drive - Genesis-content.png" />
+    <Image Include="Assets\xmb\flatui\png\Sega - Mega Drive - Genesis.png" />
+    <Image Include="Assets\xmb\flatui\png\setting.png" />
+    <Image Include="Assets\xmb\flatui\png\settings.png" />
+    <Image Include="Assets\xmb\flatui\png\SNK - Neo Geo Pocket Color-content.png" />
+    <Image Include="Assets\xmb\flatui\png\SNK - Neo Geo Pocket Color.png" />
+    <Image Include="Assets\xmb\flatui\png\Sony - PlayStation-content.png" />
+    <Image Include="Assets\xmb\flatui\png\Sony - PlayStation.png" />
+    <Image Include="Assets\xmb\flatui\png\subsetting.png" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\audio\audio_driver.c" />
@@ -913,11 +992,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DeploymentContent>true</DeploymentContent>
     </None>
-    <None Include="..\..\..\media\overlays\gamepads\flat\buttons.svg">
-      <Link>media\overlays\gamepads\flat\buttons.svg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DeploymentContent>true</DeploymentContent>
-    </None>
     <None Include="..\..\..\media\overlays\gamepads\flat\B_wswan.png">
       <Link>media\overlays\gamepads\flat\B_wswan.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1038,16 +1112,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DeploymentContent>true</DeploymentContent>
     </None>
-    <None Include="..\..\..\media\overlays\gamepads\flat\dpad.svg">
-      <Link>media\overlays\gamepads\flat\dpad.svg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="..\..\..\media\overlays\gamepads\flat\dpad_psx.svg">
-      <Link>media\overlays\gamepads\flat\dpad_psx.svg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DeploymentContent>true</DeploymentContent>
-    </None>
     <None Include="..\..\..\media\overlays\gamepads\flat\E.png">
       <Link>media\overlays\gamepads\flat\E.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1055,21 +1119,6 @@
     </None>
     <None Include="..\..\..\media\overlays\gamepads\flat\F.png">
       <Link>media\overlays\gamepads\flat\F.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="..\..\..\media\overlays\gamepads\flat\face_buttons.svg">
-      <Link>media\overlays\gamepads\flat\face_buttons.svg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="..\..\..\media\overlays\gamepads\flat\face_buttons_big.svg">
-      <Link>media\overlays\gamepads\flat\face_buttons_big.svg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="..\..\..\media\overlays\gamepads\flat\face_buttons_wswan.svg">
-      <Link>media\overlays\gamepads\flat\face_buttons_wswan.svg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DeploymentContent>true</DeploymentContent>
     </None>
@@ -1095,11 +1144,6 @@
     </None>
     <None Include="..\..\..\media\overlays\gamepads\flat\genesis_mode.png">
       <Link>media\overlays\gamepads\flat\genesis_mode.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="..\..\..\media\overlays\gamepads\flat\genesis_mode.svg">
-      <Link>media\overlays\gamepads\flat\genesis_mode.svg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DeploymentContent>true</DeploymentContent>
     </None>
@@ -1398,11 +1442,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DeploymentContent>true</DeploymentContent>
     </None>
-    <None Include="..\..\..\media\overlays\gamepads\flat\select_psx.svg">
-      <Link>media\overlays\gamepads\flat\select_psx.svg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DeploymentContent>true</DeploymentContent>
-    </None>
     <None Include="..\..\..\media\overlays\gamepads\flat\select_rounded_big.png">
       <Link>media\overlays\gamepads\flat\select_rounded_big.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1410,26 +1449,6 @@
     </None>
     <None Include="..\..\..\media\overlays\gamepads\flat\select_square_text.png">
       <Link>media\overlays\gamepads\flat\select_square_text.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="..\..\..\media\overlays\gamepads\flat\shoulder_buttons.svg">
-      <Link>media\overlays\gamepads\flat\shoulder_buttons.svg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="..\..\..\media\overlays\gamepads\flat\shoulder_combo.svg">
-      <Link>media\overlays\gamepads\flat\shoulder_combo.svg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="..\..\..\media\overlays\gamepads\flat\shoulder_down_buttons.svg">
-      <Link>media\overlays\gamepads\flat\shoulder_down_buttons.svg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="..\..\..\media\overlays\gamepads\flat\shoulder_small_buttons.svg">
-      <Link>media\overlays\gamepads\flat\shoulder_small_buttons.svg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DeploymentContent>true</DeploymentContent>
     </None>
@@ -1453,18 +1472,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DeploymentContent>true</DeploymentContent>
     </None>
-    <None Include="..\..\..\media\overlays\gamepads\flat\square_buttons_text.svg">
-      <Link>media\overlays\gamepads\flat\square_buttons_text.svg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DeploymentContent>true</DeploymentContent>
-    </None>
     <None Include="..\..\..\media\overlays\gamepads\flat\start.png">
       <Link>media\overlays\gamepads\flat\start.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="..\..\..\media\overlays\gamepads\flat\start.svg">
-      <Link>media\overlays\gamepads\flat\start.svg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DeploymentContent>true</DeploymentContent>
     </None>
@@ -1475,11 +1484,6 @@
     </None>
     <None Include="..\..\..\media\overlays\gamepads\flat\start_psx.png">
       <Link>media\overlays\gamepads\flat\start_psx.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="..\..\..\media\overlays\gamepads\flat\start_psx.svg">
-      <Link>media\overlays\gamepads\flat\start_psx.svg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DeploymentContent>true</DeploymentContent>
     </None>
@@ -1503,18 +1507,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DeploymentContent>true</DeploymentContent>
     </None>
-    <None Include="..\..\..\media\overlays\gamepads\flat\thumbstick-background.svg">
-      <Link>media\overlays\gamepads\flat\thumbstick-background.svg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DeploymentContent>true</DeploymentContent>
-    </None>
     <None Include="..\..\..\media\overlays\gamepads\flat\thumbstick-pad.png">
       <Link>media\overlays\gamepads\flat\thumbstick-pad.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="..\..\..\media\overlays\gamepads\flat\thumbstick-pad.svg">
-      <Link>media\overlays\gamepads\flat\thumbstick-pad.svg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DeploymentContent>true</DeploymentContent>
     </None>
@@ -2694,7 +2688,6 @@
       <DeploymentContent>true</DeploymentContent>
     </None>
   </ItemGroup>
-
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <FileType>Document</FileType>
@@ -2713,6 +2706,8 @@
     <Page Include="DesignTimeResources.xaml">
       <DeploymentContent>true</DeploymentContent>
     </Page>
+    <DesignData Include="SampleData\CoreSampleData.xaml" />
+    <DesignData Include="SampleData\CoreGroupSampleData.xaml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

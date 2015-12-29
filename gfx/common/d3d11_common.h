@@ -72,6 +72,8 @@ namespace d3d11
 		void SetWindow(Windows::UI::Core::CoreWindow^ window, Windows::Graphics::Display::DisplayInformation^ currentDisplayInformation);
       void SetSwapChainPanel(Windows::UI::Xaml::Controls::SwapChainPanel^ panel);
 		void SetLogicalSize(Windows::Foundation::Size logicalSize);
+		void SetCompositionScale(float compositionScaleX, float compositionScaleY);
+
 		void SetCurrentOrientation(Windows::Graphics::Display::DisplayOrientations currentOrientation);
 		void SetDpi(float dpi);
 		void ValidateDevice();

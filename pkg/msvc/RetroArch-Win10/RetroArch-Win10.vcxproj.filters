@@ -169,6 +169,9 @@
     <Filter Include="Source\libretro-db">
       <UniqueIdentifier>{59ee75c3-6ea5-453a-8c38-e3ef4f5b16b2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SampleData">
+      <UniqueIdentifier>{e40e8e72-9cf5-4bca-bb6b-42e749c39e66}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\frontend\frontend.c">
@@ -887,15 +890,1365 @@
     <Image Include="Assets\Wide310x150Logo.scale-100.png">
       <Filter>Assets</Filter>
     </Image>
+    <Image Include="Assets\xmb\flatui\png\arrow.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Atari - 2600.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Atari - 2600-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Atari - Lynx.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Atari - Lynx-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Bandai - WonderSwan Color.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Bandai - WonderSwan Color-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Bandai - WonderSwan.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Bandai - WonderSwan-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\bg.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Cave Story game engine.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Cave Story game engine-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\clock.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\core.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\core-cheat-options.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\core-disk-options.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\core-infos.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\core-input-remapping-options.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\core-options.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\cursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\database.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\default.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\default-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\DOS.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\DOS-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\FFmpeg.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\FFmpeg-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\file.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\folder.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Game.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Game-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\GCE - Vectrex.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\GCE - Vectrex-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\loadstate.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\MAME.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\MAME-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\NEC - PC Engine - TurboGrafx 16.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\NEC - PC Engine - TurboGrafx 16-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\NEC - PC Engine SuperGrafx.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\NEC - PC Engine SuperGrafx-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\NEC - PC-FX.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\NEC - PC-FX-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Game Boy Advance.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Game Boy Advance-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Game Boy Color.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Game Boy Color-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Game Boy.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Game Boy-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo 64.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo 64-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo DS Decrypted.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo DS Decrypted-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo DS.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo DS-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo Entertainment System.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo Entertainment System-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Super Nintendo Entertainment System.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Super Nintendo Entertainment System-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Virtual Boy.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Nintendo - Virtual Boy-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\off.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\on.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\pointer.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\reload.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\resume.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\run.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\savestate.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\screenshot.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Sega - Master System - Mark III.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Sega - Master System - Mark III-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Sega - Mega Drive - Genesis.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Sega - Mega Drive - Genesis-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\setting.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\settings.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\SNK - Neo Geo Pocket Color.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\SNK - Neo Geo Pocket Color-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Sony - PlayStation.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\Sony - PlayStation-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\xmb\flatui\png\subsetting.png">
+      <Filter>Assets</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="RetroArch-Win10_TemporaryKey.pfx" />    
+    <None Include="RetroArch-Win10_TemporaryKey.pfx" />
     <None Include="bin\win_x64\2048_libretro.dll" />
     <None Include="bin\win_x64\genesis_plus_gx_libretro.dll" />
-    <None Include="bin\win_ARM\genesis_plus_gx_libretro.dll" />    
+    <None Include="bin\win_ARM\genesis_plus_gx_libretro.dll" />
+    <None Include="..\..\..\media\overlays\gamepads\720-med\720-med-menu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\720-med\720-med.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\720-med\720-med.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\4button.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\6button.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\analog-background.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\analog-stick.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\arcade-minimal.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\button-blue.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\button-green.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\button-red.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\button-white.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\button-yellow.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\coin.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\quickmenu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\rgui.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\rotate.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade-minimal\start.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\4button.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\6button.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\analog-background.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\analog-stick.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\arcade.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\arcade\button-blue.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\button-green.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\button-red.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\button-white.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\button-yellow.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\coin.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\quickmenu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\rgui.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\rotate.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\arcade\start.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\a.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\b.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\dpad-down.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\dpad-left.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\dpad-right.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\dpad-up.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\dual-shock.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\l1.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\l2.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\psx-black.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\ps_next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\quickmenu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\r1.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\r2.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\rgui.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\rotate.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\select.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\start.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\thumbstick-background.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\thumbstick-pad.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\x.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\dual-shock\y.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\example\analog.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\example\down.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\example\example.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\example\left.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\example\logo.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\example\right.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\example\up.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\1.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\2-button.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\2.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\3-button.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\4-button.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\6-button.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\6-button_genesis.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\A.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\analog.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\arcade.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\atari7800.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\A_wswan.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\B.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\B_wswan.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\C.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\circle.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\coin.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\cps.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\cross.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\D.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\digital.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-down.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-down_no-mark.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-down_psx.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-down_psx_no-mark.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-left.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-left_no-mark.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-left_psx.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-left_psx_no-mark.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-right.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-right_no-mark.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-right_psx.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-right_psx_no-mark.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-up.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-up_no-mark.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-up_psx.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\dpad-up_psx_no-mark.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\E.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\F.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\gameboy.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\gba.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\genesis.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\genesis_and_sms.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\genesis_mode.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\hide.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\I.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\II.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\III.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\IV.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\keyboard.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L1.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L1_down.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L1_down_smaller.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L1_smaller.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L2.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L2_up.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L3.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L3_smaller.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L_and_R.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L_and_R_down.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L_and_R_left.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L_down.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L_down_smaller_gba.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\L_smaller.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\neogeo.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\nes.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\no-analog.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\flat-base.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\flat-gb-wip.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\flat-n64.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\flat-ws.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\zbasela.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\zbaseld.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\zbasels.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\zgbpd.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\zn64la.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\zn64ld.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\znub1.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\znub2.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\old\zws.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\overlay-A.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\overlay-B.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\overlay-C.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\overlay-D.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\pause_square_text.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\pc-fx.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\psp.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\psx-fast.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\psx.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\R.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\R1.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\R2.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\R2_up.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\R3_smaller.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\reset_square_text.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\retropad-fast.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\retropad.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\rgui.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\rotate.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\R_down.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\R_smaller.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\select_psx.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\select_rounded_big.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\select_square_text.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\show.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\sms.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\snes.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\square.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\start.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\start_genesis.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\start_psx.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\start_rounded.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\start_rounded_big.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\test.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\thumbstick-background.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\thumbstick-pad.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\thumbstick-pad_arcade.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\triangle.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\turbografx-16.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\turbografx-16_6-button.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\V.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\VI.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\virtualboy.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\wonderswan.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\flat\X.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\X1_wswan.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\X2_wswan.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\X3_wswan.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\X4_wswan.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\Y.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\Y1_wswan.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\Y2_wswan.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\Y3_wswan.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\Y4_wswan.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\flat\Z.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\a.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\b.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\dpad.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\gameboy.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\quickmenu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\rgui.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\rotate.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\select.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gameboy\start.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\a.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\b.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\dpad.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\gba-grey.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\l.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\next-menu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\quickmenu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\r.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\rgui.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\rotate.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\select.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba-grey\start.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\a.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\b.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\dpad.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\gba.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\gba\l.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\next-menu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\quickmenu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\r.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\rgui.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\rotate.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\select.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\gba\start.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\3button.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\6button.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\a.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\b.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\c.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\dpad.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\genesis.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\genesis\next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\quickmenu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\rgui.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\rotate.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\start.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\x.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\y.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\genesis\z.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\a.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\analog-icon.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\b.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\digital-icon.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\downc.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\dpad.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\l.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\leftc.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\n64.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\n64\next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\quickmenu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\r.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\rgui.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\rightc.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\rotate.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\start.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\thumbstick-background.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\thumbstick-pad.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\upc.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\n64\z.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\a.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\b.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\dpad.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\nes.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\nes\next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\quickmenu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\rgui.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\rotate.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\select.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\nes\start.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\720-med-menu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\720-med.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\720-med.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\box-gba-with-diagonals.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\box-gba.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\box-ps-with-diagonals.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\box-psx.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\gameboy-landscape.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\gameboy-landscape.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\gameboy-portrait.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\gameboy-portrait.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\gba.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\gba_next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\gba_portrait.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\gba_quickmenu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis3-landscape.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis3-landscape.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis3-portrait.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis3-portrait.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis6-landscape.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis6-landscape.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis6-portrait.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis6-portrait.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis_next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis_quickmenu_small.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\genesis_quickmenu_small2.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\basic_next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\basic_overlay.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\basic_overlay.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\basic_overlay_portrait.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\basic_quickmenu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\basic_quickmenu_small.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_2.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_2.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_3.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_3.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_4.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_4.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_5.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_5.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_5b.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_5b.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_6.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_6.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_7.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_7.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_8.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\Low-resolution\opium_8.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\lynx-landscape.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\lynx-landscape.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\nes-landscape.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\nes-landscape.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\nes-portrait.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\nes-portrait.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\nintendo_next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\nintendo_quickmenu_small.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\nintendo_quickmenu_small2.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\ps.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\psx-landscape.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\psx-landscape.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\psx-portrait.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\psx-portrait.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\psx_next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\psx_quickmenu_small.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\psx_quickmenu_small2.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\ps_next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\ps_portrait.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\ps_quickmenu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\snes-landscape.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\snes-landscape.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\old\snes-portrait.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\old\snes-portrait.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\a.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\b.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\box-psx-diagonals.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\psx\dpad-down.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\dpad-left.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\dpad-right.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\dpad-up.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\dpad.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\l1.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\l2.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\psx.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\psx\ps_next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\quickmenu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\r1.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\r2.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\rgui.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\rotate.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\select.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\start.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\x.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\psx\y.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\a.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\analog.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\b.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\digital.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\dpad.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\ff.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\hide.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\l1.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\l2.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\l3.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\menu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\osk-toggle.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\quickmenu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\r1.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\r2.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\r3.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\retropad.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\retropad\rewind.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\rgui.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\rotate.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\select.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\show.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\start.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\thumbstick-background.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\thumbstick-pad.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\x.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\retropad\y.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\a.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\b.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\dpad.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\l1.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\next.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\quickmenu.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\r1.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\rgui.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\rotate.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\select.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\snes.cfg" />
+    <None Include="..\..\..\media\overlays\gamepads\snes\start.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\x.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="..\..\..\media\overlays\gamepads\snes\y.png">
+      <Filter>Assets</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="RetroArch-Win10.rc" />
@@ -914,5 +2267,13 @@
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <DesignData Include="SampleData\CoreSampleData.xaml">
+      <Filter>SampleData</Filter>
+    </DesignData>
+    <DesignData Include="SampleData\CoreGroupSampleData.xaml">
+      <Filter>SampleData</Filter>
+    </DesignData>
   </ItemGroup>
 </Project>

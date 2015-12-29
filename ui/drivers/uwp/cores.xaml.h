@@ -20,6 +20,6 @@ namespace RetroArch_Win10
 		cores();
 
    private:
-      Platform::Collections::Vector<Platform::Object^>^ _items;
+      CoreGroup^ group;
 	};
 }

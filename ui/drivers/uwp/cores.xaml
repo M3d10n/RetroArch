@@ -21,9 +21,15 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Opacity="0.5">
-        <GridView x:Name="gridView" d:LayoutOverrides="Height, LeftPosition, RightPosition, TopPosition, BottomPosition" SelectionMode="None" ItemTemplate="{StaticResource ConsoleGridItem}">
+        <GridView x:Name="gridView" d:LayoutOverrides="Height, LeftPosition, RightPosition, TopPosition, BottomPosition" SelectionMode="None" ItemTemplate="{StaticResource ConsoleGridItem}" ItemsSource="{Binding Items}">
             <GridView.DataContext>
-                <local:Core/>
+                <local:CoreGroup>
+                    <local:CoreGroup.Items>
+                        <local:Core Name="Sega Genesis" Icon="Assets\xmb\flatui\png\Sega - Mega Drive - Genesis.png"/>
+                        <local:Core Icon="Assets\xmb\flatui\png\Sega - Mega Drive - Genesis.png"/>
+                        <local:Core Name="Super Nintendo" Icon="Assets\xmb\flatui\png\Sega - Mega Drive - Genesis.png"/>
+                    </local:CoreGroup.Items>
+                </local:CoreGroup>
             </GridView.DataContext>
         </GridView>
 

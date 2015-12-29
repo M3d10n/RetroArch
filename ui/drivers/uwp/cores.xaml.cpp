@@ -25,12 +25,13 @@ cores::cores()
 {
 	InitializeComponent();
 
+   group = ref new CoreGroup();
+   group->Insert(ref new Core());
+   group->Insert(ref new Core());
+   group->Insert(ref new Core());
+   group->Insert(ref new Core());
+   group->Insert(ref new Core());
 
-   _items = ref new Platform::Collections::Vector<Object^>();
 
-   _items->Append(ref new Core());
-   _items->Append(ref new Core());
-   _items->Append(ref new Core());
-
-   gridView->ItemsSource = _items;
+   gridView->ItemsSource = group->Items;
 }

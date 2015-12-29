@@ -28,7 +28,7 @@ main_page::main_page()
 	InitializeComponent();
 
    swapChainPanel->SizeChanged += ref new Windows::UI::Xaml::SizeChangedEventHandler(this, &RetroArch_Win10::main_page::OnSizeChanged);
-
+   swapChainPanel->CompositionScaleChanged += ref new Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Controls::SwapChainPanel ^, Platform::Object ^>(this, &RetroArch_Win10::main_page::OnCompositionScaleChanged);
    
 
    // Set the UI dispatcher
@@ -38,10 +38,10 @@ main_page::main_page()
    d3d11::DeviceResources::SetGlobalSwapChainPanel(swapChainPanel);
 
    // Create our "main"
-   m_main = std::unique_ptr<RetroarchMain>(new RetroarchMain(""));
-   m_main->StartUpdateThread();
+   //m_main = std::unique_ptr<RetroarchMain>(new RetroarchMain(""));
+   //m_main->StartUpdateThread();
 
-   //frame->Content = ref new cores();
+   frame->Content = ref new cores();
 }
 
 
@@ -54,4 +54,16 @@ void RetroArch_Win10::main_page::OnSizeChanged(Platform::Object ^sender, Windows
    
    critical_section::scoped_lock lock(m_main->GetCriticalSection());
    d3d11::Get()->SetLogicalSize(e->NewSize);
+}
+
+
+void RetroArch_Win10::main_page::OnCompositionScaleChanged(Windows::UI::Xaml::Controls::SwapChainPanel ^sender, Platform::Object ^args)
+{
+   if (!m_main || !m_main->IsInitialized())
+   {
+      return;
+   }
+
+   critical_section::scoped_lock lock(m_main->GetCriticalSection());
+   d3d11::Get()->SetCompositionScale(sender->CompositionScaleX, sender->CompositionScaleY);
 }

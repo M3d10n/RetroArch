@@ -475,6 +475,18 @@ void d3d11::DeviceResources::SetLogicalSize(Windows::Foundation::Size logicalSiz
 	}
 }
 
+// This method is called in the event handler for the CompositionScaleChanged event.
+void d3d11::DeviceResources::SetCompositionScale(float compositionScaleX, float compositionScaleY)
+{
+   if (m_compositionScaleX != compositionScaleX ||
+      m_compositionScaleY != compositionScaleY)
+   {
+      m_compositionScaleX = compositionScaleX;
+      m_compositionScaleY = compositionScaleY;
+      CreateWindowSizeDependentResources();
+   }
+}
+
 // This method is called in the event handler for the DpiChanged event.
 void d3d11::DeviceResources::SetDpi(float dpi)
 {

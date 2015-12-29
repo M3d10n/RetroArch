@@ -779,7 +779,7 @@ static void config_set_defaults(void)
       if (!*settings->input.overlay)
             fill_pathname_join(settings->input.overlay,
                   settings->overlay_directory,
-                  "gamepads/retropad/retropad.cfg",
+                  "gamepads/flat/retropad-fast.cfg",
                   sizeof(settings->input.overlay));
 #endif
    }
