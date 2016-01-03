@@ -1,12 +1,11 @@
 ﻿//
-// cores.xaml.h
-// Declaration of the cores class
+// content.xaml.h
+// Declaration of the content class
 //
 
 #pragma once
 
-#include "cores.h"
-#include "ui/drivers/uwp/cores.g.h"
+#include "content.g.h"
 
 namespace RetroArch_Win10
 {
@@ -14,11 +13,9 @@ namespace RetroArch_Win10
 	/// An empty page that can be used on its own or navigated to within a Frame.
 	/// </summary>
 	[Windows::Foundation::Metadata::WebHostHidden]
-	public ref class cores sealed
+	public ref class content sealed
 	{
 	public:
-		cores();
-
-   private:
+		content();
 	};
 }

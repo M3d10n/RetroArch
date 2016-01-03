@@ -1,10 +1,10 @@
 ﻿//
-// cores.xaml.cpp
-// Implementation of the cores class
+// content.xaml.cpp
+// Implementation of the content class
 //
 
 #include "pch.h"
-#include "cores.xaml.h"
+#include "content.xaml.h"
 
 using namespace RetroArch_Win10;
 
@@ -21,8 +21,7 @@ using namespace Windows::UI::Xaml::Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-cores::cores()
+content::content()
 {
-   InitializeComponent();
-
+	InitializeComponent();
 }

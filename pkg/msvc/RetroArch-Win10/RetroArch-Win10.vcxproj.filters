@@ -795,6 +795,12 @@
       <Filter>Source\ui\drivers\uwp</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\ui\drivers\uwp\cores.xaml.cpp" />
+    <ClCompile Include="..\..\..\ui\drivers\uwp\common.cpp">
+      <Filter>Source\ui\drivers\uwp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ui\drivers\uwp\viewmodel_locator.cpp">
+      <Filter>Source\ui\drivers\uwp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\ui\drivers\uwp\uwp.h">
@@ -815,6 +821,12 @@
     <ClInclude Include="..\..\..\ui\drivers\uwp\cores.xaml.h" />
     <ClInclude Include="..\..\..\command.h">
       <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ui\drivers\uwp\common.h">
+      <Filter>Source\ui\drivers\uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ui\drivers\uwp\viewmodel_locator.h">
+      <Filter>Source\ui\drivers\uwp</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -890,241 +902,634 @@
     <Image Include="Assets\Wide310x150Logo.scale-100.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\arrow.png">
+    <Image Include="media\assets\xmb\flatui\png\arrow.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Atari - 2600.png">
+    <Image Include="media\assets\xmb\flatui\png\Atari - 2600.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Atari - 2600-content.png">
+    <Image Include="media\assets\xmb\flatui\png\Atari - 2600-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Atari - Lynx.png">
+    <Image Include="media\assets\xmb\flatui\png\Atari - Lynx.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Atari - Lynx-content.png">
+    <Image Include="media\assets\xmb\flatui\png\Atari - Lynx-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Bandai - WonderSwan Color.png">
+    <Image Include="media\assets\xmb\flatui\png\Bandai - WonderSwan Color.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Bandai - WonderSwan Color-content.png">
+    <Image Include="media\assets\xmb\flatui\png\Bandai - WonderSwan Color-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Bandai - WonderSwan.png">
+    <Image Include="media\assets\xmb\flatui\png\Bandai - WonderSwan.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Bandai - WonderSwan-content.png">
+    <Image Include="media\assets\xmb\flatui\png\Bandai - WonderSwan-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\bg.png">
+    <Image Include="media\assets\xmb\flatui\png\bg.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Cave Story game engine.png">
+    <Image Include="media\assets\xmb\flatui\png\Cave Story game engine.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Cave Story game engine-content.png">
+    <Image Include="media\assets\xmb\flatui\png\Cave Story game engine-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\clock.png">
+    <Image Include="media\assets\xmb\flatui\png\clock.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\core.png">
+    <Image Include="media\assets\xmb\flatui\png\core.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\core-cheat-options.png">
+    <Image Include="media\assets\xmb\flatui\png\core-cheat-options.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\core-disk-options.png">
+    <Image Include="media\assets\xmb\flatui\png\core-disk-options.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\core-infos.png">
+    <Image Include="media\assets\xmb\flatui\png\core-infos.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\core-input-remapping-options.png">
+    <Image Include="media\assets\xmb\flatui\png\core-input-remapping-options.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\core-options.png">
+    <Image Include="media\assets\xmb\flatui\png\core-options.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\cursor.png">
+    <Image Include="media\assets\xmb\flatui\png\cursor.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\database.png">
+    <Image Include="media\assets\xmb\flatui\png\database.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\default.png">
+    <Image Include="media\assets\xmb\flatui\png\default.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\default-content.png">
+    <Image Include="media\assets\xmb\flatui\png\default-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\DOS.png">
+    <Image Include="media\assets\xmb\flatui\png\DOS.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\DOS-content.png">
+    <Image Include="media\assets\xmb\flatui\png\DOS-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\FFmpeg.png">
+    <Image Include="media\assets\xmb\flatui\png\FFmpeg.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\FFmpeg-content.png">
+    <Image Include="media\assets\xmb\flatui\png\FFmpeg-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\file.png">
+    <Image Include="media\assets\xmb\flatui\png\file.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\folder.png">
+    <Image Include="media\assets\xmb\flatui\png\folder.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Game.png">
+    <Image Include="media\assets\xmb\flatui\png\Game.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Game-content.png">
+    <Image Include="media\assets\xmb\flatui\png\Game-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\GCE - Vectrex.png">
+    <Image Include="media\assets\xmb\flatui\png\GCE - Vectrex.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\GCE - Vectrex-content.png">
+    <Image Include="media\assets\xmb\flatui\png\GCE - Vectrex-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\loadstate.png">
+    <Image Include="media\assets\xmb\flatui\png\loadstate.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\MAME.png">
+    <Image Include="media\assets\xmb\flatui\png\MAME.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\MAME-content.png">
+    <Image Include="media\assets\xmb\flatui\png\MAME-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\NEC - PC Engine - TurboGrafx 16.png">
+    <Image Include="media\assets\xmb\flatui\png\NEC - PC Engine - TurboGrafx 16.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\NEC - PC Engine - TurboGrafx 16-content.png">
+    <Image Include="media\assets\xmb\flatui\png\NEC - PC Engine - TurboGrafx 16-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\NEC - PC Engine SuperGrafx.png">
+    <Image Include="media\assets\xmb\flatui\png\NEC - PC Engine SuperGrafx.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\NEC - PC Engine SuperGrafx-content.png">
+    <Image Include="media\assets\xmb\flatui\png\NEC - PC Engine SuperGrafx-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\NEC - PC-FX.png">
+    <Image Include="media\assets\xmb\flatui\png\NEC - PC-FX.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\NEC - PC-FX-content.png">
+    <Image Include="media\assets\xmb\flatui\png\NEC - PC-FX-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Nintendo - Game Boy Advance.png">
+    <Image Include="media\assets\xmb\flatui\png\Nintendo - Game Boy Advance.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Nintendo - Game Boy Advance-content.png">
+    <Image Include="media\assets\xmb\flatui\png\Nintendo - Game Boy Advance-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Nintendo - Game Boy Color.png">
+    <Image Include="media\assets\xmb\flatui\png\Nintendo - Game Boy Color.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Nintendo - Game Boy Color-content.png">
+    <Image Include="media\assets\xmb\flatui\png\Nintendo - Game Boy Color-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Nintendo - Game Boy.png">
+    <Image Include="media\assets\xmb\flatui\png\Nintendo - Game Boy.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Nintendo - Game Boy-content.png">
+    <Image Include="media\assets\xmb\flatui\png\Nintendo - Game Boy-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo 64.png">
+    <Image Include="media\assets\xmb\flatui\png\Nintendo - Nintendo 64.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo 64-content.png">
+    <Image Include="media\assets\xmb\flatui\png\Nintendo - Nintendo 64-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo DS Decrypted.png">
+    <Image Include="media\assets\xmb\flatui\png\Nintendo - Nintendo DS Decrypted.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo DS Decrypted-content.png">
+    <Image Include="media\assets\xmb\flatui\png\Nintendo - Nintendo DS Decrypted-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo DS.png">
+    <Image Include="media\assets\xmb\flatui\png\Nintendo - Nintendo DS.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo DS-content.png">
+    <Image Include="media\assets\xmb\flatui\png\Nintendo - Nintendo DS-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo Entertainment System.png">
+    <Image Include="media\assets\xmb\flatui\png\Nintendo - Nintendo Entertainment System.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Nintendo - Nintendo Entertainment System-content.png">
+    <Image Include="media\assets\xmb\flatui\png\Nintendo - Nintendo Entertainment System-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Nintendo - Super Nintendo Entertainment System.png">
+    <Image Include="media\assets\xmb\flatui\png\Nintendo - Super Nintendo Entertainment System.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Nintendo - Super Nintendo Entertainment System-content.png">
+    <Image Include="media\assets\xmb\flatui\png\Nintendo - Super Nintendo Entertainment System-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Nintendo - Virtual Boy.png">
+    <Image Include="media\assets\xmb\flatui\png\Nintendo - Virtual Boy.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Nintendo - Virtual Boy-content.png">
+    <Image Include="media\assets\xmb\flatui\png\Nintendo - Virtual Boy-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\off.png">
+    <Image Include="media\assets\xmb\flatui\png\off.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\on.png">
+    <Image Include="media\assets\xmb\flatui\png\on.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\pointer.png">
+    <Image Include="media\assets\xmb\flatui\png\pointer.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\reload.png">
+    <Image Include="media\assets\xmb\flatui\png\reload.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\resume.png">
+    <Image Include="media\assets\xmb\flatui\png\resume.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\run.png">
+    <Image Include="media\assets\xmb\flatui\png\run.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\savestate.png">
+    <Image Include="media\assets\xmb\flatui\png\savestate.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\screenshot.png">
+    <Image Include="media\assets\xmb\flatui\png\screenshot.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Sega - Master System - Mark III.png">
+    <Image Include="media\assets\xmb\flatui\png\Sega - Master System - Mark III.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Sega - Master System - Mark III-content.png">
+    <Image Include="media\assets\xmb\flatui\png\Sega - Master System - Mark III-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Sega - Mega Drive - Genesis.png">
+    <Image Include="media\assets\xmb\flatui\png\Sega - Mega Drive - Genesis.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Sega - Mega Drive - Genesis-content.png">
+    <Image Include="media\assets\xmb\flatui\png\Sega - Mega Drive - Genesis-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\setting.png">
+    <Image Include="media\assets\xmb\flatui\png\setting.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\settings.png">
+    <Image Include="media\assets\xmb\flatui\png\settings.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\SNK - Neo Geo Pocket Color.png">
+    <Image Include="media\assets\xmb\flatui\png\SNK - Neo Geo Pocket Color.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\SNK - Neo Geo Pocket Color-content.png">
+    <Image Include="media\assets\xmb\flatui\png\SNK - Neo Geo Pocket Color-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Sony - PlayStation.png">
+    <Image Include="media\assets\xmb\flatui\png\Sony - PlayStation.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\Sony - PlayStation-content.png">
+    <Image Include="media\assets\xmb\flatui\png\Sony - PlayStation-content.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\xmb\flatui\png\subsetting.png">
+    <Image Include="media\assets\xmb\flatui\png\subsetting.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\1.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\2.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\2-button.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\3-button.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\4-button.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\6-button.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\6-button_genesis.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\A.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\A_wswan.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\analog.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\B.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\B_wswan.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\C.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\circle.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\coin.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\cross.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\D.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\digital.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\dpad-down.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\dpad-down_no-mark.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\dpad-down_psx.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\dpad-down_psx_no-mark.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\dpad-left.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\dpad-left_no-mark.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\dpad-left_psx.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\dpad-left_psx_no-mark.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\dpad-right.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\dpad-right_no-mark.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\dpad-right_psx.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\dpad-right_psx_no-mark.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\dpad-up.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\dpad-up_no-mark.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\dpad-up_psx.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\dpad-up_psx_no-mark.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\E.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\F.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\genesis_mode.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\hide.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\I.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\II.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\III.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\IV.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\keyboard.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\L.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\L_and_R.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\L_and_R_down.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\L_and_R_left.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\L_down.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\L_down_smaller_gba.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\L_smaller.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\L1.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\L1_down.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\L1_down_smaller.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\L1_smaller.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\L2.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\L2_up.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\L3.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\L3_smaller.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\no-analog.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\overlay-A.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\overlay-B.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\overlay-C.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\overlay-D.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\pause_square_text.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\R.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\R_down.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\R_smaller.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\R1.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\R2.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\R2_up.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\R3_smaller.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\reset_square_text.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\rgui.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\rotate.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\select_psx.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\select_rounded_big.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\select_square_text.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\show.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\square.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\start.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\start_genesis.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\start_psx.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\start_rounded.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\start_rounded_big.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\test.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\thumbstick-background.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\thumbstick-pad.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\thumbstick-pad_arcade.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\triangle.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\V.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\VI.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\X.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\X1_wswan.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\X2_wswan.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\X3_wswan.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\X4_wswan.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\Y.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\Y1_wswan.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\Y2_wswan.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\Y3_wswan.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\Y4_wswan.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\overlays\gamepads\flat\Z.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\3DO.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Atari - 2600.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Atari - 7800.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Atari - Jaguar.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Bandai - WonderSwan Color.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Bandai - WonderSwan.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\MAME.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\MENU .png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\NEC - PC Engine - TurboGrafx 16.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\NEC - PC Engine SuperGrafx.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\NEC - PC-FX.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Nintendo - Game Boy Advance.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Nintendo - Game Boy Color.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Nintendo - Game Boy.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Nintendo - Nintendo 64.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Nintendo - Nintendo DS Decrypted.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Nintendo - Nintendo Entertainment System.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Nintendo - Super Nintendo Entertainment System.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Nintendo - Virtual Boy.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Sega - 32X.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Sega - Game Gear.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Sega - Master System - Mark III.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Sega - Mega Drive - Genesis.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Sega - Saturn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Sega - SG-1000.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\SNK - Neo Geo Pocket Color.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\SNK - Neo Geo Pocket.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Sony - PlayStation Portable.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Sony - PlayStation.png">
       <Filter>Assets</Filter>
     </Image>
   </ItemGroup>
@@ -2249,6 +2654,205 @@
     <None Include="..\..\..\media\overlays\gamepads\snes\y.png">
       <Filter>Assets</Filter>
     </None>
+    <None Include="packages.config" />
+    <None Include="media\libretrodb\rdb\Atari - 5200.rdb" />
+    <None Include="media\libretrodb\rdb\Atari - 7800.rdb" />
+    <None Include="media\libretrodb\rdb\Atari - Jaguar.rdb" />
+    <None Include="media\libretrodb\rdb\Atari - Lynx.rdb" />
+    <None Include="media\libretrodb\rdb\Atari - ST.rdb" />
+    <None Include="media\libretrodb\rdb\Bandai - WonderSwan Color.rdb" />
+    <None Include="media\libretrodb\rdb\Bandai - WonderSwan.rdb" />
+    <None Include="media\libretrodb\rdb\Casio - Loopy.rdb" />
+    <None Include="media\libretrodb\rdb\Casio - PV-1000.rdb" />
+    <None Include="media\libretrodb\rdb\Coleco - ColecoVision.rdb" />
+    <None Include="media\libretrodb\rdb\DOOM.rdb" />
+    <None Include="media\libretrodb\rdb\Emerson - Arcadia 2001.rdb" />
+    <None Include="media\libretrodb\rdb\Entex - Adventure Vision.rdb" />
+    <None Include="media\libretrodb\rdb\Epoch - Super Cassette Vision.rdb" />
+    <None Include="media\libretrodb\rdb\Fairchild - Channel F.rdb" />
+    <None Include="media\libretrodb\rdb\FB Alpha - Arcade Games.rdb" />
+    <None Include="media\libretrodb\rdb\Funtech - Super Acan.rdb" />
+    <None Include="media\libretrodb\rdb\GamePark - GP32.rdb" />
+    <None Include="media\libretrodb\rdb\GCE - Vectrex.rdb" />
+    <None Include="media\libretrodb\rdb\Hartung - Game Master.rdb" />
+    <None Include="media\libretrodb\rdb\LeapFrog - Leapster Learning Game System.rdb" />
+    <None Include="media\libretrodb\rdb\Magnavox - Odyssey2.rdb" />
+    <None Include="media\libretrodb\rdb\MAME.rdb" />
+    <None Include="media\libretrodb\rdb\Microsoft - MSX.rdb" />
+    <None Include="media\libretrodb\rdb\Microsoft - MSX2.rdb" />
+    <None Include="media\libretrodb\rdb\NEC - PC Engine - TurboGrafx 16.rdb" />
+    <None Include="media\libretrodb\rdb\NEC - PC Engine SuperGrafx.rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Famicom Disk System.rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Game Boy Advance (e-Cards).rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Game Boy Advance.rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Game Boy Color.rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Game Boy.rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Nintendo 3DS (DLC).rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Nintendo 3DS.rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Nintendo 64.rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Nintendo DS (Download Play) (BETA).rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Nintendo DS Decrypted.rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Nintendo DSi (DLC).rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Nintendo DSi Decrypted.rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Nintendo Entertainment System.rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Nintendo Wii (DLC).rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Pokemon Mini.rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Satellaview.rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Sufami Turbo.rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Super Nintendo Entertainment System.rdb" />
+    <None Include="media\libretrodb\rdb\Nintendo - Super Nintendo Entertainment System.rdl.example" />
+    <None Include="media\libretrodb\rdb\Nintendo - Virtual Boy.rdb" />
+    <None Include="media\libretrodb\rdb\Philips - Videopac+.rdb" />
+    <None Include="media\libretrodb\rdb\Quake1.rdb" />
+    <None Include="media\libretrodb\rdb\RCA - Studio II.rdb" />
+    <None Include="media\libretrodb\rdb\ScummVM.rdb" />
+    <None Include="media\libretrodb\rdb\Sega - 32X.rdb" />
+    <None Include="media\libretrodb\rdb\Sega - Game Gear.rdb" />
+    <None Include="media\libretrodb\rdb\Sega - Master System - Mark III.rdb" />
+    <None Include="media\libretrodb\rdb\Sega - Mega Drive - Genesis.rdb" />
+    <None Include="media\libretrodb\rdb\Sega - PICO.rdb" />
+    <None Include="media\libretrodb\rdb\Sega - SG-1000.rdb" />
+    <None Include="media\libretrodb\rdb\Sinclair - ZX Spectrum +3.rdb" />
+    <None Include="media\libretrodb\rdb\SNK - Neo Geo Pocket Color.rdb" />
+    <None Include="media\libretrodb\rdb\SNK - Neo Geo Pocket.rdb" />
+    <None Include="media\libretrodb\rdb\Sony - PlayStation 3 (DLC).rdb" />
+    <None Include="media\libretrodb\rdb\Sony - PlayStation 3 (Downloadable).rdb" />
+    <None Include="media\libretrodb\rdb\Sony - PlayStation 3 (PSN).rdb" />
+    <None Include="media\libretrodb\rdb\Sony - PlayStation Portable (DLC).rdb" />
+    <None Include="media\libretrodb\rdb\Sony - PlayStation Portable (PSX2PSP).rdb" />
+    <None Include="media\libretrodb\rdb\Sony - PlayStation Portable (UMD Music).rdb" />
+    <None Include="media\libretrodb\rdb\Sony - PlayStation Portable (UMD Video).rdb" />
+    <None Include="media\libretrodb\rdb\Sony - PlayStation Portable.rdb" />
+    <None Include="media\libretrodb\rdb\Sony - PlayStation.rdb" />
+    <None Include="media\libretrodb\rdb\Tiger - Game.com.rdb" />
+    <None Include="media\libretrodb\rdb\VTech - CreatiVision.rdb" />
+    <None Include="media\libretrodb\rdb\VTech - V.Smile.rdb" />
+    <None Include="media\libretrodb\rdb\Watara - Supervision.rdb" />
+    <None Include="media\libretrodb\dat\Atari - 5200.dat" />
+    <None Include="media\libretrodb\dat\Atari - 7800.dat" />
+    <None Include="media\libretrodb\dat\Atari - Jaguar.dat" />
+    <None Include="media\libretrodb\dat\Atari - Lynx.dat" />
+    <None Include="media\libretrodb\dat\Atari - ST.dat" />
+    <None Include="media\libretrodb\dat\Bandai - WonderSwan Color.dat" />
+    <None Include="media\libretrodb\dat\Bandai - WonderSwan.dat" />
+    <None Include="media\libretrodb\dat\Casio - Loopy.dat" />
+    <None Include="media\libretrodb\dat\Casio - PV-1000.dat" />
+    <None Include="media\libretrodb\dat\Coleco - ColecoVision.dat" />
+    <None Include="media\libretrodb\dat\Commodore - 64 (PP).dat" />
+    <None Include="media\libretrodb\dat\Commodore - 64 (Tapes).dat" />
+    <None Include="media\libretrodb\dat\Commodore - 64.dat" />
+    <None Include="media\libretrodb\dat\Commodore - Amiga.dat" />
+    <None Include="media\libretrodb\dat\Commodore - Plus-4.dat" />
+    <None Include="media\libretrodb\dat\Commodore - VIC-20.dat" />
+    <None Include="media\libretrodb\dat\DOOM.dat" />
+    <None Include="media\libretrodb\dat\Emerson - Arcadia 2001.dat" />
+    <None Include="media\libretrodb\dat\Entex - Adventure Vision.dat" />
+    <None Include="media\libretrodb\dat\Epoch - Super Cassette Vision.dat" />
+    <None Include="media\libretrodb\dat\Fairchild - Channel F.dat" />
+    <None Include="media\libretrodb\dat\FB Alpha - Arcade Games.dat" />
+    <None Include="media\libretrodb\dat\Funtech - Super Acan.dat" />
+    <None Include="media\libretrodb\dat\Game and Watch.dat" />
+    <None Include="media\libretrodb\dat\GamePark - GP32.dat" />
+    <None Include="media\libretrodb\dat\GCE - Vectrex.dat" />
+    <None Include="media\libretrodb\dat\Hartung - Game Master.dat" />
+    <None Include="media\libretrodb\dat\LeapFrog - Leapster Learning Game System.dat" />
+    <None Include="media\libretrodb\dat\Magnavox - Odyssey2.dat" />
+    <None Include="media\libretrodb\dat\MAME.dat" />
+    <None Include="media\libretrodb\dat\Microsoft - MSX.dat" />
+    <None Include="media\libretrodb\dat\Microsoft - MSX2.dat" />
+    <None Include="media\libretrodb\dat\Microsoft - XBOX 360 (DLC).dat" />
+    <None Include="media\libretrodb\dat\Microsoft - XBOX 360 (Games on Demand).dat" />
+    <None Include="media\libretrodb\dat\Microsoft - XBOX 360 (Title Updates).dat" />
+    <None Include="media\libretrodb\dat\NEC - PC Engine - TurboGrafx 16.dat" />
+    <None Include="media\libretrodb\dat\NEC - PC Engine SuperGrafx.dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Famicom Disk System.dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Game Boy Advance (e-Cards).dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Game Boy Advance.dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Game Boy Color.dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Game Boy.dat" />
+    <None Include="media\libretrodb\dat\Nintendo - New Nintendo 3DS (DLC).dat" />
+    <None Include="media\libretrodb\dat\Nintendo - New Nintendo 3DS.dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Nintendo 3DS (DLC).dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Nintendo 3DS.dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Nintendo 64.dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Nintendo DS (Download Play) (BETA).dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Nintendo DS Decrypted.dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Nintendo DSi (DLC).dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Nintendo DSi Decrypted.dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Nintendo Entertainment System.dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Nintendo Wii (DLC).dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Pokemon Mini.dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Satellaview.dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Sufami Turbo.dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Super Nintendo Entertainment System.dat" />
+    <None Include="media\libretrodb\dat\Nintendo - Virtual Boy.dat" />
+    <None Include="media\libretrodb\dat\Nokia - N-Gage.dat" />
+    <None Include="media\libretrodb\dat\Philips - Videopac+.dat" />
+    <None Include="media\libretrodb\dat\ps1.idlst" />
+    <None Include="media\libretrodb\dat\Quake1.dat" />
+    <None Include="media\libretrodb\dat\RCA - Studio II.dat" />
+    <None Include="media\libretrodb\dat\ScummVM.dat" />
+    <None Include="media\libretrodb\dat\Sega - 32X.dat" />
+    <None Include="media\libretrodb\dat\Sega - Game Gear.dat" />
+    <None Include="media\libretrodb\dat\Sega - Master System - Mark III.dat" />
+    <None Include="media\libretrodb\dat\Sega - Mega Drive - Genesis.dat" />
+    <None Include="media\libretrodb\dat\Sega - PICO.dat" />
+    <None Include="media\libretrodb\dat\Sega - SG-1000.dat" />
+    <None Include="media\libretrodb\dat\Sinclair - ZX Spectrum +3.dat" />
+    <None Include="media\libretrodb\dat\SNK - Neo Geo Pocket Color.dat" />
+    <None Include="media\libretrodb\dat\SNK - Neo Geo Pocket.dat" />
+    <None Include="media\libretrodb\dat\Sony - PlayStation 3 (DLC).dat" />
+    <None Include="media\libretrodb\dat\Sony - PlayStation 3 (Downloadable).dat" />
+    <None Include="media\libretrodb\dat\Sony - PlayStation 3 (PSN).dat" />
+    <None Include="media\libretrodb\dat\Sony - PlayStation Portable (DLC).dat" />
+    <None Include="media\libretrodb\dat\Sony - PlayStation Portable (PSX2PSP).dat" />
+    <None Include="media\libretrodb\dat\Sony - PlayStation Portable (UMD Music).dat" />
+    <None Include="media\libretrodb\dat\Sony - PlayStation Portable (UMD Video).dat" />
+    <None Include="media\libretrodb\dat\Sony - PlayStation Portable.dat" />
+    <None Include="media\libretrodb\dat\Sony - PlayStation.dat" />
+    <None Include="media\libretrodb\dat\Tiger - Game.com.dat" />
+    <None Include="media\libretrodb\dat\VTech - CreatiVision.dat" />
+    <None Include="media\libretrodb\dat\VTech - V.Smile.dat" />
+    <None Include="media\libretrodb\dat\Watara - Supervision.dat" />
+    <None Include="media\overlays\gamepads\flat\arcade.cfg" />
+    <None Include="media\overlays\gamepads\flat\atari7800.cfg" />
+    <None Include="media\overlays\gamepads\flat\buttons.svg" />
+    <None Include="media\overlays\gamepads\flat\cps.cfg" />
+    <None Include="media\overlays\gamepads\flat\dpad.svg" />
+    <None Include="media\overlays\gamepads\flat\dpad_psx.svg" />
+    <None Include="media\overlays\gamepads\flat\face_buttons.svg" />
+    <None Include="media\overlays\gamepads\flat\face_buttons_big.svg" />
+    <None Include="media\overlays\gamepads\flat\face_buttons_wswan.svg" />
+    <None Include="media\overlays\gamepads\flat\gameboy.cfg" />
+    <None Include="media\overlays\gamepads\flat\gba.cfg" />
+    <None Include="media\overlays\gamepads\flat\genesis.cfg" />
+    <None Include="media\overlays\gamepads\flat\genesis_and_sms.cfg" />
+    <None Include="media\overlays\gamepads\flat\genesis_mode.svg" />
+    <None Include="media\overlays\gamepads\flat\menu_buttons.svg" />
+    <None Include="media\overlays\gamepads\flat\neogeo.cfg" />
+    <None Include="media\overlays\gamepads\flat\nes.cfg" />
+    <None Include="media\overlays\gamepads\flat\pc-fx.cfg" />
+    <None Include="media\overlays\gamepads\flat\psp.cfg" />
+    <None Include="media\overlays\gamepads\flat\psx.cfg" />
+    <None Include="media\overlays\gamepads\flat\psx-fast.cfg" />
+    <None Include="media\overlays\gamepads\flat\retropad.cfg" />
+    <None Include="media\overlays\gamepads\flat\retropad-fast.cfg" />
+    <None Include="media\overlays\gamepads\flat\select_psx.svg" />
+    <None Include="media\overlays\gamepads\flat\shoulder_buttons.svg" />
+    <None Include="media\overlays\gamepads\flat\shoulder_combo.svg" />
+    <None Include="media\overlays\gamepads\flat\shoulder_down_buttons.svg" />
+    <None Include="media\overlays\gamepads\flat\shoulder_small_buttons.svg" />
+    <None Include="media\overlays\gamepads\flat\sms.cfg" />
+    <None Include="media\overlays\gamepads\flat\snes.cfg" />
+    <None Include="media\overlays\gamepads\flat\square_buttons_text.svg" />
+    <None Include="media\overlays\gamepads\flat\start.svg" />
+    <None Include="media\overlays\gamepads\flat\start_psx.svg" />
+    <None Include="media\overlays\gamepads\flat\thumbstick-background.svg" />
+    <None Include="media\overlays\gamepads\flat\thumbstick-pad.svg" />
+    <None Include="media\overlays\gamepads\flat\turbografx-16.cfg" />
+    <None Include="media\overlays\gamepads\flat\turbografx-16_6-button.cfg" />
+    <None Include="media\overlays\gamepads\flat\virtualboy.cfg" />
+    <None Include="media\overlays\gamepads\flat\wonderswan.cfg" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="RetroArch-Win10.rc" />

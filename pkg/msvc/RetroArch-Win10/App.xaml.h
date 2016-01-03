@@ -8,6 +8,7 @@
 #include "App.g.h"
 #include "gfx/common/d3d11_common.h"
 #include "ui/drivers/uwp/main_page.xaml.h"
+#include "ui/drivers/uwp/viewmodel_locator.h"
 
 namespace RetroArch_Win10
 {

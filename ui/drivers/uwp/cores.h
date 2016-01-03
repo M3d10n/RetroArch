@@ -1,40 +1,58 @@
 #pragma once
 
 #include <collection.h> 
+#include "common.h"
 
 namespace RetroArch_Win10
 {
+   public interface class ICoreInfoDisplay
+   {
+      property Platform::String^ Name;
+      property Platform::String^ Icon;
+      property Platform::String^ Background;
+   };
+
+
    [Windows::UI::Xaml::Data::Bindable]
-   public ref class Core sealed
+   public ref class Core sealed : public ICoreInfoDisplay
    {
    public:
       Core();
 
-      property Platform::String^ Name;
-      property Platform::String^ Icon;
+      // Inherited via ICoreInfoDisplay
+      virtual property Platform::String ^ Name;
+      virtual property Platform::String ^ Icon;
+      virtual property Platform::String ^ Background;
+
 
    };
+
 
    [Windows::UI::Xaml::Data::Bindable]
-   public ref class CoreGroup sealed
+   [Windows::Foundation::Metadata::WebHostHiddenAttribute]
+   public ref class CoresViewModel : public Common::BindableBase
    {
+   internal:
+      CoresViewModel();
+
    public:
-      CoreGroup();
-
-      void Insert(Core^ item)
+      property Windows::Foundation::Collections::IObservableVector<ICoreInfoDisplay^>^ Cores
       {
-         _items->Append(item);
-      }
-
-      property Windows::Foundation::Collections::IObservableVector<Platform::Object^>^ Items
-      {
-         Windows::Foundation::Collections::IObservableVector<Platform::Object^>^ get()
+         Windows::Foundation::Collections::IObservableVector<ICoreInfoDisplay^>^ get()
          {
-            return _items;
+            return m_cores;
          }
       }
-   private:
-      Platform::Collections::Vector<Object^>^ _items;
-   };
 
+      property ICoreInfoDisplay^ SelectedItem
+      {
+         ICoreInfoDisplay^ get();
+         void set(ICoreInfoDisplay^ Value);
+      }
+
+   private:
+      Platform::Collections::Vector<ICoreInfoDisplay^>^ m_cores;
+
+      ICoreInfoDisplay^ m_selectedItem;
+   };
 }

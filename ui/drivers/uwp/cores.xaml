@@ -7,31 +7,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" RequestedTheme="Dark">
     <Page.Resources>
-        <DataTemplate x:Key="ConsoleGridItem">
-            <Grid HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="200" Padding="0" Margin="9">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="153*"/>
-                    <RowDefinition Height="47*"/>
-                </Grid.RowDefinitions>
-                <TextBlock x:Name="textBlock" Grid.Row="1" Text="{Binding Name}" FontSize="18.667" TextAlignment="Center" TextTrimming="CharacterEllipsis" VerticalAlignment="Center"/>
-                <Image x:Name="image" Source="{Binding Icon}" Margin="28,0,27,0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
-                <Button x:Name="button" Content="" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" d:LayoutOverrides="Width, LeftMargin, RightMargin, TopMargin, BottomMargin" Grid.RowSpan="2"/>
-            </Grid>
-        </DataTemplate>
+
     </Page.Resources>
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Opacity="0.5">
-        <GridView x:Name="gridView" d:LayoutOverrides="Height, LeftPosition, RightPosition, TopPosition, BottomPosition" SelectionMode="None" ItemTemplate="{StaticResource ConsoleGridItem}" ItemsSource="{Binding Items}">
-            <GridView.DataContext>
-                <local:CoreGroup>
-                    <local:CoreGroup.Items>
-                        <local:Core Name="Sega Genesis" Icon="Assets\xmb\flatui\png\Sega - Mega Drive - Genesis.png"/>
-                        <local:Core Icon="Assets\xmb\flatui\png\Sega - Mega Drive - Genesis.png"/>
-                        <local:Core Name="Super Nintendo" Icon="Assets\xmb\flatui\png\Sega - Mega Drive - Genesis.png"/>
-                    </local:CoreGroup.Items>
-                </local:CoreGroup>
-            </GridView.DataContext>
-        </GridView>
-
-    </Grid>
+    <Page.DataContext>
+        <Binding Path="CoresVM" Source="{StaticResource ViewModelLocator}"/>
+    </Page.DataContext>
+    <ListView x:Name="listView" ItemsSource="{Binding Cores}" Style="{StaticResource SystemListViewTemplate}" ItemTemplate="{StaticResource SystemListDataTemplate}" SelectedItem="{Binding SelectedItem}" IsTextScaleFactorEnabled="False" HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource ListViewContainerStyle}">
+        <ListView.Header>
+            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="Systems"/>
+        </ListView.Header>
+    </ListView>
 </Page>

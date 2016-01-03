@@ -5,10 +5,28 @@ using namespace RetroArch_Win10;
 RetroArch_Win10::Core::Core()
 {
    Name = "Genesis";
-   Icon = "ms-appx:///Assets/xmb/flatui/png/Sega - Mega Drive - Genesis.png";
+   Icon = "ms-appx:///media/assets/xmb/flatui/png/Sega - Mega Drive - Genesis.png";
+   Background = "ms-appx:///media/assets/wallpapers/bichromatic pads/1440x900/Sega - Mega Drive - Genesis.png";
 }
 
-RetroArch_Win10::CoreGroup::CoreGroup()
+RetroArch_Win10::CoresViewModel::CoresViewModel()
 {
-   _items = ref new Platform::Collections::Vector<Object^>();
+   m_cores = ref new Platform::Collections::Vector<ICoreInfoDisplay^>();
+   m_cores->Append(ref new Core());
+   m_cores->Append(ref new Core());
+   m_cores->Append(ref new Core());
+   m_cores->Append(ref new Core());
+   m_cores->Append(ref new Core());
+
+   
+}
+
+ICoreInfoDisplay^ CoresViewModel::SelectedItem::get()
+{
+   return m_selectedItem;
+}
+
+void CoresViewModel::SelectedItem::set(ICoreInfoDisplay^ Value)
+{
+   m_selectedItem = Value;
 }
