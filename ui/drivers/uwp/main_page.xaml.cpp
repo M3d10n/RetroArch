@@ -38,10 +38,10 @@ main_page::main_page()
    d3d11::DeviceResources::SetGlobalSwapChainPanel(swapChainPanel);
 
    // Create our "main"
-   //m_main = std::unique_ptr<RetroarchMain>(new RetroarchMain(""));
-   //m_main->StartUpdateThread();
+   m_main = std::unique_ptr<RetroarchMain>(new RetroarchMain(""));
+   m_main->StartUpdateThread();
 
-   frame->Content = ref new cores();
+   //frame->Content = ref new cores();
 }
 
 

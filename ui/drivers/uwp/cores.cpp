@@ -21,6 +21,11 @@ RetroArch_Win10::CoresViewModel::CoresViewModel()
    
 }
 
+Windows::Foundation::Collections::IObservableVector<ISystem^>^ CoresViewModel::Systems::get()
+{
+   return SystemLibrary::Get()->GetSystems();
+}
+
 ICoreInfoDisplay^ CoresViewModel::SelectedItem::get()
 {
    return m_selectedItem;
