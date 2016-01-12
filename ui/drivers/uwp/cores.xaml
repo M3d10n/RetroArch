@@ -12,7 +12,7 @@
     <Page.DataContext>
         <Binding Path="CoresVM" Source="{StaticResource ViewModelLocator}"/>
     </Page.DataContext>
-    <ListView x:Name="listView" ItemsSource="{Binding Cores}" Style="{StaticResource SystemListViewTemplate}" ItemTemplate="{StaticResource SystemListDataTemplate}" SelectedItem="{Binding SelectedItem}" IsTextScaleFactorEnabled="False" HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource ListViewContainerStyle}">
+    <ListView x:Name="listView" ItemsSource="{Binding Systems}" Style="{StaticResource SystemListViewTemplate}" ItemTemplate="{StaticResource SystemListDataTemplate}" SelectedItem="{Binding SelectedItem}" IsTextScaleFactorEnabled="False" HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource ListViewContainerStyle}">
         <ListView.Header>
             <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="Systems"/>
         </ListView.Header>

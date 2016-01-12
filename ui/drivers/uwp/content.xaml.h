@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "content.g.h"
+#include "ui/drivers/uwp/content.g.h"
 
 namespace RetroArch_Win10
 {

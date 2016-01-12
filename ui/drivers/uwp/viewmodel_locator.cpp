@@ -10,3 +10,9 @@ CoresViewModel^ ViewModelLocator::CoresVM::get()
 {
    return ref new CoresViewModel();
 }
+
+
+ContentViewModel^ ViewModelLocator::ContentVM::get()
+{
+   return ref new ContentViewModel();
+}

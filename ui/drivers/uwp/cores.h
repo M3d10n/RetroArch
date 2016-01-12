@@ -2,6 +2,7 @@
 
 #include <collection.h> 
 #include "common.h"
+#include "system_library.h"
 
 namespace RetroArch_Win10
 {
@@ -43,6 +44,12 @@ namespace RetroArch_Win10
             return m_cores;
          }
       }
+
+      property Windows::Foundation::Collections::IObservableVector<ISystem^>^ Systems
+      {
+         Windows::Foundation::Collections::IObservableVector<ISystem^>^ get();
+      }
+
 
       property ICoreInfoDisplay^ SelectedItem
       {

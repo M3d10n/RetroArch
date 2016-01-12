@@ -904,13 +904,16 @@
     <ClCompile Include="..\..\..\ui\drivers\ui_null.c" />
     <ClCompile Include="..\..\..\ui\drivers\ui_uwp.cpp" />
     <ClCompile Include="..\..\..\ui\drivers\uwp\common.cpp" />
+    <ClCompile Include="..\..\..\ui\drivers\uwp\content_vm.cpp" />
     <ClCompile Include="..\..\..\ui\drivers\uwp\cores.cpp" />
     <ClCompile Include="..\..\..\ui\drivers\uwp\cores.xaml.cpp">
       <DependentUpon>..\..\..\ui\drivers\uwp\cores.xaml</DependentUpon>
     </ClCompile>
+    <ClCompile Include="..\..\..\ui\drivers\uwp\game_library.cpp" />
     <ClCompile Include="..\..\..\ui\drivers\uwp\main_page.xaml.cpp">
       <DependentUpon>..\..\..\ui\drivers\uwp\main_page.xaml</DependentUpon>
     </ClCompile>
+    <ClCompile Include="..\..\..\ui\drivers\uwp\system_library.cpp" />
     <ClCompile Include="..\..\..\ui\drivers\uwp\uwp.cpp" />
     <ClCompile Include="..\..\..\ui\drivers\uwp\viewmodel_locator.cpp" />
     <ClCompile Include="..\..\..\ui\ui_companion_driver.c" />
@@ -924,13 +927,17 @@
     <ClInclude Include="..\..\..\config.def.h" />
     <ClInclude Include="..\..\..\gfx\common\d3d11_common.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\common.h" />
+    <ClInclude Include="..\..\..\ui\drivers\uwp\content_vm.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\cores.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\cores.xaml.h">
       <DependentUpon>..\..\..\ui\drivers\uwp\cores.xaml</DependentUpon>
     </ClInclude>
+    <ClInclude Include="..\..\..\ui\drivers\uwp\game_library.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\main_page.xaml.h">
       <DependentUpon>..\..\..\ui\drivers\uwp\main_page.xaml</DependentUpon>
     </ClInclude>
+    <ClInclude Include="..\..\..\ui\drivers\uwp\systems.h" />
+    <ClInclude Include="..\..\..\ui\drivers\uwp\system_library.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\uwp.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\viewmodel_locator.h" />
     <ClInclude Include="App.xaml.h">

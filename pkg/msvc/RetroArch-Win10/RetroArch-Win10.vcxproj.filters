@@ -801,6 +801,15 @@
     <ClCompile Include="..\..\..\ui\drivers\uwp\viewmodel_locator.cpp">
       <Filter>Source\ui\drivers\uwp</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\ui\drivers\uwp\content_vm.cpp">
+      <Filter>Source\ui\drivers\uwp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ui\drivers\uwp\game_library.cpp">
+      <Filter>Source\ui\drivers\uwp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ui\drivers\uwp\system_library.cpp">
+      <Filter>Source\ui\drivers\uwp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\ui\drivers\uwp\uwp.h">
@@ -826,6 +835,18 @@
       <Filter>Source\ui\drivers\uwp</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\ui\drivers\uwp\viewmodel_locator.h">
+      <Filter>Source\ui\drivers\uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ui\drivers\uwp\system_library.h">
+      <Filter>Source\ui\drivers\uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ui\drivers\uwp\systems.h">
+      <Filter>Source\ui\drivers\uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ui\drivers\uwp\content_vm.h">
+      <Filter>Source\ui\drivers\uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ui\drivers\uwp\game_library.h">
       <Filter>Source\ui\drivers\uwp</Filter>
     </ClInclude>
   </ItemGroup>

@@ -19,6 +19,7 @@ config.log
 *.sdf
 *.opensdf
 *.suo
+*.VC.opendb
 Debug
 Release
 ipch
