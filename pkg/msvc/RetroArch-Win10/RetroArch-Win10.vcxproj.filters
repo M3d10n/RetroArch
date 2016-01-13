@@ -2889,6 +2889,9 @@
       <Filter>Source\ui\drivers\uwp</Filter>
     </Page>
     <Page Include="DesignTimeResources.xaml" />
+    <Page Include="..\..\..\ui\drivers\uwp\content.xaml">
+      <Filter>Source\ui\drivers\uwp</Filter>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />

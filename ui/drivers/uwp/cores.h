@@ -6,28 +6,7 @@
 
 namespace RetroArch_Win10
 {
-   public interface class ICoreInfoDisplay
-   {
-      property Platform::String^ Name;
-      property Platform::String^ Icon;
-      property Platform::String^ Background;
-   };
-
-
-   [Windows::UI::Xaml::Data::Bindable]
-   public ref class Core sealed : public ICoreInfoDisplay
-   {
-   public:
-      Core();
-
-      // Inherited via ICoreInfoDisplay
-      virtual property Platform::String ^ Name;
-      virtual property Platform::String ^ Icon;
-      virtual property Platform::String ^ Background;
-
-
-   };
-
+   public delegate void SystemSelectedDelegate(ISystem^);
 
    [Windows::UI::Xaml::Data::Bindable]
    [Windows::Foundation::Metadata::WebHostHiddenAttribute]
@@ -37,29 +16,22 @@ namespace RetroArch_Win10
       CoresViewModel();
 
    public:
-      property Windows::Foundation::Collections::IObservableVector<ICoreInfoDisplay^>^ Cores
-      {
-         Windows::Foundation::Collections::IObservableVector<ICoreInfoDisplay^>^ get()
-         {
-            return m_cores;
-         }
-      }
-
       property Windows::Foundation::Collections::IObservableVector<ISystem^>^ Systems
       {
          Windows::Foundation::Collections::IObservableVector<ISystem^>^ get();
       }
 
+      event SystemSelectedDelegate^ ItemSelected;
 
-      property ICoreInfoDisplay^ SelectedItem
+
+      property ISystem^ SelectedItem
       {
-         ICoreInfoDisplay^ get();
-         void set(ICoreInfoDisplay^ Value);
+         ISystem^ get();
+         void set(ISystem^ Value);
       }
 
    private:
-      Platform::Collections::Vector<ICoreInfoDisplay^>^ m_cores;
 
-      ICoreInfoDisplay^ m_selectedItem;
+      ISystem^ m_selectedItem;
    };
 }

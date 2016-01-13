@@ -43,7 +43,7 @@ void App::OnLaunched(Windows::ApplicationModel::Activation::LaunchActivatedEvent
 #if _DEBUG
 	if (IsDebuggerPresent())
 	{
-		DebugSettings->EnableFrameRateCounter = true;
+		//DebugSettings->EnableFrameRateCounter = true;
 	}
 #endif
 

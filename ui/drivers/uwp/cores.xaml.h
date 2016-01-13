@@ -20,5 +20,6 @@ namespace RetroArch_Win10
 		cores();
 
    private:
-	};
+      void OnItemSelected(RetroArch_Win10::ISystem ^);
+   };
 }

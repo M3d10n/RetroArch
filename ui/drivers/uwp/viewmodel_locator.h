@@ -14,5 +14,9 @@ namespace RetroArch_Win10
 
       property CoresViewModel^ CoresVM { CoresViewModel^ get(); }
       property ContentViewModel^ ContentVM { ContentViewModel^ get(); }
+
+   private:
+      CoresViewModel^   m_cores_vm;
+      ContentViewModel^ m_content_vm;
    };
 }

@@ -8,9 +8,6 @@
     mc:Ignorable="d">
     <Page.BottomAppBar>
         <CommandBar>
-            <CommandBar.Content>
-                <Grid/>
-            </CommandBar.Content>
             <AppBarButton Label="appbarbutton" Icon="Add"/>
         </CommandBar>
     </Page.BottomAppBar>

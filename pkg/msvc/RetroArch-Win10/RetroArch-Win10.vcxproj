@@ -904,6 +904,9 @@
     <ClCompile Include="..\..\..\ui\drivers\ui_null.c" />
     <ClCompile Include="..\..\..\ui\drivers\ui_uwp.cpp" />
     <ClCompile Include="..\..\..\ui\drivers\uwp\common.cpp" />
+    <ClCompile Include="..\..\..\ui\drivers\uwp\content.xaml.cpp">
+      <DependentUpon>..\..\..\ui\drivers\uwp\content.xaml</DependentUpon>
+    </ClCompile>
     <ClCompile Include="..\..\..\ui\drivers\uwp\content_vm.cpp" />
     <ClCompile Include="..\..\..\ui\drivers\uwp\cores.cpp" />
     <ClCompile Include="..\..\..\ui\drivers\uwp\cores.xaml.cpp">
@@ -927,6 +930,9 @@
     <ClInclude Include="..\..\..\config.def.h" />
     <ClInclude Include="..\..\..\gfx\common\d3d11_common.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\common.h" />
+    <ClInclude Include="..\..\..\ui\drivers\uwp\content.xaml.h">
+      <DependentUpon>..\..\..\ui\drivers\uwp\content.xaml</DependentUpon>
+    </ClInclude>
     <ClInclude Include="..\..\..\ui\drivers\uwp\content_vm.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\cores.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\cores.xaml.h">
@@ -3041,6 +3047,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="..\..\..\ui\drivers\uwp\content.xaml" />
     <Page Include="..\..\..\ui\drivers\uwp\cores.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -3064,5 +3071,12 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\Microsoft.Xaml.Behaviors.Uwp.Native.1.0.2\build\native\Microsoft.Xaml.Behaviors.Uwp.Native.targets" Condition="Exists('..\packages\Microsoft.Xaml.Behaviors.Uwp.Native.1.0.2\build\native\Microsoft.Xaml.Behaviors.Uwp.Native.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Xaml.Behaviors.Uwp.Native.1.0.2\build\native\Microsoft.Xaml.Behaviors.Uwp.Native.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Xaml.Behaviors.Uwp.Native.1.0.2\build\native\Microsoft.Xaml.Behaviors.Uwp.Native.targets'))" />
+  </Target>
 </Project>

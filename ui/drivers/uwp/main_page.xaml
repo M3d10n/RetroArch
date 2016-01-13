@@ -1,15 +1,22 @@
 ﻿<Page
-    x:Class="RetroArch_Win10.main_page"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:RetroArch_Win10"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    x:Class="RetroArch_Win10.main_page"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RequestedTheme="Dark">
         <SwapChainPanel x:Name="swapChainPanel"/>
-        <Frame x:Name="frame" Content="Frame"/>
+        <Frame x:Name="frame" Content="Frame">
+            <Frame.ContentTransitions>
+                <TransitionCollection>
+                    <EdgeUIThemeTransition Edge="Left"/>
+                </TransitionCollection>
+            </Frame.ContentTransitions>
+        </Frame>
 
     </Grid>
 </Page>

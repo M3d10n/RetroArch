@@ -38,10 +38,13 @@ main_page::main_page()
    d3d11::DeviceResources::SetGlobalSwapChainPanel(swapChainPanel);
 
    // Create our "main"
-   m_main = std::unique_ptr<RetroarchMain>(new RetroarchMain(""));
-   m_main->StartUpdateThread();
+   //m_main = std::unique_ptr<RetroarchMain>(new RetroarchMain(""));
+   //m_main->StartUpdateThread();
 
-   //frame->Content = ref new cores();
+   frame->Navigate(cores::typeid);
+
+   Windows::UI::Core::SystemNavigationManager::GetForCurrentView()->GetForCurrentView()->BackRequested += ref new Windows::Foundation::EventHandler<Windows::UI::Core::BackRequestedEventArgs ^>(this, &RetroArch_Win10::main_page::OnBackRequested);
+
 }
 
 
@@ -66,4 +69,19 @@ void RetroArch_Win10::main_page::OnCompositionScaleChanged(Windows::UI::Xaml::Co
 
    critical_section::scoped_lock lock(m_main->GetCriticalSection());
    d3d11::Get()->SetCompositionScale(sender->CompositionScaleX, sender->CompositionScaleY);
+}
+
+
+void RetroArch_Win10::main_page::OnBackRequested(Platform::Object ^sender, Windows::UI::Core::BackRequestedEventArgs ^args)
+{
+   if (frame->CanGoBack && args->Handled == false)
+   {
+      frame->GoBack();
+      args->Handled = true;
+   }
+   else if (!frame->CanGoBack)
+   {
+      Windows::UI::Core::SystemNavigationManager::GetForCurrentView()->AppViewBackButtonVisibility =
+         Windows::UI::Core::AppViewBackButtonVisibility::Collapsed;
+   }
 }

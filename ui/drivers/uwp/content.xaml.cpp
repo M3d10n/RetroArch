@@ -24,4 +24,5 @@ using namespace Windows::UI::Xaml::Navigation;
 content::content()
 {
 	InitializeComponent();
+
 }

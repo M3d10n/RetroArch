@@ -53,8 +53,14 @@ namespace RetroArch_Win10
 
       ISystem^ GetSystem(ESystemId Id);
 
+      void SetSelectedSystem(ISystem^ system);
+
+      ISystem^ GetSelectedSystem() { return m_selectedSystem; }
+
+
    private:
       SystemsVector^ m_library;
       SystemsMap^    m_library_map;
+      ISystem^       m_selectedSystem;
    };
 }

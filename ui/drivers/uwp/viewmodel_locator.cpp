@@ -4,15 +4,17 @@ using namespace RetroArch_Win10;
 
 RetroArch_Win10::ViewModelLocator::ViewModelLocator()
 {
+   m_cores_vm = ref new CoresViewModel();
+   m_content_vm = ref new ContentViewModel();
 }
 
 CoresViewModel^ ViewModelLocator::CoresVM::get()
 {
-   return ref new CoresViewModel();
+   return m_cores_vm;
 }
 
 
 ContentViewModel^ ViewModelLocator::ContentVM::get()
 {
-   return ref new ContentViewModel();
+   return m_content_vm;
 }

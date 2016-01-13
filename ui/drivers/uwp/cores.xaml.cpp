@@ -5,6 +5,7 @@
 
 #include "pch.h"
 #include "cores.xaml.h"
+#include "content.xaml.h"
 
 using namespace RetroArch_Win10;
 
@@ -25,4 +26,20 @@ cores::cores()
 {
    InitializeComponent();
 
+   auto cores_vm = static_cast<CoresViewModel^>(DataContext);
+   cores_vm->ItemSelected += ref new RetroArch_Win10::SystemSelectedDelegate(this, &RetroArch_Win10::cores::OnItemSelected);
+
+   
+}
+
+void RetroArch_Win10::cores::OnItemSelected(RetroArch_Win10::ISystem ^)
+{
+   auto frame = static_cast<Windows::UI::Xaml::Controls::Frame^>(Parent);
+   bool ok = frame->Navigate(content::typeid);
+
+   if (ok && frame->CanGoBack)
+   {
+      Windows::UI::Core::SystemNavigationManager::GetForCurrentView()->AppViewBackButtonVisibility =
+         Windows::UI::Core::AppViewBackButtonVisibility::Visible;
+   }
 }

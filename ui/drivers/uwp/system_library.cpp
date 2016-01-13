@@ -60,3 +60,8 @@ ISystem ^ RetroArch_Win10::SystemLibrary::GetSystem(ESystemId Id)
    }
    return nullptr;
 }
+
+void RetroArch_Win10::SystemLibrary::SetSelectedSystem(ISystem ^ system)
+{
+   m_selectedSystem = system;
+}

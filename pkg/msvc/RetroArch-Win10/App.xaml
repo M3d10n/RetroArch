@@ -64,7 +64,7 @@
                     <Viewbox>
                         <Image x:Name="image" Height="100" Width="100" Source="{Binding Icon}"/>
                     </Viewbox>
-                    <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" d:LayoutOverrides="Width" Grid.Column="1" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding Name}" d:LayoutOverrides="Width" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Grid>
             </DataTemplate>
             <Style x:Key="ListViewContainerStyle" TargetType="ListViewItem">
