@@ -6,6 +6,7 @@ RetroArch_Win10::SystemLibrary::SystemLibrary()
 {
    m_library = ref new SystemsVector();
    m_library_map = ref new SystemsMap();
+   m_dispatcher = ref new SystemLibraryDispatcher();
 
    // Test
    auto system = ref new System();
@@ -64,4 +65,10 @@ ISystem ^ RetroArch_Win10::SystemLibrary::GetSystem(ESystemId Id)
 void RetroArch_Win10::SystemLibrary::SetSelectedSystem(ISystem ^ system)
 {
    m_selectedSystem = system;
+   m_dispatcher->DispatchSelectedSystemChanged(system);
+}
+
+void RetroArch_Win10::SystemLibraryDispatcher::DispatchSelectedSystemChanged(ISystem ^ newSystem)
+{
+   SelectedSystemChanged(newSystem);
 }

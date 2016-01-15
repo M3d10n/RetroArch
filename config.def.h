@@ -511,9 +511,8 @@ static bool config_save_on_exit = true;
 
 static const bool default_overlay_enable = false;
 
-static const bool overlay_hide_in_menu = true;
-
 #ifdef HAVE_MENU
+static const bool overlay_hide_in_menu = true;
 static bool default_block_config_read = true;
 
 static bool show_advanced_settings    = true;
@@ -522,6 +521,7 @@ static const uint32_t menu_entry_hover_color  = 0xff64ff64;
 static const uint32_t menu_title_color        = 0xff64ff64;
 #else
 static bool default_block_config_read = false;
+static const bool overlay_hide_in_menu = false;
 #endif
 
 #ifdef RARCH_CONSOLE

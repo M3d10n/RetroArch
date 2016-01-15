@@ -36,6 +36,17 @@ namespace RetroArch_Win10
       virtual property Platform::String ^ Core;
    };
 
+   public delegate void SelectedSystemChangedDelegate(ISystem^);
+
+   [Windows::Foundation::Metadata::WebHostHiddenAttribute]
+   public ref class SystemLibraryDispatcher sealed
+   {
+   public:
+      event SelectedSystemChangedDelegate^ SelectedSystemChanged;
+      void DispatchSelectedSystemChanged(ISystem^ newSystem);
+   };
+
+
    class SystemLibrary
    {
    public:
@@ -57,10 +68,13 @@ namespace RetroArch_Win10
 
       ISystem^ GetSelectedSystem() { return m_selectedSystem; }
 
-
+      SystemLibraryDispatcher^ GetDispatcher() { return m_dispatcher; }
+            
    private:
       SystemsVector^ m_library;
       SystemsMap^    m_library_map;
       ISystem^       m_selectedSystem;
+
+      SystemLibraryDispatcher^ m_dispatcher;
    };
 }

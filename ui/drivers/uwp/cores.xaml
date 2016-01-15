@@ -17,11 +17,6 @@
                     <EntranceThemeTransition FromVerticalOffset="0" FromHorizontalOffset="-360" IsStaggeringEnabled="True"/>
                 </TransitionCollection>
             </ListView.ItemContainerTransitions>
-            <ListView.HeaderTransitions>
-                <TransitionCollection>
-                    <EntranceThemeTransition FromVerticalOffset="0" FromHorizontalOffset="28"/>
-                </TransitionCollection>
-            </ListView.HeaderTransitions>
             <ListView.Header>
                 <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="Systems" VerticalAlignment="Top" Style="{StaticResource TitleTextBlockStyle}" Margin="{StaticResource ListHeaderMargin}"/>
             </ListView.Header>

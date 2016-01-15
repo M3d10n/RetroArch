@@ -27,7 +27,9 @@
 #include "../frontend_driver.h"
 #include "../../general.h"
 #include "../../verbosity.h"
+#ifdef HAVE_MENU
 #include "../../menu/menu.h"
+#endif
 
 /* We only load this library once, so we let it be 
  * unloaded at application shutdown, since unloading 
@@ -241,6 +243,7 @@ enum frontend_architecture frontend_win32_get_architecture(void)
 
 static int frontend_win32_parse_drive_list(void *data)
 {
+#ifdef HAVE_MENU
 #if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
 	file_list_t *list = (file_list_t*)data;
 
@@ -266,6 +269,7 @@ static int frontend_win32_parse_drive_list(void *data)
          menu_entries_push(list,
                drive, "", MENU_FILE_DIRECTORY, 0, 0);
    }
+#endif
 #endif
 
    return 0;

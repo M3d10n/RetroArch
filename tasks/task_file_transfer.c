@@ -80,10 +80,10 @@ typedef struct nbio_handle
 
 static void rarch_task_file_load_handler(rarch_task_t *task);
 
+#ifdef HAVE_RPNG
 #ifdef HAVE_MENU
 #include "../menu/menu_driver.h"
 
-#ifdef HAVE_RPNG
 static int cb_image_menu_upload_generic(void *data, size_t len)
 {
    nbio_handle_t *nbio = (nbio_handle_t*)data;
@@ -158,6 +158,7 @@ static int cb_image_menu_boxart(void *data, size_t len)
 
    return 0;
 }
+#endif
 
 static int rarch_main_data_image_iterate_transfer(nbio_handle_t *nbio)
 {
@@ -230,7 +231,6 @@ static int rarch_main_data_image_iterate_transfer_parse(nbio_handle_t *nbio)
 
    return 0;
 }
-#endif
 
 #endif
 

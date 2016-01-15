@@ -19,6 +19,7 @@ namespace RetroArch_Win10
 		in_game_page();
 
       virtual void OnNavigatedFrom(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
+      virtual void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
 
 	};
 }

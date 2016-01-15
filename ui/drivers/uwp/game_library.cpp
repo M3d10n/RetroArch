@@ -49,13 +49,6 @@ RetroArch_Win10::GameLibrary::GameLibrary()
    AddGame(game);
    AddGame(game);
    AddGame(game);
-
-   // Test
-   //auto game = ref new Game();
-   //game->Title = "Sonic The Hedgehog 2";
-   //game->Path = "";
-
-   //AddGame(game);
 }
 
 GameLibrary * RetroArch_Win10::GameLibrary::Get()

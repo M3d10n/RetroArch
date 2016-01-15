@@ -552,6 +552,7 @@ static void input_overlay_loaded(void *task_data, void *user_data, const char *e
    driver_t *driver          = driver_get_ptr();
 
    /* We can't display when the menu is up */
+#ifdef HAVE_MENU
    if (settings->input.overlay_hide_in_menu && menu_driver_alive())
    {
       if (!driver->osk_enable && settings->input.overlay_enable)
@@ -565,6 +566,7 @@ static void input_overlay_loaded(void *task_data, void *user_data, const char *e
          return;
       }
    }
+#endif
 
    ol = (input_overlay_t*)calloc(1, sizeof(*ol));
    ol->overlays = data->overlays;

@@ -543,66 +543,6 @@
     <ClCompile Include="..\..\..\verbosity.c">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\menu\menu_driver.c">
-      <Filter>Source\menu</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\menu_display.c">
-      <Filter>Source\menu</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\menu_entries.c">
-      <Filter>Source\menu</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\menu_entry.c">
-      <Filter>Source\menu</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\menu_hash.c">
-      <Filter>Source\menu</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\menu_input.c">
-      <Filter>Source\menu</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\menu_navigation.c">
-      <Filter>Source\menu</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\menu_setting.c">
-      <Filter>Source\menu</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\menu_shader.c">
-      <Filter>Source\menu</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\menu.c">
-      <Filter>Source\menu</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\menu_animation.c">
-      <Filter>Source\menu</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\intl\menu_hash_de.c">
-      <Filter>Source\menu\intl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\intl\menu_hash_eo.c">
-      <Filter>Source\menu\intl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\intl\menu_hash_es.c">
-      <Filter>Source\menu\intl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\intl\menu_hash_fr.c">
-      <Filter>Source\menu\intl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\intl\menu_hash_it.c">
-      <Filter>Source\menu\intl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\intl\menu_hash_nl.c">
-      <Filter>Source\menu\intl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\intl\menu_hash_pl.c">
-      <Filter>Source\menu\intl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\intl\menu_hash_pt.c">
-      <Filter>Source\menu\intl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\intl\menu_hash_us.c">
-      <Filter>Source\menu\intl</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\input\keyboard_line.c">
       <Filter>Source\input</Filter>
     </ClCompile>
@@ -612,23 +552,8 @@
     <ClCompile Include="..\..\..\libretro-common\file\memory_stream.c">
       <Filter>Source\libretro-common\file</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\menu\drivers\rgui.c">
-      <Filter>Source\menu\drivers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\drivers\menu_generic.c">
-      <Filter>Source\menu\drivers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\drivers\null.c">
-      <Filter>Source\menu\drivers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\drivers\materialui.c">
-      <Filter>Source\menu\drivers</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\input\input_joypad.c">
       <Filter>Source\input</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\menu_displaylist.c">
-      <Filter>Source\menu</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\tasks\tasks.c">
       <Filter>Source\tasks</Filter>
@@ -665,57 +590,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\libretro-common\string\stdstring.c">
       <Filter>Source\libretro-common\string</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\drivers_display\menu_display_null.c">
-      <Filter>Source\menu\drivers_display</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_cancel.c">
-      <Filter>Source\menu\cbs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_contentlist_switch.c">
-      <Filter>Source\menu\cbs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_deferred_push.c">
-      <Filter>Source\menu\cbs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_down.c">
-      <Filter>Source\menu\cbs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_get_value.c">
-      <Filter>Source\menu\cbs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_info.c">
-      <Filter>Source\menu\cbs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_left.c">
-      <Filter>Source\menu\cbs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_ok.c">
-      <Filter>Source\menu\cbs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_refresh.c">
-      <Filter>Source\menu\cbs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_right.c">
-      <Filter>Source\menu\cbs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_scan.c">
-      <Filter>Source\menu\cbs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_select.c">
-      <Filter>Source\menu\cbs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_start.c">
-      <Filter>Source\menu\cbs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_title.c">
-      <Filter>Source\menu\cbs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\cbs\menu_cbs_up.c">
-      <Filter>Source\menu\cbs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\menu_cbs.c">
-      <Filter>Source\menu</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\ui\drivers\uwp\uwp.cpp">
       <Filter>Source\ui\drivers\uwp</Filter>
@@ -755,9 +629,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\input\drivers_joypad\xinput_joypad.c">
       <Filter>Source\input\drivers_joypad</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\menu\drivers_display\menu_display_d3d11.cpp">
-      <Filter>Source\menu\drivers_display</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\libretro-common\formats\png\rpng.c">
       <Filter>Source\libretro-common\formats\png</Filter>

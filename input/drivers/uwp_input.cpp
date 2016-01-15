@@ -19,6 +19,7 @@
 
 #include "../../general.h"
 #include "../../driver.h"
+#include "../keyboard_line.h"
 #include "../input_keymaps.h"
 #include "../input_common.h"
 

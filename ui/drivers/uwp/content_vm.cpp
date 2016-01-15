@@ -7,9 +7,15 @@ using namespace RetroArch_Win10;
 using namespace Windows::Foundation;
 using namespace Windows::Foundation::Collections;
 using namespace Windows::Storage;
+using namespace Windows::UI::Xaml;
+using namespace Windows::UI::Xaml::Data;
 
 RetroArch_Win10::ContentViewModel::ContentViewModel()
 {
+   SystemLibrary::Get()->GetDispatcher()->SelectedSystemChanged += ref new SelectedSystemChangedDelegate([this](ISystem^system)
+   {
+      this->PropertyChanged(this, ref new PropertyChangedEventArgs("Games"));
+   });
 }
 
 void RetroArch_Win10::ContentViewModel::PickGamesToAdd()
@@ -21,12 +27,12 @@ void RetroArch_Win10::ContentViewModel::PickGamesToAdd()
    }
 
    auto picker = ref new Pickers::FileOpenPicker();
-   picker->FileTypeFilter->Append(".zip");
+   //picker->FileTypeFilter->Append(".zip");
    picker->FileTypeFilter->Append(".md");
    picker->FileTypeFilter->Append(".smd");
    picker->FileTypeFilter->Append(".bin");
    picker->FileTypeFilter->Append(".gen");
-   picker->FileTypeFilter->Append(".7z");
+   //picker->FileTypeFilter->Append(".7z");
 
    auto async = picker->PickMultipleFilesAsync();
    auto asyncTask = create_task(async);

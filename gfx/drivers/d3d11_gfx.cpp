@@ -359,7 +359,6 @@ static const video_poke_interface_t d3d11_poke_interface = {
 	d3d11_set_menu_texture_enable,
 #else
 	NULL,
-	NULL,
 #endif
 	d3d11_set_osd_msg,
 	d3d11_show_mouse,

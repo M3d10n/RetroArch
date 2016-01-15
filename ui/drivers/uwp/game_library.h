@@ -12,13 +12,11 @@ namespace RetroArch_Win10
    public:
       Game();
 
-      // Inherited via Game
       property Platform::String ^ Title;
       property Platform::String ^ BoxArt;
       property Platform::String ^ Path;
       property ESystemId System;
 
-      // Inherited via Game
       void Play();
    };
 
