@@ -99,7 +99,7 @@ void RetroarchMain::StartUpdateThread()
          {
             settings->input.overlay_enable = true;
             settings->input.overlay_hide_in_menu = false;    
-            fill_pathname_join(settings->input.overlay, g_defaults.dir.overlay, "gamepads/flat/retropad-fast.cfg", sizeof(settings->input.overlay));
+            fill_pathname_join(settings->input.overlay, g_defaults.dir.overlay, "gamepads/flat/genesis-portrait.cfg", sizeof(settings->input.overlay));
             event_command(EVENT_CMD_OVERLAY_INIT);
          }
 

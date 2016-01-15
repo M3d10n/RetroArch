@@ -2748,6 +2748,8 @@
     <None Include="media\overlays\gamepads\flat\virtualboy.cfg" />
     <None Include="media\overlays\gamepads\flat\wonderswan.cfg" />
     <None Include="bin\win_x86\genesis_plus_gx_libretro.dll" />
+    <None Include="media\overlays\gamepads\flat\genesis-landscape.cfg" />
+    <None Include="media\overlays\gamepads\flat\genesis-portrait.cfg" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="RetroArch-Win10.rc" />
