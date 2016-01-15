@@ -70,6 +70,20 @@
             <Style x:Key="ListViewContainerStyle" TargetType="ListViewItem">
                 <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
             </Style>
+            <DataTemplate x:Key="GameListEntryTemplate">
+                <Grid Height="100">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="8"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.DataContext>
+                        <local:Game/>
+                    </Grid.DataContext>
+                    <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding Title, Mode=OneTime}" Grid.Column="2" Margin="0,40,10.667,40" d:LayoutOverrides="TopMargin, BottomMargin"/>
+                    <Image x:Name="image" Source="{Binding BoxArt}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+                </Grid>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 

@@ -1,10 +1,54 @@
 #include "game_library.h"
+#include "system_library.h"
+#include "uwp.h"
 
 using namespace RetroArch_Win10;
+
+RetroArch_Win10::Game::Game()
+{
+   Title = "Unknown Title";
+   BoxArt = "ms-appx:///media/assets/xmb/flatui/png/Sega - Mega Drive - Genesis-content.png";
+}
+
+Platform::String^ GetDllPath()
+{
+#if defined(_ARM_)
+   return "bin/win_ARM/";
+#elif defined(_X86_)
+   return "bin/win_x86/";
+#elif defined(_AMD64_)
+   return "bin/win_x64";
+#endif
+}
+
+void RetroArch_Win10::Game::Play()
+{
+   if (System == ESystemId::None || Path == nullptr)
+   {
+      return;
+   }
+
+   auto system = SystemLibrary::Get()->GetSystem(System);
+
+   Platform::String^ core = GetDllPath() + system->Core + "_libretro.dll";
+
+   if (RetroarchMain::Instance.get())
+   {
+      RetroarchMain::Instance->StopUpdateThread();
+   }
+
+   RetroarchMain::Instance = std::unique_ptr<RetroarchMain>(new RetroarchMain(core, Path));
+   RetroarchMain::Instance->StartUpdateThread();
+}
 
 RetroArch_Win10::GameLibrary::GameLibrary()
 {
    m_library = ref new GameVector();
+
+   auto game = ref new Game();
+   AddGame(game);
+   AddGame(game);
+   AddGame(game);
 
    // Test
    //auto game = ref new Game();

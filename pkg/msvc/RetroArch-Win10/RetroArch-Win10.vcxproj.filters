@@ -810,6 +810,7 @@
     <ClCompile Include="..\..\..\ui\drivers\uwp\system_library.cpp">
       <Filter>Source\ui\drivers\uwp</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\ui\drivers\uwp\content.xaml.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\ui\drivers\uwp\uwp.h">
@@ -849,6 +850,7 @@
     <ClInclude Include="..\..\..\ui\drivers\uwp\game_library.h">
       <Filter>Source\ui\drivers\uwp</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\ui\drivers\uwp\content.xaml.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\LockScreenLogo.scale-200.png">
@@ -2874,6 +2876,7 @@
     <None Include="media\overlays\gamepads\flat\turbografx-16_6-button.cfg" />
     <None Include="media\overlays\gamepads\flat\virtualboy.cfg" />
     <None Include="media\overlays\gamepads\flat\wonderswan.cfg" />
+    <None Include="bin\win_x86\genesis_plus_gx_libretro.dll" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="RetroArch-Win10.rc" />
@@ -2890,6 +2893,9 @@
     </Page>
     <Page Include="DesignTimeResources.xaml" />
     <Page Include="..\..\..\ui\drivers\uwp\content.xaml">
+      <Filter>Source\ui\drivers\uwp</Filter>
+    </Page>
+    <Page Include="..\..\..\ui\drivers\uwp\in_game_page.xaml">
       <Filter>Source\ui\drivers\uwp</Filter>
     </Page>
   </ItemGroup>

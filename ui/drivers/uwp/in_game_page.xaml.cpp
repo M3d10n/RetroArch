@@ -1,12 +1,11 @@
 ﻿//
-// content.xaml.cpp
-// Implementation of the content class
+// in_game_page.xaml.cpp
+// Implementation of the in_game_page class
 //
 
 #include "pch.h"
-#include "content.xaml.h"
 #include "in_game_page.xaml.h"
-
+#include "uwp.h"
 
 using namespace RetroArch_Win10;
 
@@ -23,23 +22,16 @@ using namespace Windows::UI::Xaml::Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-content::content()
+in_game_page::in_game_page()
 {
 	InitializeComponent();
 }
 
-void RetroArch_Win10::content::Add_Clicked(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+void RetroArch_Win10::in_game_page::OnNavigatedFrom(Windows::UI::Xaml::Navigation::NavigationEventArgs ^ e)
 {
-   auto content_vm = static_cast<ContentViewModel^>(DataContext);
-   content_vm->PickGamesToAdd();
+   if (RetroarchMain::Instance.get())
+   {
+      RetroarchMain::Instance->StopUpdateThread();
+      RetroarchMain::Instance.reset(nullptr);
+   }
 }
-
-
-void RetroArch_Win10::content::ItemClick(Platform::Object^ sender, Windows::UI::Xaml::Controls::ItemClickEventArgs^ e)
-{
-   auto game = static_cast<IGame^>(e->ClickedItem);
-   game->Play();
-   auto frame = static_cast<Windows::UI::Xaml::Controls::Frame^>(Parent);
-   bool ok = frame->Navigate(in_game_page::typeid);
-}
-

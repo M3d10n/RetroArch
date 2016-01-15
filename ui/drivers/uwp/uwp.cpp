@@ -22,20 +22,22 @@ using namespace Windows::Graphics::Display;
 using namespace Windows::System::Threading;
 
 // Loads and initializes application assets when the application is loaded.
-RetroarchMain::RetroarchMain(Platform::String^ entryPoint) :
-   m_entryPoint(entryPoint),
+RetroarchMain::RetroarchMain(Platform::String^ core, Platform::String^ content) :
+   m_entryPoint(""),
+   m_core(core),
+   m_content(content),
    m_initialized(false),
    m_running(false),
    m_shutdown(false)
 {	
 }
 
+std::unique_ptr<RetroarchMain> RetroarchMain::Instance;
+
+
 RetroarchMain::~RetroarchMain()
 {
-   // Deregister device notification
-   auto resources = GetResources();
-   if (resources)
-      resources->RegisterDeviceNotify(nullptr);
+   
 }
 
 void RetroarchMain::StartUpdateThread()

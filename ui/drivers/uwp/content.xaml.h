@@ -17,5 +17,13 @@ namespace RetroArch_Win10
 	{
 	public:
 		content();
-	};
+
+   private:
+      bool m_inGame;
+     
+      void Add_Clicked(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+      void ItemClick(Platform::Object^ sender, Windows::UI::Xaml::Controls::ItemClickEventArgs^ e);
+      void OnBackRequested(Platform::Object ^sender, Windows::UI::Core::BackRequestedEventArgs ^args);
+
+   };
 }

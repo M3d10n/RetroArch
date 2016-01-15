@@ -19,17 +19,24 @@ namespace RetroArch_Win10
 
       // The game's system
       property ESystemId System;
+
+      void Play();
    };
 
    [Windows::UI::Xaml::Data::Bindable]
    public ref class Game sealed : public IGame
    {
    public:
+      Game();
+
       // Inherited via IGame
       virtual property Platform::String ^ Title;
       virtual property Platform::String ^ BoxArt;
       virtual property Platform::String ^ Path;
       virtual property ESystemId System;
+
+      // Inherited via IGame
+      virtual void Play();
    };
 
    typedef Platform::Collections::Vector<IGame^> GameVector;

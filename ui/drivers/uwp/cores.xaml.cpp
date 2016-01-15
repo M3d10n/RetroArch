@@ -29,11 +29,21 @@ cores::cores()
    auto cores_vm = static_cast<CoresViewModel^>(DataContext);
    cores_vm->ItemSelected += ref new RetroArch_Win10::SystemSelectedDelegate(this, &RetroArch_Win10::cores::OnItemSelected);
 
-   
 }
 
-void RetroArch_Win10::cores::OnItemSelected(RetroArch_Win10::ISystem ^)
+void RetroArch_Win10::cores::OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs ^e)
 {
+   auto cores_vm = static_cast<CoresViewModel^>(DataContext);
+   cores_vm->SelectedItem = nullptr;
+}
+
+void RetroArch_Win10::cores::OnItemSelected(RetroArch_Win10::ISystem ^sys)
+{
+   if (sys == nullptr)
+   {
+      return;
+   }
+
    auto frame = static_cast<Windows::UI::Xaml::Controls::Frame^>(Parent);
    bool ok = frame->Navigate(content::typeid);
 

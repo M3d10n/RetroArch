@@ -6,6 +6,8 @@
 #include "pch.h"
 #include "main_page.xaml.h"
 #include "cores.xaml.h"
+#include "uwp.h"
+
 
 using namespace RetroArch_Win10;
 
@@ -23,6 +25,7 @@ using namespace Windows::UI::Xaml::Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
+
 main_page::main_page()
 {
 	InitializeComponent();
@@ -38,8 +41,8 @@ main_page::main_page()
    d3d11::DeviceResources::SetGlobalSwapChainPanel(swapChainPanel);
 
    // Create our "main"
-   //m_main = std::unique_ptr<RetroarchMain>(new RetroarchMain(""));
-   //m_main->StartUpdateThread();
+   //RetroarchMain::Instance = std::unique_ptr<RetroarchMain>(new RetroarchMain("bin/win_x86/genesis_plus_gx_libretro.dll", "bin/sonic2.smd"));
+   //RetroarchMain::Instance->StartUpdateThread();
 
    frame->Navigate(cores::typeid);
 
@@ -50,24 +53,24 @@ main_page::main_page()
 
 void RetroArch_Win10::main_page::OnSizeChanged(Platform::Object ^sender, Windows::UI::Xaml::SizeChangedEventArgs ^e)
 {
-   if (!m_main || !m_main->IsInitialized())
+   if (!RetroarchMain::Instance || !RetroarchMain::Instance->IsInitialized())
    {
       return;
    }
    
-   critical_section::scoped_lock lock(m_main->GetCriticalSection());
+   critical_section::scoped_lock lock(RetroarchMain::Instance->GetCriticalSection());
    d3d11::Get()->SetLogicalSize(e->NewSize);
 }
 
 
 void RetroArch_Win10::main_page::OnCompositionScaleChanged(Windows::UI::Xaml::Controls::SwapChainPanel ^sender, Platform::Object ^args)
 {
-   if (!m_main || !m_main->IsInitialized())
+   if (!RetroarchMain::Instance || !RetroarchMain::Instance->IsInitialized())
    {
       return;
    }
 
-   critical_section::scoped_lock lock(m_main->GetCriticalSection());
+   critical_section::scoped_lock lock(RetroarchMain::Instance->GetCriticalSection());
    d3d11::Get()->SetCompositionScale(sender->CompositionScaleX, sender->CompositionScaleY);
 }
 

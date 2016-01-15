@@ -1,7 +1,8 @@
 #include "cores.h"
 
 using namespace RetroArch_Win10;
-
+using namespace Windows::UI::Xaml;
+using namespace Windows::UI::Xaml::Data;
 
 
 RetroArch_Win10::CoresViewModel::CoresViewModel()
@@ -24,4 +25,5 @@ void CoresViewModel::SelectedItem::set(ISystem^ Value)
    m_selectedItem = Value;
    SystemLibrary::Get()->SetSelectedSystem(Value);
    ItemSelected(Value);
+   PropertyChanged(this, ref new PropertyChangedEventArgs("SelectedItem"));
 }

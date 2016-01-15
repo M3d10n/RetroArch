@@ -215,6 +215,9 @@
     <None Include="bin\win_x64\genesis_plus_gx_libretro.dll">
       <DeploymentContent>true</DeploymentContent>
     </None>
+    <None Include="bin\win_x86\genesis_plus_gx_libretro.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
     <None Include="media\libretrodb\dat\Atari - 5200.dat" />
     <None Include="media\libretrodb\dat\Atari - 7800.dat" />
     <None Include="media\libretrodb\dat\Atari - Jaguar.dat" />
@@ -913,6 +916,9 @@
       <DependentUpon>..\..\..\ui\drivers\uwp\cores.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="..\..\..\ui\drivers\uwp\game_library.cpp" />
+    <ClCompile Include="..\..\..\ui\drivers\uwp\in_game_page.xaml.cpp">
+      <DependentUpon>..\..\..\ui\drivers\uwp\in_game_page.xaml</DependentUpon>
+    </ClCompile>
     <ClCompile Include="..\..\..\ui\drivers\uwp\main_page.xaml.cpp">
       <DependentUpon>..\..\..\ui\drivers\uwp\main_page.xaml</DependentUpon>
     </ClCompile>
@@ -939,6 +945,9 @@
       <DependentUpon>..\..\..\ui\drivers\uwp\cores.xaml</DependentUpon>
     </ClInclude>
     <ClInclude Include="..\..\..\ui\drivers\uwp\game_library.h" />
+    <ClInclude Include="..\..\..\ui\drivers\uwp\in_game_page.xaml.h">
+      <DependentUpon>..\..\..\ui\drivers\uwp\in_game_page.xaml</DependentUpon>
+    </ClInclude>
     <ClInclude Include="..\..\..\ui\drivers\uwp\main_page.xaml.h">
       <DependentUpon>..\..\..\ui\drivers\uwp\main_page.xaml</DependentUpon>
     </ClInclude>
@@ -3049,6 +3058,9 @@
   <ItemGroup>
     <Page Include="..\..\..\ui\drivers\uwp\content.xaml" />
     <Page Include="..\..\..\ui\drivers\uwp\cores.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\..\..\ui\drivers\uwp\in_game_page.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Include="..\..\..\ui\drivers\uwp\main_page.xaml">

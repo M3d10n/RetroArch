@@ -5,22 +5,7 @@
 #include "common.h"
 
 namespace RetroArch_Win10
-{
-   public interface class IContentDisplay
-   {
-      property Platform::String^ Name;
-      property Platform::String^ BoxArt;
-   };
-
-   [Windows::UI::Xaml::Data::Bindable]
-   public ref class Content sealed : public IContentDisplay
-   {
-   public:
-      // Inherited via IContentDisplay
-      virtual property Platform::String ^ Name;
-      virtual property Platform::String ^ BoxArt;
-   };
-
+{   
    [Windows::UI::Xaml::Data::Bindable]
    [Windows::Foundation::Metadata::WebHostHiddenAttribute]
    public ref class ContentViewModel : public Common::BindableBase
@@ -29,23 +14,22 @@ namespace RetroArch_Win10
       ContentViewModel();
 
    public:
-      property Windows::Foundation::Collections::IObservableVector<IContentDisplay^>^ Cores
+      property Windows::Foundation::Collections::IObservableVector<IGame^>^ Games
       {
-         Windows::Foundation::Collections::IObservableVector<IContentDisplay^>^ get()
-         {
-            return m_contentList;
-         }
+         Windows::Foundation::Collections::IObservableVector<IGame^>^ get();
       }
 
-      property IContentDisplay^ SelectedItem
+      property IGame^ SelectedItem
       {
-         IContentDisplay^ get();
-         void set(IContentDisplay^ Value);
+         IGame^ get();
+         void set(IGame^ Value);
       }
+
+      void PickGamesToAdd();
 
    private:
-      Platform::Collections::Vector<IContentDisplay^>^ m_contentList;
+      Platform::Collections::Vector<IGame^>^ m_contentList;
 
-      IContentDisplay^ m_selectedItem;
+      IGame^ m_selectedItem;
    };
 }

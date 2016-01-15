@@ -7,11 +7,13 @@
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="RetroArch_Win10.cores"
     mc:Ignorable="d" RequestedTheme="Dark" DataContext="{Binding CoresVM, Source={StaticResource ViewModelLocator}}" NavigationCacheMode="Enabled">
-    <ListView x:Name="listView" ItemsSource="{Binding Systems}" Style="{StaticResource SystemListViewTemplate}" ItemTemplate="{StaticResource SystemListDataTemplate}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" IsTextScaleFactorEnabled="False" HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource ListViewContainerStyle}">
-        <ListView.Header>
-            <Border Padding="8">
-                <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="Systems" FontSize="20" VerticalAlignment="Top"/>
-            </Border>
-        </ListView.Header>
-    </ListView>
+    <Grid Background="Black">
+        <ListView x:Name="listView" ItemsSource="{Binding Systems}" Style="{StaticResource SystemListViewTemplate}" ItemTemplate="{StaticResource SystemListDataTemplate}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" IsTextScaleFactorEnabled="False" HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource ListViewContainerStyle}">
+            <ListView.Header>
+                <Border Padding="8">
+                    <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="Systems" FontSize="20" VerticalAlignment="Top"/>
+                </Border>
+            </ListView.Header>
+        </ListView>
+    </Grid>
 </Page>

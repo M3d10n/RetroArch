@@ -9,7 +9,7 @@ namespace RetroArch_Win10
    class RetroarchMain : public d3d11::IDeviceNotify
    {
    public:
-      RetroarchMain(Platform::String^ entryPoint);
+      RetroarchMain(Platform::String^ core, Platform::String^ content);
       ~RetroarchMain();
 
       void StartUpdateThread();
@@ -17,6 +17,8 @@ namespace RetroArch_Win10
 
       Concurrency::critical_section& GetCriticalSection() { return m_criticalSection; }
       bool IsInitialized();
+
+      static std::unique_ptr<RetroarchMain> Instance;
 
 
       Platform::String^ GetEntryPoint() { return m_entryPoint; }
@@ -39,4 +41,5 @@ namespace RetroArch_Win10
       Concurrency::critical_section m_criticalSection;
       Concurrency::critical_section m_initCriticalSection;
    };
+
 }
