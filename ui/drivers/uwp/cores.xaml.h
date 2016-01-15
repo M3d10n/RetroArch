@@ -20,7 +20,8 @@ namespace RetroArch_Win10
 		cores();
 
       virtual void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
+      virtual void OnNavigatedFrom(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
    private:
-      void OnItemSelected(RetroArch_Win10::ISystem ^);
+      void Item_Clicked(Platform::Object^ sender, Windows::UI::Xaml::Controls::ItemClickEventArgs^ e);
    };
 }

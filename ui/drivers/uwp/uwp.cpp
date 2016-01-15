@@ -126,6 +126,13 @@ void RetroarchMain::StartUpdateThread()
          rarch_main_data_iterate();
       }
 
+      // Clear
+      auto d2dctx = GetResources()->GetD2DDeviceContext();
+      d2dctx->BeginDraw();
+      d2dctx->Clear();
+      d2dctx->EndDraw();
+      GetResources()->Present();
+
       // Shutdown
       main_exit(NULL);
 

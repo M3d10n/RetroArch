@@ -21,17 +21,15 @@ namespace RetroArch_Win10
          Windows::Foundation::Collections::IObservableVector<ISystem^>^ get();
       }
 
-      event SystemSelectedDelegate^ ItemSelected;
-
-
-      property ISystem^ SelectedItem
+      property ISystem^ SelectedSystem
       {
          ISystem^ get();
-         void set(ISystem^ Value);
       }
 
-   private:
+      event SystemSelectedDelegate^ ItemSelected;
 
-      ISystem^ m_selectedItem;
+      void SetSelectedSystem(ISystem^ Value);
+
+   private:
    };
 }

@@ -14,22 +14,22 @@ namespace RetroArch_Win10
       ContentViewModel();
 
    public:
-      property Windows::Foundation::Collections::IObservableVector<IGame^>^ Games
+      property Windows::Foundation::Collections::IObservableVector<Game^>^ Games
       {
-         Windows::Foundation::Collections::IObservableVector<IGame^>^ get();
+         Windows::Foundation::Collections::IObservableVector<Game^>^ get();
       }
 
-      property IGame^ SelectedItem
+      property Game^ SelectedItem
       {
-         IGame^ get();
-         void set(IGame^ Value);
+         Game^ get();
+         void set(Game^ Value);
       }
 
       void PickGamesToAdd();
 
    private:
-      Platform::Collections::Vector<IGame^>^ m_contentList;
+      Platform::Collections::Vector<Game^>^ m_contentList;
 
-      IGame^ m_selectedItem;
+      Game^ m_selectedItem;
    };
 }

@@ -5,16 +5,20 @@
     xmlns:local="using:RetroArch_Win10"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" DataContext="{Binding ContentVM, Mode=OneWay, Source={StaticResource ViewModelLocator}}">
+    mc:Ignorable="d" DataContext="{Binding ContentVM, Mode=OneWay, Source={StaticResource ViewModelLocator}}" NavigationCacheMode="Enabled">
     <Page.BottomAppBar>
         <CommandBar HorizontalContentAlignment="Left">
             <AppBarButton Label="appbarbutton" Icon="Add" Click="Add_Clicked"/>
         </CommandBar>
     </Page.BottomAppBar>
-    <Grid>
+    <Grid x:Name="Grid">
         <Grid.Background>
-            <ImageBrush Stretch="UniformToFill" ImageSource="{Binding CoresVM.SelectedItem.Background, Source={StaticResource ViewModelLocator}}"/>
+            <ImageBrush Stretch="UniformToFill" ImageSource="{Binding CoresVM.SelectedSystem.Background, Source={StaticResource ViewModelLocator}}"/>
         </Grid.Background>
-        <ListView x:Name="listView" ItemsSource="{Binding Games}" ItemTemplate="{StaticResource GameListEntryTemplate}" SelectionMode="None" ItemClick="ItemClick" IsItemClickEnabled="True"/>
+        <ListView x:Name="listView" SelectionMode="None" ItemClick="ItemClick" IsItemClickEnabled="True" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ItemContainerStyle="{StaticResource ListViewContainerStyle}" RenderTransformOrigin="0,0" ItemsSource="{Binding Games}" ItemTemplate="{StaticResource GameListEntryTemplate}">
+            <ListView.Header>
+                <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding CoresVM.SelectedSystem.Name, FallbackValue=System Name, Source={StaticResource ViewModelLocator}}" Style="{StaticResource TitleTextBlockStyle}" Margin="{StaticResource ListHeaderMargin}"/>
+            </ListView.Header>
+        </ListView>
     </Grid>
 </Page>

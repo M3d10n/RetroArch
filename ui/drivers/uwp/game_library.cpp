@@ -70,7 +70,7 @@ GameLibrary * RetroArch_Win10::GameLibrary::Get()
    return singleton;
 }
 
-void RetroArch_Win10::GameLibrary::AddGame(IGame ^ game)
+void RetroArch_Win10::GameLibrary::AddGame(Game ^ game)
 {
    m_library->Append(game);
    GetGamesBySystem(game->System)->Append(game);

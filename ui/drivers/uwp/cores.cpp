@@ -10,20 +10,19 @@ RetroArch_Win10::CoresViewModel::CoresViewModel()
       
 }
 
+void RetroArch_Win10::CoresViewModel::SetSelectedSystem(ISystem ^ Value)
+{
+   SystemLibrary::Get()->SetSelectedSystem(Value);
+   ItemSelected(Value);
+   PropertyChanged(this, ref new PropertyChangedEventArgs("SelectedSystem"));
+}
+
+ISystem^ RetroArch_Win10::CoresViewModel::SelectedSystem::get()
+{
+   return SystemLibrary::Get()->GetSelectedSystem();
+}
+
 Windows::Foundation::Collections::IObservableVector<ISystem^>^ CoresViewModel::Systems::get()
 {
    return SystemLibrary::Get()->GetSystems();
-}
-
-ISystem^ CoresViewModel::SelectedItem::get()
-{
-   return m_selectedItem;
-}
-
-void CoresViewModel::SelectedItem::set(ISystem^ Value)
-{
-   m_selectedItem = Value;
-   SystemLibrary::Get()->SetSelectedSystem(Value);
-   ItemSelected(Value);
-   PropertyChanged(this, ref new PropertyChangedEventArgs("SelectedItem"));
 }

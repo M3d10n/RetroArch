@@ -64,26 +64,24 @@
                     <Viewbox>
                         <Image x:Name="image" Height="100" Width="100" Source="{Binding Icon}"/>
                     </Viewbox>
-                    <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding Name}" d:LayoutOverrides="Width" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding Name}" d:LayoutOverrides="Width" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,0,0"/>
                 </Grid>
             </DataTemplate>
             <Style x:Key="ListViewContainerStyle" TargetType="ListViewItem">
                 <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
             </Style>
             <DataTemplate x:Key="GameListEntryTemplate">
-                <Grid Height="100">
+                <Grid Padding="0" Margin="0,0,0,4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="8"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Grid.DataContext>
-                        <local:Game/>
-                    </Grid.DataContext>
-                    <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding Title, Mode=OneTime}" Grid.Column="2" Margin="0,40,10.667,40" d:LayoutOverrides="TopMargin, BottomMargin"/>
-                    <Image x:Name="image" Source="{Binding BoxArt}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+                    <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding Title}" Grid.Column="2" VerticalAlignment="Center"/>
+                    <Image x:Name="image" Source="{Binding BoxArt}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Width="100" Height="100"/>
                 </Grid>
             </DataTemplate>
+            <Thickness x:Key="ListHeaderMargin">8,0,0,8</Thickness>
         </ResourceDictionary>
     </Application.Resources>
 

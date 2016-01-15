@@ -6,40 +6,23 @@
 
 namespace RetroArch_Win10
 {
-   public interface class IGame
-   {
-      // The game title
-      property Platform::String^ Title;
-
-      // Box art image path
-      property Platform::String^ BoxArt;
-
-      // The path to the game content (ROM, CD image, etc.)
-      property Platform::String^ Path;
-
-      // The game's system
-      property ESystemId System;
-
-      void Play();
-   };
-
    [Windows::UI::Xaml::Data::Bindable]
-   public ref class Game sealed : public IGame
+   public ref class Game sealed 
    {
    public:
       Game();
 
-      // Inherited via IGame
-      virtual property Platform::String ^ Title;
-      virtual property Platform::String ^ BoxArt;
-      virtual property Platform::String ^ Path;
-      virtual property ESystemId System;
+      // Inherited via Game
+      property Platform::String ^ Title;
+      property Platform::String ^ BoxArt;
+      property Platform::String ^ Path;
+      property ESystemId System;
 
-      // Inherited via IGame
-      virtual void Play();
+      // Inherited via Game
+      void Play();
    };
 
-   typedef Platform::Collections::Vector<IGame^> GameVector;
+   typedef Platform::Collections::Vector<Game^> GameVector;
    typedef std::map<ESystemId, GameVector^> SystemGameMap;
 
    class GameLibrary
@@ -50,7 +33,7 @@ namespace RetroArch_Win10
 
       static GameLibrary* Get();
 
-      void AddGame(IGame^ game);
+      void AddGame(Game^ game);
 
       GameVector^ GetGames() { return m_library; }
 

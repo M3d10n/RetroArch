@@ -7,12 +7,23 @@
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="RetroArch_Win10.cores"
     mc:Ignorable="d" RequestedTheme="Dark" DataContext="{Binding CoresVM, Source={StaticResource ViewModelLocator}}" NavigationCacheMode="Enabled">
-    <Grid Background="Black">
-        <ListView x:Name="listView" ItemsSource="{Binding Systems}" Style="{StaticResource SystemListViewTemplate}" ItemTemplate="{StaticResource SystemListDataTemplate}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" IsTextScaleFactorEnabled="False" HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource ListViewContainerStyle}">
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="#FF131313"/>
+        </Grid.Background>
+        <ListView x:Name="listView" ItemsSource="{Binding Systems}" ItemTemplate="{StaticResource SystemListDataTemplate}" IsTextScaleFactorEnabled="False" HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource ListViewContainerStyle}" IsItemClickEnabled="True" ItemClick="Item_Clicked" SelectionMode="None">
+            <ListView.ItemContainerTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition FromVerticalOffset="0" FromHorizontalOffset="-360" IsStaggeringEnabled="True"/>
+                </TransitionCollection>
+            </ListView.ItemContainerTransitions>
+            <ListView.HeaderTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition FromVerticalOffset="0" FromHorizontalOffset="28"/>
+                </TransitionCollection>
+            </ListView.HeaderTransitions>
             <ListView.Header>
-                <Border Padding="8">
-                    <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="Systems" FontSize="20" VerticalAlignment="Top"/>
-                </Border>
+                <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="Systems" VerticalAlignment="Top" Style="{StaticResource TitleTextBlockStyle}" Margin="{StaticResource ListHeaderMargin}"/>
             </ListView.Header>
         </ListView>
     </Grid>

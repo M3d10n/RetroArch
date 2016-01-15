@@ -13,7 +13,11 @@
         <Frame x:Name="frame" Content="Frame">
             <Frame.ContentTransitions>
                 <TransitionCollection>
-                    <EdgeUIThemeTransition Edge="Left"/>
+                    <NavigationThemeTransition>
+                        <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                            <SlideNavigationTransitionInfo/>
+                        </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    </NavigationThemeTransition>
                 </TransitionCollection>
             </Frame.ContentTransitions>
         </Frame>

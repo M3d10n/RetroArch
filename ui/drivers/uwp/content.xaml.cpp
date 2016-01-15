@@ -37,7 +37,7 @@ void RetroArch_Win10::content::Add_Clicked(Platform::Object^ sender, Windows::UI
 
 void RetroArch_Win10::content::ItemClick(Platform::Object^ sender, Windows::UI::Xaml::Controls::ItemClickEventArgs^ e)
 {
-   auto game = static_cast<IGame^>(e->ClickedItem);
+   auto game = static_cast<Game^>(e->ClickedItem);
    game->Play();
    auto frame = static_cast<Windows::UI::Xaml::Controls::Frame^>(Parent);
    bool ok = frame->Navigate(in_game_page::typeid);

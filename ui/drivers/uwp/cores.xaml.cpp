@@ -25,31 +25,27 @@ using namespace Windows::UI::Xaml::Navigation;
 cores::cores()
 {
    InitializeComponent();
-
-   auto cores_vm = static_cast<CoresViewModel^>(DataContext);
-   cores_vm->ItemSelected += ref new RetroArch_Win10::SystemSelectedDelegate(this, &RetroArch_Win10::cores::OnItemSelected);
-
 }
 
 void RetroArch_Win10::cores::OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs ^e)
 {
-   auto cores_vm = static_cast<CoresViewModel^>(DataContext);
-   cores_vm->SelectedItem = nullptr;
+   Windows::UI::Core::SystemNavigationManager::GetForCurrentView()->AppViewBackButtonVisibility =
+      Windows::UI::Core::AppViewBackButtonVisibility::Collapsed;
 }
 
-void RetroArch_Win10::cores::OnItemSelected(RetroArch_Win10::ISystem ^sys)
+void RetroArch_Win10::cores::OnNavigatedFrom(Windows::UI::Xaml::Navigation::NavigationEventArgs ^ e)
 {
-   if (sys == nullptr)
-   {
-      return;
-   }
+   Windows::UI::Core::SystemNavigationManager::GetForCurrentView()->AppViewBackButtonVisibility =
+      Windows::UI::Core::AppViewBackButtonVisibility::Visible;
+}
+
+
+void RetroArch_Win10::cores::Item_Clicked(Platform::Object^ sender, Windows::UI::Xaml::Controls::ItemClickEventArgs^ e)
+{
+   auto system = static_cast<ISystem^>(e->ClickedItem);
+   auto cores_vm = static_cast<CoresViewModel^>(DataContext);
+   cores_vm->SetSelectedSystem(system);
 
    auto frame = static_cast<Windows::UI::Xaml::Controls::Frame^>(Parent);
-   bool ok = frame->Navigate(content::typeid);
-
-   if (ok && frame->CanGoBack)
-   {
-      Windows::UI::Core::SystemNavigationManager::GetForCurrentView()->AppViewBackButtonVisibility =
-         Windows::UI::Core::AppViewBackButtonVisibility::Visible;
-   }
+   frame->Navigate(content::typeid);  
 }
