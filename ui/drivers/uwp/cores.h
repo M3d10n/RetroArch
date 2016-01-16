@@ -6,7 +6,7 @@
 
 namespace RetroArch_Win10
 {
-   public delegate void SystemSelectedDelegate(ISystem^);
+   public delegate void SystemSelectedDelegate(System^);
 
    [Windows::UI::Xaml::Data::Bindable]
    [Windows::Foundation::Metadata::WebHostHiddenAttribute]
@@ -16,19 +16,19 @@ namespace RetroArch_Win10
       CoresViewModel();
 
    public:
-      property Windows::Foundation::Collections::IObservableVector<ISystem^>^ Systems
+      property Windows::Foundation::Collections::IObservableVector<System^>^ Systems
       {
-         Windows::Foundation::Collections::IObservableVector<ISystem^>^ get();
+         Windows::Foundation::Collections::IObservableVector<System^>^ get();
       }
 
-      property ISystem^ SelectedSystem
+      property System^ SelectedSystem
       {
-         ISystem^ get();
+         System^ get();
       }
 
       event SystemSelectedDelegate^ ItemSelected;
 
-      void SetSelectedSystem(ISystem^ Value);
+      void SetSelectedSystem(System^ Value);
 
    private:
    };

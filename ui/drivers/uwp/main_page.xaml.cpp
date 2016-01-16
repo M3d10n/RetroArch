@@ -32,7 +32,6 @@ main_page::main_page()
 
    swapChainPanel->SizeChanged += ref new Windows::UI::Xaml::SizeChangedEventHandler(this, &RetroArch_Win10::main_page::OnSizeChanged);
    swapChainPanel->CompositionScaleChanged += ref new Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Controls::SwapChainPanel ^, Platform::Object ^>(this, &RetroArch_Win10::main_page::OnCompositionScaleChanged);
-   
 
    // Set the UI dispatcher
    d3d11::ui_dispatcher = Window::Current->CoreWindow->Dispatcher;
@@ -40,16 +39,20 @@ main_page::main_page()
    // Store the swap chain panel so the D3D11 driver can grab it during start up
    d3d11::DeviceResources::SetGlobalSwapChainPanel(swapChainPanel);
 
-   // Create our "main"
-   //RetroarchMain::Instance = std::unique_ptr<RetroarchMain>(new RetroarchMain("bin/win_x86/genesis_plus_gx_libretro.dll", "bin/sonic2.smd"));
-   //RetroarchMain::Instance->StartUpdateThread();
-
    frame->Navigate(cores::typeid);
 
    Windows::UI::Core::SystemNavigationManager::GetForCurrentView()->GetForCurrentView()->BackRequested += ref new Windows::Foundation::EventHandler<Windows::UI::Core::BackRequestedEventArgs ^>(this, &RetroArch_Win10::main_page::OnBackRequested);
 
+   GameLibrary::Get()->GetDispatcher()->GameStarted += ref new RetroArch_Win10::GameDelegate(this, &RetroArch_Win10::main_page::OnGameStarted);
 }
 
+
+bool RetroArch_Win10::main_page::UseOVerlay()
+{
+   auto keyboardCaps = ref new Windows::Devices::Input::KeyboardCapabilities();
+   auto touchCaps = ref new Windows::Devices::Input::TouchCapabilities();
+   return keyboardCaps->KeyboardPresent == 0 && touchCaps->TouchPresent > 0;
+}
 
 void RetroArch_Win10::main_page::OnSizeChanged(Platform::Object ^sender, Windows::UI::Xaml::SizeChangedEventArgs ^e)
 {
@@ -60,6 +63,23 @@ void RetroArch_Win10::main_page::OnSizeChanged(Platform::Object ^sender, Windows
    
    critical_section::scoped_lock lock(RetroarchMain::Instance->GetCriticalSection());
    d3d11::Get()->SetLogicalSize(e->NewSize);
+
+   auto system = SystemLibrary::Get()->GetSelectedSystem();
+   if (system)
+   {
+      if (!UseOVerlay())
+      {
+         RetroarchMain::Instance->ChangeOverlay("");
+      }
+      else if (swapChainPanel->ActualHeight > swapChainPanel->ActualWidth)
+      {
+         RetroarchMain::Instance->ChangeOverlay(system->PortraitOverlay);
+      }
+      else
+      {
+         RetroarchMain::Instance->ChangeOverlay(system->LandscapeOverlay);
+      }
+   }
 }
 
 
@@ -86,5 +106,26 @@ void RetroArch_Win10::main_page::OnBackRequested(Platform::Object ^sender, Windo
    {
       Windows::UI::Core::SystemNavigationManager::GetForCurrentView()->AppViewBackButtonVisibility =
          Windows::UI::Core::AppViewBackButtonVisibility::Collapsed;
+   }
+}
+
+
+void RetroArch_Win10::main_page::OnGameStarted(Game ^game)
+{
+   auto system = SystemLibrary::Get()->GetSelectedSystem();
+   if (system)
+   {
+      if (!UseOVerlay())
+      {
+         RetroarchMain::Instance->ChangeOverlay("");
+      }
+      else if (swapChainPanel->ActualHeight > swapChainPanel->ActualWidth)
+      {
+         RetroarchMain::Instance->ChangeOverlay(system->PortraitOverlay);
+      }
+      else
+      {
+         RetroarchMain::Instance->ChangeOverlay(system->LandscapeOverlay);
+      }
    }
 }

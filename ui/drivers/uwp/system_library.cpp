@@ -16,6 +16,15 @@ RetroArch_Win10::SystemLibrary::SystemLibrary()
    system->Icon = "ms-appx:///media/assets/xmb/flatui/png/Sega - Mega Drive - Genesis.png";
    system->Background = "ms-appx:///media/assets/wallpapers/bichromatic pads/1440x900/Sega - Mega Drive - Genesis.png";
    system->Core = "genesis_plus_gx";
+   system->LandscapeOverlay = "gamepads/flat/genesis-landscape.cfg";
+   system->PortraitOverlay = "gamepads/flat/genesis-portrait.cfg";
+   system->FileTypes->Append(".mdx");
+   system->FileTypes->Append(".md");
+   system->FileTypes->Append(".smd");
+   system->FileTypes->Append(".gen");
+   system->FileTypes->Append(".bin");
+   system->FileTypes->Append(".cue");
+   system->FileTypes->Append(".iso");
 
    RegisterSystem(system);
 
@@ -26,6 +35,12 @@ RetroArch_Win10::SystemLibrary::SystemLibrary()
    system->Icon = "ms-appx:///media/assets/xmb/flatui/png/Sega - Master System - Mark III.png";
    system->Background = "ms-appx:///media/assets/wallpapers/bichromatic pads/1440x900/Sega - Master System - Mark III.png";
    system->Core = "genesis_plus_gx";
+   system->LandscapeOverlay = "gamepads/flat/genesis-landscape.cfg";
+   system->PortraitOverlay = "gamepads/flat/genesis-portrait.cfg";
+   system->FileTypes->Append(".bin");
+   system->FileTypes->Append(".sms");
+   system->FileTypes->Append(".gg");
+   system->FileTypes->Append(".sg");
 
    RegisterSystem(system);
 }
@@ -42,7 +57,7 @@ SystemLibrary * RetroArch_Win10::SystemLibrary::Get()
    return singleton;
 }
 
-void RetroArch_Win10::SystemLibrary::RegisterSystem(ISystem ^ newSystem)
+void RetroArch_Win10::SystemLibrary::RegisterSystem(System ^ newSystem)
 {
    if (m_library_map->HasKey(newSystem->Id))
    {
@@ -53,7 +68,7 @@ void RetroArch_Win10::SystemLibrary::RegisterSystem(ISystem ^ newSystem)
    m_library_map->Insert(newSystem->Id, newSystem);
 }
 
-ISystem ^ RetroArch_Win10::SystemLibrary::GetSystem(ESystemId Id)
+System ^ RetroArch_Win10::SystemLibrary::GetSystem(ESystemId Id)
 {
    if (m_library_map->HasKey(Id))
    {
@@ -62,13 +77,18 @@ ISystem ^ RetroArch_Win10::SystemLibrary::GetSystem(ESystemId Id)
    return nullptr;
 }
 
-void RetroArch_Win10::SystemLibrary::SetSelectedSystem(ISystem ^ system)
+void RetroArch_Win10::SystemLibrary::SetSelectedSystem(System ^ system)
 {
    m_selectedSystem = system;
    m_dispatcher->DispatchSelectedSystemChanged(system);
 }
 
-void RetroArch_Win10::SystemLibraryDispatcher::DispatchSelectedSystemChanged(ISystem ^ newSystem)
+void RetroArch_Win10::SystemLibraryDispatcher::DispatchSelectedSystemChanged(System ^ newSystem)
 {
    SelectedSystemChanged(newSystem);
+}
+
+RetroArch_Win10::System::System()
+{
+   FileTypes = ref new Platform::Collections::Vector<Platform::String^>();
 }

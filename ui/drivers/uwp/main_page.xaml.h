@@ -20,9 +20,12 @@ namespace RetroArch_Win10
 
    private:
 
+      bool UseOVerlay();
+
       //std::unique_ptr<RetroarchMain> m_main;
       void OnSizeChanged(Platform::Object ^sender, Windows::UI::Xaml::SizeChangedEventArgs ^e);
       void OnCompositionScaleChanged(Windows::UI::Xaml::Controls::SwapChainPanel ^sender, Platform::Object ^args);
       void OnBackRequested(Platform::Object ^sender, Windows::UI::Core::BackRequestedEventArgs ^args);
+      void OnGameStarted(ref class Game ^game);
    };
 }

@@ -6,7 +6,6 @@ namespace RetroArch_Win10
 {
    d3d11::DeviceResources* GetResources();
 
-   //public interface ISystem;
 
    class RetroarchMain : public d3d11::IDeviceNotify
    {
@@ -25,7 +24,7 @@ namespace RetroArch_Win10
 
       Platform::String^ GetEntryPoint() { return m_entryPoint; }
 
-      //void SetSystem(ISystem^ system) { m_system = system; }
+      void ChangeOverlay(Platform::String^ overlay);
 
       // IDeviceNotify
       virtual void OnDeviceLost();
@@ -42,8 +41,8 @@ namespace RetroArch_Win10
       Platform::String^ m_core;
       Platform::String^ m_content;
 
-      //ISystem^ m_system;
-
+      Platform::String^ m_overlay;
+      bool              m_changeOverlay;
 
       Concurrency::critical_section m_criticalSection;
       Concurrency::critical_section m_initCriticalSection;

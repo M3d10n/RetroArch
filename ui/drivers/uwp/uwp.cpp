@@ -93,7 +93,7 @@ void RetroarchMain::StartUpdateThread()
 #endif
 
          // If there's no keyboard or gamepad attached, always show the overlay
-         auto keyboardCaps = ref new Windows::Devices::Input::KeyboardCapabilities();
+         /*auto keyboardCaps = ref new Windows::Devices::Input::KeyboardCapabilities();
          auto touchCaps = ref new Windows::Devices::Input::TouchCapabilities();
          if (settings->input.overlay_hide_in_menu && keyboardCaps->KeyboardPresent == 0 && touchCaps->TouchPresent > 0)
          {
@@ -101,7 +101,7 @@ void RetroarchMain::StartUpdateThread()
             settings->input.overlay_hide_in_menu = false;    
             fill_pathname_join(settings->input.overlay, g_defaults.dir.overlay, "gamepads/flat/genesis-portrait.cfg", sizeof(settings->input.overlay));
             event_command(EVENT_CMD_OVERLAY_INIT);
-         }
+         }*/
 
          m_initialized = true;
          m_running = true;
@@ -117,6 +117,29 @@ void RetroarchMain::StartUpdateThread()
          if (resources)
          {
             resources->RegisterDeviceNotify(this);
+         }
+
+         // Change the overlay
+         if (m_changeOverlay)
+         {
+            settings_t *settings = config_get_ptr();
+            if (m_overlay->IsEmpty())
+            {
+               settings->input.overlay_enable = false;
+               settings->input.overlay_hide_in_menu = true;
+               event_command(EVENT_CMD_OVERLAY_DEINIT);
+            } 
+            else
+            {
+               std::wstring wide(m_overlay->Begin());
+               std::string str(wide.begin(), wide.end());
+
+               settings->input.overlay_enable = true;
+               settings->input.overlay_hide_in_menu = false;
+               fill_pathname_join(settings->input.overlay, g_defaults.dir.overlay, str.c_str(), sizeof(settings->input.overlay));
+               event_command(EVENT_CMD_OVERLAY_INIT);
+            }
+            m_changeOverlay = false;
          }
 
          unsigned sleep_ms = 0;
@@ -161,6 +184,12 @@ bool RetroarchMain::IsInitialized()
    }
    m_initCriticalSection.unlock();
    return true;
+}
+
+void RetroArch_Win10::RetroarchMain::ChangeOverlay(Platform::String ^ overlay)
+{
+   m_overlay = overlay;
+   m_changeOverlay = true;
 }
 
 // Notifies renderers that device resources need to be released.

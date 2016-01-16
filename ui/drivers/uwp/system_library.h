@@ -6,44 +6,34 @@
 
 namespace RetroArch_Win10
 {
-   public interface class ISystem
-   {
-      property ESystemId Id;
-
-      property Platform::String^ Name;
-
-      property Platform::String^ Maker;
-
-      property Platform::String^ Icon;
-
-      property Platform::String^ Background;
-
-      property Platform::String^ Core;
-
-   };
-
    [Windows::UI::Xaml::Data::Bindable]
-   public ref class System sealed : public ISystem
+   public ref class System sealed
    {
    public:
+      System();
 
-      // Inherited via ISystem
-      virtual property ESystemId Id;
-      virtual property Platform::String ^ Name;
-      virtual property Platform::String ^ Maker;
-      virtual property Platform::String ^ Icon;
-      virtual property Platform::String ^ Background;
-      virtual property Platform::String ^ Core;
+      property ESystemId Id;
+      property Platform::String ^ Name;
+      property Platform::String ^ Maker;
+      property Platform::String ^ Icon;
+      property Platform::String ^ Background;
+
+
+      property Platform::String ^ Core;
+      property Windows::Foundation::Collections::IVector<Platform::String^>^ FileTypes;
+
+      property Platform::String ^ LandscapeOverlay;
+      property Platform::String ^ PortraitOverlay;
    };
 
-   public delegate void SelectedSystemChangedDelegate(ISystem^);
+   public delegate void SelectedSystemChangedDelegate(System^);
 
    [Windows::Foundation::Metadata::WebHostHiddenAttribute]
    public ref class SystemLibraryDispatcher sealed
    {
    public:
       event SelectedSystemChangedDelegate^ SelectedSystemChanged;
-      void DispatchSelectedSystemChanged(ISystem^ newSystem);
+      void DispatchSelectedSystemChanged(System^ newSystem);
    };
 
 
@@ -54,26 +44,26 @@ namespace RetroArch_Win10
 
       static SystemLibrary* Get();
 
-      typedef Platform::Collections::Vector<ISystem^> SystemsVector;
+      typedef Platform::Collections::Vector<System^> SystemsVector;
 
-      typedef Platform::Collections::Map<ESystemId, ISystem^> SystemsMap;
+      typedef Platform::Collections::Map<ESystemId, System^> SystemsMap;
 
-      void RegisterSystem(ISystem^ newSystem);
+      void RegisterSystem(System^ newSystem);
 
       SystemsVector^ GetSystems() { return m_library; }
 
-      ISystem^ GetSystem(ESystemId Id);
+      System^ GetSystem(ESystemId Id);
 
-      void SetSelectedSystem(ISystem^ system);
+      void SetSelectedSystem(System^ system);
 
-      ISystem^ GetSelectedSystem() { return m_selectedSystem; }
+      System^ GetSelectedSystem() { return m_selectedSystem; }
 
       SystemLibraryDispatcher^ GetDispatcher() { return m_dispatcher; }
             
    private:
       SystemsVector^ m_library;
       SystemsMap^    m_library_map;
-      ISystem^       m_selectedSystem;
+      System^       m_selectedSystem;
 
       SystemLibraryDispatcher^ m_dispatcher;
    };

@@ -42,7 +42,7 @@ void RetroArch_Win10::cores::OnNavigatedFrom(Windows::UI::Xaml::Navigation::Navi
 
 void RetroArch_Win10::cores::Item_Clicked(Platform::Object^ sender, Windows::UI::Xaml::Controls::ItemClickEventArgs^ e)
 {
-   auto system = static_cast<ISystem^>(e->ClickedItem);
+   auto system = static_cast<System^>(e->ClickedItem);
    auto cores_vm = static_cast<CoresViewModel^>(DataContext);
    cores_vm->SetSelectedSystem(system);
 

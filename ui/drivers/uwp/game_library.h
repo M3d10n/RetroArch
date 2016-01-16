@@ -19,6 +19,18 @@ namespace RetroArch_Win10
 
       void Play();
    };
+   
+   public delegate void GameDelegate(Game^);
+
+
+   [Windows::Foundation::Metadata::WebHostHiddenAttribute]
+   public ref class GameLibraryDispatcher sealed
+   {
+   public:
+      event GameDelegate^ GameStarted;
+      void DispatchGameStarted(Game^ game);
+   };
+
 
    typedef Platform::Collections::Vector<Game^> GameVector;
    typedef std::map<ESystemId, GameVector^> SystemGameMap;
@@ -37,10 +49,12 @@ namespace RetroArch_Win10
 
       GameVector^ GetGamesBySystem(ESystemId System);
 
-
+      GameLibraryDispatcher^ GetDispatcher() { return m_dispatcher; }
    private:
       GameVector^ m_library;
 
       SystemGameMap m_library_system;
+
+      GameLibraryDispatcher^ m_dispatcher;
    };
 }

@@ -39,11 +39,14 @@ void RetroArch_Win10::Game::Play()
 
    RetroarchMain::Instance = std::unique_ptr<RetroarchMain>(new RetroarchMain(core, Path));
    RetroarchMain::Instance->StartUpdateThread();
+
+   GameLibrary::Get()->GetDispatcher()->DispatchGameStarted(this);
 }
 
 RetroArch_Win10::GameLibrary::GameLibrary()
 {
    m_library = ref new GameVector();
+   m_dispatcher = ref new GameLibraryDispatcher();
 
    auto game = ref new Game();
    AddGame(game);
@@ -79,4 +82,9 @@ GameVector ^ RetroArch_Win10::GameLibrary::GetGamesBySystem(ESystemId system)
       return newVec;
    }
    return itr->second;
+}
+
+void RetroArch_Win10::GameLibraryDispatcher::DispatchGameStarted(Game ^ game)
+{
+   GameStarted(game);
 }
