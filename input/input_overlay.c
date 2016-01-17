@@ -607,9 +607,7 @@ error:
 void input_overlay_init(void)
 {
    input_overlay_free();
-   rarch_task_push_overlay_load_default(input_overlay_loaded, NULL);
-
-   is_overlay_loading = true;
+   is_overlay_loading = rarch_task_push_overlay_load_default(input_overlay_loaded, NULL);
 }
 
 /**

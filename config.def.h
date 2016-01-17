@@ -502,6 +502,8 @@ static unsigned aspect_ratio_idx = ASPECT_RATIO_16_9;
 static unsigned aspect_ratio_idx = ASPECT_RATIO_CORE;
 #elif defined(RARCH_CONSOLE)
 static unsigned aspect_ratio_idx = ASPECT_RATIO_4_3;
+#elif defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+static unsigned aspect_ratio_idx = ASPECT_RATIO_CORE;
 #else
 static unsigned aspect_ratio_idx = ASPECT_RATIO_CONFIG;
 #endif
