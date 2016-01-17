@@ -35,8 +35,8 @@ RetroArch_Win10::SystemLibrary::SystemLibrary()
    system->Icon = "ms-appx:///media/assets/xmb/flatui/png/Sega - Master System - Mark III.png";
    system->Background = "ms-appx:///media/assets/wallpapers/bichromatic pads/1440x900/Sega - Master System - Mark III.png";
    system->Core = "genesis_plus_gx";
-   system->LandscapeOverlay = "gamepads/flat/genesis-landscape.cfg";
-   system->PortraitOverlay = "gamepads/flat/genesis-portrait.cfg";
+   system->LandscapeOverlay = "gamepads/flat/sms-landscape.cfg";
+   system->PortraitOverlay = "gamepads/flat/sms-portrait.cfg";
    system->FileTypes->Append(".bin");
    system->FileTypes->Append(".sms");
    system->FileTypes->Append(".gg");

@@ -427,6 +427,12 @@
     <None Include="media\overlays\gamepads\flat\shoulder_combo.svg" />
     <None Include="media\overlays\gamepads\flat\shoulder_down_buttons.svg" />
     <None Include="media\overlays\gamepads\flat\shoulder_small_buttons.svg" />
+    <None Include="media\overlays\gamepads\flat\sms-landscape.cfg">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+    </None>
+    <None Include="media\overlays\gamepads\flat\sms-portrait.cfg">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+    </None>
     <None Include="media\overlays\gamepads\flat\sms.cfg" />
     <None Include="media\overlays\gamepads\flat\snes.cfg" />
     <None Include="media\overlays\gamepads\flat\square_buttons_text.svg" />

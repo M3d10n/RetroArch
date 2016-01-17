@@ -66,6 +66,7 @@ typedef struct input_overlay_state
 
 static input_overlay_t *overlay_ptr;
 static input_overlay_state_t overlay_st_ptr;
+static bool is_overlay_loading = false;
 
 static input_overlay_state_t *input_overlay_get_state_ptr(void)
 {
@@ -594,6 +595,8 @@ static void input_overlay_loaded(void *task_data, void *user_data, const char *e
    ol->state      = OVERLAY_STATUS_NONE;
    ol->alive      = true;
 
+   is_overlay_loading = false;
+
    free(data);
    return;
 error:
@@ -605,6 +608,8 @@ void input_overlay_init(void)
 {
    input_overlay_free();
    rarch_task_push_overlay_load_default(input_overlay_loaded, NULL);
+
+   is_overlay_loading = true;
 }
 
 /**
@@ -638,6 +643,10 @@ bool input_overlay_is_alive(void)
 enum overlay_status input_overlay_status(void)
 {
    input_overlay_t *ol      = overlay_ptr;
+
+   if (is_overlay_loading)
+      return OVERLAY_STATUS_DEFERRED_LOADING;
+
    if (!ol)
       return OVERLAY_STATUS_NONE;
    return ol->state;

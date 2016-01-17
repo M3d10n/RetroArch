@@ -35,6 +35,8 @@ namespace RetroArch_Win10
       bool m_running;
       bool m_shutdown;
 
+      void UpdateOverlay();
+
       Windows::Foundation::IAsyncAction^ m_updateWorker;
       Platform::String^ m_entryPoint;
 

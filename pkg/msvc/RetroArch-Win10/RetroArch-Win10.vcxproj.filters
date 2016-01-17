@@ -682,6 +682,7 @@
       <Filter>Source\ui\drivers\uwp</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\ui\drivers\uwp\content.xaml.cpp" />
+    <ClCompile Include="..\..\..\ui\drivers\uwp\in_game_page.xaml.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\ui\drivers\uwp\uwp.h">
@@ -722,6 +723,7 @@
       <Filter>Source\ui\drivers\uwp</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\ui\drivers\uwp\content.xaml.h" />
+    <ClInclude Include="..\..\..\ui\drivers\uwp\in_game_page.xaml.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\LockScreenLogo.scale-200.png">
@@ -2750,6 +2752,8 @@
     <None Include="bin\win_x86\genesis_plus_gx_libretro.dll" />
     <None Include="media\overlays\gamepads\flat\genesis-landscape.cfg" />
     <None Include="media\overlays\gamepads\flat\genesis-portrait.cfg" />
+    <None Include="media\overlays\gamepads\flat\sms-landscape.cfg" />
+    <None Include="media\overlays\gamepads\flat\sms-portrait.cfg" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="RetroArch-Win10.rc" />

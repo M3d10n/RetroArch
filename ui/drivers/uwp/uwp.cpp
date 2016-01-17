@@ -56,8 +56,8 @@ void RetroarchMain::StartUpdateThread()
          critical_section::scoped_lock lock(m_criticalSection);
          critical_section::scoped_lock init_loc(m_initCriticalSection);
 
-         char core[4096] = { 0 }; //"bin/win_x86/genesis_plus_gx_libretro.dll"
-         char content[4096] = { 0 }; //"bin/sonic2.smd"
+         char core[4096]      = { 0 };
+         char content[4096]   = { 0 };
 
          unsigned int argc = 1;
          if (m_core && !m_core->IsEmpty())
@@ -92,17 +92,6 @@ void RetroarchMain::StartUpdateThread()
          fill_pathname_join(settings->libretro_directory, g_defaults.dir.core, "win_x64", sizeof(settings->libretro_directory));
 #endif
 
-         // If there's no keyboard or gamepad attached, always show the overlay
-         /*auto keyboardCaps = ref new Windows::Devices::Input::KeyboardCapabilities();
-         auto touchCaps = ref new Windows::Devices::Input::TouchCapabilities();
-         if (settings->input.overlay_hide_in_menu && keyboardCaps->KeyboardPresent == 0 && touchCaps->TouchPresent > 0)
-         {
-            settings->input.overlay_enable = true;
-            settings->input.overlay_hide_in_menu = false;    
-            fill_pathname_join(settings->input.overlay, g_defaults.dir.overlay, "gamepads/flat/genesis-portrait.cfg", sizeof(settings->input.overlay));
-            event_command(EVENT_CMD_OVERLAY_INIT);
-         }*/
-
          m_initialized = true;
          m_running = true;
       }
@@ -120,28 +109,8 @@ void RetroarchMain::StartUpdateThread()
          }
 
          // Change the overlay
-         if (m_changeOverlay)
-         {
-            settings_t *settings = config_get_ptr();
-            if (m_overlay->IsEmpty())
-            {
-               settings->input.overlay_enable = false;
-               settings->input.overlay_hide_in_menu = true;
-               event_command(EVENT_CMD_OVERLAY_DEINIT);
-            } 
-            else
-            {
-               std::wstring wide(m_overlay->Begin());
-               std::string str(wide.begin(), wide.end());
-
-               settings->input.overlay_enable = true;
-               settings->input.overlay_hide_in_menu = false;
-               fill_pathname_join(settings->input.overlay, g_defaults.dir.overlay, str.c_str(), sizeof(settings->input.overlay));
-               event_command(EVENT_CMD_OVERLAY_INIT);
-            }
-            m_changeOverlay = false;
-         }
-
+         UpdateOverlay();
+                  
          unsigned sleep_ms = 0;
          int ret = rarch_main_iterate(&sleep_ms);
          if (ret == 1 && sleep_ms > 0)
@@ -188,6 +157,11 @@ bool RetroarchMain::IsInitialized()
 
 void RetroArch_Win10::RetroarchMain::ChangeOverlay(Platform::String ^ overlay)
 {
+   if (overlay->Equals(m_overlay))
+   {
+      return;
+   }
+
    m_overlay = overlay;
    m_changeOverlay = true;
 }
@@ -204,6 +178,31 @@ void RetroarchMain::OnDeviceRestored()
 {
    //m_sceneRenderer->CreateDeviceDependentResources();
    //m_fpsTextRenderer->CreateDeviceDependentResources();
+}
+
+void RetroArch_Win10::RetroarchMain::UpdateOverlay()
+{
+   if (m_changeOverlay && input_overlay_status() == OVERLAY_STATUS_NONE)
+   {
+      settings_t *settings = config_get_ptr();
+      if (m_overlay->IsEmpty())
+      {
+         settings->input.overlay_enable = false;
+         settings->input.overlay_hide_in_menu = true;
+         event_command(EVENT_CMD_OVERLAY_DEINIT);
+      }
+      else
+      {
+         std::wstring wide(m_overlay->Begin());
+         std::string str(wide.begin(), wide.end());
+
+         settings->input.overlay_enable = true;
+         settings->input.overlay_hide_in_menu = false;
+         fill_pathname_join(settings->input.overlay, g_defaults.dir.overlay, str.c_str(), sizeof(settings->input.overlay));
+         event_command(EVENT_CMD_OVERLAY_INIT);
+      }
+      m_changeOverlay = false;
+   }
 }
 
 
