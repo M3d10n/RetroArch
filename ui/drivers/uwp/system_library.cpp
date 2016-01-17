@@ -14,6 +14,7 @@ RetroArch_Win10::SystemLibrary::SystemLibrary()
    system->Name = "Mega Drive - Genesis";
    system->Maker = "Sega";
    system->Icon = "ms-appx:///media/assets/xmb/flatui/png/Sega - Mega Drive - Genesis.png";
+   system->MediaIcon = "ms-appx:///media/assets/xmb/flatui/png/Sega - Mega Drive - Genesis-content.png";
    system->Background = "ms-appx:///media/assets/wallpapers/bichromatic pads/1440x900/Sega - Mega Drive - Genesis.png";
    system->Core = "genesis_plus_gx";
    system->LandscapeOverlay = "gamepads/flat/genesis-landscape.cfg";
@@ -33,6 +34,7 @@ RetroArch_Win10::SystemLibrary::SystemLibrary()
    system->Name = "Master System - Mark III";
    system->Maker = "Sega";
    system->Icon = "ms-appx:///media/assets/xmb/flatui/png/Sega - Master System - Mark III.png";
+   system->MediaIcon = "ms-appx:///media/assets/xmb/flatui/png/Sega - Master System - Mark III-content.png";
    system->Background = "ms-appx:///media/assets/wallpapers/bichromatic pads/1440x900/Sega - Master System - Mark III.png";
    system->Core = "genesis_plus_gx";
    system->LandscapeOverlay = "gamepads/flat/sms-landscape.cfg";

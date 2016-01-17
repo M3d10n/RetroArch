@@ -2117,6 +2117,7 @@ bool config_load_remap(void)
 
 static void parse_config_file(void)
 {
+   return;
    global_t *global = global_get_ptr();
    bool ret = config_load_file((*global->path.config)
          ? global->path.config : NULL, false);

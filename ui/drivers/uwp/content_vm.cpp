@@ -47,6 +47,7 @@ void RetroArch_Win10::ContentViewModel::PickGamesToAdd()
             game->Path = copiedFile->Path;
             game->Title = copiedFile->DisplayName;
             game->System = selectedSystem->Id;
+            game->BoxArt = selectedSystem->MediaIcon;
 
             GameLibrary::Get()->AddGame(game);
          });         

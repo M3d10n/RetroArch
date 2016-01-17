@@ -17,7 +17,7 @@ namespace RetroArch_Win10
       property Platform::String ^ Maker;
       property Platform::String ^ Icon;
       property Platform::String ^ Background;
-
+      property Platform::String ^ MediaIcon;
 
       property Platform::String ^ Core;
       property Windows::Foundation::Collections::IVector<Platform::String^>^ FileTypes;
