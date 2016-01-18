@@ -166,6 +166,13 @@ void RetroArch_Win10::RetroarchMain::ChangeOverlay(Platform::String ^ overlay)
    m_changeOverlay = true;
 }
 
+void RetroArch_Win10::RetroarchMain::SaveState()
+{
+   critical_section::scoped_lock lock(m_criticalSection);
+   event_command(EVENT_CMD_AUTOSAVE_STATE);
+
+}
+
 // Notifies renderers that device resources need to be released.
 void RetroarchMain::OnDeviceLost()
 {

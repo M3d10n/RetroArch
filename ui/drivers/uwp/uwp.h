@@ -25,6 +25,7 @@ namespace RetroArch_Win10
       Platform::String^ GetEntryPoint() { return m_entryPoint; }
 
       void ChangeOverlay(Platform::String^ overlay);
+      void SaveState();
 
       // IDeviceNotify
       virtual void OnDeviceLost();

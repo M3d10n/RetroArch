@@ -699,8 +699,13 @@ static const bool savestate_auto_index = false;
  * The path is $SRAM_PATH.auto.
  * RetroArch will automatically load any savestate with this path on
  * startup if savestate_auto_load is set. */
+#if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+static const bool savestate_auto_save = true;
+static const bool savestate_auto_load = true;
+#else
 static const bool savestate_auto_save = false;
 static const bool savestate_auto_load = false;
+#endif
 
 /* Slowmotion ratio. */
 static const float slowmotion_ratio = 3.0;

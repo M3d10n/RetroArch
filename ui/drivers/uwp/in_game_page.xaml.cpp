@@ -29,10 +29,10 @@ in_game_page::in_game_page()
 
 void RetroArch_Win10::in_game_page::OnNavigatedFrom(Windows::UI::Xaml::Navigation::NavigationEventArgs ^ e)
 {
-   Windows::UI::ViewManagement::ApplicationView::GetForCurrentView()->ExitFullScreenMode();
 
    if (Windows::Foundation::Metadata::ApiInformation::IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
    {
+      Windows::UI::ViewManagement::ApplicationView::GetForCurrentView()->ExitFullScreenMode();
       Windows::UI::ViewManagement::StatusBar::GetForCurrentView()->ShowAsync();
    }
 
@@ -45,10 +45,10 @@ void RetroArch_Win10::in_game_page::OnNavigatedFrom(Windows::UI::Xaml::Navigatio
 
 void RetroArch_Win10::in_game_page::OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs ^ e)
 {
-   Windows::UI::ViewManagement::ApplicationView::GetForCurrentView()->TryEnterFullScreenMode();
    
    if (Windows::Foundation::Metadata::ApiInformation::IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
    {
+      Windows::UI::ViewManagement::ApplicationView::GetForCurrentView()->TryEnterFullScreenMode();
       Windows::UI::ViewManagement::StatusBar::GetForCurrentView()->HideAsync();
    }
 }

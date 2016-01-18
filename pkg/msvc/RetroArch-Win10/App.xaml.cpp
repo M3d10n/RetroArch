@@ -4,6 +4,7 @@
 //
 
 #include "App.xaml.h"
+#include "ui/drivers/uwp/uwp.h"
 
 using namespace RetroArch_Win10;
 
@@ -75,6 +76,10 @@ void App::OnSuspending(Object^ sender, SuspendingEventArgs^ e)
 	(void) e;	// Unused parameter
 
 	//m_directXPage->SaveInternalState(ApplicationData::Current->LocalSettings->Values);
+   if (RetroarchMain::Instance && RetroarchMain::Instance->IsInitialized())
+   {
+      RetroarchMain::Instance->SaveState();
+   }
 }
 
 /// <summary>

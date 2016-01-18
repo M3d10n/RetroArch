@@ -49,7 +49,6 @@ main_page::main_page()
 
 bool RetroArch_Win10::main_page::UseOVerlay()
 {
-   return true;
    auto keyboardCaps = ref new Windows::Devices::Input::KeyboardCapabilities();
    auto touchCaps = ref new Windows::Devices::Input::TouchCapabilities();
    return keyboardCaps->KeyboardPresent == 0 && touchCaps->TouchPresent > 0;
