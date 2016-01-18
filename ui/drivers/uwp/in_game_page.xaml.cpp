@@ -24,6 +24,7 @@ using namespace Windows::UI::Xaml::Navigation;
 
 in_game_page::in_game_page()
 {
+   IsGamePaused = false;
 	InitializeComponent();
 }
 
@@ -38,17 +39,78 @@ void RetroArch_Win10::in_game_page::OnNavigatedFrom(Windows::UI::Xaml::Navigatio
 
    if (RetroarchMain::Instance.get())
    {
-      RetroarchMain::Instance->StopUpdateThread();
-      RetroarchMain::Instance.reset(nullptr);
+      RetroarchMain::Instance->StopUpdateThread(false);
    }
+
+   Common::Dispatcher::Get()->BackRequested -= BackRequestedToken;
+
 }
 
 void RetroArch_Win10::in_game_page::OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs ^ e)
-{
-   
+{   
    if (Windows::Foundation::Metadata::ApiInformation::IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
    {
       Windows::UI::ViewManagement::ApplicationView::GetForCurrentView()->TryEnterFullScreenMode();
       Windows::UI::ViewManagement::StatusBar::GetForCurrentView()->HideAsync();
+   }
+
+   BackRequestedToken = Common::Dispatcher::Get()->BackRequested +=
+      ref new Windows::Foundation::EventHandler<Windows::UI::Core::BackRequestedEventArgs ^>(this, &RetroArch_Win10::in_game_page::OnBackRequested);
+}
+
+void RetroArch_Win10::in_game_page::OnBackRequested(Platform::Object ^ sender, Windows::UI::Core::BackRequestedEventArgs ^ args)
+{
+   if (args->Handled)
+   {
+      return;
+   }
+
+   if (!IsGamePaused)
+   {
+      IsGamePaused = true;
+      this->BottomAppBar->IsOpen = true;
+
+      if (Windows::Foundation::Metadata::ApiInformation::IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+      {
+         Windows::UI::ViewManagement::ApplicationView::GetForCurrentView()->ExitFullScreenMode();
+         Windows::UI::ViewManagement::StatusBar::GetForCurrentView()->ShowAsync();
+      }
+
+      args->Handled = true;
+      if (RetroarchMain::Instance.get())
+      {
+         RetroarchMain::Instance->PauseGame();
+      }
+   }
+}
+
+
+void RetroArch_Win10::in_game_page::ResetClick(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+   if (RetroarchMain::Instance.get())
+   {
+      RetroarchMain::Instance->ResetGame();
+   }
+}
+
+
+void RetroArch_Win10::in_game_page::ResumeClicked(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+   this->BottomAppBar->IsOpen = false;
+}
+
+
+void RetroArch_Win10::in_game_page::CommandBarClosing(Platform::Object^ sender, Platform::Object^ e)
+{
+   if (IsGamePaused && RetroarchMain::Instance.get())
+   {
+      IsGamePaused = false;
+      RetroarchMain::Instance->ResumeGame();
+
+      if (Windows::Foundation::Metadata::ApiInformation::IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+      {
+         Windows::UI::ViewManagement::ApplicationView::GetForCurrentView()->TryEnterFullScreenMode();
+         Windows::UI::ViewManagement::StatusBar::GetForCurrentView()->HideAsync();
+      }
    }
 }

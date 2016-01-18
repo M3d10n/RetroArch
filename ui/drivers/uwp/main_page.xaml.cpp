@@ -41,7 +41,8 @@ main_page::main_page()
 
    frame->Navigate(cores::typeid);
 
-   Windows::UI::Core::SystemNavigationManager::GetForCurrentView()->GetForCurrentView()->BackRequested += ref new Windows::Foundation::EventHandler<Windows::UI::Core::BackRequestedEventArgs ^>(this, &RetroArch_Win10::main_page::OnBackRequested);
+   Windows::UI::Core::SystemNavigationManager::GetForCurrentView()->GetForCurrentView()->BackRequested += 
+      ref new Windows::Foundation::EventHandler<Windows::UI::Core::BackRequestedEventArgs ^>(this, &RetroArch_Win10::main_page::OnBackRequested);
 
    GameLibrary::Get()->GetDispatcher()->GameStarted += ref new RetroArch_Win10::GameDelegate(this, &RetroArch_Win10::main_page::OnGameStarted);
 }
@@ -97,6 +98,8 @@ void RetroArch_Win10::main_page::OnCompositionScaleChanged(Windows::UI::Xaml::Co
 
 void RetroArch_Win10::main_page::OnBackRequested(Platform::Object ^sender, Windows::UI::Core::BackRequestedEventArgs ^args)
 {
+   Common::Dispatcher::Get()->DispatchBackRequested(sender, args);
+
    if (frame->CanGoBack && args->Handled == false)
    {
       frame->GoBack();

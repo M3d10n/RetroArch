@@ -137,12 +137,16 @@ void RetroarchMain::StartUpdateThread()
    
 }
 
-void RetroarchMain::StopUpdateThread()
+void RetroarchMain::StopUpdateThread(bool wait)
 {
-   //critical_section::scoped_lock lock(m_criticalSection);
-   //event_command(EVENT_CMD_MENU_SAVE_CURRENT_CONFIG);
-   m_shutdown = true;
-   while (m_updateWorker->Status != AsyncStatus::Completed);
+   if (m_running && m_updateWorker)
+   {
+      m_shutdown = true;
+      if (wait)
+      {
+         while (m_updateWorker->Status != AsyncStatus::Completed);
+      }
+   }
 }
 
 bool RetroarchMain::IsInitialized()
@@ -171,6 +175,24 @@ void RetroArch_Win10::RetroarchMain::SaveState()
    critical_section::scoped_lock lock(m_criticalSection);
    event_command(EVENT_CMD_AUTOSAVE_STATE);
 
+}
+
+void RetroArch_Win10::RetroarchMain::ResetGame()
+{
+   critical_section::scoped_lock lock(m_criticalSection);
+   event_command(EVENT_CMD_RESET);
+}
+
+void RetroArch_Win10::RetroarchMain::PauseGame()
+{
+   critical_section::scoped_lock lock(m_criticalSection);
+   event_command(EVENT_CMD_PAUSE);
+}
+
+void RetroArch_Win10::RetroarchMain::ResumeGame()
+{
+   critical_section::scoped_lock lock(m_criticalSection);
+   event_command(EVENT_CMD_UNPAUSE);
 }
 
 // Notifies renderers that device resources need to be released.

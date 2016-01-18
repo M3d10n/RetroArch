@@ -17,7 +17,7 @@ Platform::String^ GetDllPath()
 #elif defined(_X86_)
    return "bin/win_x86/";
 #elif defined(_AMD64_)
-   return "bin/win_x64";
+   return "bin/win_x64/";
 #endif
 }
 
@@ -34,7 +34,7 @@ void RetroArch_Win10::Game::Play()
 
    if (RetroarchMain::Instance.get())
    {
-      RetroarchMain::Instance->StopUpdateThread();
+      RetroarchMain::Instance->StopUpdateThread(true);
    }
 
    RetroarchMain::Instance = std::unique_ptr<RetroarchMain>(new RetroarchMain(core, Path));

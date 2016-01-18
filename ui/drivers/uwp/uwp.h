@@ -14,7 +14,7 @@ namespace RetroArch_Win10
       ~RetroarchMain();
 
       void StartUpdateThread();
-      void StopUpdateThread();
+      void StopUpdateThread(bool wait);
 
       Concurrency::critical_section& GetCriticalSection() { return m_criticalSection; }
       bool IsInitialized();
@@ -26,6 +26,9 @@ namespace RetroArch_Win10
 
       void ChangeOverlay(Platform::String^ overlay);
       void SaveState();
+      void ResetGame();
+      void PauseGame();
+      void ResumeGame();
 
       // IDeviceNotify
       virtual void OnDeviceLost();

@@ -26,3 +26,9 @@ Platform::String^ BindableBase::GetStringRepresentation()
 {
    return this->ToString();
 }
+
+Dispatcher ^ RetroArch_Win10::Common::Dispatcher::Get()
+{
+   static Dispatcher ^ StaticDispatcher = ref new Dispatcher();
+   return StaticDispatcher;
+}

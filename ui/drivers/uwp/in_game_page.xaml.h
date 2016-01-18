@@ -21,5 +21,15 @@ namespace RetroArch_Win10
       virtual void OnNavigatedFrom(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
       virtual void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
 
-	};
+      property bool IsGamePaused;
+
+   private:
+      Windows::Foundation::EventRegistrationToken BackRequestedToken;
+      void OnBackRequested(Platform::Object ^sender, Windows::UI::Core::BackRequestedEventArgs ^args);
+
+
+      void ResetClick(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+      void ResumeClicked(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+      void CommandBarClosing(Platform::Object^ sender, Platform::Object^ e);
+   };
 }

@@ -4,6 +4,15 @@ namespace RetroArch_Win10
 {
    namespace Common
    {
+      public ref class Dispatcher sealed
+      {
+      public:
+         static Dispatcher^ Get();
+
+         event Windows::Foundation::EventHandler<Windows::UI::Core::BackRequestedEventArgs^>^ BackRequested;
+         void DispatchBackRequested(Platform::Object^ sender, Windows::UI::Core::BackRequestedEventArgs^ args) { BackRequested(sender, args); }
+      };
+
       [Windows::Foundation::Metadata::WebHostHidden]
       public ref class BindableBase : Windows::UI::Xaml::DependencyObject, Windows::UI::Xaml::Data::INotifyPropertyChanged, Windows::UI::Xaml::Data::ICustomPropertyProvider
       {
