@@ -447,7 +447,11 @@ static unsigned swap_interval = 1;
 /* Threaded video. Will possibly increase performance significantly
  * at the cost of worse synchronization and latency.
  */
+#if defined(WINAPI_FAMILY_PARTITION) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+static const bool video_threaded = true;
+#else
 static const bool video_threaded = false;
+#endif
 
 #if defined(HAVE_THREADS)
 #if defined(GEKKO) || defined(PSP) || defined(_3DS) || defined(_XBOX1)

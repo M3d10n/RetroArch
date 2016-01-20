@@ -45,6 +45,27 @@ RetroArch_Win10::SystemLibrary::SystemLibrary()
    system->FileTypes->Append(".sg");
 
    RegisterSystem(system);
+
+   system = ref new System();
+   system->Id = ESystemId::SuperNintendo;
+   system->Name = "Super Nintendo - Super Famicom";
+   system->Maker = "Nintendo";
+   system->Icon = "ms-appx:///media/assets/xmb/flatui/png/Nintendo - Super Nintendo Entertainment System.png";
+   system->MediaIcon = "ms-appx:///media/assets/xmb/flatui/png/Nintendo - Super Nintendo Entertainment System-content.png";
+   system->Background = "ms-appx:///media/assets/wallpapers/bichromatic pads/1440x900/Nintendo - Super Nintendo Entertainment System.png";
+   system->Core = "snes9x_next";
+   system->LandscapeOverlay = "gamepads/flat/snes-landscape.cfg";
+   system->PortraitOverlay = "gamepads/flat/snes-portrait.cfg";
+   system->FileTypes->Append(".smc");
+   system->FileTypes->Append(".fig");
+   system->FileTypes->Append(".sfc");
+   system->FileTypes->Append(".gd3");
+   system->FileTypes->Append(".gd7");
+   system->FileTypes->Append(".dx2");
+   system->FileTypes->Append(".bsx");
+   system->FileTypes->Append(".swc");
+
+   RegisterSystem(system);
 }
 
 SystemLibrary * RetroArch_Win10::SystemLibrary::Get()

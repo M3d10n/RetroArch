@@ -299,10 +299,10 @@ static void frontend_win32_environment_get(int *argc, char *argv[],
    retro_main_log_file_init(logfile);
    
    // Store in roaming folder to sync across devices
-   fill_pathname_join(g_defaults.path.config, appdata, "retroarch.cfg", sizeof(g_defaults.path.config));
+   fill_pathname_join(g_defaults.path.config, applocal, "retroarch.cfg", sizeof(g_defaults.path.config));
    fill_pathname_join(g_defaults.dir.sram, appdata, "sram", sizeof(g_defaults.dir.sram));
-   fill_pathname_join(g_defaults.dir.savestate, appdata, "savestates", sizeof(g_defaults.dir.savestate));
-   fill_pathname_join(g_defaults.dir.playlist, appdata, "playlists", sizeof(g_defaults.dir.playlist));
+   fill_pathname_join(g_defaults.dir.savestate, applocal, "savestates", sizeof(g_defaults.dir.savestate));
+   fill_pathname_join(g_defaults.dir.playlist, applocal, "playlists", sizeof(g_defaults.dir.playlist));
 
    // Local, no need to roam
    fill_pathname_join(g_defaults.dir.cache, applocal, "cache", sizeof(g_defaults.dir.cache));

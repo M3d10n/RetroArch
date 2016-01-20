@@ -1428,6 +1428,12 @@
     <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Sony - PlayStation.png">
       <Filter>Assets</Filter>
     </Image>
+    <Image Include="ARM\Debug\PackageLayout\media\assets\xmb\flatui\png\Nintendo - Super Nintendo Entertainment System.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="ARM\Debug\PackageLayout\media\assets\xmb\flatui\png\Nintendo - Super Nintendo Entertainment System-content.png">
+      <Filter>Assets</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />
@@ -2754,6 +2760,11 @@
     <None Include="media\overlays\gamepads\flat\genesis-portrait.cfg" />
     <None Include="media\overlays\gamepads\flat\sms-landscape.cfg" />
     <None Include="media\overlays\gamepads\flat\sms-portrait.cfg" />
+    <None Include="bin\win_x86\snes9x_next_libretro.dll" />
+    <None Include="bin\win_ARM\snes9x_next_libretro.dll" />
+    <None Include="ARM\Debug\PackageLayout\media\overlays\gamepads\flat\snes.cfg" />
+    <None Include="media\overlays\gamepads\flat\snes-landscape.cfg" />
+    <None Include="media\overlays\gamepads\flat\snes-portrait.cfg" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="RetroArch-Win10.rc" />

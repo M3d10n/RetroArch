@@ -6,5 +6,6 @@ namespace RetroArch_Win10
       None,
       MegaDrive,
       MasterSystem,
+      SuperNintendo,
    };
 }

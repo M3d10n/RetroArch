@@ -212,7 +212,13 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="ARM\Debug\PackageLayout\media\overlays\gamepads\flat\snes.cfg">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
     <None Include="bin\win_ARM\genesis_plus_gx_libretro.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="bin\win_ARM\snes9x_next_libretro.dll">
       <DeploymentContent>true</DeploymentContent>
     </None>
     <None Include="bin\win_x64\2048_libretro.dll">
@@ -222,6 +228,9 @@
       <DeploymentContent>true</DeploymentContent>
     </None>
     <None Include="bin\win_x86\genesis_plus_gx_libretro.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="bin\win_x86\snes9x_next_libretro.dll">
       <DeploymentContent>true</DeploymentContent>
     </None>
     <None Include="media\libretrodb\dat\Atari - 5200.dat" />
@@ -444,7 +453,20 @@
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
     </None>
     <None Include="media\overlays\gamepads\flat\sms.cfg" />
-    <None Include="media\overlays\gamepads\flat\snes.cfg" />
+    <None Include="media\overlays\gamepads\flat\snes-landscape.cfg">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="media\overlays\gamepads\flat\snes-portrait.cfg">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="media\overlays\gamepads\flat\snes.cfg">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
+    </None>
     <None Include="media\overlays\gamepads\flat\square_buttons_text.svg" />
     <None Include="media\overlays\gamepads\flat\start.svg" />
     <None Include="media\overlays\gamepads\flat\start_psx.svg" />
@@ -458,6 +480,8 @@
     <None Include="RetroArch-Win10_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="ARM\Debug\PackageLayout\media\assets\xmb\flatui\png\Nintendo - Super Nintendo Entertainment System-content.png" />
+    <Image Include="ARM\Debug\PackageLayout\media\assets\xmb\flatui\png\Nintendo - Super Nintendo Entertainment System.png" />
     <Image Include="Assets\LockScreenLogo.scale-200.png" />
     <Image Include="Assets\SplashScreen.scale-200.png" />
     <Image Include="Assets\Square150x150Logo.scale-100.png">

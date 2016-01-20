@@ -92,6 +92,9 @@ void RetroarchMain::StartUpdateThread()
          fill_pathname_join(settings->libretro_directory, g_defaults.dir.core, "win_x64", sizeof(settings->libretro_directory));
 #endif
 
+         global_t *global = global_get_ptr();
+         global->perfcnt_enable = true;
+
          m_initialized = true;
          m_running = true;
       }

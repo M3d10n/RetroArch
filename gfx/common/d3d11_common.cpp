@@ -15,6 +15,7 @@
 */
 
 #include "d3d11_common.h"
+#include "performance.h"
 #include <windows.ui.xaml.media.dxinterop.h>
 
 
@@ -662,6 +663,10 @@ void d3d11::DeviceResources::UpdateBitmap(Microsoft::WRL::ComPtr<ID2D1Bitmap1>& 
       m_bitmapConversionBufferSize = frame_size;
    }
 
+   static struct retro_perf_counter perf_convert = { 0 };
+   rarch_perf_init(&perf_convert, "update_bitmap");
+   retro_perf_start(&perf_convert);
+
    // Write into the CPU-accessible bitmap
    unsigned dst_pitch = width * sizeof(uint32_t);
    void* bits = m_bitmapConversionBuffer.get();
@@ -735,7 +740,7 @@ void d3d11::DeviceResources::UpdateBitmap(Microsoft::WRL::ComPtr<ID2D1Bitmap1>& 
          for (w = 0; w < width; w++)
          {
             uint16_t c = src[w];
-
+           
             uint32_t r = (c & 0xf800) << 8;
             uint32_t g = (c & 0x07e0) << 5;
             uint32_t b = (c & 0x001f) << 3;
@@ -745,9 +750,18 @@ void d3d11::DeviceResources::UpdateBitmap(Microsoft::WRL::ComPtr<ID2D1Bitmap1>& 
       }
    }
 
+   retro_perf_stop(&perf_convert);
+
+   static struct retro_perf_counter perf_copy = { 0 };
+   rarch_perf_init(&perf_copy, "copy_bitmap");
+   retro_perf_start(&perf_copy);
+
    // Copy to the GPU bitmap
    hr = bitmap->CopyFromMemory(NULL, bits, dst_pitch);
    d3d11::ThrowIfFailed(hr);
+
+   retro_perf_stop(&perf_copy);
+
 }
 
 void d3d11::DeviceResources::InitOverlays(const texture_image * image_data, unsigned num_images)
