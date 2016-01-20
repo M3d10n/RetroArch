@@ -76,7 +76,7 @@ void App::OnSuspending(Object^ sender, SuspendingEventArgs^ e)
 	(void) e;	// Unused parameter
 
 	//m_directXPage->SaveInternalState(ApplicationData::Current->LocalSettings->Values);
-   if (RetroarchMain::Instance && RetroarchMain::Instance->IsInitialized())
+   if (RetroarchMain::Instance.get())
    {
       RetroarchMain::Instance->SaveState();
    }

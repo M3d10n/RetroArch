@@ -117,19 +117,24 @@ void RetroarchMain::StartUpdateThread()
             retro_sleep(sleep_ms);
          rarch_main_data_iterate();
       }
-
-      // Clear
-      auto d2dctx = GetResources()->GetD2DDeviceContext();
-      d2dctx->BeginDraw();
-      d2dctx->Clear();
-      d2dctx->EndDraw();
-      GetResources()->Present();
-
+      
       // Shutdown
-      main_exit(NULL);
+      {
+         critical_section::scoped_lock lock(m_criticalSection);
 
-      m_initialized = false;
-      m_running = false;
+         // Clear
+         auto d2dctx = GetResources()->GetD2DDeviceContext();
+         d2dctx->BeginDraw();
+         d2dctx->Clear();
+         d2dctx->EndDraw();
+         GetResources()->Present();
+
+         // Shutdown
+         main_exit(NULL);
+
+         m_initialized = false;
+         m_running = false;
+      }
    });
 
    // Run task on a dedicated high priority background thread.
@@ -173,8 +178,11 @@ void RetroArch_Win10::RetroarchMain::ChangeOverlay(Platform::String ^ overlay)
 void RetroArch_Win10::RetroarchMain::SaveState()
 {
    critical_section::scoped_lock lock(m_criticalSection);
-   event_command(EVENT_CMD_AUTOSAVE_STATE);
-
+   if (m_running && !m_shutdown)
+   {
+      event_command(EVENT_CMD_AUTOSAVE_STATE);
+      event_command(EVENT_CMD_SAVEFILES);
+   }
 }
 
 void RetroArch_Win10::RetroarchMain::ResetGame()
