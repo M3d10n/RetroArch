@@ -3,6 +3,7 @@
 #include <collection.h> 
 #include "systems.h"
 #include "common.h"
+#include "file_importer.h"
 
 namespace RetroArch_Win10
 {

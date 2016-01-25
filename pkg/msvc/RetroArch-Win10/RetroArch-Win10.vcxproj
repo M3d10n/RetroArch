@@ -227,6 +227,9 @@
     <None Include="bin\win_x64\genesis_plus_gx_libretro.dll">
       <DeploymentContent>true</DeploymentContent>
     </None>
+    <None Include="bin\win_x64\snes9x_next_libretro.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
     <None Include="bin\win_x86\genesis_plus_gx_libretro.dll">
       <DeploymentContent>true</DeploymentContent>
     </None>
@@ -934,6 +937,7 @@
     <ClCompile Include="..\..\..\ui\drivers\uwp\cores.xaml.cpp">
       <DependentUpon>..\..\..\ui\drivers\uwp\cores.xaml</DependentUpon>
     </ClCompile>
+    <ClCompile Include="..\..\..\ui\drivers\uwp\file_importer.cpp" />
     <ClCompile Include="..\..\..\ui\drivers\uwp\game_library.cpp" />
     <ClCompile Include="..\..\..\ui\drivers\uwp\in_game_page.xaml.cpp">
       <DependentUpon>..\..\..\ui\drivers\uwp\in_game_page.xaml</DependentUpon>
@@ -963,6 +967,7 @@
     <ClInclude Include="..\..\..\ui\drivers\uwp\cores.xaml.h">
       <DependentUpon>..\..\..\ui\drivers\uwp\cores.xaml</DependentUpon>
     </ClInclude>
+    <ClInclude Include="..\..\..\ui\drivers\uwp\file_importer.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\game_library.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\in_game_page.xaml.h">
       <DependentUpon>..\..\..\ui\drivers\uwp\in_game_page.xaml</DependentUpon>

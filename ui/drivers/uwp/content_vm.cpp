@@ -55,17 +55,17 @@ void RetroArch_Win10::ContentViewModel::PickGamesToAdd()
    });
 }
 
-Game^ ContentViewModel::SelectedItem::get()
+Game^ RetroArch_Win10::ContentViewModel::SelectedItem::get()
 {
    return m_selectedItem;
 }
 
-void ContentViewModel::SelectedItem::set(Game^ Value)
+void RetroArch_Win10::ContentViewModel::SelectedItem::set(Game^ Value)
 {
    m_selectedItem = Value;
 }
 
-IObservableVector<Game^>^ ContentViewModel::Games::get()
+IObservableVector<Game^>^ RetroArch_Win10::ContentViewModel::Games::get()
 {
    auto selectedSystem = SystemLibrary::Get()->GetSelectedSystem();
 

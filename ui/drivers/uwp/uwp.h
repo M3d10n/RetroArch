@@ -17,7 +17,7 @@ namespace RetroArch_Win10
       void StopUpdateThread(bool wait);
 
       Concurrency::critical_section& GetCriticalSection() { return m_criticalSection; }
-      bool IsInitialized();
+      bool IsRunning();
 
       static std::unique_ptr<RetroarchMain> Instance;
 
@@ -51,7 +51,6 @@ namespace RetroArch_Win10
       bool              m_changeOverlay;
 
       Concurrency::critical_section m_criticalSection;
-      Concurrency::critical_section m_initCriticalSection;
    };
 
 }

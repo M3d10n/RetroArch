@@ -57,12 +57,13 @@ bool RetroArch_Win10::main_page::UseOVerlay()
 
 void RetroArch_Win10::main_page::OnSizeChanged(Platform::Object ^sender, Windows::UI::Xaml::SizeChangedEventArgs ^e)
 {
-   if (!RetroarchMain::Instance || !RetroarchMain::Instance->IsInitialized())
+   if (!RetroarchMain::Instance.get() || !RetroarchMain::Instance->IsRunning())
    {
       return;
    }
    
    critical_section::scoped_lock lock(RetroarchMain::Instance->GetCriticalSection());
+
    d3d11::Get()->SetLogicalSize(e->NewSize);
 
    auto system = SystemLibrary::Get()->GetSelectedSystem();
@@ -86,7 +87,7 @@ void RetroArch_Win10::main_page::OnSizeChanged(Platform::Object ^sender, Windows
 
 void RetroArch_Win10::main_page::OnCompositionScaleChanged(Windows::UI::Xaml::Controls::SwapChainPanel ^sender, Platform::Object ^args)
 {
-   if (!RetroarchMain::Instance || !RetroarchMain::Instance->IsInitialized())
+   if (!RetroarchMain::Instance.get() || !RetroarchMain::Instance->IsRunning())
    {
       return;
    }

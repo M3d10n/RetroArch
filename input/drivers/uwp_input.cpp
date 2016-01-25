@@ -66,8 +66,8 @@ void OnPointerPressed(CoreWindow ^sender, PointerEventArgs ^args)
    float x, y;
 
    auto currentPoint = args->CurrentPoint;
-   x = currentPoint->RawPosition.X;
-   y = currentPoint->RawPosition.Y;
+   x = currentPoint->Position.X;
+   y = currentPoint->Position.Y;
 
    auto& pointer = key_states.pointer[key_states.curr_pointer];   
    if (!input_translate_coord_viewport(x, y, &pointer.x, &pointer.y, &pointer.full_x, &pointer.full_y))
@@ -75,6 +75,13 @@ void OnPointerPressed(CoreWindow ^sender, PointerEventArgs ^args)
       return;
    }
    pointer.id = currentPoint->PointerId;
+
+   if (Windows::Foundation::Metadata::ApiInformation::IsTypePresent("Windows.Phone.Devices.Notification.VibrationDevice"))
+   {
+      Windows::Foundation::TimeSpan duration;
+      duration.Duration = 0.04 * 10000000L;
+      //Windows::Phone::Devices::Notification::VibrationDevice::GetDefault()->Vibrate(duration);
+   }
 
    //RARCH_LOG("PointerPressed: %u (%f,%f) at %u \n", pointer.id, x, y, key_states.curr_pointer);
 
@@ -114,8 +121,8 @@ void OnPointerMoved(CoreWindow ^sender, PointerEventArgs ^args)
 
    auto currentPoint = args->CurrentPoint;
 
-   float x = currentPoint->RawPosition.X;
-   float y = currentPoint->RawPosition.Y;
+   float x = currentPoint->Position.X;
+   float y = currentPoint->Position.Y;
 
 
    unsigned int id = currentPoint->PointerId;
@@ -125,6 +132,12 @@ void OnPointerMoved(CoreWindow ^sender, PointerEventArgs ^args)
       if (pointer.id == id)
       {
          //RARCH_LOG("PointerMoved: %u (%f,%f) at %u \n", pointer.id, x, y, i);
+         /*if (Windows::Foundation::Metadata::ApiInformation::IsTypePresent("Windows.Phone.Devices.Notification.VibrationDevice"))
+         {
+            Windows::Foundation::TimeSpan duration;
+            duration.Duration = 0.001 * 10000000L;
+            Windows::Phone::Devices::Notification::VibrationDevice::GetDefault()->Vibrate(duration);
+         }*/
 
          input_translate_coord_viewport(x, y, &pointer.x, &pointer.y, &pointer.full_x, &pointer.full_y);
          break;

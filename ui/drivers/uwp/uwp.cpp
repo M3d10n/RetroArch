@@ -54,7 +54,6 @@ void RetroarchMain::StartUpdateThread()
       if (!m_initialized)
       {
          critical_section::scoped_lock lock(m_criticalSection);
-         critical_section::scoped_lock init_loc(m_initCriticalSection);
 
          char core[4096]      = { 0 };
          char content[4096]   = { 0 };
@@ -157,14 +156,9 @@ void RetroarchMain::StopUpdateThread(bool wait)
    }
 }
 
-bool RetroarchMain::IsInitialized()
+bool RetroArch_Win10::RetroarchMain::IsRunning()
 {
-   if (!m_initCriticalSection.try_lock())
-   {
-      return false;
-   }
-   m_initCriticalSection.unlock();
-   return true;
+   return m_running && !m_shutdown;
 }
 
 void RetroArch_Win10::RetroarchMain::ChangeOverlay(Platform::String ^ overlay)

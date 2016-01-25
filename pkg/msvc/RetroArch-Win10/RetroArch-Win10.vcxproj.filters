@@ -683,6 +683,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\ui\drivers\uwp\content.xaml.cpp" />
     <ClCompile Include="..\..\..\ui\drivers\uwp\in_game_page.xaml.cpp" />
+    <ClCompile Include="..\..\..\ui\drivers\uwp\file_importer.cpp">
+      <Filter>Source\ui\drivers\uwp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\ui\drivers\uwp\uwp.h">
@@ -724,6 +727,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\ui\drivers\uwp\content.xaml.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\in_game_page.xaml.h" />
+    <ClInclude Include="..\..\..\ui\drivers\uwp\file_importer.h">
+      <Filter>Source\ui\drivers\uwp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\LockScreenLogo.scale-200.png">
@@ -2765,6 +2771,7 @@
     <None Include="ARM\Debug\PackageLayout\media\overlays\gamepads\flat\snes.cfg" />
     <None Include="media\overlays\gamepads\flat\snes-landscape.cfg" />
     <None Include="media\overlays\gamepads\flat\snes-portrait.cfg" />
+    <None Include="bin\win_x64\snes9x_next_libretro.dll" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="RetroArch-Win10.rc" />
