@@ -3,12 +3,11 @@
 #include <collection.h> 
 #include "systems.h"
 #include "common.h"
-#include "file_importer.h"
 
 namespace RetroArch_Win10
 {
    [Windows::UI::Xaml::Data::Bindable]
-   public ref class Game sealed 
+   public ref class Game sealed : public Common::BindableBase
    {
    public:
       Game();
@@ -18,7 +17,27 @@ namespace RetroArch_Win10
       property Platform::String ^ Path;
       property ESystemId System;
 
+      property FileImportStatus Status
+      {
+         FileImportStatus get();
+      }
+
+      property float Progress
+      {
+         float get();
+      }
+
+      property bool Importing
+      {
+         bool get();
+      }
+
       void Play();
+
+      void ImportFrom(Windows::Storage::StorageFile^ file);
+
+   private:
+      ref class FileImportEntry^ m_importTask;
    };
    
    public delegate void GameDelegate(Game^);

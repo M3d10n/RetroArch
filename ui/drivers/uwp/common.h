@@ -2,6 +2,16 @@
 
 namespace RetroArch_Win10
 {
+   public enum class FileImportStatus
+   {
+      Pending,
+      Working,
+      Completed,
+      Canceled,
+      Error,
+   };
+
+
    namespace Common
    {
       public ref class Dispatcher sealed
@@ -34,5 +44,31 @@ namespace RetroArch_Win10
       protected:
          virtual void OnPropertyChanged(Platform::String^ propertyName);
       };
+
+      public ref class BooleanVisibilityConverter  sealed : Windows::UI::Xaml::Data::IValueConverter
+      {
+         // This converts the DateTime object to the Platform::String^ to display.
+      public:
+         property bool Negate;
+
+         virtual Platform::Object^ Convert(Platform::Object^ value, Windows::UI::Xaml::Interop::TypeName targetType,
+            Platform::Object^ parameter, Platform::String^ language)
+         {
+            bool b = safe_cast<bool>(value);
+            if (Negate)
+            {
+               b = !b;
+            }
+            return b ? Windows::UI::Xaml::Visibility::Visible : Windows::UI::Xaml::Visibility::Collapsed;
+         }
+
+         // No need to implement converting back on a one-way binding 
+         virtual Platform::Object^ ConvertBack(Platform::Object^ value, Windows::UI::Xaml::Interop::TypeName targetType,
+            Platform::Object^ parameter, Platform::String^ language)
+         {
+            throw ref new Platform::NotImplementedException();
+         }
+      };
+
    }
 }

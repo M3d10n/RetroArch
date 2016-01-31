@@ -2797,12 +2797,4 @@
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
   </ItemGroup>
-  <ItemGroup>
-    <DesignData Include="SampleData\CoreSampleData.xaml">
-      <Filter>SampleData</Filter>
-    </DesignData>
-    <DesignData Include="SampleData\CoreGroupSampleData.xaml">
-      <Filter>SampleData</Filter>
-    </DesignData>
-  </ItemGroup>
 </Project>

@@ -37,9 +37,9 @@ RetroArch_Win10::FileImportManager::FileImportManager() :
 {
 }
 
-FileImportEntry^ RetroArch_Win10::FileImportManager::QueueImportTask(Windows::Storage::StorageFile^ SourceFile, Windows::Storage::StorageFile^ TargetFile)
+FileImportEntry^ RetroArch_Win10::FileImportManager::QueueImportTask(Windows::Storage::StorageFile^ SourceFile, Windows::Storage::StorageFolder^ TargetFolder)
 {
-   auto entry = ref new FileImportEntry(SourceFile, TargetFile);
+   auto entry = ref new FileImportEntry(SourceFile, TargetFolder);
 
    if (ActiveTasks < MAX_ACTIVE_TASKS)
    {
@@ -66,16 +66,23 @@ FileImportEntry^ RetroArch_Win10::FileImportManager::QueueImportTask(Windows::St
    return entry;
 }
 
-RetroArch_Win10::FileImportEntry::FileImportEntry(Windows::Storage::StorageFile^ SourceFile, Windows::Storage::StorageFile^ TargetFile) :
+FileImportManager * RetroArch_Win10::FileImportManager::Get()
+{
+   static FileImportManager* manager = new FileImportManager();
+   return manager;
+}
+
+RetroArch_Win10::FileImportEntry::FileImportEntry(Windows::Storage::StorageFile^ SourceFile, Windows::Storage::StorageFolder^ TargetFolder) :
    SourceFile(SourceFile),
-   TargetFile(TargetFile)
+   TargetFolder(TargetFolder)
 {
 }
 
 void RetroArch_Win10::FileImportEntry::Start()
 {
-   m_async = SourceFile->CopyAndReplaceAsync(TargetFile);
-   create_task(m_async).then([=]()
+   m_async = SourceFile->CopyAsync(TargetFolder, SourceFile->Name, NameCollisionOption::ReplaceExisting);
+   auto task = create_task(m_async);
+   task.then([=](StorageFile^ TargetFile)
    {
       this->Completed(this, TargetFile);
    });

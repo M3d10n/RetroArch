@@ -40,6 +40,16 @@ void RetroArch_Win10::ContentViewModel::PickGamesToAdd()
    {
       for (auto file : results)
       {
+         auto game = ref new Game();
+         game->Title = file->DisplayName;
+         game->System = selectedSystem->Id;
+         game->BoxArt = selectedSystem->MediaIcon;
+
+         game->ImportFrom(file);
+
+         GameLibrary::Get()->AddGame(game);
+
+         /*
          create_task(file->CopyAsync(Windows::Storage::ApplicationData::Current->LocalFolder, file->Name, NameCollisionOption::ReplaceExisting)).
             then([=](StorageFile^ copiedFile)
          {
@@ -50,7 +60,8 @@ void RetroArch_Win10::ContentViewModel::PickGamesToAdd()
             game->BoxArt = selectedSystem->MediaIcon;
 
             GameLibrary::Get()->AddGame(game);
-         });         
+         });
+         */
       }
    });
 }
@@ -68,7 +79,7 @@ void RetroArch_Win10::ContentViewModel::SelectedItem::set(Game^ Value)
 IObservableVector<Game^>^ RetroArch_Win10::ContentViewModel::Games::get()
 {
    auto selectedSystem = SystemLibrary::Get()->GetSelectedSystem();
-
+      
    if (selectedSystem == nullptr)
    {
       return GameLibrary::Get()->GetGames();

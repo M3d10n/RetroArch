@@ -30,9 +30,27 @@
           <uap:Rotation Preference="landscapeFlipped" />
         </uap:InitialRotationPreference>
       </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="megadrive-rom">
+            <uap:DisplayName>Sega Mega Drive/Genesis ROM</uap:DisplayName>
+            <uap:Logo>media\assets\xmb\flatui\png\Sega - Mega Drive - Genesis.png</uap:Logo>
+            <uap:EditFlags OpenIsSafe="true" />
+            <uap:SupportedFileTypes>
+              <uap:FileType>.smd</uap:FileType>
+              <uap:FileType>.md</uap:FileType>
+              <uap:FileType>.mdx</uap:FileType>
+              <uap:FileType>.gen</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+      </Extensions>
     </Application>
   </Applications>
   <Capabilities>
-    <Capability Name="internetClient" />
+    <Capability Name="codeGeneration" />
+    <Capability Name="internetClientServer" />
+    <uap:Capability Name="removableStorage" />
+    <DeviceCapability Name="bluetooth" />
   </Capabilities>
 </Package>

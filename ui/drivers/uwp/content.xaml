@@ -6,6 +6,23 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" DataContext="{Binding ContentVM, Mode=OneWay, Source={StaticResource ViewModelLocator}}" NavigationCacheMode="Enabled">
+    <Page.Resources>
+        <DataTemplate x:Key="GameTemplate">
+            <Grid Height="110" Width="480" Margin="10" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="110" Height="110">
+                    <Image Height="110" Width="110"/>
+                </Border>
+                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                    <TextBlock Text="{Binding BoxArt}" Style="{StaticResource TitleTextBlockStyle}"/>
+                    <TextBlock Text="{Binding Path}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
     <Page.BottomAppBar>
         <CommandBar HorizontalContentAlignment="Left">
             <AppBarButton Label="appbarbutton" Icon="Add" Click="Add_Clicked"/>
