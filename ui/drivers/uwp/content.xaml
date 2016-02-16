@@ -32,10 +32,14 @@
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="{Binding CoresVM.SelectedSystem.Background, Source={StaticResource ViewModelLocator}}"/>
         </Grid.Background>
-        <ListView x:Name="listView" SelectionMode="None" ItemClick="ItemClick" IsItemClickEnabled="True" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ItemContainerStyle="{StaticResource ListViewContainerStyle}" RenderTransformOrigin="0,0" ItemsSource="{Binding Games}" ItemTemplate="{StaticResource GameListEntryTemplate}">
-            <ListView.Header>
-                <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding CoresVM.SelectedSystem.Name, FallbackValue=System Name, Source={StaticResource ViewModelLocator}}" Style="{StaticResource TitleTextBlockStyle}" Margin="{StaticResource ListHeaderMargin}"/>
-            </ListView.Header>
-        </ListView>
+        <GridView x:Name="gridView" ItemTemplate="{StaticResource GameListEntryTemplate}" ItemsSource="{Binding Games}" ItemClick="ItemClick" CanReorderItems="True" IsItemClickEnabled="True" SelectionMode="None" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+            <GridView.Header>
+                <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding CoresVM.SelectedSystem.Name, FallbackValue=System Name, Source={StaticResource ViewModelLocator}}" Style="{StaticResource TitleTextBlockStyle}"/>
+            </GridView.Header>
+            <local:Game/>
+            <local:Game/>
+            <local:Game/>
+            <local:Game/>
+        </GridView>
     </Grid>
 </Page>

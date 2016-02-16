@@ -1,16 +1,16 @@
 #include "file_importer.h"
 #include <ppltasks.h>
+#include <ppl.h>
+#include <array>
 
 using namespace concurrency;
 using namespace RetroArch_Win10;
+using namespace Windows::Foundation;
 using namespace Windows::Storage;
+using namespace Windows::System::Threading;
+using namespace Windows::UI::Core;
 
 #define MAX_ACTIVE_TASKS 2
-
-float FileImportEntry::Progress::get()
-{
-   return 0.0f;
-}
 
 FileImportStatus FileImportEntry::Status::get()
 {
@@ -74,17 +74,77 @@ FileImportManager * RetroArch_Win10::FileImportManager::Get()
 
 RetroArch_Win10::FileImportEntry::FileImportEntry(Windows::Storage::StorageFile^ SourceFile, Windows::Storage::StorageFolder^ TargetFolder) :
    SourceFile(SourceFile),
-   TargetFolder(TargetFolder)
+   TargetFolder(TargetFolder),
+   m_fileSize(0),
+   m_progress(0)
 {
 }
 
 void RetroArch_Win10::FileImportEntry::Start()
 {
-   m_async = SourceFile->CopyAsync(TargetFolder, SourceFile->Name, NameCollisionOption::ReplaceExisting);
-   auto task = create_task(m_async);
-   task.then([=](StorageFile^ TargetFile)
+   // Grab the current thread window dispatcher
+   auto window = CoreWindow::GetForCurrentThread();
+   if (window)
    {
-      this->Completed(this, TargetFile);
+      Dispatcher = window->Dispatcher;
+   }
+   else
+   {
+      Dispatcher = nullptr;
+   }
+
+   // Get the output stream
+   auto t0 = create_task(TargetFolder->CreateFileAsync(Platform::String::Concat(SourceFile->Name, ".tmp"), CreationCollisionOption::ReplaceExisting))
+      .then([this](StorageFile^ targetFile)
+   {
+      TargetFile = targetFile;
+      return targetFile->OpenAsync(FileAccessMode::ReadWrite);
+   })
+      .then([this](Streams::IRandomAccessStream^ stream)
+   {
+      Output = stream->GetOutputStreamAt(0);
+   });
+
+   // Get the input stream
+   auto t1 = create_task(SourceFile->OpenSequentialReadAsync())
+      .then([=](Streams::IInputStream^ stream)
+   {
+      Input = stream;
+   });
+
+   // Get the source file size
+   auto t2 = create_task(SourceFile->GetBasicPropertiesAsync())
+      .then([this](FileProperties::BasicProperties^ properties)
+   {
+      m_fileSize = properties->Size;
+   });
+
+   // Copy when both tasks complete
+   (t0 && t1 && t2).then([this]()
+   {
+      m_async = Streams::RandomAccessStream::CopyAndCloseAsync(Input, Output);
+      m_async->Progress = ref new AsyncOperationProgressHandler<uint64, uint64>([this](IAsyncOperationWithProgress<uint64, uint64>^ m_async, uint64 progress) {
+         m_progress = float((double)progress / (double)m_fileSize);
+         
+         if (Dispatcher)
+         {
+            Dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new DispatchedHandler([this]()
+            {
+               Progress(this, m_progress);
+            }));
+         }
+      });
+
+      // Rename when done copying
+      auto t3 = create_task(m_async).then([this](uint64)
+      {
+         return TargetFile->RenameAsync(SourceFile->Name, NameCollisionOption::ReplaceExisting);
+      })
+         .then([this](void)
+      {
+         Completed(this, TargetFile);
+         m_async = nullptr;
+      });
    });
 }
 

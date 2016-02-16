@@ -12,10 +12,11 @@ namespace RetroArch_Win10
       FileImportEntry(Windows::Storage::StorageFile^ SourceFile, Windows::Storage::StorageFolder^ TargetFolder);
 
       event Windows::Foundation::EventHandler<Windows::Storage::StorageFile^>^ Completed;
+      event Windows::Foundation::EventHandler<float>^ Progress;
 
-      property float Progress
+      property float CurrentProgress
       {
-         float get();
+         float get() { return m_progress; }
       }
 
       property FileImportStatus Status
@@ -27,15 +28,20 @@ namespace RetroArch_Win10
       void Cancel();
 
    private:
-      Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFile^>^ m_async;
+      Windows::Foundation::IAsyncOperationWithProgress<uint64, uint64>^ m_async;
+      Windows::Foundation::IAsyncAction^ m_progressWorker;
 
       Windows::Storage::Streams::IInputStream^ Input;
       Windows::Storage::Streams::IOutputStream^ Output;
 
       Windows::Storage::StorageFile^ SourceFile;
+      Windows::Storage::StorageFile^ TargetFile;
       Windows::Storage::StorageFolder^ TargetFolder;
 
-      Windows::Storage::Streams::Buffer^ Buffer;
+      Windows::UI::Core::CoreDispatcher^ Dispatcher;
+
+      uint64 m_fileSize;
+      float m_progress;
    };
 
    class FileImportManager

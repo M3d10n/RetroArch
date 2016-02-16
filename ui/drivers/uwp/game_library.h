@@ -32,6 +32,11 @@ namespace RetroArch_Win10
          bool get();
       }
 
+      property bool FileError
+      {
+         bool get();
+      }
+
       void Play();
 
       void ImportFrom(Windows::Storage::StorageFile^ file);
@@ -64,6 +69,8 @@ namespace RetroArch_Win10
       static GameLibrary* Get();
 
       void AddGame(Game^ game);
+
+      void RemoveGame(Game^ game);
 
       GameVector^ GetGames() { return m_library; }
 

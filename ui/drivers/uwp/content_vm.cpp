@@ -47,21 +47,7 @@ void RetroArch_Win10::ContentViewModel::PickGamesToAdd()
 
          game->ImportFrom(file);
 
-         GameLibrary::Get()->AddGame(game);
-
-         /*
-         create_task(file->CopyAsync(Windows::Storage::ApplicationData::Current->LocalFolder, file->Name, NameCollisionOption::ReplaceExisting)).
-            then([=](StorageFile^ copiedFile)
-         {
-            auto game = ref new Game();
-            game->Path = copiedFile->Path;
-            game->Title = copiedFile->DisplayName;
-            game->System = selectedSystem->Id;
-            game->BoxArt = selectedSystem->MediaIcon;
-
-            GameLibrary::Get()->AddGame(game);
-         });
-         */
+         GameLibrary::Get()->AddGame(game);        
       }
    });
 }

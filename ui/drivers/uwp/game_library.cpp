@@ -50,12 +50,24 @@ void RetroArch_Win10::Game::Play()
 void RetroArch_Win10::Game::ImportFrom(Windows::Storage::StorageFile ^ file)
 {
    auto LibraryFolder = Windows::Storage::ApplicationData::Current->LocalFolder;
-   OutputDebugString(LibraryFolder->Path->Data());
    m_importTask = FileImportManager::Get()->QueueImportTask(file, LibraryFolder);
+   
+   m_importTask->Progress += ref new Windows::Foundation::EventHandler<float>([this](Platform::Object ^sender, float progress)
+   {
+      PropertyChanged(this, ref new PropertyChangedEventArgs("Progress"));
+   });
+
    m_importTask->Completed += ref new Windows::Foundation::EventHandler<Windows::Storage::StorageFile ^>([this](Platform::Object ^sender, Windows::Storage::StorageFile ^args)
    {
-      this->Path = args->Path;
-      this->m_importTask = nullptr;
+      if (args)
+      {
+         this->Path = args->Path;
+      }
+      else
+      {
+         GameLibrary::Get()->RemoveGame(this);
+
+      }
 
       PropertyChanged(this, ref new PropertyChangedEventArgs("Importing"));
       PropertyChanged(this, ref new PropertyChangedEventArgs("Status"));
@@ -80,7 +92,7 @@ float RetroArch_Win10::Game::Progress::get()
 {
    if (m_importTask)
    {
-      return m_importTask->Progress;
+      return m_importTask->CurrentProgress;
    }
    return 0.0f;
 }
@@ -94,6 +106,18 @@ bool RetroArch_Win10::Game::Importing::get()
    }
    return false;
 }
+
+
+bool RetroArch_Win10::Game::FileError::get()
+{
+   if (m_importTask)
+   {
+      return m_importTask->Status == FileImportStatus::Error ||
+         m_importTask->Status == FileImportStatus::Canceled;
+   }
+   return false;
+}
+
 
 RetroArch_Win10::GameLibrary::GameLibrary()
 {
@@ -122,6 +146,20 @@ void RetroArch_Win10::GameLibrary::AddGame(Game ^ game)
 {
    m_library->Append(game);
    GetGamesBySystem(game->System)->Append(game);
+}
+
+void RetroArch_Win10::GameLibrary::RemoveGame(Game ^ game)
+{
+   unsigned int index = 0;
+   if (m_library->IndexOf(game, &index))
+   {
+      m_library->RemoveAt(index);
+   }
+   if (GetGamesBySystem(game->System)->IndexOf(game, &index))
+   {
+      GetGamesBySystem(game->System)->RemoveAt(index);
+   }
+
 }
 
 GameVector ^ RetroArch_Win10::GameLibrary::GetGamesBySystem(ESystemId system)

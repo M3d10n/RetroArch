@@ -73,7 +73,7 @@
                 <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
             </Style>
             <DataTemplate x:Key="GameListEntryTemplate">
-                <Grid Padding="0" Margin="0,0,0,4" d:DesignWidth="487.905">
+                <Grid Padding="0" Margin="0,0,0,4" d:DesignWidth="487.905" Width="300">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="8"/>
@@ -84,8 +84,7 @@
                     </Grid>
                     <StackPanel x:Name="Importing" Grid.Column="2" Orientation="Vertical" d:LayoutOverrides="Height" VerticalAlignment="Center" Visibility="{Binding Importing, Converter={StaticResource BooleanVisibilityConverter}, Mode=OneWay}">
                         <TextBlock x:Name="textBlock_Copy" TextWrapping="Wrap" Text="{Binding Title, FallbackValue=Game Title}" VerticalAlignment="Center" d:LayoutOverrides="TopMargin, BottomMargin"/>
-                        <ProgressBar VerticalAlignment="Stretch" Height="10" Maximum="1" IsIndeterminate="True"/>
-                        <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="Loading" TextAlignment="Center" FontSize="10.667" Foreground="#7FFFFFFF"/>
+                        <ProgressBar VerticalAlignment="Stretch" Height="10" Maximum="1" Value="{Binding Progress}"/>
                     </StackPanel>
                     <Image x:Name="image" Source="{Binding BoxArt, FallbackValue=ms-appx:///media/assets/xmb/flatui/png/Sega - Mega Drive - Genesis-content.png}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Width="100" Height="100"/>
                 </Grid>
