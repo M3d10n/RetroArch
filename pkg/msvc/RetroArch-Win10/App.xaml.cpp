@@ -63,6 +63,27 @@ void App::OnLaunched(Windows::ApplicationModel::Activation::LaunchActivatedEvent
 	Window::Current->Activate();
 }
 
+void RetroArch_Win10::App::OnFileActivated(Windows::ApplicationModel::Activation::FileActivatedEventArgs ^ args)
+{
+   int fileCount = args->Files->Size;
+   const wchar_t* wpath = args->Files->GetAt(0)->Path->Data();
+
+   auto async = Windows::Storage::StorageFile::GetFileFromPathAsync(args->Files->GetAt(0)->Path);
+   while (async->Status == Windows::Foundation::AsyncStatus::Started);
+   auto status = async->Status;
+
+   auto file = async->GetResults();
+
+   bool exists = file->IsAvailable;
+
+   char path[4096] = { 0 };
+   wcstombs_s(NULL, path, sizeof(path), wpath, sizeof(path));
+
+   FILE* f = fopen(path, "rb");
+
+   throw ref new Platform::NotImplementedException();
+}
+
 /// <summary>
 /// Invoked when application execution is being suspended.  Application state is saved
 /// without knowing whether the application will be terminated or resumed with the contents
