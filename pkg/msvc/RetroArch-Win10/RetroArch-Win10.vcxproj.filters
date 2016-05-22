@@ -1443,12 +1443,6 @@
     <Image Include="media\assets\wallpapers\bichromatic pads\1440x900\Sony - PlayStation.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="ARM\Debug\PackageLayout\media\assets\xmb\flatui\png\Nintendo - Super Nintendo Entertainment System.png">
-      <Filter>Assets</Filter>
-    </Image>
-    <Image Include="ARM\Debug\PackageLayout\media\assets\xmb\flatui\png\Nintendo - Super Nintendo Entertainment System-content.png">
-      <Filter>Assets</Filter>
-    </Image>
     <Image Include="media\Square71x71Logo.scale-125.png">
       <Filter>Assets</Filter>
     </Image>
@@ -1569,18 +1563,12 @@
     <Image Include="media\Square71x71Logo.scale-200.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="media\invader_light.png">
-      <Filter>Assets</Filter>
-    </Image>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />
   </ItemGroup>
   <ItemGroup>
     <None Include="RetroArch-Win10_TemporaryKey.pfx" />
-    <None Include="bin\win_x64\2048_libretro.dll" />
-    <None Include="bin\win_x64\genesis_plus_gx_libretro.dll" />
-    <None Include="bin\win_ARM\genesis_plus_gx_libretro.dll" />
     <None Include="..\..\..\media\overlays\gamepads\720-med\720-med-menu.png">
       <Filter>Assets</Filter>
     </None>
@@ -2893,24 +2881,17 @@
     <None Include="media\overlays\gamepads\flat\turbografx-16_6-button.cfg" />
     <None Include="media\overlays\gamepads\flat\virtualboy.cfg" />
     <None Include="media\overlays\gamepads\flat\wonderswan.cfg" />
-    <None Include="bin\win_x86\genesis_plus_gx_libretro.dll" />
     <None Include="media\overlays\gamepads\flat\genesis-landscape.cfg" />
     <None Include="media\overlays\gamepads\flat\genesis-portrait.cfg" />
     <None Include="media\overlays\gamepads\flat\sms-landscape.cfg" />
     <None Include="media\overlays\gamepads\flat\sms-portrait.cfg" />
-    <None Include="bin\win_x86\snes9x_next_libretro.dll" />
-    <None Include="bin\win_ARM\snes9x_next_libretro.dll" />
-    <None Include="ARM\Debug\PackageLayout\media\overlays\gamepads\flat\snes.cfg" />
     <None Include="media\overlays\gamepads\flat\snes-landscape.cfg" />
     <None Include="media\overlays\gamepads\flat\snes-portrait.cfg" />
-    <None Include="bin\win_x64\snes9x_next_libretro.dll" />
     <None Include="media\retroarch.svg" />
-    <None Include="bin\win_x86\picodrive_libretro.dll" />
-    <None Include="bin\win_ARM\picodrive_libretro.dll" />
-    <None Include="bin\win_x64\picodrive_libretro.dll" />
-    <None Include="bin\win_ARM\fb_alpha_libretro.dll" />
-    <None Include="bin\win_x86\fb_alpha_libretro.dll" />
     <None Include="bin\win_x64\fb_alpha_libretro.dll" />
+    <None Include="bin\win_x64\genesis_plus_gx_libretro.dll" />
+    <None Include="bin\win_x64\picodrive_libretro.dll" />
+    <None Include="bin\win_x64\snes9x_next_libretro.dll" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="RetroArch-Win10.rc" />
