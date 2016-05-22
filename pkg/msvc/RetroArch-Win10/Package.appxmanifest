@@ -5,7 +5,7 @@
   <Properties>
     <DisplayName>RetroArch-Win10</DisplayName>
     <PublisherDisplayName>Manoel Neto</PublisherDisplayName>
-    <Logo>Assets\StoreLogo.png</Logo>
+    <Logo>media\NewStoreLogo.png</Logo>
   </Properties>
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
@@ -15,8 +15,8 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="RetroArch_Win10.App">
-      <uap:VisualElements DisplayName="RetroArch" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="RetroArch is the official reference frontend for the libretro API." BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" ShortName="Retroarch" Square71x71Logo="Assets\Square71x71Logo.png">
+      <uap:VisualElements DisplayName="RetroArch" Square150x150Logo="media\Square150x150Logo.png" Square44x44Logo="media\Square44x44Logo.png" Description="RetroArch is the official reference frontend for the libretro API." BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="media\Wide310x150Logo.png" ShortName="Retroarch" Square71x71Logo="media\Square71x71Logo.png" Square310x310Logo="media\Square310x310Logo.png">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo" />
             <uap:ShowOn Tile="wide310x150Logo" />
