@@ -7,5 +7,6 @@ namespace RetroArch_Win10
       MegaDrive,
       MasterSystem,
       SuperNintendo,
+      Arcade,
    };
 }

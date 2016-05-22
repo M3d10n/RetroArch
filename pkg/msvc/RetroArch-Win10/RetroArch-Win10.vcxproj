@@ -7,8 +7,8 @@
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <AppContainerApplication>true</AppContainerApplication>
     <ApplicationType>Windows Store</ApplicationType>
-    <WindowsTargetPlatformVersion>10.0.10240.0</WindowsTargetPlatformVersion>
-    <WindowsTargetPlatformMinVersion>10.0.10240.0</WindowsTargetPlatformMinVersion>
+    <WindowsTargetPlatformVersion>10.0.10586.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.10586.0</WindowsTargetPlatformMinVersion>
     <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
   </PropertyGroup>
@@ -81,26 +81,38 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`SQLite.UAP.2015, Version=3.8.11.1`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\SQLite.UAP.2015.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`SQLite.UAP.2015, Version=3.8.11.1`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\SQLite.UAP.2015.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10586.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10586.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`SQLite.UAP.2015, Version=3.8.11.1`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\SQLite.UAP.2015.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`SQLite.UAP.2015, Version=3.8.11.1`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\SQLite.UAP.2015.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10586.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10586.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`SQLite.UAP.2015, Version=3.8.11.1`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\SQLite.UAP.2015.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`SQLite.UAP.2015, Version=3.8.11.1`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\SQLite.UAP.2015.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10586.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10586.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`SQLite.UAP.2015, Version=3.8.11.1`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\SQLite.UAP.2015.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`SQLite.UAP.2015, Version=3.8.11.1`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\SQLite.UAP.2015.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10586.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10586.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`SQLite.UAP.2015, Version=3.8.11.1`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\SQLite.UAP.2015.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`SQLite.UAP.2015, Version=3.8.11.1`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\SQLite.UAP.2015.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10586.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10586.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`SQLite.UAP.2015, Version=3.8.11.1`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\SQLite.UAP.2015.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`SQLite.UAP.2015, Version=3.8.11.1`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\SQLite.UAP.2015.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10586.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10586.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -121,12 +133,11 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_LIBRETRODB;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_LIBRETRODB;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_LOGGER;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <CompileAs>CompileAsCpp</CompileAs>
       <AdditionalIncludeDirectories>..\..\..\deps\zlib;..\..\..\libretro-common\include;..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAsWinRT>true</CompileAsWinRT>
-      <CompileAsManaged>false</CompileAsManaged>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <AdditionalDependencies>d2d1.lib;d3d11.lib;dxgi.lib;xaudio2.lib;windowscodecs.lib;dwrite.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -136,12 +147,11 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_LIBRETRODB;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_LIBRETRODB;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_LOGGER;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <CompileAs>CompileAsCpp</CompileAs>
       <AdditionalIncludeDirectories>..\..\..\deps\zlib;..\..\..\libretro-common\include;..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAsWinRT>true</CompileAsWinRT>
-      <CompileAsManaged>false</CompileAsManaged>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <AdditionalDependencies>d2d1.lib;d3d11.lib;dxgi.lib;xaudio2.lib;windowscodecs.lib;dwrite.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -151,13 +161,12 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_LIBRETRODB;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_LIBRETRODB;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_LOGGER;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\..\deps\zlib;..\..\..\libretro-common\include;..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
       <DisableLanguageExtensions>false</DisableLanguageExtensions>
-      <CompileAsManaged>false</CompileAsManaged>
     </ClCompile>
     <Link>
       <AdditionalDependencies>d2d1.lib;d3d11.lib;dxgi.lib;xaudio2.lib;windowscodecs.lib;dwrite.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -167,12 +176,11 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_LIBRETRODB;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_LIBRETRODB;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_LOGGER;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\..\deps\zlib;..\..\..\libretro-common\include;..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
-      <CompileAsManaged>false</CompileAsManaged>
     </ClCompile>
     <Link>
       <AdditionalDependencies>d2d1.lib;d3d11.lib;dxgi.lib;xaudio2.lib;windowscodecs.lib;dwrite.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -182,12 +190,11 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_LIBRETRODB;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_LIBRETRODB;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_LOGGER;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAs>CompileAsCpp</CompileAs>
       <AdditionalIncludeDirectories>..\..\..\deps\zlib;..\..\..\libretro-common\include;..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAsWinRT>true</CompileAsWinRT>
-      <CompileAsManaged>false</CompileAsManaged>
     </ClCompile>
     <Link>
       <AdditionalDependencies>d2d1.lib;d3d11.lib;dxgi.lib;xaudio2.lib;windowscodecs.lib;dwrite.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -197,12 +204,11 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_LIBRETRODB;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HAVE_XAUDIO;HAVE_FBO;HAVE_D3D;HAVE_D3D11;HAVE_HLSL;HAVE_MAIN;HAVE_THREADS;HAVE_RGUI;HAVE_MATERIALUI;HAVE_7ZIP;HAVE_ZLIB_DEFLATE;HAVE_XINPUT;HAVE_STB_FONT;HAVE_ZLIB;WANT_ZLIB;HAVE_FREETYPE;RARCH_INTERNAL;HAVE_LIBRETRODB;HAVE_OVERLAY;HAVE_DYNAMIC;HAVE_LOGGER;HAVE_FILE_LOGGER;HAVE_RPNG;M_PI=3.1415926535897932384626433832795;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAs>CompileAsCpp</CompileAs>
       <AdditionalIncludeDirectories>..\..\..\deps\zlib;..\..\..\libretro-common\include;..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAsWinRT>true</CompileAsWinRT>
-      <CompileAsManaged>false</CompileAsManaged>
     </ClCompile>
     <Link>
       <AdditionalDependencies>d2d1.lib;d3d11.lib;dxgi.lib;xaudio2.lib;windowscodecs.lib;dwrite.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -215,26 +221,109 @@
     <None Include="ARM\Debug\PackageLayout\media\overlays\gamepads\flat\snes.cfg">
       <DeploymentContent>true</DeploymentContent>
     </None>
+    <None Include="bin\win_ARM\fb_alpha_libretro.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
+    </None>
     <None Include="bin\win_ARM\genesis_plus_gx_libretro.dll">
       <DeploymentContent>true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="bin\win_ARM\picodrive_libretro.dll">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </None>
     <None Include="bin\win_ARM\snes9x_next_libretro.dll">
       <DeploymentContent>true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </None>
     <None Include="bin\win_x64\2048_libretro.dll">
       <DeploymentContent>true</DeploymentContent>
     </None>
+    <None Include="bin\win_x64\fb_alpha_libretro.dll">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
+    </None>
     <None Include="bin\win_x64\genesis_plus_gx_libretro.dll">
       <DeploymentContent>true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="bin\win_x64\picodrive_libretro.dll">
+      <DeploymentContent>true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </None>
     <None Include="bin\win_x64\snes9x_next_libretro.dll">
       <DeploymentContent>true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="bin\win_x86\fb_alpha_libretro.dll">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
     </None>
     <None Include="bin\win_x86\genesis_plus_gx_libretro.dll">
       <DeploymentContent>true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</DeploymentContent>
+    </None>
+    <None Include="bin\win_x86\picodrive_libretro.dll">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</DeploymentContent>
     </None>
     <None Include="bin\win_x86\snes9x_next_libretro.dll">
       <DeploymentContent>true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</DeploymentContent>
     </None>
     <None Include="media\libretrodb\dat\Atari - 5200.dat" />
     <None Include="media\libretrodb\dat\Atari - 7800.dat" />
@@ -479,6 +568,9 @@
     <None Include="media\overlays\gamepads\flat\turbografx-16_6-button.cfg" />
     <None Include="media\overlays\gamepads\flat\virtualboy.cfg" />
     <None Include="media\overlays\gamepads\flat\wonderswan.cfg" />
+    <None Include="media\retroarch.svg">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="RetroArch-Win10_TemporaryKey.pfx" />
   </ItemGroup>
@@ -653,6 +745,12 @@
     <Image Include="media\assets\xmb\flatui\png\Sony - PlayStation-content.png" />
     <Image Include="media\assets\xmb\flatui\png\Sony - PlayStation.png" />
     <Image Include="media\assets\xmb\flatui\png\subsetting.png" />
+    <Image Include="media\invader_light.png" />
+    <Image Include="media\NewStoreLogo.scale-100.png" />
+    <Image Include="media\NewStoreLogo.scale-125.png" />
+    <Image Include="media\NewStoreLogo.scale-150.png" />
+    <Image Include="media\NewStoreLogo.scale-200.png" />
+    <Image Include="media\NewStoreLogo.scale-400.png" />
     <Image Include="media\overlays\gamepads\flat\1.png" />
     <Image Include="media\overlays\gamepads\flat\2-button.png" />
     <Image Include="media\overlays\gamepads\flat\2.png" />
@@ -755,6 +853,41 @@
     <Image Include="media\overlays\gamepads\flat\Y3_wswan.png" />
     <Image Include="media\overlays\gamepads\flat\Y4_wswan.png" />
     <Image Include="media\overlays\gamepads\flat\Z.png" />
+    <Image Include="media\Square150x150Logo.scale-100.png" />
+    <Image Include="media\Square150x150Logo.scale-125.png" />
+    <Image Include="media\Square150x150Logo.scale-150.png" />
+    <Image Include="media\Square150x150Logo.scale-200.png" />
+    <Image Include="media\Square150x150Logo.scale-400.png" />
+    <Image Include="media\Square310x310Logo.scale-100.png" />
+    <Image Include="media\Square310x310Logo.scale-125.png" />
+    <Image Include="media\Square310x310Logo.scale-150.png" />
+    <Image Include="media\Square310x310Logo.scale-200.png" />
+    <Image Include="media\Square310x310Logo.scale-400.png" />
+    <Image Include="media\Square44x44Logo.scale-100.png" />
+    <Image Include="media\Square44x44Logo.scale-125.png" />
+    <Image Include="media\Square44x44Logo.scale-150.png" />
+    <Image Include="media\Square44x44Logo.scale-200.png" />
+    <Image Include="media\Square44x44Logo.scale-400.png" />
+    <Image Include="media\Square44x44Logo.targetsize-16.png" />
+    <Image Include="media\Square44x44Logo.targetsize-16_altform-unplated.png" />
+    <Image Include="media\Square44x44Logo.targetsize-24.png" />
+    <Image Include="media\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Image Include="media\Square44x44Logo.targetsize-256.png" />
+    <Image Include="media\Square44x44Logo.targetsize-256_altform-unplated.png" />
+    <Image Include="media\Square44x44Logo.targetsize-32.png" />
+    <Image Include="media\Square44x44Logo.targetsize-32_altform-unplated.png" />
+    <Image Include="media\Square44x44Logo.targetsize-48.png" />
+    <Image Include="media\Square44x44Logo.targetsize-48_altform-unplated.png" />
+    <Image Include="media\Square71x71Logo.scale-100.png" />
+    <Image Include="media\Square71x71Logo.scale-125.png" />
+    <Image Include="media\Square71x71Logo.scale-150.png" />
+    <Image Include="media\Square71x71Logo.scale-200.png" />
+    <Image Include="media\Square71x71Logo.scale-400.png" />
+    <Image Include="media\Wide310x150Logo.scale-100.png" />
+    <Image Include="media\Wide310x150Logo.scale-125.png" />
+    <Image Include="media\Wide310x150Logo.scale-150.png" />
+    <Image Include="media\Wide310x150Logo.scale-200.png" />
+    <Image Include="media\Wide310x150Logo.scale-400.png" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\audio\audio_driver.c" />
@@ -942,6 +1075,7 @@
     <ClCompile Include="..\..\..\ui\drivers\uwp\in_game_page.xaml.cpp">
       <DependentUpon>..\..\..\ui\drivers\uwp\in_game_page.xaml</DependentUpon>
     </ClCompile>
+    <ClCompile Include="..\..\..\ui\drivers\uwp\logger.cpp" />
     <ClCompile Include="..\..\..\ui\drivers\uwp\main_page.xaml.cpp">
       <DependentUpon>..\..\..\ui\drivers\uwp\main_page.xaml</DependentUpon>
     </ClCompile>
@@ -975,10 +1109,12 @@
     <ClInclude Include="..\..\..\ui\drivers\uwp\main_page.xaml.h">
       <DependentUpon>..\..\..\ui\drivers\uwp\main_page.xaml</DependentUpon>
     </ClInclude>
+    <ClInclude Include="..\..\..\ui\drivers\uwp\sqlite_codes.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\systems.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\system_library.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\uwp.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\viewmodel_locator.h" />
+    <ClInclude Include="..\..\..\verbosity.h" />
     <ClInclude Include="App.xaml.h">
       <DependentUpon>App.xaml</DependentUpon>
     </ClInclude>
@@ -3104,16 +3240,16 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <SDKReference Include="WindowsMobile, Version=10.0.10240.0" />
+    <SDKReference Include="WindowsMobile, Version=10.0.10586.0" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\packages\Microsoft.Xaml.Behaviors.Uwp.Native.1.0.2\build\native\Microsoft.Xaml.Behaviors.Uwp.Native.targets" Condition="Exists('..\packages\Microsoft.Xaml.Behaviors.Uwp.Native.1.0.2\build\native\Microsoft.Xaml.Behaviors.Uwp.Native.targets')" />
+    <Import Project="..\packages\SQLite.Core.UAP.2016.04.18.1\build\native\SQLite.Core.UAP.targets" Condition="Exists('..\packages\SQLite.Core.UAP.2016.04.18.1\build\native\SQLite.Core.UAP.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Xaml.Behaviors.Uwp.Native.1.0.2\build\native\Microsoft.Xaml.Behaviors.Uwp.Native.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Xaml.Behaviors.Uwp.Native.1.0.2\build\native\Microsoft.Xaml.Behaviors.Uwp.Native.targets'))" />
+    <Error Condition="!Exists('..\packages\SQLite.Core.UAP.2016.04.18.1\build\native\SQLite.Core.UAP.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLite.Core.UAP.2016.04.18.1\build\native\SQLite.Core.UAP.targets'))" />
   </Target>
 </Project>

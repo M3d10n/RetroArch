@@ -17,6 +17,7 @@ RetroArch_Win10::SystemLibrary::SystemLibrary()
    system->MediaIcon = "ms-appx:///media/assets/xmb/flatui/png/Sega - Mega Drive - Genesis-content.png";
    system->Background = "ms-appx:///media/assets/wallpapers/bichromatic pads/1440x900/Sega - Mega Drive - Genesis.png";
    system->Core = "genesis_plus_gx";
+   //system->Core = "picodrive";
    system->LandscapeOverlay = "gamepads/flat/genesis-landscape.cfg";
    system->PortraitOverlay = "gamepads/flat/genesis-portrait.cfg";
    system->FileTypes->Append(".mdx");
@@ -64,6 +65,20 @@ RetroArch_Win10::SystemLibrary::SystemLibrary()
    system->FileTypes->Append(".dx2");
    system->FileTypes->Append(".bsx");
    system->FileTypes->Append(".swc");
+
+   RegisterSystem(system);
+
+   system = ref new System();
+   system->Id = ESystemId::Arcade;
+   system->Name = "Arcade";
+   system->Maker = "Multiple";
+   system->Icon = "ms-appx:///media/assets/xmb/flatui/png/MAME.png";
+   system->MediaIcon = "ms-appx:///media/assets/xmb/flatui/png/MAME.png";
+   system->Background = "ms-appx:///media/assets/wallpapers/bichromatic pads/1440x900/MAME.png";
+   system->Core = "fb_alpha";
+   system->LandscapeOverlay = "gamepads/flat/snes-landscape.cfg";
+   system->PortraitOverlay = "gamepads/flat/snes-portrait.cfg";
+   system->FileTypes->Append(".zip");
 
    RegisterSystem(system);
 }

@@ -686,6 +686,9 @@
     <ClCompile Include="..\..\..\ui\drivers\uwp\file_importer.cpp">
       <Filter>Source\ui\drivers\uwp</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\ui\drivers\uwp\logger.cpp">
+      <Filter>Source\ui\drivers\uwp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\ui\drivers\uwp\uwp.h">
@@ -729,6 +732,12 @@
     <ClInclude Include="..\..\..\ui\drivers\uwp\in_game_page.xaml.h" />
     <ClInclude Include="..\..\..\ui\drivers\uwp\file_importer.h">
       <Filter>Source\ui\drivers\uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ui\drivers\uwp\sqlite_codes.h">
+      <Filter>Source\ui\drivers\uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\verbosity.h">
+      <Filter>Source</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1438,6 +1447,129 @@
       <Filter>Assets</Filter>
     </Image>
     <Image Include="ARM\Debug\PackageLayout\media\assets\xmb\flatui\png\Nintendo - Super Nintendo Entertainment System-content.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square71x71Logo.scale-125.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square71x71Logo.scale-400.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square150x150Logo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square150x150Logo.scale-125.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square150x150Logo.scale-150.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square150x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square150x150Logo.scale-400.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Wide310x150Logo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Wide310x150Logo.scale-125.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Wide310x150Logo.scale-150.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Wide310x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Wide310x150Logo.scale-400.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square310x310Logo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square310x310Logo.scale-125.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square310x310Logo.scale-150.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square310x310Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square310x310Logo.scale-400.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square44x44Logo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square44x44Logo.scale-125.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square44x44Logo.scale-150.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square44x44Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square44x44Logo.scale-400.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square44x44Logo.targetsize-16.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square44x44Logo.targetsize-24.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square44x44Logo.targetsize-32.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square44x44Logo.targetsize-48.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square44x44Logo.targetsize-256.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square44x44Logo.targetsize-16_altform-unplated.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square44x44Logo.targetsize-32_altform-unplated.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square44x44Logo.targetsize-48_altform-unplated.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square44x44Logo.targetsize-256_altform-unplated.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\NewStoreLogo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\NewStoreLogo.scale-125.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\NewStoreLogo.scale-150.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\NewStoreLogo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\NewStoreLogo.scale-400.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square71x71Logo.scale-150.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square71x71Logo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\Square71x71Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="media\invader_light.png">
       <Filter>Assets</Filter>
     </Image>
   </ItemGroup>
@@ -2772,6 +2904,13 @@
     <None Include="media\overlays\gamepads\flat\snes-landscape.cfg" />
     <None Include="media\overlays\gamepads\flat\snes-portrait.cfg" />
     <None Include="bin\win_x64\snes9x_next_libretro.dll" />
+    <None Include="media\retroarch.svg" />
+    <None Include="bin\win_x86\picodrive_libretro.dll" />
+    <None Include="bin\win_ARM\picodrive_libretro.dll" />
+    <None Include="bin\win_x64\picodrive_libretro.dll" />
+    <None Include="bin\win_ARM\fb_alpha_libretro.dll" />
+    <None Include="bin\win_x86\fb_alpha_libretro.dll" />
+    <None Include="bin\win_x64\fb_alpha_libretro.dll" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="RetroArch-Win10.rc" />

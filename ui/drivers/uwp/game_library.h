@@ -65,12 +65,17 @@ namespace RetroArch_Win10
    public:
 
       GameLibrary();
+      ~GameLibrary();
 
       static GameLibrary* Get();
 
       void AddGame(Game^ game);
 
       void RemoveGame(Game^ game);
+
+      void AddGameToDb(Game^ game);
+
+      void LoadGamesFromDb();
 
       GameVector^ GetGames() { return m_library; }
 
@@ -83,5 +88,7 @@ namespace RetroArch_Win10
       SystemGameMap m_library_system;
 
       GameLibraryDispatcher^ m_dispatcher;
+
+      ref class SQLite::Core::Database^ m_db;
    };
 }

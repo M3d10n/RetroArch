@@ -79,7 +79,7 @@ void RetroarchMain::StartUpdateThread()
          };
          
          // Initialize
-         rarch_main(argc, arg_l, NULL);
+         int ret = rarch_main(argc, arg_l, NULL);
 
          // Override the core folder based on the current architecture
          settings_t *settings = config_get_ptr();         
@@ -92,7 +92,10 @@ void RetroarchMain::StartUpdateThread()
 #endif
 
          global_t *global = global_get_ptr();
-         global->perfcnt_enable = true;
+         if (!global->inited.main)
+         {
+            return;
+         }
 
          m_initialized = true;
          m_running = true;

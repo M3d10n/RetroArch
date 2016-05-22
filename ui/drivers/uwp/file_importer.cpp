@@ -41,6 +41,8 @@ FileImportEntry^ RetroArch_Win10::FileImportManager::QueueImportTask(Windows::St
 {
    auto entry = ref new FileImportEntry(SourceFile, TargetFolder);
 
+   Windows::Storage::AccessCache::StorageApplicationPermissions::MostRecentlyUsedList->Add(SourceFile);
+
    if (ActiveTasks < MAX_ACTIVE_TASKS)
    {
       ActiveTasks++;
