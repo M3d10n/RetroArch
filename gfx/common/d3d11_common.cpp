@@ -776,14 +776,18 @@ void d3d11::DeviceResources::Trim()
 void d3d11::DeviceResources::Render(const D2D1_MATRIX_3X2_F &displayMatrix, bool displayOverlays)
 {
    // Reset the viewport to target the whole screen.
-   m_d3dContext->RSSetViewports(1, &m_screenViewport);
+   D3D11_VIEWPORT nativeViewport = m_screenViewport;
+   nativeViewport.Width *= m_compositionScaleX;
+   nativeViewport.Height *= m_compositionScaleY;
 
+   m_d3dContext->RSSetViewports(1, &nativeViewport);
+   
    // Reset render targets to the screen.
    ID3D11RenderTargetView *const targets[1] = { GetBackBufferRenderTargetView() };
    m_d3dContext->OMSetRenderTargets(1, targets, GetDepthStencilView());
 
    // Clear the back buffer and depth stencil view.
-   m_d3dContext->ClearRenderTargetView(GetBackBufferRenderTargetView(), DirectX::Colors::CornflowerBlue);
+   m_d3dContext->ClearRenderTargetView(GetBackBufferRenderTargetView(), DirectX::Colors::Black);
    m_d3dContext->ClearDepthStencilView(GetDepthStencilView(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
    // Nothing to display

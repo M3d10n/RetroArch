@@ -79,11 +79,11 @@
                         <ColumnDefinition Width="8"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Grid x:Name="Default" Grid.Column="2" Margin="0,40" Visibility="{Binding Importing, Converter={StaticResource NegativeBooleanVisibilityConverter}}">
-                        <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding Title, FallbackValue=Game Title}" VerticalAlignment="Center" d:LayoutOverrides="TopMargin, BottomMargin"/>
+                    <Grid x:Name="Default" Grid.Column="2" Margin="0" Visibility="{Binding Importing, Converter={StaticResource NegativeBooleanVisibilityConverter}}">
+                        <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding Title, FallbackValue=Game Title}" d:LayoutOverrides="TopMargin, BottomMargin" VerticalAlignment="Center"/>
                     </Grid>
-                    <StackPanel x:Name="Importing" Grid.Column="2" Orientation="Vertical" d:LayoutOverrides="Height" VerticalAlignment="Center" Visibility="{Binding Importing, Converter={StaticResource BooleanVisibilityConverter}, Mode=OneWay}">
-                        <TextBlock x:Name="textBlock_Copy" TextWrapping="Wrap" Text="{Binding Title, FallbackValue=Game Title}" VerticalAlignment="Center" d:LayoutOverrides="TopMargin, BottomMargin"/>
+                    <StackPanel x:Name="Importing" Grid.Column="2" Orientation="Vertical" d:LayoutOverrides="Height" Visibility="{Binding Importing, Converter={StaticResource BooleanVisibilityConverter}, Mode=OneWay}" VerticalAlignment="Center">
+                        <TextBlock x:Name="textBlock_Copy" TextWrapping="Wrap" Text="{Binding Title, FallbackValue=Game Title}" d:LayoutOverrides="TopMargin, BottomMargin"/>
                         <ProgressBar VerticalAlignment="Stretch" Height="10" Maximum="1" Value="{Binding Progress}"/>
                     </StackPanel>
                     <Image x:Name="image" Source="{Binding BoxArt, FallbackValue=ms-appx:///media/assets/xmb/flatui/png/Sega - Mega Drive - Genesis-content.png}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Width="100" Height="100"/>
