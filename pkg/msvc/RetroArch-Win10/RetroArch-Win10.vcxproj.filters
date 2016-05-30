@@ -2892,6 +2892,14 @@
     <None Include="bin\win_x64\genesis_plus_gx_libretro.dll" />
     <None Include="bin\win_x64\picodrive_libretro.dll" />
     <None Include="bin\win_x64\snes9x_next_libretro.dll" />
+    <None Include="bin\win_x86\fb_alpha_libretro.dll" />
+    <None Include="bin\win_x86\genesis_plus_gx_libretro.dll" />
+    <None Include="bin\win_x86\picodrive_libretro.dll" />
+    <None Include="bin\win_x86\snes9x_next_libretro.dll" />
+    <None Include="bin\win_ARM\fb_alpha_libretro.dll" />
+    <None Include="bin\win_ARM\genesis_plus_gx_libretro.dll" />
+    <None Include="bin\win_ARM\picodrive_libretro.dll" />
+    <None Include="bin\win_ARM\snes9x_next_libretro.dll" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="RetroArch-Win10.rc" />
@@ -2916,5 +2924,13 @@
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\..\..\gfx\common\d3d11_vs.hlsl">
+      <Filter>Source\gfx\common</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\gfx\common\d3d11_ps.hlsl">
+      <Filter>Source\gfx\common</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

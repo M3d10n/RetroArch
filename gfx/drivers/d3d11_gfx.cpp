@@ -117,49 +117,22 @@ static bool d3d11_gfx_frame(void *data, const void *frame,
    rarch_perf_init(&d3d_frame, "d3d_frame");
    retro_perf_start(&d3d_frame);
 
+#ifdef HAVE_OVERLAY
+   bool use_overlay = settings->input.overlay_enable;   
+#else
+   bool use_overlay = false;
+#endif
+
    auto d3d11res = (d3d11::DeviceResources*)data;
-   auto d2dctx = d3d11res->GetD2DDeviceContext();
-   d2dctx->BeginDraw();
-   d2dctx->Clear();
-
-   d2dctx->SetTransform(d3d11_get_display_matrix(data, width, height));
-
-   auto viewport = d3d11res->GetScreenViewport();
-   D2D1_RECT_F rect = { 0, 0, viewport.Width, viewport.Height };
 
    d3d11res->SetFrameTexture(frame, d3d11res->GetVideoInfo()->rgb32, width, height, pitch);
-
-   d2dctx->DrawBitmap(d3d11res->GetD2DFrameBitmap(), rect);
-
-#ifdef HAVE_MENU
-   auto menu_bitmap = d3d11res->GetD2DMenuBitmap();
-   if (menu_bitmap && g_d3d11_settings.menu_enabled)
-   {
-	   d2dctx->SetTransform(d3d11_get_display_matrix(data, menu_bitmap->GetPixelSize().width, menu_bitmap->GetPixelSize().height));	   
-	   d2dctx->DrawBitmap(menu_bitmap, rect);
-   }
-#endif
-   
-#ifdef HAVE_OVERLAY
-   if (settings->input.overlay_enable)
-   {
-      d3d11res->RenderOverlays();
-   }
-#endif
-
-   d3d11::ThrowIfFailed( d2dctx->EndDraw() );
-
+   d3d11res->Render(d3d11_get_display_matrix(data, width, height), use_overlay);
+      
    if (font_ctx->render_msg && msg)
    {
 	   struct font_params font_parms = { 0 };
 	   font_ctx->render_msg(driver->font_osd_data, msg, &font_parms);
    }
-
-
-#ifdef HAVE_MENU
-   if (menu_driver_alive())
-	   menu_driver_frame();
-#endif
 
    retro_perf_stop(&d3d_frame);
 
@@ -332,15 +305,13 @@ static void d3d11_set_menu_texture_frame(void *data,
 	const void *frame, bool rgb32, unsigned width, unsigned height,
 	float alpha)
 {
-	auto d3d11res = (d3d11::DeviceResources*)data;
-	d3d11res->SetMenuTextureFrame(frame, rgb32, width, height, alpha);
-	
+	// Not supported
 }
 
 static void d3d11_set_menu_texture_enable(void *data,
 	bool state, bool full_screen)
 {
-   g_d3d11_settings.menu_enabled = state;
+   // Not supported
 }
 #endif
 

@@ -64,6 +64,13 @@ namespace d3d11
 
    class DeviceResources* Get();
 
+   // Constant buffer used to send the display matrix to the vertex shader.
+   struct DisplayMatrixConstantBuffer
+   {
+      DirectX::XMFLOAT4X4 display;      
+   };
+
+
 	// Controls all the DirectX device resources.
 	class DeviceResources
 	{
@@ -80,9 +87,9 @@ namespace d3d11
 		void HandleDeviceLost();
 		void RegisterDeviceNotify(IDeviceNotify* deviceNotify);
 		void Trim();
+      void Render(const D2D1_MATRIX_3X2_F &displayMatrix, bool displayOverlays);
 		void Present();
-
-      void SetMenuTextureFrame(const void *frame, bool rgb32, unsigned width, unsigned height, float alpha);
+            
       void SetFrameTexture(const void *frame, bool rgb32, unsigned width, unsigned height, unsigned pitch);
 
       void UpdateBitmap(Microsoft::WRL::ComPtr<ID2D1Bitmap1>& bitmap, const void *frame, bool rgb32, unsigned width, unsigned height, unsigned pitch, float alpha, bool has_alpha);
@@ -115,8 +122,7 @@ namespace d3d11
 		IDWriteFactory2*		GetDWriteFactory() const { return m_dwriteFactory.Get(); }
 		IWICImagingFactory2*	GetWicImagingFactory() const { return m_wicFactory.Get(); }
 		D2D1::Matrix3x2F		GetOrientationTransform2D() const { return m_orientationTransform2D; }
-
-      ID2D1Bitmap1*			GetD2DMenuBitmap() const { return m_d2dMenuBitmap.Get(); }
+            
       ID2D1Bitmap1*			GetD2DFrameBitmap() const { return m_d2dFrameBitmap.Get(); }
 
       const video_info_t*  GetVideoInfo() const { return &m_videoInfo; }
@@ -126,7 +132,7 @@ namespace d3d11
 	private:
 		void CreateDeviceIndependentResources();
 		void CreateDeviceResources();
-		DXGI_MODE_ROTATION ComputeDisplayRotation();
+      void CreateRenderingResources();
 
 		// Direct3D objects.
 		Microsoft::WRL::ComPtr<ID3D11Device3>			m_d3dDevice;
@@ -143,8 +149,6 @@ namespace d3d11
 		Microsoft::WRL::ComPtr<ID2D1Device1>		m_d2dDevice;
 		Microsoft::WRL::ComPtr<ID2D1DeviceContext1>	m_d2dContext;
 		Microsoft::WRL::ComPtr<ID2D1Bitmap1>		m_d2dTargetBitmap;
-		
-      Microsoft::WRL::ComPtr<ID2D1Bitmap1>		m_d2dMenuBitmap;
       Microsoft::WRL::ComPtr<ID2D1Bitmap1>		m_d2dFrameBitmap;
 
 		// DirectWrite drawing components.
@@ -174,6 +178,24 @@ namespace d3d11
 		DirectX::XMFLOAT4X4	m_orientationTransform3D;
 
 
+      // Direct3D resources for full screen quad geometry.
+      bool m_loadingComplete;
+      Microsoft::WRL::ComPtr<ID3D11InputLayout>	m_inputLayout;
+      Microsoft::WRL::ComPtr<ID3D11Buffer>		m_vertexBuffer;
+      Microsoft::WRL::ComPtr<ID3D11Buffer>		m_indexBuffer;
+      Microsoft::WRL::ComPtr<ID3D11VertexShader>	m_vertexShader;
+      Microsoft::WRL::ComPtr<ID3D11PixelShader>	m_pixelShader;
+      Microsoft::WRL::ComPtr<ID3D11Buffer>		m_constantBuffer;
+      Microsoft::WRL::ComPtr<ID3D11RasterizerState> m_rasterState;
+      Microsoft::WRL::ComPtr<ID3D11SamplerState> m_samplerState;
+
+      // Buffer
+      Microsoft::WRL::ComPtr<ID3D11Texture2D> m_textureDisplay;
+      Microsoft::WRL::ComPtr<ID3D11Texture2D> m_textureStaging;
+      Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_textureDisplayRSV;
+
+      DisplayMatrixConstantBuffer	m_constantBufferData;
+      
 		std::shared_ptr<uint8>	m_bitmapConversionBuffer;
       size_t                  m_bitmapConversionBufferSize;
 

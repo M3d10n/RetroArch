@@ -230,7 +230,7 @@
     <None Include="bin\win_x64\snes9x_next_libretro.dll">
       <DeploymentContent Condition="'$(Platform)'=='x64'">true</DeploymentContent>
     </None>
-	<None Include="bin\win_x86\fb_alpha_libretro.dll">
+    <None Include="bin\win_x86\fb_alpha_libretro.dll">
       <DeploymentContent Condition="'$(Platform)'=='Win32'">true</DeploymentContent>
     </None>
     <None Include="bin\win_x86\genesis_plus_gx_libretro.dll">
@@ -242,7 +242,7 @@
     <None Include="bin\win_x86\snes9x_next_libretro.dll">
       <DeploymentContent Condition="'$(Platform)'=='Win32'">true</DeploymentContent>
     </None>
-	<None Include="bin\win_ARM\fb_alpha_libretro.dll">
+    <None Include="bin\win_ARM\fb_alpha_libretro.dll">
       <DeploymentContent Condition="'$(Platform)'=='ARM'">true</DeploymentContent>
     </None>
     <None Include="bin\win_ARM\genesis_plus_gx_libretro.dll">
@@ -3167,6 +3167,27 @@
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="WindowsMobile, Version=10.0.10586.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\..\..\gfx\common\d3d11_ps.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+    </FxCompile>
+    <FxCompile Include="..\..\..\gfx\common\d3d11_vs.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4.0_level_9_1</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">4.0_level_9_1</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4.0_level_9_1</ShaderModel>
+    </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

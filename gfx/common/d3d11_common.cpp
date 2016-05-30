@@ -17,7 +17,7 @@
 #include "d3d11_common.h"
 #include "performance.h"
 #include <windows.ui.xaml.media.dxinterop.h>
-
+#include <ppltasks.h>
 
 using namespace D2D1;
 using namespace DirectX;
@@ -47,7 +47,8 @@ d3d11::DeviceResources::DeviceResources(const video_info_t* info) :
 	m_deviceNotify(nullptr),
    m_bitmapConversionBufferSize(0),
    m_videoInfo(*info),
-   m_bitmapOverlayCount(0)
+   m_bitmapOverlayCount(0),
+   m_loadingComplete(false)
 {
 	CreateDeviceIndependentResources();
 	CreateDeviceResources();
@@ -201,6 +202,181 @@ void d3d11::DeviceResources::CreateDeviceResources()
 			&m_d2dContext
 			)
 		);
+
+   CreateRenderingResources();
+}
+
+// Function that reads from a binary file asynchronously.
+inline Concurrency::task<std::vector<byte>> ReadDataAsync(const std::wstring& filename)
+{
+   using namespace Windows::Storage;
+   using namespace Concurrency;
+
+   auto folder = Windows::ApplicationModel::Package::Current->InstalledLocation;
+
+   return create_task(folder->GetFileAsync(Platform::StringReference(filename.c_str()))).then([](StorageFile^ file)
+   {
+      return FileIO::ReadBufferAsync(file);
+   }).then([](Streams::IBuffer^ fileBuffer) -> std::vector<byte>
+   {
+      std::vector<byte> returnBuffer;
+      returnBuffer.resize(fileBuffer->Length);
+      Streams::DataReader::FromBuffer(fileBuffer)->ReadBytes(Platform::ArrayReference<byte>(returnBuffer.data(), fileBuffer->Length));
+      return returnBuffer;
+   });
+}
+
+// Creates the resources used to displaying the core buffer to the screen
+void d3d11::DeviceResources::CreateRenderingResources()
+{
+   // Load shaders asynchronously.
+   auto loadVSTask = ReadDataAsync(L"d3d11_vs.cso");
+   auto loadPSTask = ReadDataAsync(L"d3d11_ps.cso");
+
+   // After the vertex shader file is loaded, create the shader and input layout.
+   auto createVSTask = loadVSTask.then([this](const std::vector<byte>& fileData) {
+      ThrowIfFailed(
+         GetD3DDevice()->CreateVertexShader(
+            &fileData[0],
+            fileData.size(),
+            nullptr,
+            &m_vertexShader
+         )
+      );
+
+      static const D3D11_INPUT_ELEMENT_DESC vertexDesc[] =
+      {
+         { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+      };
+
+      ThrowIfFailed(
+         GetD3DDevice()->CreateInputLayout(
+            vertexDesc,
+            ARRAYSIZE(vertexDesc),
+            &fileData[0],
+            fileData.size(),
+            &m_inputLayout
+         )
+      );
+   });
+
+   // After the pixel shader file is loaded, create the shader and constant buffer.
+   auto createPSTask = loadPSTask.then([this](const std::vector<byte>& fileData) {
+      ThrowIfFailed(
+         GetD3DDevice()->CreatePixelShader(
+            &fileData[0],
+            fileData.size(),
+            nullptr,
+            &m_pixelShader
+         )
+      );
+
+      CD3D11_BUFFER_DESC constantBufferDesc(sizeof(DisplayMatrixConstantBuffer), D3D11_BIND_CONSTANT_BUFFER);
+      ThrowIfFailed(
+         GetD3DDevice()->CreateBuffer(
+            &constantBufferDesc,
+            nullptr,
+            &m_constantBuffer
+         )
+      );
+   });
+
+   // Once both shaders are loaded, create the mesh.
+   auto createQuadTask = (createPSTask && createVSTask).then([this]() {
+
+      // Load mesh vertices. Each vertex has a position and a color.
+      static const DirectX::XMFLOAT3 quadVertices[] =
+      {
+         XMFLOAT3(0.0f, 0.0f, 0.0f),
+         XMFLOAT3(0.0f,  1.0f, 0.0f),
+         XMFLOAT3(1.0f, 0.0f, 0.0f),
+         XMFLOAT3(1.0f,  1.0f, 0.0f),
+      };
+
+      D3D11_SUBRESOURCE_DATA vertexBufferData = { 0 };
+      vertexBufferData.pSysMem = quadVertices;
+      vertexBufferData.SysMemPitch = 0;
+      vertexBufferData.SysMemSlicePitch = 0;
+      CD3D11_BUFFER_DESC vertexBufferDesc(sizeof(quadVertices), D3D11_BIND_VERTEX_BUFFER);
+      ThrowIfFailed(
+         GetD3DDevice()->CreateBuffer(
+            &vertexBufferDesc,
+            &vertexBufferData,
+            &m_vertexBuffer
+         )
+      );
+
+      // Load mesh indices. Each trio of indices represents
+      // a triangle to be rendered on the screen.
+      // For example: 0,2,1 means that the vertices with indexes
+      // 0, 2 and 1 from the vertex buffer compose the 
+      // first triangle of this mesh.
+      static const unsigned short quadIndices[] =
+      {
+         0,1,2,
+         2,1,3
+      };
+
+      D3D11_SUBRESOURCE_DATA indexBufferData = { 0 };
+      indexBufferData.pSysMem = quadIndices;
+      indexBufferData.SysMemPitch = 0;
+      indexBufferData.SysMemSlicePitch = 0;
+      CD3D11_BUFFER_DESC indexBufferDesc(sizeof(quadIndices), D3D11_BIND_INDEX_BUFFER);
+      ThrowIfFailed(
+         GetD3DDevice()->CreateBuffer(
+            &indexBufferDesc,
+            &indexBufferData,
+            &m_indexBuffer
+         )
+      );
+   });
+
+   // Once the quad is loaded, the object is ready to be rendered.
+   createQuadTask.then([this]() {
+      m_loadingComplete = true;
+   });
+
+   // Setup the raster description which will determine how and what polygons will be drawn.
+   D3D11_RASTERIZER_DESC rasterDesc;
+
+   rasterDesc.AntialiasedLineEnable = false;
+   rasterDesc.CullMode = D3D11_CULL_NONE;
+   rasterDesc.DepthBias = 0;
+   rasterDesc.DepthBiasClamp = 0.0f;
+   rasterDesc.DepthClipEnable = true;
+   rasterDesc.FillMode = D3D11_FILL_SOLID;
+   rasterDesc.FrontCounterClockwise = false;
+   rasterDesc.MultisampleEnable = false;
+   rasterDesc.ScissorEnable = false;
+   rasterDesc.SlopeScaledDepthBias = 0.0f;
+
+   // Create the rasterizer state from the description we just filled out.
+   ThrowIfFailed(
+      GetD3DDevice()->CreateRasterizerState(&rasterDesc, &m_rasterState)
+   );
+   // Now set the rasterizer state.
+   m_d3dContext->RSSetState(m_rasterState.Get());
+
+   // Create a texture sampler state description.
+   D3D11_SAMPLER_DESC samplerDesc;
+   samplerDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+   samplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_CLAMP;
+   samplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_CLAMP;
+   samplerDesc.AddressW = D3D11_TEXTURE_ADDRESS_CLAMP;
+   samplerDesc.MipLODBias = 0.0f;
+   samplerDesc.MaxAnisotropy = 1;
+   samplerDesc.ComparisonFunc = D3D11_COMPARISON_ALWAYS;
+   samplerDesc.BorderColor[0] = 0;
+   samplerDesc.BorderColor[1] = 0;
+   samplerDesc.BorderColor[2] = 0;
+   samplerDesc.BorderColor[3] = 0;
+   samplerDesc.MinLOD = 0;
+   samplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
+
+   // Create the texture sampler state.
+   ThrowIfFailed(
+      m_d3dDevice->CreateSamplerState(&samplerDesc, &m_samplerState)
+   );
 }
 
 // These resources need to be recreated every time the window size is changed.
@@ -564,6 +740,7 @@ void d3d11::DeviceResources::ValidateDevice()
 void d3d11::DeviceResources::HandleDeviceLost()
 {
 	m_swapChain = nullptr;
+   m_loadingComplete = false;
 
 	if (m_deviceNotify != nullptr)
 	{
@@ -596,6 +773,112 @@ void d3d11::DeviceResources::Trim()
 	dxgiDevice->Trim();
 }
 
+void d3d11::DeviceResources::Render(const D2D1_MATRIX_3X2_F &displayMatrix, bool displayOverlays)
+{
+   // Reset the viewport to target the whole screen.
+   m_d3dContext->RSSetViewports(1, &m_screenViewport);
+
+   // Reset render targets to the screen.
+   ID3D11RenderTargetView *const targets[1] = { GetBackBufferRenderTargetView() };
+   m_d3dContext->OMSetRenderTargets(1, targets, GetDepthStencilView());
+
+   // Clear the back buffer and depth stencil view.
+   m_d3dContext->ClearRenderTargetView(GetBackBufferRenderTargetView(), DirectX::Colors::CornflowerBlue);
+   m_d3dContext->ClearDepthStencilView(GetDepthStencilView(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
+
+   // Nothing to display
+   if (!m_loadingComplete)
+   {
+      return;
+   }
+
+   // Update the constant buffer matrix
+   XMMATRIX matrix = XMMatrixOrthographicOffCenterLH(0, 1, 1, 0, -100, 100);
+   matrix = XMMatrixMultiply(XMMatrixTranslation(displayMatrix._31 / m_screenViewport.Width, displayMatrix._32 / m_screenViewport.Height, 0), matrix);
+   matrix = XMMatrixMultiply(XMMatrixScaling(displayMatrix._11, displayMatrix._22, 1), matrix);
+   
+   XMStoreFloat4x4(&m_constantBufferData.display, XMMatrixTranspose(matrix));
+
+   // Prepare the constant buffer to send it to the graphics device.
+   m_d3dContext->UpdateSubresource1(
+      m_constantBuffer.Get(),
+      0,
+      NULL,
+      &m_constantBufferData,
+      0,
+      0,
+      0
+   );
+
+   // Each vertex is one instance of the VertexPositionColor struct.
+   UINT stride = sizeof(XMFLOAT3);
+   UINT offset = 0;
+   m_d3dContext->IASetVertexBuffers(
+      0,
+      1,
+      m_vertexBuffer.GetAddressOf(),
+      &stride,
+      &offset
+   );
+
+   m_d3dContext->IASetIndexBuffer(
+      m_indexBuffer.Get(),
+      DXGI_FORMAT_R16_UINT, // Each index is one 16-bit unsigned integer (short).
+      0
+   );
+
+   m_d3dContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
+   m_d3dContext->IASetInputLayout(m_inputLayout.Get());
+
+   // Attach our vertex shader.
+   m_d3dContext->VSSetShader(
+      m_vertexShader.Get(),
+      nullptr,
+      0
+   );
+
+   // Send the constant buffer to the graphics device.
+   m_d3dContext->VSSetConstantBuffers1(
+      0,
+      1,
+      m_constantBuffer.GetAddressOf(),
+      nullptr,
+      nullptr
+   );
+
+   // Attach our pixel shader.
+   m_d3dContext->PSSetShader(
+      m_pixelShader.Get(),
+      nullptr,
+      0
+   );
+
+   // Set samplers
+   m_d3dContext->PSSetSamplers(0, 1, m_samplerState.GetAddressOf());
+
+   // Set texture
+   m_d3dContext->PSSetShaderResources(0, 1, m_textureDisplayRSV.GetAddressOf());
+
+   // Draw the objects.
+   m_d3dContext->DrawIndexed(
+      6,
+      0,
+      0
+   );
+
+   // Draw overlays
+   m_d2dContext->BeginDraw();
+   m_d2dContext->SetTransform(displayMatrix);
+#ifdef HAVE_OVERLAY
+   if (displayOverlays)
+   {
+      RenderOverlays();
+   }
+#endif
+   d3d11::ThrowIfFailed(m_d2dContext->EndDraw());
+}
+
 // Present the contents of the swap chain to the screen.
 void d3d11::DeviceResources::Present()
 {
@@ -624,15 +907,77 @@ void d3d11::DeviceResources::Present()
 	}
 }
 
-// Creates or updates the menu texture contents
-void d3d11::DeviceResources::SetMenuTextureFrame(const void * frame, bool rgb32, unsigned width, unsigned height, float alpha)
-{
-   UpdateBitmap(m_d2dMenuBitmap, frame, rgb32, width, height, width, alpha, true);
-}
-
 void d3d11::DeviceResources::SetFrameTexture(const void * frame, bool rgb32, unsigned width, unsigned height, unsigned pitch)
 {
-   UpdateBitmap(m_d2dFrameBitmap, frame, rgb32, width, height, pitch, 1.0f, false);
+   HRESULT hr;
+
+   D3D11_TEXTURE2D_DESC desc;
+   if (m_textureDisplay.Get())
+   {
+      m_textureDisplay->GetDesc(&desc);
+   }
+
+   if (!m_textureDisplay.Get() || desc.Width != width || desc.Height != height)
+   {
+      // Release the textures
+      m_textureDisplay.Reset();
+      m_textureStaging.Reset();
+      m_textureDisplayRSV.Reset();
+
+      unsigned targetPitch = width * (rgb32 ? 4 : 2);
+
+      // Setup texture desc
+      desc.Width = width;
+      desc.Height = height;
+      desc.MipLevels = 1; 
+      desc.ArraySize = 1;
+      desc.Format = rgb32 ? DXGI_FORMAT_R8G8B8A8_UNORM : DXGI_FORMAT_B5G6R5_UNORM;
+      desc.CPUAccessFlags = 0; 
+      desc.Usage = D3D11_USAGE_DEFAULT;
+      desc.MiscFlags = 0;
+      desc.SampleDesc.Count = 1; 
+      desc.SampleDesc.Quality = 0;
+      desc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
+
+      // Setup initial resource
+      D3D11_SUBRESOURCE_DATA sr;
+      sr.pSysMem = frame;
+      sr.SysMemPitch = targetPitch;
+      sr.SysMemSlicePitch = targetPitch * height;
+      
+      // Create display texture
+      hr = m_d3dDevice->CreateTexture2D(&desc, &sr, &m_textureDisplay);
+      d3d11::ThrowIfFailed(hr);
+
+      // Create the display texture resource view
+      hr = m_d3dDevice->CreateShaderResourceView(m_textureDisplay.Get(), nullptr, &m_textureDisplayRSV);
+      d3d11::ThrowIfFailed(hr);
+
+      // Change desc for staging texture
+      desc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE | D3D11_CPU_ACCESS_READ;
+      desc.Usage = D3D11_USAGE_STAGING;
+      desc.BindFlags = 0;
+
+
+      // Create staging texture
+      hr = m_d3dDevice->CreateTexture2D(&desc, &sr, &m_textureStaging);
+      d3d11::ThrowIfFailed(hr);
+   }
+
+   // Update the staging texture   
+   D3D11_MAPPED_SUBRESOURCE mapped;
+   m_d3dContext->Map(m_textureStaging.Get(), 0, D3D11_MAP_READ_WRITE, 0, &mapped);
+   unsigned char* dst = (unsigned char*)mapped.pData;
+   unsigned char* src = (unsigned char*)frame;
+   unsigned int copyPitch = min(mapped.RowPitch, pitch);
+   for (unsigned i = 0; i < height; i++)
+   {
+      memcpy(&dst[mapped.RowPitch * i], &src[pitch * i], copyPitch);
+   }
+   m_d3dContext->Unmap(m_textureStaging.Get(), 0);
+   
+   // Update the display texture
+   m_d3dContext->CopyResource(m_textureDisplay.Get(), m_textureStaging.Get());
 }
 
 void d3d11::DeviceResources::UpdateBitmap(Microsoft::WRL::ComPtr<ID2D1Bitmap1>& bitmap, const void * frame, bool rgb32, unsigned width, unsigned height, unsigned pitch, float alpha, bool has_alpha)
