@@ -775,6 +775,12 @@ void d3d11::DeviceResources::Trim()
 
 void d3d11::DeviceResources::Render(const D2D1_MATRIX_3X2_F &displayMatrix, bool displayOverlays)
 {
+   // Nothing to display
+   if (!m_loadingComplete)
+   {
+      return;
+   }
+
    // Reset the viewport to target the whole screen.
    D3D11_VIEWPORT nativeViewport = m_screenViewport;
    nativeViewport.Width *= m_compositionScaleX;
@@ -790,11 +796,6 @@ void d3d11::DeviceResources::Render(const D2D1_MATRIX_3X2_F &displayMatrix, bool
    m_d3dContext->ClearRenderTargetView(GetBackBufferRenderTargetView(), DirectX::Colors::Black);
    m_d3dContext->ClearDepthStencilView(GetDepthStencilView(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
-   // Nothing to display
-   if (!m_loadingComplete)
-   {
-      return;
-   }
 
    // Update the constant buffer matrix
    XMMATRIX matrix = XMMatrixOrthographicOffCenterLH(0, 1, 1, 0, -100, 100);
@@ -802,7 +803,8 @@ void d3d11::DeviceResources::Render(const D2D1_MATRIX_3X2_F &displayMatrix, bool
    matrix = XMMatrixMultiply(XMMatrixScaling(displayMatrix._11, displayMatrix._22, 1), matrix);
    
    XMStoreFloat4x4(&m_constantBufferData.display, XMMatrixTranspose(matrix));
-
+   m_constantBufferData.params = XMFLOAT4(2, 0, 0, 0);
+   
    // Prepare the constant buffer to send it to the graphics device.
    m_d3dContext->UpdateSubresource1(
       m_constantBuffer.Get(),
@@ -849,6 +851,13 @@ void d3d11::DeviceResources::Render(const D2D1_MATRIX_3X2_F &displayMatrix, bool
       m_constantBuffer.GetAddressOf(),
       nullptr,
       nullptr
+   );
+   m_d3dContext->PSSetConstantBuffers1(
+	   0,
+	   1,
+	   m_constantBuffer.GetAddressOf(),
+	   nullptr,
+	   nullptr
    );
 
    // Attach our pixel shader.
@@ -982,6 +991,9 @@ void d3d11::DeviceResources::SetFrameTexture(const void * frame, bool rgb32, uns
    
    // Update the display texture
    m_d3dContext->CopyResource(m_textureDisplay.Get(), m_textureStaging.Get());
+
+   // Set size constant
+   m_constantBufferData.size = XMFLOAT4(width, height, 1.0f / width, 1.0f / height);
 }
 
 void d3d11::DeviceResources::UpdateBitmap(Microsoft::WRL::ComPtr<ID2D1Bitmap1>& bitmap, const void * frame, bool rgb32, unsigned width, unsigned height, unsigned pitch, float alpha, bool has_alpha)

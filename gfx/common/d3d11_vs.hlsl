@@ -2,6 +2,8 @@
 cbuffer DisplayMatrixConstantBuffer : register(b0)
 {
    matrix display;
+   float4 size;
+   float4 params;
 };
 
 // Per-pixel color data passed through the pixel shader.

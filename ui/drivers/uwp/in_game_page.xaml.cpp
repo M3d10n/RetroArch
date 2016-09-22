@@ -33,8 +33,10 @@ void RetroArch_Win10::in_game_page::OnNavigatedFrom(Windows::UI::Xaml::Navigatio
 
    if (Windows::Foundation::Metadata::ApiInformation::IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
    {
-      Windows::UI::ViewManagement::ApplicationView::GetForCurrentView()->ExitFullScreenMode();
-      Windows::UI::ViewManagement::StatusBar::GetForCurrentView()->ShowAsync();
+	   using namespace Windows::UI::ViewManagement;
+      ApplicationView::GetForCurrentView()->ExitFullScreenMode();
+	  ApplicationView::GetForCurrentView()->SetDesiredBoundsMode(ApplicationViewBoundsMode::UseVisible);
+      StatusBar::GetForCurrentView()->ShowAsync();
    }
 
    if (RetroarchMain::Instance.get())
@@ -50,8 +52,10 @@ void RetroArch_Win10::in_game_page::OnNavigatedTo(Windows::UI::Xaml::Navigation:
 {   
    if (Windows::Foundation::Metadata::ApiInformation::IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
    {
-      Windows::UI::ViewManagement::ApplicationView::GetForCurrentView()->TryEnterFullScreenMode();
-      Windows::UI::ViewManagement::StatusBar::GetForCurrentView()->HideAsync();
+	  using namespace Windows::UI::ViewManagement;
+      ApplicationView::GetForCurrentView()->TryEnterFullScreenMode();	  
+	  ApplicationView::GetForCurrentView()->SetDesiredBoundsMode(ApplicationViewBoundsMode::UseCoreWindow);
+      StatusBar::GetForCurrentView()->HideAsync();
    }
 
    BackRequestedToken = Common::Dispatcher::Get()->BackRequested +=

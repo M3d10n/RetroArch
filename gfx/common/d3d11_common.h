@@ -67,7 +67,9 @@ namespace d3d11
    // Constant buffer used to send the display matrix to the vertex shader.
    struct DisplayMatrixConstantBuffer
    {
-      DirectX::XMFLOAT4X4 display;      
+      DirectX::XMFLOAT4X4 display;
+	  DirectX::XMFLOAT4 size;
+	  DirectX::XMFLOAT4 params;
    };
 
 
